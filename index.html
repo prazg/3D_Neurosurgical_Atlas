@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>3D Surgical Anatomy Atlas — Brain &amp; Spine</title>
+<meta name="description" content="Interactive 3D atlas of craniospinal anatomy and neuro-oncological pathology for neurosurgical teaching." />
+<style>
+  :root{
+    --bg:#0d1317; --panel:#151d22; --edge:rgba(255,255,255,.10);
+    --ink:#e9e4da; --muted:#9fb0b8; --faint:#6b7a82; --accent:#e8834a;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:64px 16px 56px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:14px 0 0;font-weight:600;letter-spacing:-.01em}
+  .lede{font-size:16px;line-height:1.6;color:var(--muted);margin:16px 0 0;max-width:58ch}
+  .cta{display:inline-block;margin:30px 0 0;background:var(--accent);color:#1a0f06;text-decoration:none;
+    font-weight:600;font-size:15px;padding:13px 26px;border-radius:9px}
+  .cta:hover{filter:brightness(1.07)}
+  .cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .note{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:12px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:40px}
+  .card{background:var(--panel);border:1px solid var(--edge);border-radius:11px;padding:15px 16px}
+  .card h2{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 9px;font-weight:500}
+  .card p{margin:0;font-size:13.5px;line-height:1.55;color:var(--muted)}
+  .warn{margin-top:36px;border-left:3px solid var(--accent);background:rgba(232,131,74,.07);
+    padding:14px 16px;border-radius:0 9px 9px 0}
+  .warn p{margin:0;font-size:13.5px;line-height:1.6;color:#cdd4d8}
+  footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--edge);
+    font-size:12.5px;line-height:1.65;color:var(--faint)}
+  footer a{color:var(--muted)}
+  @media (prefers-reduced-motion:no-preference){
+    .wrap{animation:in .4s ease-out both}
+    @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Neurosurgical teaching resource</p>
+    <h1>3D Surgical Anatomy Atlas<br/>Brain &amp; Spine</h1>
+    <p class="lede">An interactive 3D atlas of craniospinal anatomy and neuro-oncological pathology.
+      Structures are clickable and labelled with anatomy notes, operative approaches and pitfalls.</p>
+
+    <a class="cta" href="atlas.html">Open the atlas</a>
+    <p class="note">Loads ~9 MB · needs WebGL · best on desktop</p>
+
+    <div class="grid">
+      <div class="card"><h2>Anatomy</h2>
+        <p>Craniospinal specimen, 328-structure MRI brain, head &amp; neck CT with craniotomy footprints.</p></div>
+      <div class="card"><h2>Overlay</h2>
+        <p>Co-registered white-matter tracts, arterial territories, HCP-MMP parcellation and cytoarchitecture.</p></div>
+      <div class="card"><h2>Pathology</h2>
+        <p>Glioma by location and by WHO 2021 molecular class, vestibular schwannoma, spinal metastasis.</p></div>
+    </div>
+
+    <div class="warn">
+      <p><strong>Educational use only.</strong> A teaching aid built from open, de-identified datasets.
+      Not a medical device, not patient-specific, and not for diagnosis, operative planning or navigation.
+      Craniotomy footprints and entry points are schematic approximations.</p>
+    </div>
+
+    <footer>
+      Built from open anatomical and imaging collections — BodyParts3D, the SPL atlases, HCPex, JHU, the
+      Jülich atlas, and TCIA cohorts — each under its own licence. Full attribution is in the atlas's
+      <em>Credits &amp; licence</em> panel and in
+      <a href="https://github.com/prazg/3D_Neurosurgical_Atlas">the repository</a>.
+    </footer>
+  </main>
+</body>
+</html>
