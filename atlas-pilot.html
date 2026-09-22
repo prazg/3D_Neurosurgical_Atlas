@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Surgical Anatomy Atlas — Pilot</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" integrity="sha384-fljlqkjWlmSFjkESkQvm77heIZpoWmXEOzlCA7kOpGUH+95Zk0yGfQieWM2q136E" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+  :root{--bg:#0d1317;--panel:#151d22;--panel-2:#1b262c;--edge:rgba(255,255,255,.07);--edge-2:rgba(255,255,255,.12);
+    --ink:#e9e4da;--muted:#8a97a0;--faint:#5c6a72;--accent:#e8834a;--cool:#5fb0ad;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;--sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;-webkit-tap-highlight-color:transparent}
+  canvas{display:block;touch-action:none}
+  .topbar{position:fixed;top:0;left:0;right:0;height:52px;z-index:20;display:flex;align-items:center;gap:14px;padding:0 16px;
+    background:linear-gradient(180deg,rgba(13,19,23,.92),rgba(13,19,23,0));pointer-events:none}
+  .brand{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .brand b{color:var(--ink);font-weight:600}
+  .badge{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+    border:1px solid var(--accent);border-radius:3px;padding:2px 6px;opacity:.85}
+  .rail{position:fixed;top:52px;bottom:0;left:0;width:264px;z-index:15;background:rgba(21,29,34,.82);backdrop-filter:blur(10px);
+    border-right:1px solid var(--edge);padding:16px 14px;overflow-y:auto;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  .rail h2{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+    margin:0 0 10px;font-weight:500;display:flex;justify-content:space-between}
+  .layer{display:flex;align-items:center;gap:10px;padding:8px;border-radius:7px;cursor:pointer;user-select:none}
+  .layer:hover{background:var(--panel-2)}
+  .layer .sw{width:12px;height:12px;border-radius:3px;flex:0 0 auto;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+  .layer .nm{flex:1;font-size:13.5px}.layer .ct{font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .layer.off{opacity:.4}.layer.off .nm{text-decoration:line-through}
+  .rail hr{border:0;border-top:1px solid var(--edge);margin:16px 2px}
+  .slist{display:flex;flex-direction:column;gap:1px}
+  .srow,.spec{font-size:13px;padding:7px 8px;border-radius:6px;cursor:pointer;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .srow:hover,.spec:hover{background:var(--panel-2);color:var(--ink)}
+  .srow.active{background:rgba(232,131,74,.14);color:var(--ink)}
+  .spec{border:1px solid transparent}
+  .spec.active{background:rgba(95,176,173,.14);color:var(--ink);border-color:rgba(95,176,173,.3)}
+  .srow .dot{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+  .readout{position:fixed;z-index:16;top:66px;right:16px;width:300px;background:rgba(21,29,34,.9);backdrop-filter:blur(10px);
+    border:1px solid var(--edge-2);border-radius:12px;padding:16px 16px 15px;transform:translateY(8px);opacity:0;pointer-events:none;transition:.22s;max-height:calc(100vh - 84px);overflow-y:auto}
+  .readout .ref{font-size:11.5px;color:#9fb0b8;font-style:italic}
+  .readout.show{transform:none;opacity:1;pointer-events:auto}
+  .readout .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--muted)}
+  .readout .eyebrow .sw{width:9px;height:9px;border-radius:2px}
+  .readout .name{font-size:19px;font-weight:600;margin:9px 0 12px;line-height:1.15}
+  .readout .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:12px}
+  .readout .txt{font-size:13px;line-height:1.5;color:#cdd4d8;margin-top:4px}
+  .readout .surg{border-left:2px solid var(--accent);padding-left:10px;margin-top:4px}
+  #pinsvg{position:fixed;inset:0;z-index:12;pointer-events:none}
+  .pin{position:fixed;z-index:13;pointer-events:none;transform:translate(-50%,-50%);font-family:var(--mono);font-size:11px;white-space:nowrap;
+    background:rgba(13,19,23,.85);border:1px solid var(--accent);color:var(--ink);padding:3px 8px;border-radius:4px;opacity:0;transition:opacity .2s}
+  .pin.show{opacity:1}
+  .dock{position:fixed;z-index:16;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    justify-content:center;background:rgba(21,29,34,.9);backdrop-filter:blur(10px);border:1px solid var(--edge-2);border-radius:12px;padding:9px 12px;max-width:calc(100vw - 24px)}
+  .grp{display:flex;align-items:center;gap:6px}
+  .grp .cap{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  button.tool,.filebtn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;background:var(--panel-2);color:var(--ink);
+    border:1px solid var(--edge);padding:6px 10px;border-radius:7px;cursor:pointer;display:inline-block}
+  button.tool:hover,.filebtn:hover{border-color:var(--edge-2)}
+  button.tool.on{background:var(--accent);color:#1a0f06;border-color:var(--accent)}
+  button.tool.axis.on{background:var(--cool);color:#06201f;border-color:var(--cool)}
+  .filebtn{background:transparent;border-color:var(--accent);color:var(--accent)}
+  input[type=file]{display:none}
+  input[type=range]{-webkit-appearance:none;height:4px;border-radius:3px;background:var(--panel-2);outline:none;width:92px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--cool);cursor:pointer;border:2px solid var(--bg)}
+  input[type=range]:disabled{opacity:.35}
+  .vline{width:1px;height:22px;background:var(--edge)}
+  button.tool:focus-visible,.layer:focus-visible,input:focus-visible,.filebtn:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+  .railtoggle{display:none;pointer-events:auto}
+  @media (max-width:820px){
+    .rail{transform:translateX(-100%);width:min(280px,84vw);box-shadow:0 0 40px rgba(0,0,0,.5)}
+    .rail.open{transform:none}.railtoggle{display:inline-flex}
+    .readout{top:auto;bottom:84px;left:12px;right:12px;width:auto}
+    #pinsvg,.pin{display:none}.brand .sub{display:none}}
+  .hint{position:fixed;left:50%;top:60px;transform:translateX(-50%);z-index:14;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.08em;color:var(--faint);pointer-events:none;transition:opacity .5s;text-align:center}
+  .toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:30;background:rgba(21,29,34,.96);border:1px solid var(--edge-2);
+    border-radius:10px;padding:14px 18px;font-size:13px;max-width:80vw;opacity:0;pointer-events:none;transition:.25s}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <button class="tool railtoggle" id="railBtn" style="pointer-events:auto">≡ Menu</button>
+    <div class="brand"><b>Surgical Atlas</b> <span class="sub">· brain &amp; spine · pilot</span></div>
+    <span class="badge" id="srcBadge">loading…</span>
+  </div>
+  <aside class="rail" id="rail">
+    <h2 id="specHdr"><span>Specimens</span></h2>
+    <div class="slist" id="specimens"></div>
+    <hr id="specHr"/>
+    <h2><span>Systems</span></h2>
+    <div id="layers"></div>
+    <hr/>
+    <h2><span>Structures</span><span class="ct" id="scount"></span></h2>
+    <div class="slist" id="slist"></div>
+  </aside>
+  <div class="readout" id="readout">
+    <div class="eyebrow"><span class="sw" id="ro-sw"></span><span id="ro-sys"></span></div>
+    <div class="name" id="ro-name"></div>
+    <div class="lbl">Anatomy</div><div class="txt" id="ro-teach"></div>
+    <div class="lbl">Surgical relevance</div><div class="txt surg" id="ro-surg"></div>
+    <div class="lbl" id="ro-reflbl" style="display:none">Further reading</div><div class="txt ref" id="ro-ref" style="display:none"></div>
+  </div>
+  <svg id="pinsvg"><line id="pinline" stroke="#e8834a" stroke-width="1" stroke-dasharray="3 3"/><circle id="pindot" r="3" fill="#e8834a"/></svg>
+  <div class="pin" id="pin"></div>
+  <div class="hint" id="hint">drag to orbit · scroll to zoom · click a structure</div>
+  <div class="toast" id="toast"></div>
+<noscript><div style="padding:24px;font-family:system-ui;color:#e9e4da">This atlas needs JavaScript and WebGL to display 3D anatomy.</div></noscript>
+  <button class="tool" id="creditsBtn" style="position:fixed;right:16px;bottom:16px;z-index:18">Credits &amp; licence</button>
+  <div id="credits" style="display:none;position:fixed;inset:0;z-index:40;background:rgba(8,12,15,.82);backdrop-filter:blur(4px);padding:24px;overflow-y:auto">
+    <div style="max-width:720px;margin:40px auto;background:var(--panel);border:1px solid var(--edge-2);border-radius:14px;padding:22px 24px">
+      <h3 style="margin:0 0 6px;font-size:17px">Credits &amp; licence</h3>
+      <p style="font-size:13px;line-height:1.55;color:#cdd4d8" id="disclaimerText"><b>Educational use only.</b> This atlas is a teaching aid built from open anatomical datasets. It is not a medical device, not patient-specific, and must not be used for diagnosis, operative planning or navigation. Entry points and approach annotations are schematic and approximate.</p>
+      <div id="creditList" style="font-size:12.5px;line-height:1.6;color:#9fb0b8"></div>
+      <button class="tool" id="creditsClose" style="margin-top:14px">Close</button>
+    </div>
+  </div>
+  <div class="dock">
+    <div class="grp"><label class="filebtn" tabindex="0">+ .glb<input type="file" id="fileIn" accept=".glb,.gltf"/></label></div>
+    <div class="vline"></div>
+    <div class="grp"><button class="tool" id="isoBtn">Isolate</button><button class="tool" id="resetBtn">Reset</button></div>
+    <div class="vline"></div>
+    <div class="grp"><span class="cap">Others</span><input type="range" id="opacity" min="15" max="100" value="100" aria-label="Opacity of unselected"/></div>
+    <div class="vline"></div>
+    <div class="grp"><span class="cap">Light</span><input type="range" id="exposure" min="30" max="180" value="85" aria-label="Brightness"/></div>
+    <div class="vline"></div>
+    <div class="grp"><span class="cap">Section</span>
+      <button class="tool axis" id="axS" data-axis="s">Sag</button>
+      <button class="tool axis" id="axC" data-axis="c">Cor</button>
+      <button class="tool axis" id="axA" data-axis="a">Ax</button>
+      <input type="range" id="clip" min="0" max="100" value="50" disabled aria-label="Cross-section position"/></div>
+  </div>
+<script>
+/* ============================================================
+   SURGICAL ANATOMY ATLAS — PILOT (three r128)
+   Models are embedded below (EMBEDDED_MODELS), synced from the
+   Google Drive folder "Surgical-Atlas-Models". They auto-load
+   on startup — no manual picking. "+ .glb" adds an ad-hoc one.
+   To refresh: drop a .glb in the Drive folder, update its
+   manifest.json, and ask Claude to re-sync (re-embeds here).
+   ============================================================ */
+const EMBEDDED_MODELS = [{label:"Sample (stylised)",b64:"Z2xURgIAAADwQwAA9BQAAEpTT057InNjZW5lIjowLCJzY2VuZXMiOlt7Im5vZGVzIjpbMF19XSwiYXNzZXQiOnsidmVyc2lvbiI6IjIuMCIsImdlbmVyYXRvciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9taWtlZGgvdHJpbWVzaCJ9LCJhY2Nlc3NvcnMiOlt7ImNvbXBvbmVudFR5cGUiOjUxMjUsInR5cGUiOiJTQ0FMQVIiLCJidWZmZXJWaWV3IjowLCJjb3VudCI6MjQwLCJtYXgiOls0MV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MSwiY291bnQiOjQyLCJtYXgiOlsxLjc1LDMuNzUsMi4wXSwibWluIjpbLTEuNzUsMC45NDk5OTk5ODgwNzkwNzEsLTEuODk5OTk5OTc2MTU4MTQyXX0seyJjb21wb25lbnRUeXBlIjo1MTI2LCJ0eXBlIjoiVkVDMyIsImJ5dGVPZmZzZXQiOjAsImJ1ZmZlclZpZXciOjIsImNvdW50Ijo0MiwibWF4IjpbMS4wLDEuNzMwMDAwMDE5MDczNDg2MywtMC4yMDAwMDAwMDI5ODAyMzIyNF0sIm1pbiI6Wy0xLjAsMC4zNzAwMDAwMDQ3NjgzNzE2LC0xLjc5OTk5OTk1MjMxNjI4NDJdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjUsInR5cGUiOiJTQ0FMQVIiLCJidWZmZXJWaWV3IjozLCJjb3VudCI6MTY4LCJtYXgiOlsyOV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6NCwiY291bnQiOjMwLCJtYXgiOlswLjM0MDAwMDAwMzU3NjI3ODcsMS40ODE0NzU0NzI0NTAyNTYzLDAuNjk5OTk5OTg4MDc5MDcxXSwibWluIjpbLTAuMzQwMDAwMDAzNTc2Mjc4NywwLjgxODUyNDUzOTQ3MDY3MjYsLTEuMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNSwidHlwZSI6IlNDQUxBUiIsImJ1ZmZlclZpZXciOjUsImNvdW50IjoxNDQsIm1heCI6WzI1XSwibWluIjpbMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3Ijo2LCJjb3VudCI6MjYsIm1heCI6WzAuMTcwMDAwMDAxNzg4MTM5MzQsLTEuMTc5OTk5OTQ3NTQ3OTEyNiwxLjY0OTk5OTk3NjE1ODE0Ml0sIm1pbiI6Wy0wLjE3MDAwMDAwMTc4ODEzOTM0LC0xLjUxOTk5OTk4MDkyNjUxMzcsLTEuOTUwMDAwMDQ3NjgzNzE1OF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3Ijo3LCJjb3VudCI6MzAsIm1heCI6WzAuNDE5OTk5OTg2ODg2OTc4MTUsMC4zMTAwMDAwMDIzODQxODU4LDAuODI5NDY5NzQwMzkwNzc3Nl0sIm1pbiI6Wy0wLjQxOTk5OTk4Njg4Njk3ODE1LC0wLjEwOTk5OTk5OTQwMzk1MzU1LDAuMDEwNTMwMjc3MTU1MzM5NzE4XX0seyJjb21wb25lbnRUeXBlIjo1MTI1LCJ0eXBlIjoiU0NBTEFSIiwiYnVmZmVyVmlldyI6OCwiY291bnQiOjc2OCwibWF4IjpbMTI3XSwibWluIjpbMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3Ijo5LCJjb3VudCI6MTI4LCJtYXgiOlswLjQ0OTk5OTk4ODA3OTA3MTA0LDAuNTUwMDAwMDExOTIwOTI5LC0wLjAwOTk5OTk5OTc3NjQ4MjU4Ml0sIm1pbiI6Wy0wLjQ0OTk5OTk4ODA3OTA3MTA0LC0wLjM0OTk5OTk5NDAzOTUzNTUsLTAuMjMwMDAwMDA0MTcyMzI1MTNdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTAsImNvdW50IjozMCwibWF4IjpbMC40MTk5OTk5ODY4ODY5NzgxNSwtMC41NDAwMDAwMjE0NTc2NzIxLDAuODI5NDY5NzQwMzkwNzc3Nl0sIm1pbiI6Wy0wLjQxOTk5OTk4Njg4Njk3ODE1LC0wLjk1OTk5OTk3ODU0MjMyNzksMC4wMTA1MzAyNzcxNTUzMzk3MThdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTEsImNvdW50IjoxMjgsIm1heCI6WzAuNDQ5OTk5OTg4MDc5MDcxMDQsLTAuMzAwMDAwMDExOTIwOTI4OTYsLTAuMDA5OTk5OTk5Nzc2NDgyNTgyXSwibWluIjpbLTAuNDQ5OTk5OTg4MDc5MDcxMDQsLTEuMjAwMDAwMDQ3NjgzNzE1OCwtMC4yMzAwMDAwMDQxNzIzMjUxM119LHsiY29tcG9uZW50VHlwZSI6NTEyNSwidHlwZSI6IlNDQUxBUiIsImJ1ZmZlclZpZXciOjEyLCJjb3VudCI6MTIwLCJtYXgiOlsyMV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTMsImNvdW50IjoyMiwibWF4IjpbMC4xMTk5OTk5OTczMTc3OTA5OSwwLjA1NzA2MzM4OTU2OTUyMDk1LDIuMDQ5OTk5OTUyMzE2Mjg0XSwibWluIjpbMC4wLC0wLjA1NzA2MzM4OTU2OTUyMDk1LC0yLjM0OTk5OTkwNDYzMjU2ODRdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTQsImNvdW50Ijo0MiwibWF4IjpbMC41NTAwMDAwMTE5MjA5MjksMi43MjAwMDAwMjg2MTAyMjk1LDEuMjAwMDAwMDQ3NjgzNzE1OF0sIm1pbiI6Wy0wLjU1MDAwMDAxMTkyMDkyOSwyLjA3OTk5OTkyMzcwNjA1NDcsLTAuODk5OTk5OTc2MTU4MTQyMV19XSwibWVzaGVzIjpbeyJuYW1lIjoiQ2VyZWJydW0iLCJleHRyYXMiOnsic2hhcGUiOiJzcGhlcmUiLCJyYWRpdXMiOjEuMH0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjF9LCJpbmRpY2VzIjowLCJtb2RlIjo0fV19LHsibmFtZSI6IkNlcmViZWxsdW0iLCJleHRyYXMiOnsic2hhcGUiOiJzcGhlcmUiLCJyYWRpdXMiOjEuMH0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjJ9LCJpbmRpY2VzIjowLCJtb2RlIjo0fV19LHsibmFtZSI6IkJyYWluc3RlbSIsImV4dHJhcyI6eyJzaGFwZSI6ImN5bGluZGVyIiwiaGVpZ2h0IjoxLjcsInJhZGl1cyI6MC4zNCwicHJvY2Vzc2VkIjp0cnVlfSwicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6NH0sImluZGljZXMiOjMsIm1vZGUiOjR9XX0seyJuYW1lIjoiU3BpbmFsIGNvcmQiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6My42LCJyYWRpdXMiOjAuMTcsInByb2Nlc3NlZCI6dHJ1ZX0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjZ9LCJpbmRpY2VzIjo1LCJtb2RlIjo0fV19LHsibmFtZSI6IkJvZHkgb2YgdmVydGVicmEgQzMiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6MC40MiwicmFkaXVzIjowLjQyLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjo3fSwiaW5kaWNlcyI6MywibW9kZSI6NH1dfSx7Im5hbWUiOiJWZXJ0ZWJyYWwgYXJjaCBDMyIsImV4dHJhcyI6eyJzaGFwZSI6InRvcnVzIiwibWFqb3JfcmFkaXVzIjowLjM0LCJtaW5vcl9yYWRpdXMiOjAuMTEsInByb2Nlc3NlZCI6dHJ1ZX0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjl9LCJpbmRpY2VzIjo4LCJtb2RlIjo0fV19LHsibmFtZSI6IkJvZHkgb2YgdmVydGVicmEgQzQiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6MC40MiwicmFkaXVzIjowLjQyLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjoxMH0sImluZGljZXMiOjMsIm1vZGUiOjR9XX0seyJuYW1lIjoiVmVydGVicmFsIGFyY2ggQzQiLCJleHRyYXMiOnsic2hhcGUiOiJ0b3J1cyIsIm1ham9yX3JhZGl1cyI6MC4zNCwibWlub3JfcmFkaXVzIjowLjExLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjoxMX0sImluZGljZXMiOjgsIm1vZGUiOjR9XX0seyJuYW1lIjoiQmFzaWxhciBhcnRlcnkiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6NC40LCJyYWRpdXMiOjAuMDYsInByb2Nlc3NlZCI6dHJ1ZX0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjEzfSwiaW5kaWNlcyI6MTIsIm1vZGUiOjR9XX0seyJuYW1lIjoiTGF0ZXJhbCB2ZW50cmljbGUiLCJleHRyYXMiOnsic2hhcGUiOiJzcGhlcmUiLCJyYWRpdXMiOjEuMH0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjE0fSwiaW5kaWNlcyI6MCwibW9kZSI6NH1dfV0sIm5vZGVzIjpbeyJuYW1lIjoid29ybGQiLCJjaGlsZHJlbiI6WzEsMiwzLDQsNSw2LDcsOCw5LDEwXX0seyJuYW1lIjoiQ2VyZWJydW0iLCJtZXNoIjowfSx7Im5hbWUiOiJDZXJlYmVsbHVtIiwibWVzaCI6MX0seyJuYW1lIjoiQnJhaW5zdGVtIiwibWVzaCI6Mn0seyJuYW1lIjoiU3BpbmFsIGNvcmQiLCJtZXNoIjozfSx7Im5hbWUiOiJCb2R5IG9mIHZlcnRlYnJhIEMzIiwibWVzaCI6NH0seyJuYW1lIjoiVmVydGVicmFsIGFyY2ggQzMiLCJtZXNoIjo1fSx7Im5hbWUiOiJCb2R5IG9mIHZlcnRlYnJhIEM0IiwibWVzaCI6Nn0seyJuYW1lIjoiVmVydGVicmFsIGFyY2ggQzQiLCJtZXNoIjo3fSx7Im5hbWUiOiJCYXNpbGFyIGFydGVyeSIsIm1lc2giOjh9LHsibmFtZSI6IkxhdGVyYWwgdmVudHJpY2xlIiwibWVzaCI6OX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMjAwMH1dLCJidWZmZXJWaWV3cyI6W3siYnVmZmVyIjowLCJieXRlT2Zmc2V0IjowLCJieXRlTGVuZ3RoIjo5NjB9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo5NjAsImJ5dGVMZW5ndGgiOjUwNH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjE0NjQsImJ5dGVMZW5ndGgiOjUwNH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjE5NjgsImJ5dGVMZW5ndGgiOjY3Mn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjI2NDAsImJ5dGVMZW5ndGgiOjM2MH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjMwMDAsImJ5dGVMZW5ndGgiOjU3Nn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjM1NzYsImJ5dGVMZW5ndGgiOjMxMn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjM4ODgsImJ5dGVMZW5ndGgiOjM2MH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjQyNDgsImJ5dGVMZW5ndGgiOjMwNzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MzIwLCJieXRlTGVuZ3RoIjoxNTM2fSx7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6ODg1NiwiYnl0ZUxlbmd0aCI6MzYwfSx7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6OTIxNiwiYnl0ZUxlbmd0aCI6MTUzNn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjEwNzUyLCJieXRlTGVuZ3RoIjo0ODB9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMTIzMiwiYnl0ZUxlbmd0aCI6MjY0fSx7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MTE0OTYsImJ5dGVMZW5ndGgiOjUwNH1dfSAgICDgLgAAQklOAAAAAAAlAAAA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MQAAADEAAAA4AAAAOQAAADEAAAA5AAAAMgAAADIAAAA5AAAAOgAAADIAAAA6AAAAMwAAADMAAAA6AAAAOwAAADMAAAA7AAAANAAAADQAAAA7AAAAPAAAADQAAAA8AAAANQAAADUAAAA8AAAAPQAAADUAAAA9AAAANgAAADYAAAA9AAAAPgAAADYAAAA+AAAANwAAADcAAAA+AAAAPwAAADcAAAA/AAAAMAAAADAAAAA/AAAAOAAAADgAAABAAAAAOQAAADkAAABAAAAAQQAAADkAAABBAAAAOgAAADoAAABBAAAAQgAAADoAAABCAAAAOwAAADsAAABCAAAAQwAAADsAAABDAAAAPAAAADwAAABDAAAARAAAADwAAABEAAAAPQAAAD0AAABEAAAARQAAAD0AAABFAAAAPgAAAD4AAABFAAAARgAAAD4AAABGAAAAPwAAAD8AAABGAAAARwAAAD8AAABHAAAAOAAAADgAAABHAAAAQAAAAEAAAABIAAAAQQAAAEEAAABIAAAASQAAAEEAAABJAAAAQgAAAEIAAABJAAAASgAAAEIAAABKAAAAQwAAAEMAAABKAAAASwAAAEMAAABLAAAARAAAAEQAAABLAAAATAAAAEQAAABMAAAARQAAAEUAAABMAAAATQAAAEUAAABNAAAARgAAAEYAAABNAAAATgAAAEYAAABOAAAARwAAAEcAAABOAAAATwAAAEcAAABPAAAAQAAAAEAAAABPAAAASAAAAEgAAABQAAAASQAAAEkAAABQAAAAUQAAAEkAAABRAAAASgAAAEoAAABRAAAAUgAAAEoAAABSAAAASwAAAEsAAABSAAAAUwAAAEsAAABTAAAATAAAAEwAAABTAAAAVAAAAEwAAABUAAAATQAAAE0AAABUAAAAVQAAAE0AAABVAAAATgAAAE4AAABVAAAAVgAAAE4AAABWAAAATwAAAE8AAABWAAAAVwAAAE8AAABXAAAASAAAAEgAAABXAAAAUAAAAFAAAABYAAAAUQAAAFEAAABYAAAAWQAAAFEAAABZAAAAUgAAAFIAAABZAAAAWgAAAFIAAABaAAAAUwAAAFMAAABaAAAAWwAAAFMAAABbAAAAVAAAAFQAAABbAAAAXAAAAFQAAABcAAAAVQAAAFUAAABcAAAAXQAAAFUAAABdAAAAVgAAAFYAAABdAAAAXgAAAFYAAABeAAAAVwAAAFcAAABeAAAAXwAAAFcAAABfAAAAUAAAAFAAAABfAAAAWAAAAFgAAABgAAAAWQAAAFkAAABgAAAAYQAAAFkAAABhAAAAWgAAAFoAAABhAAAAYgAAAFoAAABiAAAAWwAAAFsAAABiAAAAYwAAAFsAAABjAAAAXAAAAFwAAABjAAAAZAAAAFwAAABkAAAAXQAAAF0AAABkAAAAZQAAAF0AAABlAAAAXgAAAF4AAABlAAAAZgAAAF4AAABmAAAAXwAAAF8AAABmAAAAZwAAAF8AAABnAAAAWAAAAFgAAABnAAAAYAAAAGAAAABoAAAAYQAAAGEAAABoAAAAaQAAAGEAAABpAAAAYgAAAGIAAABpAAAAagAAAGIAAABqAAAAYwAAAGMAAABqAAAAawAAAGMAAABrAAAAZAAAAGQAAABrAAAAbAAAAGQAAABsAAAAZQAAAGUAAABsAAAAbQAAAGUAAABtAAAAZgAAAGYAAABtAAAAbgAAAGYAAABuAAAAZwAAAGcAAABuAAAAbwAAAGcAAABvAAAAYAAAAGAAAABvAAAAaAAAAGgAAABwAAAAaQAAAGkAAABwAAAAcQAAAGkAAABxAAAAagAAAGoAAABxAAAAcgAAAGoAAAByAAAAawAAAGsAAAByAAAAcwAAAGsAAABzAAAAbAAAAGwAAABzAAAAdAAAAGwAAAB0AAAAbQAAAG0AAAB0AAAAdQAAAG0AAAB1AAAAbgAAAG4AAAB1AAAAdgAAAG4AAAB2AAAAbwAAAG8AAAB2AAAAdwAAAG8AAAB3AAAAaAAAAGgAAAB3AAAAcAAAAHAAAAB4AAAAcQAAAHEAAAB4AAAAeQAAAHEAAAB5AAAAcgAAAHIAAAB5AAAAegAAAHIAAAB6AAAAcwAAAHMAAAB6AAAAewAAAHMAAAB7AAAAdAAAAHQAAAB7AAAAfAAAAHQAAAB8AAAAdQAAAHUAAAB8AAAAfQAAAHUAAAB9AAAAdgAAAHYAAAB9AAAAfgAAAHYAAAB+AAAAdwAAAHcAAAB+AAAAfwAAAHcAAAB/AAAAcAAAAHAAAAB/AAAAeAAAAHgAAAAAAAAAeQAAAHkAAAAAAAAAAQAAAHkAAAABAAAAegAAAHoAAAABAAAAAgAAAHoAAAACAAAAewAAAHsAAAACAAAAAwAAAHsAAAADAAAA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"}];   // [{label, b64}]
+
+(function(){var ok=(typeof THREE!=='undefined');
+  if(ok){try{var c=document.createElement('canvas');ok=!!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){ok=false;}}
+  if(!ok){document.body.innerHTML='<div style="font-family:system-ui;color:#e9e4da;padding:40px;max-width:640px;line-height:1.6">'+
+    '<h2 style="margin:0 0 8px">3D atlas cannot start</h2><p>The 3D library or WebGL is unavailable. Check that WebGL is enabled in your browser and that the three.js scripts are reachable, then reload.</p></div>';throw new Error('THREE/WebGL unavailable');}
+})();
+const SYSTEMS = {
+  neural:{name:'Neural tissue',color:0xc9ab9d}, skeletal:{name:'Bone',color:0xe6d9bd},
+  vascular:{name:'Vascular',color:0xb23a30}, csf:{name:'Ventricular / CSF',color:0x5a9a97},
+};
+function systemFor(name){const n=(name||'').toLowerCase();
+  if(/arter|\bven|venous|vein|jugular|sinus|basilar|carotid|subclavian|vascul|aorta|trunk/.test(n))return 'vascular';
+  if(/ventricle|cistern|\bcsf\b|ependym|choroid/.test(n))return 'csf';
+  if(/vertebra|arch|lamina|pedicle|process|\bbone|skull|mandible|rib|hyoid|clavicle|sternum|scapula|cartilage|crani|occipit|clivus|dens|odontoid|foramen|body of/.test(n))return 'skeletal';
+  return 'neural';}
+const LOOKUP={
+  'cerebrum':{teach:'Largest part of the brain — paired hemispheres, cortex folded into gyri and sulci.',surg:'Eloquent cortex (motor, sensory, language) must be identified and preserved; awake mapping guides resection.'},
+  'cerebellum':{teach:'Posterior-fossa structure coordinating movement, balance and motor learning.',surg:'Approaches risk vermis and deep nuclei; posterior-fossa surgery demands careful CSF/pressure control.'},
+  'brainstem':{teach:'Midbrain, pons and medulla — conduit for tracts and seat of cranial-nerve nuclei.',surg:'Extremely eloquent; defined safe-entry zones guide any intrinsic approach.'},
+  'spinal cord':{teach:'Continuation of the medulla carrying motor and sensory tracts.',surg:'Midline myelotomy and retraction threaten dorsal columns and corticospinal tracts; monitor.'},
+  'basilar artery':{teach:'Formed by the vertebral arteries; supplies brainstem and cerebellum (posterior circulation).',surg:'Injury is catastrophic; identify in far-lateral and transcondylar approaches.'},
+  'lateral ventricle':{teach:'CSF-filled cavity within each cerebral hemisphere.',surg:'Landmark for intraventricular approaches; frontal horn is a common entry point.'},
+  '_vertebra':{teach:'Vertebral element — body (anterior, weight-bearing) or arch (posterior, protects the canal).',surg:'Body: anterior approach & pedicle-screw trajectory. Arch: removed in laminectomy to decompress.'},
+};
+function metaFor(name){const key=(name||'').toLowerCase();
+  if(LOOKUP[key])return{name,system:systemFor(name),...LOOKUP[key]};
+  if(/spine metastasis case/.test(key))return{name,system:'skeletal',...LOOKUP['_spinemet']};
+  if(/^interval growth/.test(key))return{name,system:'vascular',...LOOKUP['vs_growth']};
+  if(/^cochlea/.test(key))return{name,system:'skeletal',...LOOKUP['vs_cochlea']};
+  if(/^vestibular schwannoma/.test(key))return{name,system:'vascular',...LOOKUP['vs_tumour']};
+  var _m=[['gbm idh-wt g4','mol_gbm idh-wt g4'],['astro idh-mut g4','mol_astro idh-mut g4'],['astro idh-mut g3','mol_astro idh-mut g3'],['astro idh-mut g2','mol_astro idh-mut g2'],['oligo 1p19q-codel g2','mol_oligo 1p19q-codel g2'],['astro idh-wt g3','mol_astro idh-wt g3']];
+  for(var _j=0;_j<_m.length;_j++){if(key.indexOf(_m[_j][0])===0&&LOOKUP[_m[_j][1]])return{name,system:'vascular',...LOOKUP[_m[_j][1]]};}
+  if(/^gbm /.test(key)){var _r=['posterior fossa / midline','deep / thalamic-basal ganglia','insular / peri-sylvian','fronto-temporal / peri-sylvian','occipito-temporal','occipital','parietal','temporal','frontal'];
+    for(var _i=0;_i<_r.length;_i++){if(key.indexOf(_r[_i])>=0&&LOOKUP['region_'+_r[_i]])return{name,system:'vascular',...LOOKUP['region_'+_r[_i]]};}}
+  if(/tumour|tumor|oedema|edema|necrotic|enhancing|lesion|cavity/.test(key))return{name,system:'vascular',...(LOOKUP[key]||{teach:'Lesion compartment.',surg:'See case notes.'})};
+  if(/craniotomy|flap|footprint/.test(key))return{name,system:'skeletal',...LOOKUP['_craniotomy']};
+  if(/vertebra|arch|body of/.test(key))return{name,system:systemFor(name),...LOOKUP['_vertebra']};
+  return{name:name||'Unnamed',system:systemFor(name),teach:'No teaching note yet.',surg:'Add "'+(name||'')+'" to LOOKUP to annotate this structure.'};}
+function b64ToBuf(b64){const bin=atob(b64),len=bin.length,a=new Uint8Array(len);for(let i=0;i<len;i++)a[i]=bin.charCodeAt(i);return a.buffer;}
+
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x0d1317);scene.fog=new THREE.Fog(0x0d1317,14,30);
+const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.1,120);const target=new THREE.Vector3(0,0.1,0);
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);renderer.localClippingEnabled=true;
+renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=0.85;
+document.body.appendChild(renderer.domElement);
+scene.add(new THREE.HemisphereLight(0xeaf1f5,0x20262b,0.55));
+const kl=new THREE.DirectionalLight(0xffffff,1.35);kl.position.set(4,7,6);scene.add(kl);
+const rl=new THREE.DirectionalLight(0xbcd4e6,0.45);rl.position.set(-5,2,-4);scene.add(rl);
+const fl=new THREE.DirectionalLight(0xffffff,0.35);fl.position.set(0,-4,-6);scene.add(fl);
+scene.add(new THREE.AmbientLight(0x4a555c,0.35));
+const clipPlane=new THREE.Plane(new THREE.Vector3(-1,0,0),2.4);let clipOn=false,curAxis='s';
+const AXES={s:{n:new THREE.Vector3(-1,0,0),ext:2.4},c:{n:new THREE.Vector3(0,0,-1),ext:2.4},a:{n:new THREE.Vector3(0,-1,0),ext:3.6}};
+const selectable=[];const bySystem={};let modelRoot=null,selected=null,isolate=false,othersOpacity=1;const layerState={};const EMI=new THREE.Color(0xe8834a);
+
+const MATPARAMS={neural:{r:0.72,m:0.0},skeletal:{r:0.96,m:0.0},vascular:{r:0.42,m:0.03},csf:{r:0.30,m:0.0}};
+function makeMat(sys,vcol){var p=MATPARAMS[sys]||{r:0.8,m:0.0};return new THREE.MeshStandardMaterial({color:vcol?0xffffff:SYSTEMS[sys].color,vertexColors:!!vcol,roughness:p.r,metalness:p.m,
+  transparent:true,opacity:1,side:THREE.DoubleSide,clippingPlanes:clipOn?[clipPlane]:null,clipShadows:true});}
+function registerMesh(mesh,info){mesh.userData=info;var vcol=!!(mesh.geometry&&mesh.geometry.attributes&&mesh.geometry.attributes.color);if(mesh.material&&mesh.material.dispose)mesh.material.dispose();
+  mesh.material=makeMat(info.system,vcol);selectable.push(mesh);(bySystem[info.system]=bySystem[info.system]||[]).push(mesh);}
+function hex(c){return '#'+c.toString(16).padStart(6,'0');}
+function wobble(geo,amt){const p=geo.attributes.position,v=new THREE.Vector3();for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);
+  v.multiplyScalar(1+amt*Math.sin(5.5*v.x)*Math.sin(5.5*v.y)*Math.sin(5.5*v.z));p.setXYZ(i,v.x,v.y,v.z);}geo.computeVertexNormals();}
+
+function buildPlaceholders(){clearScene();modelRoot=new THREE.Group();scene.add(modelRoot);
+  const add=(g,info,pos,scl,rx)=>{const m=new THREE.Mesh(g);m.position.set(...pos);if(scl)m.scale.set(...scl);if(rx)m.rotation.x=rx;modelRoot.add(m);registerMesh(m,info);};
+  const cg=new THREE.SphereGeometry(1,64,40);wobble(cg,0.07);add(cg,metaFor('Cerebrum'),[0,2.35,0.05],[1.75,1.4,1.95]);
+  add(new THREE.SphereGeometry(1,40,28),metaFor('Lateral ventricle'),[0,2.4,0.15],[0.55,0.32,1.05]);
+  const cb=new THREE.SphereGeometry(1,48,32);wobble(cb,0.09);add(cb,metaFor('Cerebellum'),[0,1.05,-1.0],[1.0,0.68,0.8]);
+  add(new THREE.CylinderGeometry(0.28,0.4,1.7,28),metaFor('Brainstem'),[0,1.15,-0.15],null,0.18);
+  add(new THREE.CylinderGeometry(0.17,0.17,3.6,24),metaFor('Spinal cord'),[0,-1.35,-0.15]);
+  [0.1,-0.75,-1.6,-2.45].forEach((y,i)=>{add(new THREE.CylinderGeometry(0.42,0.42,0.42,28),metaFor('Body of vertebra '+(i+1)),[0,y,0.42],null,Math.PI/2);
+    add(new THREE.TorusGeometry(0.34,0.11,16,32),metaFor('Vertebral arch '+(i+1)),[0,y,-0.12]);});
+  const cv=new THREE.CatmullRomCurve3([new THREE.Vector3(0.18,-2.6,0),new THREE.Vector3(0.12,-1.4,-0.05),new THREE.Vector3(0.06,-0.2,-0.12),
+    new THREE.Vector3(0.02,0.9,-0.2),new THREE.Vector3(0,1.9,-0.28),new THREE.Vector3(-0.02,2.4,-0.3)]);
+  add(new THREE.TubeGeometry(cv,80,0.06,14,false),metaFor('Basilar artery'),[0,0,0]);
+  srcBadge.textContent='placeholder';finishBuild();}
+
+function loadGLBBuffer(buf,label){overlayMode=false;
+  if(!THREE.GLTFLoader){toast('GLTFLoader is blocked in this preview. Open the file in a normal browser and models load fine.');buildPlaceholders();return;}
+  new THREE.GLTFLoader().parse(buf,'',(gltf)=>{clearScene();modelRoot=gltf.scene;scene.add(modelRoot);modelRoot.updateMatrixWorld(true);
+    modelRoot.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();const nm=o.name||(o.parent&&o.parent.name)||'mesh';registerMesh(o,metaFor(nm));}});
+    const box=new THREE.Box3().setFromObject(modelRoot),size=box.getSize(new THREE.Vector3()),ctr=box.getCenter(new THREE.Vector3());
+    const s=6/Math.max(size.x,size.y,size.z,0.001);modelRoot.scale.setScalar(s);modelRoot.position.copy(ctr.multiplyScalar(-s));
+    srcBadge.textContent=label||'loaded';finishBuild();},
+    (err)=>{console.error(err);toast('Could not parse that model — valid .glb / .gltf?');});}
+
+function clearScene(){if(modelRoot){scene.remove(modelRoot);
+    modelRoot.traverse(o=>{if(o.isMesh){o.geometry&&o.geometry.dispose&&o.geometry.dispose();o.material&&o.material.dispose&&o.material.dispose();}});}
+  modelRoot=null;selectable.length=0;Object.keys(bySystem).forEach(k=>delete bySystem[k]);selected=null;}
+function finishBuild(){buildUI();syncClip();select(null);}
+
+function layerHidden(m){return !!layerState[m.userData.system];}
+function mkRow(swClass,color,label,count){var d=document.createDocumentFragment();
+  var s=document.createElement('span');s.className=swClass;s.style.background=color;d.appendChild(s);
+  var n=document.createElement('span');n.className='nm';n.textContent=label;d.appendChild(n);
+  if(count!=null){var c=document.createElement('span');c.className='ct';c.textContent=count;d.appendChild(c);}
+  return d;}
+function buildUI(){const layersEl=document.getElementById('layers');layersEl.innerHTML='';
+  Object.keys(SYSTEMS).forEach(k=>{const list=bySystem[k]||[];if(!list.length)return;if(!(k in layerState))layerState[k]=false;
+    const row=document.createElement('div');row.className='layer'+(layerState[k]?' off':'');row.tabIndex=0;
+    row.appendChild(mkRow('sw',hex(SYSTEMS[k].color),SYSTEMS[k].name,list.length));
+    const t=()=>{layerState[k]=!layerState[k];row.classList.toggle('off',layerState[k]);applyOpacity();};
+    row.onclick=t;row.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}};layersEl.appendChild(row);});
+  const sl=document.getElementById('slist');sl.innerHTML='';
+  selectable.forEach((m,i)=>{const r=document.createElement('div');r.className='srow';r.dataset.i=i;
+    r.appendChild(mkRow('dot',hex(SYSTEMS[m.userData.system].color),m.userData.name,null));
+    r.onclick=()=>{select(m);if(innerWidth<=820)rail.classList.remove('open');};sl.appendChild(r);});
+  document.getElementById('scount').textContent=selectable.length;}
+
+var overlayMode=false, overlayVis={};
+function applyOpacity(){selectable.forEach(m=>{const sel=m===selected;var vis;
+  if(overlayMode){vis=(overlayVis[m.userData.layer]!==false);if(isolate&&selected)vis=vis&&sel;}
+  else{vis=(isolate&&selected)?(sel&&!layerHidden(m)):!layerHidden(m);}
+  m.visible=vis;var base=(m.userData.baseOpacity!=null?m.userData.baseOpacity:1);
+  m.material.opacity=sel?1:Math.min(base,othersOpacity);m.material.emissive.copy(sel?EMI:new THREE.Color(0));m.material.emissiveIntensity=sel?0.55:0;});}
+function select(mesh){selected=mesh;
+  if(mesh){const s=SYSTEMS[mesh.userData.system];readout.classList.add('show');roName.textContent=mesh.userData.name;roSys.textContent=s.name;
+    roSw.style.background=hex(s.color);roTeach.textContent=mesh.userData.teach;roSurg.textContent=mesh.userData.surg;
+    var _rf=mesh.userData.ref;roRef.textContent=_rf||'';roRef.style.display=_rf?'':'none';roRefLbl.style.display=_rf?'':'none';
+    document.querySelectorAll('.srow').forEach(r=>r.classList.toggle('active',r.dataset.i==selectable.indexOf(mesh)));pin.textContent=mesh.userData.name.toLowerCase();
+  }else{readout.classList.remove('show');pin.classList.remove('show');document.querySelectorAll('.srow').forEach(r=>r.classList.remove('active'));}
+  applyOpacity();}
+
+/* specimens */
+let specimens=[],activeSpecimen=-1;
+function buildSpecimenList(){const el=document.getElementById('specimens');el.innerHTML='';
+  const on=specimens.length>0;document.getElementById('specHdr').style.display=on?'':'none';document.getElementById('specHr').style.display=on?'':'none';
+  specimens.forEach((sp,i)=>{const d=document.createElement('div');d.className='spec'+(i===activeSpecimen?' active':'');d.textContent=sp.label;
+    d.onclick=()=>{loadSpecimen(i);if(innerWidth<=820)rail.classList.remove('open');};el.appendChild(d);});}
+async function loadSpecimen(i){activeSpecimen=i;buildSpecimenList();const sp=specimens[i];
+  if(sp.overlay){loadOverlay(sp);return;}
+  if(sp.buf){loadGLBBuffer(sp.buf,sp.label);return;}
+  if(sp.url){ if(sp._cache){loadGLBBuffer(sp._cache,sp.label);return;}
+    toast('Loading '+sp.label+'…');
+    const _u=safeFile(sp.url);if(!_u){toast('Blocked unsafe model path in manifest.');return;}
+    try{const r=await fetch(_u);if(!r.ok)throw 0;const b=await r.arrayBuffer();sp._cache=b;loadGLBBuffer(b,sp.label);}
+    catch(e){toast('Could not load '+sp.label+' — host the .glb next to the page (it won\u2019t load from file://).');}}}
+
+function safeFile(p){p=String(p||'');if(!/^[A-Za-z0-9._-]+\.(glb|gltf)$/.test(p)||p.indexOf('..')>=0)return null;return p;}
+/* --- co-registered MNI overlay --- */
+const FRAME={ref:[0,5,17.5],scale:0.0494};   // shared MNI(RAS mm)->viewer transform, matches baked GLBs
+function mni(x,y,z){return new THREE.Vector3((x-FRAME.ref[0])*FRAME.scale,(z-FRAME.ref[1])*FRAME.scale,(-y-FRAME.ref[2])*FRAME.scale);}
+async function loadOverlay(sp){
+  overlayMode=true;srcBadge.textContent='MNI overlay';
+  if(!THREE.GLTFLoader){toast('Open in a normal browser to load the overlay atlases.');return;}
+  clearScene();modelRoot=new THREE.Group();scene.add(modelRoot);overlayVis={};toast('Loading overlay layers…');
+  for(const L of sp.layers){
+    overlayVis[L.label]=!L.off;
+    if(L.markers){addMarkers(L);continue;}
+    try{
+      const _f=safeFile(L.file);if(!_f){toast('Blocked unsafe model path in manifest.');continue;}
+      const buf=L._cache||await (await fetch(_f)).arrayBuffer();L._cache=buf;
+      await new Promise((res)=>{new THREE.GLTFLoader().parse(buf,'',(g)=>{
+        g.scene.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();registerMesh(o,metaFor(o.name||L.label));o.userData.layer=L.label;o.userData.baseOpacity=(L.opacity!=null?L.opacity:1);}});
+        modelRoot.add(g.scene);res();},()=>{toast('Could not load '+L.label);res();});});
+    }catch(e){toast('Could not load '+L.label+' — host the .glb next to the page.');}
+  }
+  syncClip();buildOverlayUI(sp);applyOpacity();select(null);
+}
+function addMarkers(L){(L.points||[]).forEach(p=>{
+  const m=new THREE.Mesh(new THREE.SphereGeometry(0.12,16,12));m.position.copy(mni(p.mni[0],p.mni[1],p.mni[2]));
+  m.material=new THREE.MeshStandardMaterial({color:0xffcc44,roughness:0.4,transparent:true});
+  m.userData={name:p.name,system:'vascular',teach:p.note||'Schematic surgical entry point (approximate MNI location).',
+    surg:'Illustrative only \u2014 not for operative planning. Replace with verified stereotactic coordinates.',layer:L.label,baseOpacity:1};
+  modelRoot.add(m);selectable.push(m);(bySystem.vascular=bySystem.vascular||[]).push(m);});}
+function buildOverlayUI(sp){const layersEl=document.getElementById('layers');layersEl.innerHTML='';document.getElementById('specHdr').style.display='';
+  sp.layers.forEach(L=>{const row=document.createElement('div');row.className='layer'+(overlayVis[L.label]?'':' off');row.tabIndex=0;
+    row.appendChild(mkRow('sw',String(L.swatch||'#8aa').replace(/[^#0-9a-zA-Z(),.% ]/g,''),String(L.label||''),null));
+    const t=()=>{overlayVis[L.label]=!overlayVis[L.label];row.classList.toggle('off',!overlayVis[L.label]);applyOpacity();};
+    row.onclick=t;row.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}};layersEl.appendChild(row);});
+  var _sl=document.getElementById('slist');_sl.innerHTML='';var _p=document.createElement('div');_p.className='srow';_p.style.cssText='cursor:default;color:var(--faint)';_p.textContent='Click any structure to label it';_sl.appendChild(_p);
+  document.getElementById('scount').textContent=selectable.length;}
+
+const readout=document.getElementById('readout');
+const roName=document.getElementById('ro-name'),roSys=document.getElementById('ro-sys'),roSw=document.getElementById('ro-sw'),
+  roTeach=document.getElementById('ro-teach'),roSurg=document.getElementById('ro-surg'),
+  roRef=document.getElementById('ro-ref'),roRefLbl=document.getElementById('ro-reflbl');
+const pin=document.getElementById('pin'),pinline=document.getElementById('pinline'),pindot=document.getElementById('pindot');
+const rail=document.getElementById('rail'),srcBadge=document.getElementById('srcBadge');
+document.getElementById('railBtn').onclick=()=>rail.classList.toggle('open');
+const isoBtn=document.getElementById('isoBtn');isoBtn.onclick=()=>{isolate=!isolate;isoBtn.classList.toggle('on',isolate);applyOpacity();};
+document.getElementById('resetBtn').onclick=()=>{orbit.theta=0.6;orbit.phi=1.2;orbit.r=9;};
+document.getElementById('opacity').oninput=e=>{othersOpacity=e.target.value/100;applyOpacity();};
+document.getElementById('exposure').oninput=e=>{renderer.toneMappingExposure=e.target.value/100;};
+document.getElementById('fileIn').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{specimens.push({label:f.name.replace(/\.(glb|gltf)$/i,''),buf:r.result});loadSpecimen(specimens.length-1);};r.readAsArrayBuffer(f);};
+
+document.getElementById('creditsBtn').onclick=()=>{document.getElementById('credits').style.display='block';};
+document.getElementById('creditsClose').onclick=()=>{document.getElementById('credits').style.display='none';};
+function renderCredits(list){var el=document.getElementById('creditList');el.innerHTML='';
+  (list||[]).forEach(function(t){var p=document.createElement('p');p.style.margin='8px 0';p.textContent=String(t);el.appendChild(p);});}
+renderCredits(['Data sources are listed in manifest.json when the atlas is served.']);
+const clipSlider=document.getElementById('clip');
+const axisBtns={s:document.getElementById('axS'),c:document.getElementById('axC'),a:document.getElementById('axA')};
+function syncClip(){selectable.forEach(m=>m.material.clippingPlanes=clipOn?[clipPlane]:null);}
+function updateClip(){const {ext}=AXES[curAxis];clipPlane.constant=THREE.MathUtils.lerp(ext,-ext,clipSlider.value/100);}
+function setAxis(a){if(clipOn&&curAxis===a){clipOn=false;axisBtns[a].classList.remove('on');clipSlider.disabled=true;syncClip();return;}
+  clipOn=true;curAxis=a;clipSlider.disabled=false;Object.entries(axisBtns).forEach(([k,b])=>b.classList.toggle('on',k===a));
+  clipPlane.normal.copy(AXES[a].n);updateClip();syncClip();}
+Object.entries(axisBtns).forEach(([k,b])=>b.onclick=()=>setAxis(k));clipSlider.oninput=()=>{if(clipOn)updateClip();};
+
+const orbit={theta:0.6,phi:1.2,r:9};let dragging=false,lastX=0,lastY=0,pinchStart=0,pinchR=0,downX=0,downY=0;
+const el=renderer.domElement;
+el.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;downX=e.clientX;downY=e.clientY;el.setPointerCapture(e.pointerId);});
+el.addEventListener('pointermove',e=>{if(!dragging)return;orbit.theta-=(e.clientX-lastX)*0.005;orbit.phi-=(e.clientY-lastY)*0.005;
+  orbit.phi=Math.max(0.15,Math.min(Math.PI-0.15,orbit.phi));lastX=e.clientX;lastY=e.clientY;});
+addEventListener('pointerup',()=>dragging=false);
+el.addEventListener('wheel',e=>{e.preventDefault();orbit.r=Math.max(3,Math.min(22,orbit.r*(1+Math.sign(e.deltaY)*0.08)));},{passive:false});
+el.addEventListener('touchstart',e=>{if(e.touches.length===2){dragging=false;pinchStart=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);pinchR=orbit.r;}},{passive:false});
+el.addEventListener('touchmove',e=>{if(e.touches.length===2){e.preventDefault();const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);orbit.r=Math.max(3,Math.min(22,pinchR*pinchStart/d));}},{passive:false});
+const raycaster=new THREE.Raycaster(),ndc=new THREE.Vector2();
+el.addEventListener('pointerup',e=>{if(Math.hypot(e.clientX-downX,e.clientY-downY)>6)return;ndc.x=(e.clientX/innerWidth)*2-1;ndc.y=-(e.clientY/innerHeight)*2+1;
+  raycaster.setFromCamera(ndc,camera);const hits=raycaster.intersectObjects(selectable.filter(m=>m.visible),false);select(hits.length?hits[0].object:null);hideHint();});
+const proj=new THREE.Vector3();
+function updatePin(){if(!selected||innerWidth<=820){pin.classList.remove('show');pinline.style.opacity=0;pindot.style.opacity=0;return;}
+  selected.getWorldPosition(proj);proj.project(camera);const x=(proj.x*0.5+0.5)*innerWidth,y=(-proj.y*0.5+0.5)*innerHeight,lx=x+70,ly=y-70;
+  pin.style.left=lx+'px';pin.style.top=ly+'px';pin.classList.add('show');pinline.setAttribute('x1',x);pinline.setAttribute('y1',y);
+  pinline.setAttribute('x2',lx);pinline.setAttribute('y2',ly);pinline.style.opacity=.9;pindot.setAttribute('cx',x);pindot.setAttribute('cy',y);pindot.style.opacity=1;}
+const hintEl=document.getElementById('hint');let hintTimer=setTimeout(hideHint,5000);function hideHint(){hintEl.style.opacity=0;clearTimeout(hintTimer);}
+const toastEl=document.getElementById('toast');let toastTimer;function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),4200);}
+function animate(){requestAnimationFrame(animate);const sp=Math.sin(orbit.phi);
+  camera.position.set(target.x+orbit.r*sp*Math.sin(orbit.theta),target.y+orbit.r*Math.cos(orbit.phi),target.z+orbit.r*sp*Math.cos(orbit.theta));
+  camera.lookAt(target);renderer.render(scene,camera);updatePin();}
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+
+/* init: auto-load synced models, else placeholders */
+specimens=EMBEDDED_MODELS.map(m=>({label:m.label,buf:b64ToBuf(m.b64)}));
+buildSpecimenList();
+if(!THREE.GLTFLoader){buildPlaceholders();toast('GLTFLoader blocked in this preview — showing placeholder. Real models load in a normal browser.');}
+else if(specimens.length)loadSpecimen(0);
+else buildPlaceholders();
+// also pull any hosted specimens listed in a sibling manifest.json (loaded on demand)
+(async()=>{try{const r=await fetch('manifest.json',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
+  (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,url:m.file});});
+  if(j.attribution)renderCredits([].concat(j.attribution));
+  if(j.overlay&&!specimens.some(s=>s.overlay))specimens.push({label:j.overlay.label||'MNI overlay',overlay:true,layers:j.overlay.layers||[]});
+  buildSpecimenList();}catch(e){}})();
+animate();
+</script>
+</body>
+</html>

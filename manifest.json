@@ -1,0 +1,126 @@
+{
+  "atlas": "Surgical Anatomy Atlas - brain & spine",
+  "note": "Serve these files together (static host); they won't load from file://. The MNI overlay layers share one coordinate frame and align.",
+  "models": [
+    {
+      "file": "case_spine_mets.glb",
+      "label": "CASE: Spinal metastasis \u2014 segmented T7-L5 vertebrae"
+    },
+    {
+      "file": "case_vestibular_schwannoma.glb",
+      "label": "CASE: Vestibular schwannoma \u2014 size series, cochlea, interval growth"
+    },
+    {
+      "file": "case_library_molecular.glb",
+      "label": "CASE LIBRARY: Glioma by WHO 2021 molecular class (6 cases)"
+    },
+    {
+      "file": "case_library_gbm.glb",
+      "label": "CASE LIBRARY: GBM by location (16 cases, one brain)"
+    },
+    {
+      "file": "case_gbm_upenn002.glb",
+      "label": "CASE: Glioblastoma, right temporal (UPenn-GBM sub-002)"
+    },
+    {
+      "file": "head_neck_ct.glb",
+      "label": "SPL Head & Neck CT (skull, vessels + craniotomy footprints)"
+    },
+    {
+      "file": "spl_brain.glb",
+      "label": "SPL-PNL Brain (MRI, 328) - standalone"
+    }
+  ],
+  "overlay": {
+    "label": "MNI Atlas - overlay (co-registered)",
+    "layers": [
+      {
+        "file": "mni_shell.glb",
+        "label": "MNI brain shell",
+        "opacity": 0.13,
+        "swatch": "#cfd2d8"
+      },
+      {
+        "file": "tracts.glb",
+        "label": "White-matter tracts",
+        "swatch": "#dc4a3c"
+      },
+      {
+        "file": "arterial_territories.glb",
+        "label": "Arterial territories",
+        "off": true,
+        "swatch": "#4a90d9"
+      },
+      {
+        "file": "hcpex_brain.glb",
+        "label": "HCP-MMP parcellation",
+        "off": true,
+        "swatch": "#7aa0c8"
+      },
+      {
+        "file": "juelich.glb",
+        "label": "Julich cytoarchitecture",
+        "off": true,
+        "swatch": "#b07ac8"
+      },
+      {
+        "markers": "entrypoints",
+        "label": "Entry points (schematic)",
+        "off": true,
+        "swatch": "#ffcc44",
+        "points": [
+          {
+            "name": "Kocher's point (R)",
+            "mni": [
+              28,
+              -6,
+              58
+            ],
+            "note": "Frontal burr hole for ventricular access / EVD (approximate)."
+          },
+          {
+            "name": "Keen's point (R)",
+            "mni": [
+              36,
+              -30,
+              44
+            ],
+            "note": "Parietal access to the atrium of the lateral ventricle (approximate)."
+          },
+          {
+            "name": "Frazier's point (R)",
+            "mni": [
+              36,
+              -56,
+              44
+            ],
+            "note": "Parieto-occipital access to the atrium (approximate)."
+          },
+          {
+            "name": "Dandy's point (R)",
+            "mni": [
+              22,
+              -72,
+              28
+            ],
+            "note": "Occipital access to the occipital horn (approximate)."
+          }
+        ]
+      }
+    ]
+  },
+  "attribution": [
+    "SPL-PNL Brain Atlas (3D Slicer License). Cite: spl.harvard.edu/publications/item/view/1265",
+    "HCPex: github.com/wayalan/HCPex; HCP-MMP1 (Glasser et al. 2016).",
+    "White-matter tracts: JHU ICBM-DTI-81 (Mori/Hua/Wakana; FSL).",
+    "Arterial territories: Liu et al., Scientific Data 2023 (CC BY-SA 4.0), doi:10.1038/s41597-022-01923-0.",
+    "Cytoarchitecture: Juelich histological atlas (Eickhoff et al.; FSL).",
+    "MNI brain shell: ICBM152 2009c (mni.mcgill.ca). Entry-point markers are schematic/approximate, not for planning.",
+    "SPL Head and Neck Atlas (Jakab & Kikinis, SPL/Brigham; 3D Slicer License part B). Underlying CT: MANIX dataset, OsiriX DICOM library.",
+    "Craniotomy footprints are schematic approximations computed on the skull surface for teaching; not for planning or navigation.",
+    "Pathology case: UPenn-GBM cohort (Bakas et al., Scientific Data 2022;9:453), The Cancer Imaging Archive, CC BY 4.0. Scans de-identified and de-faced at source; only skull-stripped brain and lesion surfaces are redistributed here. NIfTI derivatives curated via the Pittsburgh Fiber Data Hub (data-nih/tcia).",
+    "Molecular case library: UCSF-PDGM (Calabrese et al., TCIA, doi:10.7937/tcia.bdgf-8v37, CC BY 4.0); NIfTI derivatives via the Pittsburgh Fiber Data Hub (data-nih/tcia).",
+    "Vestibular schwannoma: Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA, CC BY 4.0. Tumour and cochlea contours only \u2014 patient skull contours deliberately excluded to avoid any re-identifiable surface.",
+    "Spine: Spine-Mets-CT-SEG, TCIA, CC BY 4.0. Vertebral segmentations only."
+  ]
+}
