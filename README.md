@@ -52,13 +52,6 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
-
-## Deploy (GitHub Pages)
-
-Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
-`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
-files unprocessed.
-
 ## Rebuilding the page
 
 `build_atlas.py` embeds a folder of `.glb` models into the viewer template
