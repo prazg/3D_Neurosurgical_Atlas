@@ -77,12 +77,6 @@ python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
 
-## Deploy (GitHub Pages)
-
-Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
-`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
-files unprocessed.
-
 ## Rebuilding the page
 
 `build_atlas.py` embeds a folder of `.glb` models into the viewer template
@@ -138,3 +132,6 @@ Classification of CNS Tumours (5th ed., 2021). No text is reproduced from those 
 
 Viewer and build script: MIT (see `LICENSE`). Anatomical and patient-derived model files
 retain their own licences — see the table above and `NOTICE`.
+
+## Created by
+Prajwal Ghimire (c) 2026
