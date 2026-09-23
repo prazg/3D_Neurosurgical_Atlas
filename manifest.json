@@ -3,12 +3,20 @@
   "note": "Serve these files together (static host); they won't load from file://. The MNI overlay layers share one coordinate frame and align.",
   "models": [
     {
+      "file": "approaches_head.glb",
+      "label": "APPROACHES: cranial, skull base, functional & cervical (guided)",
+      "approaches": true,
+      "theta": 2.3
+    },
+    {
       "file": "case_spine_mets.glb",
-      "label": "CASE: Spinal metastasis \u2014 segmented T7-L5 vertebrae"
+      "label": "CASE: Spinal metastasis — T7-L5 vertebrae + spinal approaches",
+      "approaches": true
     },
     {
       "file": "case_vestibular_schwannoma.glb",
-      "label": "CASE: Vestibular schwannoma \u2014 size series, cochlea, interval growth"
+      "label": "CASE: Vestibular schwannoma — size series, cochlea, interval growth",
+      "theta": -0.6
     },
     {
       "file": "case_library_molecular.glb",
@@ -28,7 +36,10 @@
     },
     {
       "file": "spl_brain.glb",
-      "label": "SPL-PNL Brain (MRI, 328) - standalone"
+      "label": "SPL-PNL Brain (MRI, 327 structures)",
+      "hide": [
+        "soft"
+      ]
     }
   ],
   "overlay": {
@@ -49,19 +60,22 @@
         "file": "arterial_territories.glb",
         "label": "Arterial territories",
         "off": true,
-        "swatch": "#4a90d9"
+        "swatch": "#4a90d9",
+        "exclusive": "cortex"
       },
       {
         "file": "hcpex_brain.glb",
         "label": "HCP-MMP parcellation",
         "off": true,
-        "swatch": "#7aa0c8"
+        "swatch": "#7aa0c8",
+        "exclusive": "cortex"
       },
       {
         "file": "juelich.glb",
         "label": "Julich cytoarchitecture",
         "off": true,
-        "swatch": "#b07ac8"
+        "swatch": "#b07ac8",
+        "exclusive": "cortex"
       },
       {
         "markers": "entrypoints",
@@ -107,7 +121,8 @@
           }
         ]
       }
-    ]
+    ],
+    "theta": 2.5
   },
   "attribution": [
     "SPL-PNL Brain Atlas (3D Slicer License). Cite: spl.harvard.edu/publications/item/view/1265",
@@ -118,9 +133,11 @@
     "MNI brain shell: ICBM152 2009c (mni.mcgill.ca). Entry-point markers are schematic/approximate, not for planning.",
     "SPL Head and Neck Atlas (Jakab & Kikinis, SPL/Brigham; 3D Slicer License part B). Underlying CT: MANIX dataset, OsiriX DICOM library.",
     "Craniotomy footprints are schematic approximations computed on the skull surface for teaching; not for planning or navigation.",
-    "Pathology case: UPenn-GBM cohort (Bakas et al., Scientific Data 2022;9:453), The Cancer Imaging Archive, CC BY 4.0. Scans de-identified and de-faced at source; only skull-stripped brain and lesion surfaces are redistributed here. NIfTI derivatives curated via the Pittsburgh Fiber Data Hub (data-nih/tcia).",
+    "Pathology case: UPenn-GBM cohort (Bakas et al., Scientific Data 2022;9:453), The Cancer Imaging Archive, CC BY 4.0. Scans de-identified and de-faced at source; only lesion meshes and a brain surface skull-stripped in-house (no scalp or face) are redistributed here. NIfTI derivatives curated via the Pittsburgh Fiber Data Hub (data-nih/tcia).",
     "Molecular case library: UCSF-PDGM (Calabrese et al., TCIA, doi:10.7937/tcia.bdgf-8v37, CC BY 4.0); NIfTI derivatives via the Pittsburgh Fiber Data Hub (data-nih/tcia).",
-    "Vestibular schwannoma: Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA, CC BY 4.0. Tumour and cochlea contours only \u2014 patient skull contours deliberately excluded to avoid any re-identifiable surface.",
-    "Spine: Spine-Mets-CT-SEG, TCIA, CC BY 4.0. Vertebral segmentations only."
-  ]
+    "Vestibular schwannoma: Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA, CC BY 4.0. Tumour and cochlea contours only — patient skull contours deliberately excluded to avoid any re-identifiable surface.",
+    "Spine: Spine-Mets-CT-SEG, TCIA, CC BY 4.0. Vertebral segmentations only.",
+    "Approaches specimen: composite teaching model. Skull, neck vessels and cervical spine from the SPL Head and Neck CT atlas; brain structures from the SPL-PNL atlas registered into that skull; white-matter tracts (JHU) and intracranial arteries (Mouches & Forkert, Sci Data 2019;6:29, CC0 vessel atlas, doi:10.1038/s41597-019-0034-5) mapped from MNI space. Dural sinuses, flaps, corridors, incisions and trajectories are schematic."
+  ],
+  "approaches": "approaches.json"
 }

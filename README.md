@@ -15,7 +15,8 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
 
 - **Craniospinal specimen** (embedded — works offline): cerebrum, diencephalon, midbrain,
   pons, medulla, cerebellum, spinal cord, C1–C7, occipital bone, vertebral arteries.
-- **SPL-PNL brain**: 328 expert-segmented MRI structures, down to individual gyri.
+- **SPL-PNL brain**: 327 expert-segmented MRI structures, down to individual gyri
+  (the atlas's outer skin surface is removed; head and neck muscles start hidden).
 - **SPL Head & Neck CT**: skull, mandible, cervical spine, ribs, neck muscles, cartilage,
   glands, and vessels (carotids, vertebrals, subclavians, jugulars) — plus six schematic
   **craniotomy footprints** projected onto the skull surface (pterional, retrosigmoid,
@@ -23,6 +24,29 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
 - **Co-registered MNI overlay**: translucent brain shell with white-matter tracts, arterial
   territories, HCP-MMP parcellation, Jülich cytoarchitecture and schematic ventricular
   entry points (Kocher, Keen, Frazier, Dandy), each independently toggleable.
+
+**Guided surgical approaches (teaching)**
+
+- **Approaches specimen** — a composite head built for approach teaching: the SPL Head & Neck CT
+  skull, neck vessels and cervical spine; the SPL-PNL brain registered into that skull (affine fit
+  to the inner table, a smooth radial warp, then a local correction that keeps every structure
+  inside the cranial cavity); JHU tracts and intracranial arteries from a CC0 MRA atlas
+  (Mouches & Forkert 2019) mapped from MNI space; schematic dural venous sinuses.
+- **28 guided approaches** with step-by-step cards, a surgeon's-view camera, progressive reveal
+  (incision → bone opening → corridor/trajectory) and highlighted structures at risk:
+  - *Cranial:* pterional, orbitozygomatic, supraorbital keyhole, bifrontal subfrontal, anterior
+    interhemispheric transcallosal, subtemporal, retrosigmoid, midline suboccipital/telovelar,
+    far-lateral, supracerebellar infratentorial.
+  - *Skull base & endoscopic:* endoscopic transsphenoidal, extended transplanum/transtuberculum,
+    transclival, anterior petrosal (Kawase), presigmoid retrolabyrinthine.
+  - *Ventricular & functional:* EVD at Kocher point, Keen, Frazier and Dandy points, ETV, and DBS
+    trajectories to STN, GPi and Vim.
+  - *Spinal:* ACDF C5–C6 and posterior cervical laminectomy with lateral mass screws (on the
+    approaches specimen); L4 laminectomy, L4–L5 pedicle screws and T9 costotransversectomy (on the
+    spinal metastasis specimen).
+- Content lives in `approaches.json`; deep links work as `atlas.html#approach=pterional`.
+- Registration check: SPL and MNI-derived deep landmarks agree to roughly 4–10 mm in the skull
+  frame; flaps, corridors, incisions, entry points and angles are schematic and illustrative.
 
 **Pathology**
 
@@ -52,6 +76,13 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
+
+## Deploy (GitHub Pages)
+
+Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
+`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
+files unprocessed.
+
 ## Rebuilding the page
 
 `build_atlas.py` embeds a folder of `.glb` models into the viewer template
@@ -69,7 +100,7 @@ viewer's `LOOKUP` table).
 | Layer | Source | Licence |
 |---|---|---|
 | Craniospinal specimen | BodyParts3D, DBCLS | CC BY-SA |
-| SPL-PNL brain (328 structures) | Surgical Planning Lab / PNL, Brigham & Women's Hospital | 3D Slicer licence; cite SPL |
+| SPL-PNL brain (327 structures) | Surgical Planning Lab / PNL, Brigham & Women's Hospital | 3D Slicer licence; cite SPL |
 | SPL Head & Neck CT (59 structures) | Jakab & Kikinis, SPL; CT from the MANIX/OsiriX dataset | 3D Slicer licence, part B |
 | HCP-MMP parcellation (424 areas) | HCPex (Huang et al.); HCP-MMP1 (Glasser et al. 2016) | see source repo |
 | White-matter tracts (20 bundles) | JHU ICBM-DTI-81 (Mori/Hua/Wakana), via FSL | research / educational |
@@ -80,6 +111,7 @@ viewer's `LOOKUP` table).
 | Molecular glioma cases | UCSF-PDGM (Calabrese et al.), TCIA, doi:10.7937/tcia.bdgf-8v37 | CC BY 4.0 |
 | Vestibular schwannoma | Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA | CC BY 4.0 |
 | Spinal metastasis | Spine-Mets-CT-SEG, TCIA | CC BY 4.0 |
+| Intracranial arteries (approaches specimen) | Mouches & Forkert, *Sci Data* 2019;6:29, doi:10.1038/s41597-019-0034-5 (figshare vessel occurrence atlas) | CC0 |
 
 Several datasets are **CC BY-SA**, so derived model files and this page inherit
 share-alike obligations: keep the attribution visible and redistribute under compatible
@@ -88,9 +120,14 @@ terms. The **Jülich** layer is non-commercial — remove it if you publish comm
 ### Patient data
 
 All patient-derived specimens come from open, de-identified, de-faced collections.
-Only skull-stripped brain surfaces and derived lesion meshes are redistributed — never a
-full head surface. The vestibular schwannoma dataset's patient skull contour was
-deliberately excluded for the same reason.
+For the TCIA pathology cases, only derived lesion meshes and a brain surface are redistributed.
+The source T1 volumes are **not** skull-stripped, so the brain surface is produced by an in-house
+skull strip (intensity threshold, erosion to separate scalp, largest component, merged with the
+tumour segmentation) and checked by volume (~1.3 L) and by slice overlay; it contains no scalp or
+face. The vestibular schwannoma dataset's patient skull contour was deliberately excluded.
+The SPL Head & Neck atlas, a published SPL teaching atlas, includes a skull surface derived from
+the public MANIX sample CT; it contains no skin or face surface. The SPL-PNL brain atlas's skin
+surface has been removed.
 
 Descriptive text is original, written with reference to Youmans & Winn *Neurological
 Surgery* (8th ed.), Figueiredo (ed.) *Brain Anatomy and Neurosurgical Approaches*,
