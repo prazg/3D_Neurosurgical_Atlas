@@ -98,6 +98,9 @@
   .chip{display:inline-block;font-size:12px;padding:3px 8px;margin:4px 4px 0 0;border-radius:12px;border:1px solid rgba(95,176,173,.45);color:var(--ink);cursor:pointer}
   .chip.nm{border-style:dashed;color:var(--muted);cursor:default}
   .chip:hover{background:rgba(95,176,173,.15)}
+  .apkey{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:10px;font-size:11px;color:var(--muted)}
+  .apkey .kitem{display:inline-flex;align-items:center;gap:5px}
+  .apkey .ksw{display:inline-block;width:16px;height:5px;border-radius:2px}
   .apwarn{margin-top:12px;font-size:11.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--edge);padding-top:8px}
   @media (max-width:820px){.apcard{top:auto;bottom:84px;left:12px;right:12px;width:auto;max-height:46vh}}
 </style>
@@ -388,6 +391,7 @@ function apRender(){const a=apCur();if(!a){apCard.classList.remove('show');retur
   nav.appendChild(prev);nav.appendChild(dots);nav.appendChild(next);apCard.appendChild(nav);
   const vb=el_('button','tool',"Surgeon's view");vb.style.marginTop='10px';vb.onclick=apView;const xb=el_('button','tool','Exit approach');xb.style.margin='10px 0 0 6px';xb.onclick=apExit;
   apCard.appendChild(vb);apCard.appendChild(xb);
+  const kd=el_('div','apkey');[['#a537eb','Skin incision (dashed)'],['#debe46','Bone flap'],['#f08c28','Bone removed / drilled'],['#50beff','Working corridor'],['#f0f0f0','Trajectory / implant'],['#c43430','Artery'],['#3c5ac8','Venous sinus (schematic)'],['#3aa6ff','Glow = structure at risk']].forEach(k=>{const i=el_('span','kitem');const w=el_('span','ksw');w.style.background=k[0];if(/dashed/.test(k[1]))w.style.background='repeating-linear-gradient(90deg,'+k[0]+' 0 4px,transparent 4px 7px)';i.appendChild(w);i.appendChild(document.createTextNode(k[1]));kd.appendChild(i);});apCard.appendChild(kd);
   apCard.appendChild(el_('div','lbl','Structures at risk'));const rk=el_('div');
   (a.risks||[]).forEach(r=>{const c=el_('span','chip'+(r.match?'':' nm'),r.label);c.title=r.why||'';
     if(r.match)c.onclick=()=>{let re;try{re=new RegExp(r.match,'i');}catch(e){return;}const m=selectable.find(x=>!x.userData.apprPart&&re.test(x.userData.name||''));if(m)select(m);};rk.appendChild(c);});
