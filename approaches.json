@@ -1,0 +1,2811 @@
+{
+"version": 1,
+"note": "Teaching illustrations on composite, partly schematic models. Not for operative planning.",
+"approaches": [
+{
+"id": "pterional",
+"specimen": "approaches_head.glb",
+"title": "Pterional (frontotemporal) craniotomy",
+"cat": "Cranial",
+"side": "right",
+"summary": "The workhorse anterolateral approach: a frontotemporal flap centred on the pterion, drilling of the sphenoid ridge and opening of the sylvian fissure give access to the anterior circle of Willis, optic apparatus and parasellar region.",
+"indications": [
+"Anterior circulation aneurysms (ICA, posterior communicating, anterior choroidal, MCA, many anterior communicating)",
+"Sellar/parasellar and suprasellar tumours with lateral extension",
+"Sphenoid wing and clinoidal meningiomas",
+"Anterior insular and frontotemporal lesions"
+],
+"position": "Supine in pins. Head elevated above the heart, rotated to the opposite side, typically about 30–45° depending on the target and the surgeon (more for anterior and midline targets, less for posterior targets such as the basilar apex), and extended so the malar eminence is the highest point and the frontal lobe falls away from the orbital roof.",
+"steps": [
+{
+"h": "Incision",
+"t": "Curvilinear incision starting at the zygomatic arch about 1 cm in front of the tragus, running up behind the hairline to the midline or mid-pupillary line. Stay close to the tragus to spare the frontal branch of the superficial temporal artery and the facial nerve branches.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Soft tissue",
+"t": "Reflect the scalp flap. Protect the frontal branch of the facial nerve with interfascial or subfascial dissection of the temporalis fascia. Elevate temporalis muscle and retract it inferiorly and posteriorly.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Bone flap",
+"t": "Burr holes (classically at the keyhole behind the frontozygomatic suture and on the squamous temporal bone) and a frontotemporal flap centred on the pterion. Drill the lateral sphenoid ridge flat down towards the superior orbital fissure so the view along the skull base is unobstructed.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Dura and cisterns",
+"t": "Open the dura in a curve based on the sphenoid ridge. Release CSF from the basal cisterns (carotid, optic, lamina terminalis) to relax the brain before any retraction.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Sylvian fissure",
+"t": "Split the sylvian fissure from distal to proximal or proximal to distal, keeping the superficial sylvian veins with the temporal side where possible, and follow the MCA branches down to M1 and the ICA bifurcation.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Working windows",
+"t": "Deep working spaces: optico-carotid, carotid-oculomotor and the space above the ICA bifurcation. Proximal ICA control is obtained before aneurysm dissection.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Closure",
+"t": "Watertight dural closure, bone flap fixation, anatomical re-suspension of temporalis to limit temporal hollowing.",
+"reveal": [
+"incision",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Right MCA M1–M2 and lenticulostriate perforators",
+"match": "right middle cerebral artery",
+"why": "Perforator injury gives capsular infarction; branch occlusion infarcts eloquent cortex."
+},
+{
+"label": "Right ICA (supraclinoid)",
+"match": "right internal carotid artery, intracranial",
+"why": "Proximal control point; posterior communicating and anterior choroidal arteries arise here."
+},
+{
+"label": "Optic chiasm and right optic nerve",
+"match": "optic chiasm|right optic nerve",
+"why": "Mobilised structures in the optico-carotid window; direct or vascular injury causes visual loss."
+},
+{
+"label": "Right temporalis",
+"match": "right temporalis",
+"why": "Denervation or devascularisation causes atrophy and cosmetic hollowing."
+},
+{
+"label": "Frontal branch of facial nerve",
+"match": null,
+"why": "Runs in the superficial fat pad over the temporalis fascia above the zygomatic arch (not modelled)."
+}
+],
+"pearls": [
+"Brain relaxation comes from CSF release, not retraction.",
+"Flattening the sphenoid ridge shortens the working distance more than enlarging the flap."
+],
+"pitfalls": [
+"Too much head rotation lets the temporal lobe fall into the field.",
+"Tearing bridging sylvian veins can cause venous congestion."
+],
+"schematic": "Flap outline, incision and corridor are drawn on this composite model to show the principle; flap size and position vary with the target.",
+"meshes": [
+{
+"name": "Approach: pterional — bone flap",
+"tag": "bone"
+},
+{
+"name": "Approach: pterional — skin incision",
+"tag": "incision"
+},
+{
+"name": "Approach: pterional — trans-sylvian corridor",
+"tag": "corridor"
+}
+],
+"target": [
+4.48,
+70.27,
+-13.81
+],
+"eye": [
+179.4287636739833,
+177.56692527085858,
+-138.23080404772563
+]
+},
+{
+"id": "orbitozygomatic",
+"specimen": "approaches_head.glb",
+"title": "Orbitozygomatic approach",
+"cat": "Cranial",
+"side": "right",
+"summary": "A pterional exposure extended by removing the superolateral orbital rim, part of the orbital roof and the zygomatic arch. The lower bone margin gives a more basal, upward-looking view with less brain retraction.",
+"indications": [
+"High-riding basilar apex and upper basilar aneurysms",
+"Large sellar, parasellar and cavernous sinus tumours",
+"Upper clival and interpeduncular lesions",
+"Orbital and orbitocranial lesions"
+],
+"position": "As for pterional, with rotation and extension adjusted to the target.",
+"steps": [
+{
+"h": "Incision",
+"t": "Extended frontotemporal incision reaching further across the midline to allow wider reflection of the scalp flap.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Soft tissue",
+"t": "Subfascial dissection to expose the orbital rim and zygomatic arch; free the supraorbital nerve from its notch or foramen; strip the periorbita from the orbital roof and lateral wall.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Frontotemporal flap",
+"t": "Raise a standard pterional flap.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Orbitozygomatic bar",
+"t": "Osteotomies release the superolateral orbital rim, orbital roof and zygomatic arch as one piece or two pieces, protecting the periorbita and orbital contents.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Intradural",
+"t": "Open the dura and use trans-sylvian and subfrontal corridors. The lowered bone margin lets the surgeon look up to the basilar apex through the carotid-oculomotor window.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Reconstruction",
+"t": "Replace and plate the orbitozygomatic bar anatomically to prevent enophthalmos and facial asymmetry.",
+"reveal": [
+"incision",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Basilar apex and posterior cerebral perforators",
+"match": "basilar artery",
+"why": "The thalamoperforating arteries arising at the apex are the main source of serious morbidity."
+},
+{
+"label": "Right ICA and optic nerve",
+"match": "right internal carotid artery, intracranial|right optic nerve",
+"why": "They border the working windows."
+},
+{
+"label": "Orbital contents",
+"match": "right eyeball|right lateral rectus|right superior rectus",
+"why": "Periorbital breach leads to fat herniation and later enophthalmos."
+},
+{
+"label": "Oculomotor nerve",
+"match": null,
+"why": "Crosses the carotid-oculomotor window (not modelled)."
+}
+],
+"pearls": [
+"Choose the orbitozygomatic extension when the target sits high above the dorsum sellae or the working angle through a pterional flap is too steep."
+],
+"pitfalls": [
+"Poor bar reconstruction produces visible cosmetic deformity and enophthalmos."
+],
+"schematic": "The orange bar marks bone removed in a one-piece orbitozygomatic osteotomy; exact cuts vary.",
+"meshes": [
+{
+"name": "Approach: orbitozygomatic — frontotemporal flap",
+"tag": "bone"
+},
+{
+"name": "Approach: orbitozygomatic — orbitozygomatic bar",
+"tag": "bone"
+},
+{
+"name": "Approach: orbitozygomatic — skin incision",
+"tag": "incision"
+},
+{
+"name": "Approach: orbitozygomatic — subfrontal-transsylvian corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-6.25,
+71.32,
+-2.23
+],
+"eye": [
+169.90683008577173,
+42.01674901115537,
+-162.56963782668288
+]
+},
+{
+"id": "supraorbital",
+"specimen": "approaches_head.glb",
+"title": "Supraorbital keyhole (eyebrow) approach",
+"cat": "Cranial",
+"side": "right",
+"summary": "A small frontobasal craniotomy through an eyebrow incision, flush with the orbital roof, giving a subfrontal corridor to the anterior circle of Willis and chiasmatic region with limited soft-tissue disruption.",
+"indications": [
+"Selected anterior communicating and ICA aneurysms",
+"Small olfactory groove, planum and tuberculum lesions",
+"Selected suprasellar lesions"
+],
+"position": "Supine, head extended so the frontal lobe falls away from the orbital roof, and rotated towards the opposite side by an amount that depends on the target.",
+"steps": [
+{
+"h": "Incision",
+"t": "Incision within the eyebrow, lateral to the supraorbital notch to protect the supraorbital nerve.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Bone opening",
+"t": "Small frontobasal craniotomy placed as low as possible on the orbital rim; drill down the inner table and orbital roof ridges to widen the view without enlarging the skin opening.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Subfrontal corridor",
+"t": "Open the dura, release CSF from the chiasmatic and carotid cisterns and work along the orbital roof. Angled endoscopes can inspect areas hidden from the microscope.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Anterior communicating complex",
+"match": "anterior cerebral arteries",
+"why": "Target area; perforators and the recurrent artery of Heubner arise here."
+},
+{
+"label": "Optic chiasm",
+"match": "optic chiasm",
+"why": "Lies immediately below the working space."
+},
+{
+"label": "Supraorbital nerve and frontalis branch",
+"match": null,
+"why": "Forehead numbness or eyebrow weakness if injured (not modelled)."
+},
+{
+"label": "Frontal sinus",
+"match": null,
+"why": "Opening it risks CSF leak and infection; check preoperative CT (not modelled)."
+}
+],
+"pearls": [
+"Case selection matters: the keyhole trades working freedom for smaller access, so rehearse the trajectory on imaging."
+],
+"pitfalls": [
+"A flap placed too high loses the basal view; a large frontal sinus may make the approach unsuitable."
+],
+"schematic": "Flap position is drawn on this skull; the size of a keyhole opening varies between surgeons.",
+"meshes": [
+{
+"name": "Approach: supraorbital keyhole — bone flap",
+"tag": "bone"
+},
+{
+"name": "Approach: supraorbital keyhole — eyebrow incision",
+"tag": "incision"
+},
+{
+"name": "Approach: supraorbital keyhole — subfrontal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-7.63,
+72.68,
+-20.47
+],
+"eye": [
+80.66458235307056,
+69.89482336030609,
+-232.82314065623675
+]
+},
+{
+"id": "bifrontal",
+"specimen": "approaches_head.glb",
+"title": "Bifrontal subfrontal approach",
+"cat": "Cranial",
+"side": "midline",
+"summary": "A bicoronal incision and low bifrontal craniotomy give broad access to the anterior cranial fossa floor from both sides of the falx.",
+"indications": [
+"Olfactory groove and large planum meningiomas",
+"Anterior skull-base tumours and repairs",
+"Selected suprasellar and third-ventricle lesions via lamina terminalis"
+],
+"position": "Supine, head neutral and slightly extended.",
+"steps": [
+{
+"h": "Bicoronal incision",
+"t": "Incision behind the hairline from one zygomatic root to the other. Preserve a vascularised pericranial flap for skull-base reconstruction.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Bifrontal flap",
+"t": "Low bifrontal craniotomy close to the anterior fossa floor. If the frontal sinus is opened, cranialise it: remove the mucosa and occlude the ducts.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Dura and sinus",
+"t": "Open the dura above the orbital roofs. The anterior superior sagittal sinus and falx may be ligated and divided at the front to join the two sides.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Subfrontal corridor",
+"t": "Work along the anterior fossa floor, devascularising tumour from its base early. Identify the anterior cerebral arteries and optic apparatus behind large tumours.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Reconstruction",
+"t": "Repair skull-base defects and cover the cranialised sinus with the pericranial flap.",
+"reveal": [
+"incision",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Superior sagittal sinus and bridging veins",
+"match": "superior sagittal sinus",
+"why": "Division is limited to the anterior segment; posterior venous injury can cause venous infarction."
+},
+{
+"label": "Anterior cerebral arteries",
+"match": "anterior cerebral arteries",
+"why": "Often displaced or encased by large anterior fossa tumours."
+},
+{
+"label": "Olfactory tracts",
+"match": null,
+"why": "Loss of smell if both are damaged (not modelled)."
+},
+{
+"label": "Frontal lobes",
+"match": "straight gyrus|lateral orbital gyrus",
+"why": "Retraction injury and oedema affect behaviour and executive function."
+}
+],
+"pearls": [
+"Early devascularisation at the skull base reduces bleeding from anterior fossa meningiomas."
+],
+"pitfalls": [
+"Unrecognised frontal sinus entry leads to CSF leak and infection."
+],
+"schematic": "Low bifrontal flap drawn on this skull; the actual flap follows the frontal sinus and tumour extent.",
+"meshes": [
+{
+"name": "Approach: bifrontal subfrontal — bone flap",
+"tag": "bone"
+},
+{
+"name": "Approach: bifrontal subfrontal — bicoronal incision",
+"tag": "incision"
+},
+{
+"name": "Approach: bifrontal subfrontal — subfrontal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-5.98,
+57.05,
+-50.24
+],
+"eye": [
+-17.83507733465383,
+253.89613650269433,
+-187.03094736682235
+]
+},
+{
+"id": "transcallosal",
+"specimen": "approaches_head.glb",
+"title": "Anterior interhemispheric transcallosal approach",
+"cat": "Cranial",
+"side": "right",
+"summary": "A parasagittal frontal craniotomy, dissection down the interhemispheric fissure and a short callosotomy lead into the lateral ventricle and, through the foramen of Monro, the third ventricle without crossing cortex.",
+"indications": [
+"Colloid cysts and other third-ventricle lesions",
+"Intraventricular tumours of the lateral ventricle body and frontal horn",
+"Selected thalamic lesions reaching the ventricle"
+],
+"position": "Supine with the head neutral and flexed, or with the head turned so the dependent hemisphere falls away by gravity.",
+"steps": [
+{
+"h": "Incision",
+"t": "Linear or U-shaped scalp incision over the coronal suture, crossing the midline.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Craniotomy",
+"t": "Parasagittal flap mostly anterior to the coronal suture, reaching the superior sagittal sinus. This keeps the approach in front of motor cortex and between the bridging veins.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Interhemispheric fissure",
+"t": "Open the dura towards the sinus, preserve bridging veins, and dissect down the fissure to the corpus callosum, identifying the paired pericallosal arteries.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Callosotomy",
+"t": "Make a short midline opening in the callosal body to enter the lateral ventricle.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Foramen of Monro",
+"t": "Identify the foramen from the choroid plexus, the thalamostriate and septal veins, and the column of the fornix. Enlarge access to the third ventricle by transforaminal, transchoroidal or interforniceal routes as needed.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Bridging veins and superior sagittal sinus",
+"match": "superior sagittal sinus",
+"why": "Sacrificing several bridging veins risks venous infarction."
+},
+{
+"label": "Pericallosal arteries",
+"match": "anterior cerebral arteries",
+"why": "Lie on the corpus callosum and must be separated, not damaged."
+},
+{
+"label": "Fornix",
+"match": "fornix",
+"why": "Bilateral forniceal injury causes severe memory loss."
+},
+{
+"label": "Thalamostriate vein and caudate/thalamus",
+"match": "right caudate nucleus|right anterior thalamic nucleus",
+"why": "Venous injury at the foramen can infarct the basal ganglia."
+},
+{
+"label": "Supplementary motor area",
+"match": "right superior frontal gyrus",
+"why": "Retraction can produce a transient SMA syndrome."
+}
+],
+"pearls": [
+"Plan the flap on venous imaging to fit between bridging veins.",
+"Confirm the side of the ventricle entered by following the thalamostriate vein and choroid plexus to the foramen."
+],
+"pitfalls": [
+"A long callosotomy risks disconnection syndromes."
+],
+"schematic": "Corridor and entry point are illustrative. The foramen of Monro target is placed from the registered atlas brain.",
+"meshes": [
+{
+"name": "Approach: interhemispheric transcallosal — bone flap",
+"tag": "bone"
+},
+{
+"name": "Approach: interhemispheric transcallosal — skin incision",
+"tag": "incision"
+},
+{
+"name": "Approach: interhemispheric transcallosal — interhemispheric corridor",
+"tag": "corridor"
+},
+{
+"name": "Approach: interhemispheric transcallosal — transcallosal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-4.5,
+92.06,
+-15.44
+],
+"eye": [
+59.35146455779402,
+287.6610366915829,
+-138.98977863143617
+]
+},
+{
+"id": "subtemporal",
+"specimen": "approaches_head.glb",
+"title": "Subtemporal approach",
+"cat": "Cranial",
+"side": "right",
+"summary": "A low temporal craniotomy flush with the middle fossa floor; gentle elevation of the temporal lobe exposes the tentorial edge, ambient cistern and upper petroclival region.",
+"indications": [
+"Low-lying basilar apex and P1–P2 or SCA aneurysms",
+"Tentorial incisura and ambient cistern lesions",
+"Upper petroclival lesions, combined with petrous drilling (see Kawase)"
+],
+"position": "Lateral or supine with the head turned 90° and the vertex tilted slightly down so the temporal lobe falls away from the floor.",
+"steps": [
+{
+"h": "Incision",
+"t": "Linear, question-mark or horseshoe incision centred over the zygomatic root.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Low temporal flap",
+"t": "Temporal craniotomy with the lower edge drilled flush with the middle fossa floor; wax any opened mastoid air cells.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Relaxation",
+"t": "Lumbar drain and osmotic therapy help. Elevate the temporal lobe gently while protecting the vein of Labbé.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Tentorial edge",
+"t": "Open the arachnoid of the ambient cistern. The tentorium can be divided behind the entry of the trochlear nerve to widen the view down to the upper clivus.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Vein of Labbé",
+"match": null,
+"why": "Injury can cause temporal venous infarction, with aphasia on the dominant side (not modelled)."
+},
+{
+"label": "Right PCA, SCA and basilar apex",
+"match": "basilar artery",
+"why": "Main targets and at risk during dissection."
+},
+{
+"label": "Temporal lobe",
+"match": "right inferior temporal gyrus|right fusiform gyrus|right parahippocampal gyrus",
+"why": "Retraction contusion."
+},
+{
+"label": "Trochlear and oculomotor nerves",
+"match": null,
+"why": "Run along the tentorial edge (not modelled)."
+}
+],
+"pearls": [
+"Choose the non-dominant side when possible.",
+"Drain CSF before retracting."
+],
+"pitfalls": [
+"Leaving a lip of bone at the floor forces extra temporal lobe retraction."
+],
+"schematic": "Target is set in the ambient cistern lateral to the midbrain on the registered brain.",
+"meshes": [
+{
+"name": "Approach: subtemporal — bone flap",
+"tag": "bone"
+},
+{
+"name": "Approach: subtemporal — skin incision",
+"tag": "incision"
+},
+{
+"name": "Approach: subtemporal — subtemporal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+3.64,
+77.24,
+7.46
+],
+"eye": [
+232.97521062924662,
+6.900046956110003,
+-0.17939968451566024
+]
+},
+{
+"id": "retrosigmoid",
+"specimen": "approaches_head.glb",
+"title": "Retrosigmoid (lateral suboccipital) approach",
+"cat": "Cranial",
+"side": "right",
+"summary": "A craniotomy behind the sigmoid sinus and below the transverse sinus opens the cerebellopontine angle; the cerebellum falls away medially after CSF release.",
+"indications": [
+"Vestibular schwannoma and other CPA tumours",
+"Microvascular decompression for trigeminal neuralgia and hemifacial spasm",
+"Lateral brainstem and petrous-face meningiomas"
+],
+"position": "Lateral (park-bench) or supine with the head turned; shoulder taped down so the mastoid region is uppermost.",
+"steps": [
+{
+"h": "Incision",
+"t": "Linear or gently curved incision two fingerbreadths behind the mastoid.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Landmarks",
+"t": "The asterion approximates the transverse–sigmoid junction, but this varies, so neuronavigation or burr-hole confirmation is used.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Craniotomy",
+"t": "Craniotomy or craniectomy exposing the inferior edge of the transverse sinus and the posterior edge of the sigmoid sinus. Wax mastoid air cells.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "CSF release",
+"t": "Open the dura parallel to the sinuses and release CSF from the cisterna magna or lateral cerebellomedullary cistern before retraction.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Cerebellopontine angle",
+"t": "Cranial nerves lie in three levels: V above, VII/VIII in the middle, IX–XI below. AICA loops and the superior petrosal (Dandy) vein are key vascular relationships.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Closure",
+"t": "Watertight dura; seal air cells again to prevent CSF rhinorrhoea.",
+"reveal": [
+"incision",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Transverse and sigmoid sinuses",
+"match": "right transverse sinus|right sigmoid sinus",
+"why": "Tears cause bleeding and air embolism; thrombosis can follow."
+},
+{
+"label": "Pons and middle cerebellar peduncle",
+"match": "pons",
+"why": "Medial limit of the angle."
+},
+{
+"label": "Facial and cochlear nerves, AICA",
+"match": null,
+"why": "Main functional risks in CPA surgery (not modelled)."
+}
+],
+"pearls": [
+"Release CSF early; a slack cerebellum removes most need for retraction."
+],
+"pitfalls": [
+"Unsealed mastoid air cells are a common source of postoperative CSF leak."
+],
+"schematic": "Sinuses are schematic tubes placed along the inner table between the inion, asterion and jugular foramen of this skull; they indicate position, not calibre.",
+"meshes": [
+{
+"name": "Approach: retrosigmoid — craniotomy",
+"tag": "bone"
+},
+{
+"name": "Approach: retrosigmoid — skin incision",
+"tag": "incision"
+},
+{
+"name": "Approach: retrosigmoid — cerebellopontine corridor",
+"tag": "corridor"
+}
+],
+"target": [
+19.94,
+62.27,
+17.19
+],
+"eye": [
+119.8119155250595,
+-2.3437305346161708,
+225.64196653980557
+]
+},
+{
+"id": "telovelar",
+"specimen": "approaches_head.glb",
+"title": "Midline suboccipital, telovelar approach",
+"cat": "Cranial",
+"side": "midline",
+"summary": "A midline suboccipital craniotomy with opening of the tela choroidea and inferior medullary velum reaches the fourth ventricle without splitting the vermis.",
+"indications": [
+"Fourth-ventricle tumours (for example medulloblastoma and ependymoma)",
+"Vermian and paramedian cerebellar lesions",
+"Lesions of the dorsal medulla and obex region"
+],
+"position": "Prone (Concorde) with the neck flexed, or sitting. Sitting improves venous drainage but increases the risk of air embolism.",
+"steps": [
+{
+"h": "Incision",
+"t": "Midline incision from above the inion to about C2, dividing through the avascular midline raphe.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Craniotomy",
+"t": "Suboccipital craniotomy from below the transverse sinus to the foramen magnum; remove the C1 posterior arch if the tonsils or lesion descend.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Dura",
+"t": "Y-shaped dural opening, controlling the occipital or marginal sinus.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Telovelar corridor",
+"t": "Separate the tonsils, open the tela choroidea and inferior medullary velum, and elevate the tonsils and hemispheres to expose the fourth ventricle floor and lateral recesses.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Floor",
+"t": "Protect the floor with a cottonoid early. Facial colliculus and the hypoglossal and vagal trigones are eloquent.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Floor of the fourth ventricle",
+"match": "fourth ventricle|pons|medulla oblongata",
+"why": "Cranial nerve nuclei; injury causes facial or gaze palsy and bulbar dysfunction."
+},
+{
+"label": "Dentate nuclei",
+"match": "dentate-nucleus",
+"why": "Bilateral injury is associated with cerebellar mutism."
+},
+{
+"label": "PICA branches",
+"match": null,
+"why": "Loop over the tonsils and supply the medulla (not modelled)."
+}
+],
+"pearls": [
+"The telovelar route avoids vermian splitting, which has been linked to cerebellar mutism, though comparative studies have not consistently shown a lower mutism rate; dentate and superior peduncle involvement also matter."
+],
+"pitfalls": [
+"Sitting position without air embolism monitoring."
+],
+"schematic": "The orange C1 arch piece marks bone removed when a C1 laminectomy is added.",
+"meshes": [
+{
+"name": "Approach: midline suboccipital telovelar — craniotomy",
+"tag": "bone"
+},
+{
+"name": "Approach: midline suboccipital telovelar — C1 posterior arch removal",
+"tag": "bone"
+},
+{
+"name": "Approach: midline suboccipital telovelar — midline incision",
+"tag": "incision"
+},
+{
+"name": "Approach: midline suboccipital telovelar — telovelar corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-7.03,
+54.39,
+33.53
+],
+"eye": [
+-16.868698973248044,
+-45.44707208371521,
+251.55440487620092
+]
+},
+{
+"id": "farlateral",
+"specimen": "approaches_head.glb",
+"title": "Far-lateral (transcondylar) approach",
+"cat": "Cranial",
+"side": "right",
+"summary": "A lateral suboccipital craniotomy carried to the foramen magnum, plus a C1 hemilaminectomy and, if needed, partial condyle drilling, opens the ventrolateral foramen magnum and lower clivus.",
+"indications": [
+"Ventral and ventrolateral foramen magnum meningiomas",
+"Vertebral artery and PICA origin aneurysms",
+"Lower clival and ventral medullary lesions"
+],
+"position": "Park-bench with the head flexed, rotated towards the floor and tilted, opening the angle between mastoid and shoulder.",
+"steps": [
+{
+"h": "Incision",
+"t": "Hockey-stick or inverted-U incision from the mastoid tip along the superior nuchal line and down the midline.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Muscle layers",
+"t": "Reflect the muscles in layers to reach the suboccipital triangle.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Vertebral artery",
+"t": "Find the V3 segment in its groove on the C1 posterior arch, surrounded by a venous plexus. Control it before bone removal.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Bone",
+"t": "Lateral suboccipital craniotomy down to the foramen magnum, C1 hemilaminectomy, and drilling of the posterior condyle as far as the lesion requires. The hypoglossal canal lies above the condyle.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Intradural",
+"t": "Open the dura close to the vertebral artery dural entry. The lateral trajectory reaches ventral to the medulla with minimal retraction.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Right vertebral artery",
+"match": "right vertebral artery",
+"why": "Lies on the C1 arch and enters dura at the foramen magnum."
+},
+{
+"label": "Medulla",
+"match": "medulla oblongata",
+"why": "Must not be retracted."
+},
+{
+"label": "Lower cranial nerves and hypoglossal nerve",
+"match": null,
+"why": "Injury causes dysphagia, dysphonia and tongue weakness (not modelled)."
+},
+{
+"label": "Craniocervical stability",
+"match": "atlas|axis",
+"why": "Excessive condyle resection can destabilise the joint."
+}
+],
+"pearls": [
+"Only as much condyle as needed: many lesions need little or none once the dura is opened laterally."
+],
+"pitfalls": [
+"Bleeding from the condylar emissary vein and suboccipital venous plexus obscures the vertebral artery."
+],
+"schematic": "The vertebral artery shown is from the CT atlas; the C1 hemilaminectomy is drawn on the right side.",
+"meshes": [
+{
+"name": "Approach: far-lateral — lateral suboccipital craniotomy",
+"tag": "bone"
+},
+{
+"name": "Approach: far-lateral — C1 hemilaminectomy",
+"tag": "bone"
+},
+{
+"name": "Approach: far-lateral — hockey-stick incision",
+"tag": "incision"
+},
+{
+"name": "Approach: far-lateral — posterolateral corridor",
+"tag": "corridor"
+}
+],
+"target": [
+1.19,
+45.91,
+10.57
+],
+"eye": [
+106.12718531087621,
+-16.964317685800445,
+217.04868294870099
+]
+},
+{
+"id": "scit",
+"specimen": "approaches_head.glb",
+"title": "Supracerebellar infratentorial approach",
+"cat": "Cranial",
+"side": "midline",
+"summary": "A midline suboccipital craniotomy below the torcula uses the natural gap between the tentorium and the upper cerebellum to reach the pineal region, keeping the deep veins above the working field.",
+"indications": [
+"Pineal region tumours needing open resection or biopsy",
+"Posterior third-ventricle and dorsal midbrain lesions"
+],
+"position": "Sitting (gravity opens the corridor) or prone/Concorde; neck flexed so the surgeon's line of sight runs along the underside of the tentorium towards the pineal region (the tentorium roughly parallel to the floor when sitting).",
+"steps": [
+{
+"h": "Incision",
+"t": "Midline incision from above the inion down to the upper cervical spine.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Craniotomy",
+"t": "Expose the inferior edge of the transverse sinus and torcula.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Corridor",
+"t": "Open the dura, coagulate bridging veins from the upper cerebellar surface to the tentorium, and let the cerebellum fall away.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+},
+{
+"h": "Quadrigeminal cistern",
+"t": "Open the thickened arachnoid. The internal cerebral veins, basal veins and vein of Galen lie above and around the lesion and must be preserved.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Deep venous system",
+"match": null,
+"why": "Injury to the vein of Galen complex is poorly tolerated (not modelled)."
+},
+{
+"label": "Tectum and midbrain",
+"match": "superior colliculus|inferior colliculus|part of midbrain",
+"why": "Dorsal midbrain injury causes Parinaud syndrome."
+},
+{
+"label": "Torcula and transverse sinuses",
+"match": "transverse sinus|superior sagittal sinus",
+"why": "Form the upper margin of the craniotomy."
+}
+],
+"pearls": [
+"Treat hydrocephalus first; ETV with endoscopic biopsy is often combined."
+],
+"pitfalls": [
+"Venous air embolism in the sitting position needs precordial Doppler or TOE monitoring and a plan."
+],
+"schematic": "Target is the pineal body of the registered atlas brain.",
+"meshes": [
+{
+"name": "Approach: supracerebellar infratentorial — craniotomy",
+"tag": "bone"
+},
+{
+"name": "Approach: supracerebellar infratentorial — midline incision",
+"tag": "incision"
+},
+{
+"name": "Approach: supracerebellar infratentorial — supracerebellar corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-10.58,
+86.98,
+13.55
+],
+"eye": [
+-0.521967391876851,
+65.39683683952627,
+252.36969037525228
+]
+},
+{
+"id": "eea_sella",
+"specimen": "approaches_head.glb",
+"title": "Endoscopic endonasal transsphenoidal approach",
+"cat": "Skull base & endoscopic",
+"side": "midline",
+"summary": "An endoscope through the nostril, a posterior septectomy and wide sphenoidotomy lead to the sellar floor, which is opened to reach the pituitary fossa.",
+"indications": [
+"Pituitary adenomas",
+"Rathke cleft cysts and other sellar lesions",
+"Sellar biopsy and decompression"
+],
+"position": "Supine, head slightly extended and turned towards the surgeon, fixed in pins or a horseshoe when navigation is used; nasal decongestion.",
+"steps": [
+{
+"h": "Nasal phase",
+"t": "Lateralise the turbinates, identify the sphenoid ostium, and harvest a nasoseptal flap when a larger skull-base repair is anticipated.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Sphenoidotomy",
+"t": "Posterior septectomy and wide sphenoidotomy. Remove sphenoid septations with care, as they often lead to the carotid prominences.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Landmarks",
+"t": "Sellar floor in the centre; carotid prominences laterally; optic prominences and lateral optico-carotid recesses superolaterally; clival recess below.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Sellar opening",
+"t": "Open the sellar floor and dura. Work from inferior to lateral to superior so the diaphragma descends last.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Repair",
+"t": "Reconstruct according to the CSF leak: layered repair, with a vascularised nasoseptal flap for high-flow leaks.",
+"reveal": [
+"corridor",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Internal carotid arteries",
+"match": "internal carotid artery, intracranial",
+"why": "Paraclival and cavernous ICA form the lateral limits; injury is life-threatening."
+},
+{
+"label": "Pituitary gland and stalk",
+"match": "adenohypophysis|neurohypophysis|infundibulum",
+"why": "Endocrine deficit and diabetes insipidus."
+},
+{
+"label": "Optic chiasm",
+"match": "optic chiasm",
+"why": "Above the diaphragma; at risk with suprasellar extension."
+},
+{
+"label": "Cavernous sinus",
+"match": null,
+"why": "Venous bleeding and cranial nerves III, IV, V1, V2, VI (not modelled)."
+}
+],
+"pearls": [
+"Confirm the midline repeatedly with navigation and the vomer/rostrum."
+],
+"pitfalls": [
+"A narrow sphenoidotomy limits instrument movement and angled visualisation."
+],
+"schematic": "The corridor starts in front of the nasal aperture; nasal soft tissues are not modelled.",
+"meshes": [
+{
+"name": "Approach: endoscopic transsphenoidal — sellar opening",
+"tag": "bone"
+},
+{
+"name": "Approach: endoscopic transsphenoidal — endonasal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-7.71,
+62.37,
+-15.15
+],
+"eye": [
+-0.5839304934841367,
+-41.52338803791221,
+-185.8962255086296
+]
+},
+{
+"id": "eea_planum",
+"specimen": "approaches_head.glb",
+"title": "Extended endonasal transplanum–transtuberculum approach",
+"cat": "Skull base & endoscopic",
+"side": "midline",
+"summary": "The sellar opening is extended upwards through the tuberculum sellae and planum sphenoidale, between the optic canals, to reach the suprasellar space from below.",
+"indications": [
+"Craniopharyngioma",
+"Tuberculum sellae and planum meningiomas",
+"Suprasellar extension of pituitary lesions"
+],
+"position": "As for the transsphenoidal approach.",
+"steps": [
+{
+"h": "Wide exposure",
+"t": "Bilateral nasal corridors with a nasoseptal flap raised at the start.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Bone removal",
+"t": "Remove the tuberculum and posterior planum between the medial optico-carotid recesses; the optic canals mark the lateral limits.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Dura and intercavernous sinus",
+"t": "Open the dura above and below the superior intercavernous sinus, then control and divide it.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Suprasellar space",
+"t": "Identify the optic chiasm, superior hypophyseal arteries, pituitary stalk and A1/AComm complex. Dissect tumour away from the stalk and hypothalamus when safe.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Repair",
+"t": "Multilayer repair with a vascularised flap, since leaks are high-flow.",
+"reveal": [
+"corridor",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Optic chiasm and nerves",
+"match": "optic chiasm|optic nerve",
+"why": "Main functional risk; the superior hypophyseal arteries supply the chiasm from below."
+},
+{
+"label": "Anterior communicating complex",
+"match": "anterior cerebral arteries",
+"why": "Lies above and in front of the chiasm."
+},
+{
+"label": "Pituitary stalk and hypothalamus",
+"match": "infundibulum|hypothalamus",
+"why": "Endocrine and hypothalamic morbidity."
+}
+],
+"pearls": [
+"Preserving the superior hypophyseal arteries matters as much as preserving the chiasm itself."
+],
+"pitfalls": [
+"A CSF leak rate higher than in standard transsphenoidal surgery unless repair is meticulous."
+],
+"schematic": "The opening is drawn as a single patch over the tuberculum and planum of this skull.",
+"meshes": [
+{
+"name": "Approach: extended endonasal transplanum — planum and tuberculum opening",
+"tag": "bone"
+},
+{
+"name": "Approach: extended endonasal transplanum — endonasal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-8.7,
+65.56,
+-25.46
+],
+"eye": [
+1.7009074250586895,
+-47.283466531910946,
+-190.2586440639215
+]
+},
+{
+"id": "eea_clivus",
+"specimen": "approaches_head.glb",
+"title": "Endoscopic endonasal transclival approach",
+"cat": "Skull base & endoscopic",
+"side": "midline",
+"summary": "Drilling the clivus behind the sphenoid sinus and nasopharynx opens a ventral corridor to the prepontine space and ventral brainstem.",
+"indications": [
+"Clival chordoma and chondrosarcoma",
+"Ventral brainstem and petroclival lesions in selected cases",
+"Lower clival lesions extending to the foramen magnum"
+],
+"position": "As for the transsphenoidal approach; the lower clivus needs a more caudal trajectory through the nasopharynx.",
+"steps": [
+{
+"h": "Exposure",
+"t": "Wide sphenoidotomy; for the middle and lower clivus the nasopharyngeal mucosa and prevertebral muscles are divided.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Clivectomy",
+"t": "Drill the clivus between the paraclival ICAs. The vidian canal leads to the petrous ICA and is a useful landmark.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Dura",
+"t": "The basilar venous plexus bleeds from the dura; the abducens nerve enters Dorello canal medial to the paraclival ICA.",
+"reveal": [
+"corridor",
+"bone"
+]
+},
+{
+"h": "Intradural",
+"t": "The basilar artery and its perforators lie directly behind the clival dura.",
+"reveal": [
+"corridor",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Basilar artery and perforators",
+"match": "basilar artery",
+"why": "Directly behind the dura."
+},
+{
+"label": "Paraclival ICAs",
+"match": "internal carotid artery, intracranial",
+"why": "Lateral limits of bone removal."
+},
+{
+"label": "Pons",
+"match": "pons",
+"why": "Ventral surface is the deep limit."
+},
+{
+"label": "Abducens nerve",
+"match": null,
+"why": "Diplopia from injury at Dorello canal (not modelled)."
+}
+],
+"pearls": [
+"Plan lateral limits on CT angiography; the paraclival ICAs converge towards the midline in some patients."
+],
+"pitfalls": [
+"Intradural transclival work carries a high CSF leak risk."
+],
+"schematic": "Clival opening drawn on this skull; the vessels are atlas-derived and not patient-specific.",
+"meshes": [
+{
+"name": "Approach: endoscopic transclival — clival opening",
+"tag": "bone"
+},
+{
+"name": "Approach: endoscopic transclival — endonasal corridor",
+"tag": "corridor"
+}
+],
+"target": [
+-6.01,
+64.47,
+-3.77
+],
+"eye": [
+-3.0398500978798584,
+-34.830571807078755,
+-177.35498004548108
+]
+},
+{
+"id": "kawase",
+"specimen": "approaches_head.glb",
+"title": "Anterior petrosal (Kawase) approach",
+"cat": "Skull base & endoscopic",
+"side": "right",
+"summary": "A subtemporal extradural route with drilling of the petrous apex (Kawase rhomboid) opens the upper petroclival region and posterior fossa from the middle fossa, avoiding the cochlea and petrous ICA.",
+"indications": [
+"Upper and middle petroclival meningiomas",
+"Trigeminal schwannomas spanning the middle and posterior fossae",
+"Selected basilar trunk aneurysms"
+],
+"position": "Supine with the head turned 90° (or lateral), vertex slightly down.",
+"steps": [
+{
+"h": "Temporal craniotomy",
+"t": "Low temporal craniotomy flush with the middle fossa floor.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Extradural elevation",
+"t": "Elevate the dura from the floor from posterior to anterior. Coagulate and divide the middle meningeal artery at the foramen spinosum; identify the greater superficial petrosal nerve (GSPN), V3 and the arcuate eminence.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Petrous apex drilling",
+"t": "Drill the rhomboid bounded by the GSPN, the trigeminal nerve, the petrous ridge and the arcuate eminence/IAC region, staying clear of the cochlea and the horizontal petrous ICA.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Intradural",
+"t": "Open the middle and posterior fossa dura, divide the superior petrosal sinus and the tentorium, and reach the petroclival region.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Petrous ICA",
+"match": "right internal carotid artery",
+"why": "Lies beneath the GSPN."
+},
+{
+"label": "Pons and trigeminal root",
+"match": "pons",
+"why": "Petroclival lesions compress the pons."
+},
+{
+"label": "Cochlea and GSPN",
+"match": null,
+"why": "Hearing loss; dry eye; facial nerve traction via the GSPN (not modelled)."
+},
+{
+"label": "Vein of Labbé",
+"match": null,
+"why": "Temporal venous infarction (not modelled)."
+}
+],
+"pearls": [
+"Cutting the GSPN rather than pulling on it protects the geniculate ganglion."
+],
+"pitfalls": [
+"Drilling too far posterolaterally enters the cochlea."
+],
+"schematic": "The drilled area is placed at the petrous apex estimated from the registered brainstem; exact petrous landmarks are not segmented on this CT mesh.",
+"meshes": [
+{
+"name": "Approach: anterior petrosal (Kawase) — temporal craniotomy",
+"tag": "bone"
+},
+{
+"name": "Approach: anterior petrosal (Kawase) — petrous apex drilling",
+"tag": "bone"
+},
+{
+"name": "Approach: anterior petrosal (Kawase) — skin incision",
+"tag": "incision"
+},
+{
+"name": "Approach: anterior petrosal (Kawase) — middle fossa corridor",
+"tag": "corridor"
+}
+],
+"target": [
+12.95,
+68.08,
+3.44
+],
+"eye": [
+249.29479436126203,
+106.67548658841778,
+19.299678733074995
+]
+},
+{
+"id": "presigmoid",
+"specimen": "approaches_head.glb",
+"title": "Presigmoid (retrolabyrinthine) approach",
+"cat": "Skull base & endoscopic",
+"side": "right",
+"summary": "A mastoidectomy that skeletonises the sigmoid sinus and preserves the labyrinth opens the presigmoid dura; combined with a temporal craniotomy and tentorial division it reaches both sides of the tentorium at the petroclival region.",
+"indications": [
+"Petroclival meningiomas with supra- and infratentorial extension",
+"Ventrolateral brainstem lesions"
+],
+"position": "Supine with the head turned, or lateral.",
+"steps": [
+{
+"h": "Incision",
+"t": "C-shaped retroauricular incision reaching above the ear.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Mastoidectomy",
+"t": "Cortical mastoidectomy; skeletonise the sigmoid sinus and identify the semicircular canals, which are preserved in the retrolabyrinthine variant.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Temporo-occipital craniotomy",
+"t": "Add a craniotomy above the transverse sinus when combining supra- and infratentorial exposure.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Presigmoid dura",
+"t": "Open the dura between the sigmoid sinus and the posterior semicircular canal, divide the superior petrosal sinus and the tentorium, and reach the petroclival region.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Sigmoid sinus and jugular bulb",
+"match": "right sigmoid sinus",
+"why": "Skeletonised and retracted."
+},
+{
+"label": "Facial nerve (mastoid segment) and labyrinth",
+"match": null,
+"why": "Facial palsy and hearing loss (not modelled)."
+},
+{
+"label": "Pons and petroclival region",
+"match": "pons",
+"why": "Deep target."
+}
+],
+"pearls": [
+"Neurotology co-surgery is common for the mastoid work."
+],
+"pitfalls": [
+"A contracted mastoid or anteriorly placed sigmoid sinus narrows the presigmoid window."
+],
+"schematic": "Mastoidectomy region is drawn as a patch on the mastoid of this skull.",
+"meshes": [
+{
+"name": "Approach: presigmoid retrolabyrinthine — mastoidectomy",
+"tag": "bone"
+},
+{
+"name": "Approach: presigmoid retrolabyrinthine — temporo-occipital craniotomy",
+"tag": "bone"
+},
+{
+"name": "Approach: presigmoid retrolabyrinthine — C-shaped incision",
+"tag": "incision"
+},
+{
+"name": "Approach: presigmoid retrolabyrinthine — presigmoid corridor",
+"tag": "corridor"
+}
+],
+"target": [
+14.94,
+62.27,
+11.19
+],
+"eye": [
+202.4220336372024,
+-15.097855310655277,
+119.66546353870568
+]
+},
+{
+"id": "evd_kocher",
+"specimen": "approaches_head.glb",
+"title": "External ventricular drain at Kocher point",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "A frontal burr hole at Kocher point and a catheter aimed at the ipsilateral foramen of Monro drain the frontal horn.",
+"indications": [
+"Acute hydrocephalus",
+"Intracranial pressure monitoring",
+"Intraventricular haemorrhage (drainage and, where used, lysis)"
+],
+"position": "Supine, head neutral and elevated; the right (usually non-dominant) side is chosen unless there is a reason not to.",
+"steps": [
+{
+"h": "Landmark",
+"t": "Kocher point is commonly described as about 11 cm behind the nasion and about 3 cm from the midline, near the mid-pupillary line and about 1 cm in front of the coronal suture.",
+"reveal": [
+"bone"
+]
+},
+{
+"h": "Burr hole",
+"t": "Twist-drill or burr hole; open the dura and coagulate the pia.",
+"reveal": [
+"bone"
+]
+},
+{
+"h": "Trajectory",
+"t": "Pass the catheter perpendicular to the skull, aiming in the coronal plane towards the ipsilateral medial canthus and in the sagittal plane towards the external auditory meatus. CSF is usually reached within about 5–6 cm of the outer table in adults, often sooner when the ventricles are enlarged; avoid repeated passes.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Tunnel and secure",
+"t": "Tunnel the catheter away from the incision and secure it to reduce infection and dislodgement.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Right frontal horn and foramen of Monro",
+"match": "right lateral ventricle",
+"why": "Target."
+},
+{
+"label": "Caudate head and thalamus",
+"match": "right caudate nucleus|right anterior thalamic nucleus",
+"why": "Deep malposition."
+},
+{
+"label": "Superior sagittal sinus",
+"match": "superior sagittal sinus",
+"why": "A too-medial entry risks the sinus and bridging veins."
+},
+{
+"label": "Motor cortex",
+"match": "right precentral gyrus",
+"why": "A too-posterior entry."
+}
+],
+"pearls": [
+"Check the ventricle size and midline shift on the scan: small or shifted ventricles need image guidance."
+],
+"pitfalls": [
+"Multiple passes increase haemorrhage risk."
+],
+"schematic": "Kocher point here is measured along this skull (nasion-based arc plus lateral offset). The coronal suture is not visible on this CT surface, so its position is estimated.",
+"meshes": [
+{
+"name": "Approach: external ventricular drain (Kocher point) — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: external ventricular drain (Kocher point) — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+-4.5,
+92.06,
+-15.44
+],
+"eye": [
+132.33539025741138,
+224.79809238398423,
+-144.1176000817732
+]
+},
+{
+"id": "keen",
+"specimen": "approaches_head.glb",
+"title": "Ventricular access at Keen point",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "A posterior parietal entry about 2.5–3 cm above and behind the top of the pinna reaches the atrium (trigone) of the lateral ventricle.",
+"indications": [
+"Ventricular catheter when a frontal route is unsuitable",
+"Access to the trigone"
+],
+"position": "Lateral or supine with the head turned.",
+"steps": [
+{
+"h": "Landmark",
+"t": "Measure from the top of the pinna; the skin landmark is approximate and varies with head shape.",
+"reveal": [
+"bone"
+]
+},
+{
+"h": "Trajectory",
+"t": "Pass the catheter perpendicular to the cortical surface towards the atrium.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Right atrium and choroid plexus",
+"match": "right lateral ventricle",
+"why": "Target; the glomus of the choroid plexus lies in the atrium."
+},
+{
+"label": "Inferior parietal lobule (language on the dominant side)",
+"match": "right supramarginal gyrus|right inferior parietal lobule",
+"why": "Avoid the dominant side."
+},
+{
+"label": "Optic radiation",
+"match": null,
+"why": "Runs lateral to the atrium (not modelled; see the Julich layer in the MNI overlay)."
+}
+],
+"pearls": [
+"Neuronavigation is used when possible."
+],
+"pitfalls": [
+"Dominant-hemisphere entry risks language cortex."
+],
+"schematic": "The pinna is not modelled; its top is estimated about 3 cm above the external auditory meatus.",
+"meshes": [
+{
+"name": "Approach: ventricular access at Keen point — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: ventricular access at Keen point — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+16.27,
+94.15,
+36.53
+],
+"eye": [
+198.00454911962635,
+201.30084097258174,
+128.12621086137239
+]
+},
+{
+"id": "frazier",
+"specimen": "approaches_head.glb",
+"title": "Ventricular access at Frazier point",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "A parieto-occipital entry, about 6 cm above the inion and 3–4 cm from the midline, used for posterior ventricular catheters.",
+"indications": [
+"Posterior (parieto-occipital) ventricular shunt catheters",
+"Emergency ventricular access in the prone position"
+],
+"position": "Prone, lateral or supine with the head turned.",
+"steps": [
+{
+"h": "Landmark",
+"t": "About 6 cm above the inion and 3–4 cm from the midline.",
+"reveal": [
+"bone"
+]
+},
+{
+"h": "Trajectory",
+"t": "The catheter is passed into the atrium and body of the lateral ventricle; many surgeons aim it along the long axis of the ventricle towards the frontal horn. Conventions vary.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Right lateral ventricle",
+"match": "right lateral ventricle",
+"why": "Target."
+},
+{
+"label": "Visual cortex and optic radiation",
+"match": "right visual cortex|right cuneus",
+"why": "Visual field deficits."
+}
+],
+"pearls": [
+"A longer intraventricular catheter placed towards the frontal horn keeps the tip away from the choroid plexus."
+],
+"pitfalls": [
+"Too lateral an entry risks the optic radiation."
+],
+"schematic": "Measured on this skull from the inion; the trajectory shown ends in the atrium.",
+"meshes": [
+{
+"name": "Approach: ventricular access at Frazier point — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: ventricular access at Frazier point — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+16.27,
+94.15,
+36.53
+],
+"eye": [
+127.98713359831038,
+219.88968462682288,
+193.39627475221616
+]
+},
+{
+"id": "dandy",
+"specimen": "approaches_head.glb",
+"title": "Ventricular access at Dandy point",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "An occipital entry about 3 cm above the inion and 2 cm from the midline, reaching the occipital horn.",
+"indications": [
+"Occipital horn access",
+"Emergency ventricular drainage in the prone position"
+],
+"position": "Prone or lateral.",
+"steps": [
+{
+"h": "Landmark",
+"t": "About 3 cm above the inion and 2 cm from the midline.",
+"reveal": [
+"bone"
+]
+},
+{
+"h": "Trajectory",
+"t": "Pass the catheter forwards into the occipital horn.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Transverse sinus and torcula",
+"match": "transverse sinus|superior sagittal sinus",
+"why": "Lie just below and medial to the entry."
+},
+{
+"label": "Visual cortex",
+"match": "right visual cortex|right cuneus|right lingual gyrus",
+"why": "Calcarine cortex lies close to the trajectory."
+}
+],
+"pearls": [
+"Know where the torcula is on the scan before choosing this point."
+],
+"pitfalls": [
+"The occipital horn is variable: often small or asymmetric, and occasionally rudimentary."
+],
+"schematic": "Measured on this skull from the inion.",
+"meshes": [
+{
+"name": "Approach: ventricular access at Dandy point — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: ventricular access at Dandy point — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+12.15,
+94.13,
+50.78
+],
+"eye": [
+94.17748591180059,
+121.92847143266356,
+263.84529017320097
+]
+},
+{
+"id": "etv",
+"specimen": "approaches_head.glb",
+"title": "Endoscopic third ventriculostomy (ETV)",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "An endoscope passed through the frontal horn and foramen of Monro opens the floor of the third ventricle into the prepontine cistern, bypassing an obstruction at or below the aqueduct.",
+"indications": [
+"Obstructive hydrocephalus, for example aqueductal stenosis or tectal/posterior fossa mass",
+"Combined with endoscopic biopsy of pineal-region tumours"
+],
+"position": "Supine, head neutral or slightly flexed.",
+"steps": [
+{
+"h": "Plan",
+"t": "Plan the line from the floor, just in front of the mammillary bodies, through the foramen of Monro on sagittal MRI. Its exit on the skull gives the burr hole, usually near the coronal suture about 2.5–3 cm from the midline.",
+"reveal": [
+"bone"
+]
+},
+{
+"h": "Frontal horn",
+"t": "Enter the frontal horn and identify the foramen of Monro from the choroid plexus, septal and thalamostriate veins.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Third ventricle",
+"t": "Pass through the foramen without levering against the fornix.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Stoma",
+"t": "Perforate the floor in the midline between the infundibular recess in front and the mammillary bodies behind, then dilate with a balloon. Check that the membrane of Liliequist is open and the basilar artery visible in the prepontine cistern.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Basilar artery and perforators",
+"match": "basilar artery",
+"why": "Lie immediately below the floor."
+},
+{
+"label": "Fornix",
+"match": "fornix",
+"why": "Injured by torque at the foramen of Monro."
+},
+{
+"label": "Hypothalamus and mammillary bodies",
+"match": "hypothalamus|mammillary body",
+"why": "Endocrine and memory effects."
+}
+],
+"pearls": [
+"A straight trajectory through the foramen to the stoma site avoids forniceal injury."
+],
+"pitfalls": [
+"A thick or opaque floor, or an abnormal basilar position, makes perforation hazardous."
+],
+"schematic": "Entry is computed on this model as the extension of the line from the stoma site through the foramen of Monro; on this composite it lands about 1 cm behind the estimated coronal suture.",
+"meshes": [
+{
+"name": "Approach: endoscopic third ventriculostomy — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: endoscopic third ventriculostomy — trajectory",
+"tag": "corridor"
+},
+{
+"name": "Approach: endoscopic third ventriculostomy — stoma site",
+"tag": "bone"
+}
+],
+"target": [
+-8.5,
+76.23,
+-12.2
+],
+"eye": [
+132.7852563417001,
+257.71922194550996,
+-11.188308595521521
+]
+},
+{
+"id": "dbs_stn",
+"specimen": "approaches_head.glb",
+"title": "Deep brain stimulation: subthalamic nucleus",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "A stereotactic trajectory from a burr hole near the coronal suture to the subthalamic nucleus. Planning combines direct MRI targeting with indirect coordinates relative to the AC–PC line.",
+"indications": [
+"Parkinson disease with motor fluctuations or tremor"
+],
+"position": "Stereotactic frame or frameless system; often awake for microelectrode recording and test stimulation, or asleep with image verification.",
+"steps": [
+{
+"h": "Targeting",
+"t": "Identify the target on MRI and check it against indirect coordinates. Commonly quoted starting values: roughly 11–13 mm lateral, 2–4 mm posterior and 4–5 mm below the mid-commissural point. These are conventions to verify against current references and the individual scan.",
+"reveal": []
+},
+{
+"h": "Trajectory",
+"t": "Choose an entry near the coronal suture, a few centimetres from the midline, that avoids sulci, cortical and ventricular vessels and, where possible, the ventricle.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Recording and testing",
+"t": "Microelectrode recording and macrostimulation (or intraoperative imaging) confirm position and side-effect thresholds.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Implant",
+"t": "Place the lead, secure it at the burr hole, and connect to an implanted pulse generator.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Subthalamic nucleus",
+"match": "right subthalamic nucleus",
+"why": "Target (dorsolateral motor part)."
+},
+{
+"label": "Internal capsule",
+"match": "corticospinal tract r",
+"why": "Current spread gives tonic muscle contraction or dysarthria."
+},
+{
+"label": "Substantia nigra and red nucleus",
+"match": "right substantia nigra|right red nucleus",
+"why": "Deep and medial neighbours; oculomotor fibres pass nearby."
+}
+],
+"pearls": [
+"Trajectory angles vary with each patient's anatomy; the angles in this model are illustrative."
+],
+"pitfalls": [
+"Transventricular trajectories have been associated with lead deviation and, in some series, a higher complication rate."
+],
+"schematic": "Trajectory drawn from an AC–PC frame estimated on the registered atlas brain (the posterior commissure position is approximated). Illustrative angles only; not for planning.",
+"meshes": [
+{
+"name": "Approach: DBS lead to subthalamic nucleus — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: DBS lead to subthalamic nucleus — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+-2.19,
+81.39,
+-3.16
+],
+"eye": [
+162.84248701158972,
+219.1186240644299,
+-84.98932504727317
+]
+},
+{
+"id": "dbs_gpi",
+"specimen": "approaches_head.glb",
+"title": "Deep brain stimulation: globus pallidus internus",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "A stereotactic trajectory from a burr hole near the coronal suture to the posteroventral globus pallidus internus. Planning combines direct MRI targeting with indirect coordinates relative to the AC–PC line.",
+"indications": [
+"Dystonia",
+"Parkinson disease (selected patients)"
+],
+"position": "Stereotactic frame or frameless system; often awake for microelectrode recording and test stimulation, or asleep with image verification.",
+"steps": [
+{
+"h": "Targeting",
+"t": "Identify the target on MRI and check it against indirect coordinates. Commonly quoted starting values: roughly 19–21 mm lateral, 2–3 mm anterior and 4–6 mm below the mid-commissural point. These are conventions to verify against current references and the individual scan.",
+"reveal": []
+},
+{
+"h": "Trajectory",
+"t": "Choose an entry near the coronal suture, a few centimetres from the midline, that avoids sulci, cortical and ventricular vessels and, where possible, the ventricle.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Recording and testing",
+"t": "Microelectrode recording and macrostimulation (or intraoperative imaging) confirm position and side-effect thresholds.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Implant",
+"t": "Place the lead, secure it at the burr hole, and connect to an implanted pulse generator.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Globus pallidus internus",
+"match": "right globus pallidus pars interna",
+"why": "Target (posteroventral)."
+},
+{
+"label": "Optic tract",
+"match": "right optic tract",
+"why": "Lies below the target: phosphenes on stimulation."
+},
+{
+"label": "Internal capsule",
+"match": "corticospinal tract r",
+"why": "Posteromedial: capsular side effects."
+}
+],
+"pearls": [
+"Trajectory angles vary with each patient's anatomy; the angles in this model are illustrative."
+],
+"pitfalls": [
+"Transventricular trajectories have been associated with lead deviation and, in some series, a higher complication rate."
+],
+"schematic": "Trajectory drawn from an AC–PC frame estimated on the registered atlas brain (the posterior commissure position is approximated). Illustrative angles only; not for planning.",
+"meshes": [
+{
+"name": "Approach: DBS lead to globus pallidus internus — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: DBS lead to globus pallidus internus — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+10.17,
+86.67,
+-4.62
+],
+"eye": [
+154.78882097718653,
+244.99262968948457,
+-87.8072687890452
+]
+},
+{
+"id": "dbs_vim",
+"specimen": "approaches_head.glb",
+"title": "Deep brain stimulation: ventral intermediate thalamus",
+"cat": "Ventricular & functional",
+"side": "right",
+"summary": "A stereotactic trajectory from a burr hole near the coronal suture to the ventral intermediate nucleus (posterior ventral lateral thalamus). Planning combines direct MRI targeting with indirect coordinates relative to the AC–PC line.",
+"indications": [
+"Essential tremor",
+"Tremor-dominant disorders"
+],
+"position": "Stereotactic frame or frameless system; often awake for microelectrode recording and test stimulation, or asleep with image verification.",
+"steps": [
+{
+"h": "Targeting",
+"t": "Identify the target on MRI and check it against indirect coordinates. Commonly quoted starting values: roughly 14–15 mm lateral to the midline (or about 11 mm lateral to the third-ventricle wall), about a quarter of the AC–PC length (often about 5–6 mm) in front of the posterior commissure, at the AC–PC plane. These are conventions to verify against current references and the individual scan.",
+"reveal": []
+},
+{
+"h": "Trajectory",
+"t": "Choose an entry near the coronal suture, a few centimetres from the midline, that avoids sulci, cortical and ventricular vessels and, where possible, the ventricle.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Recording and testing",
+"t": "Microelectrode recording and macrostimulation (or intraoperative imaging) confirm position and side-effect thresholds.",
+"reveal": [
+"bone",
+"corridor"
+]
+},
+{
+"h": "Implant",
+"t": "Place the lead, secure it at the burr hole, and connect to an implanted pulse generator.",
+"reveal": [
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "Ventral lateral thalamus (Vim)",
+"match": "right ventral lateral thalamic nucleus",
+"why": "Target."
+},
+{
+"label": "Ventral posterior (sensory) thalamus",
+"match": "right ventral posterolateral thalamic nucleus|right ventral posteromedial thalamic nucleus",
+"why": "Posterior neighbour: paraesthesia on stimulation."
+},
+{
+"label": "Internal capsule",
+"match": "corticospinal tract r",
+"why": "Lateral neighbour."
+}
+],
+"pearls": [
+"Trajectory angles vary with each patient's anatomy; the angles in this model are illustrative."
+],
+"pitfalls": [
+"Transventricular trajectories have been associated with lead deviation and, in some series, a higher complication rate."
+],
+"schematic": "Trajectory drawn from an AC–PC frame estimated on the registered atlas brain (the posterior commissure position is approximated). Illustrative angles only; not for planning.",
+"meshes": [
+{
+"name": "Approach: DBS lead to ventral intermediate thalamus — burr hole",
+"tag": "bone"
+},
+{
+"name": "Approach: DBS lead to ventral intermediate thalamus — trajectory",
+"tag": "corridor"
+}
+],
+"target": [
+1.06,
+87.93,
+1.75
+],
+"eye": [
+162.4299405355342,
+225.8223156303617,
+-86.83267992821334
+]
+},
+{
+"id": "acdf",
+"specimen": "approaches_head.glb",
+"title": "Anterior cervical discectomy and fusion, C5–C6",
+"cat": "Spinal",
+"side": "right",
+"summary": "A transverse neck incision and the avascular plane between the carotid sheath laterally and the trachea/oesophagus medially lead to the front of the cervical spine for discectomy and interbody fusion.",
+"indications": [
+"Cervical radiculopathy or myelopathy from disc herniation or osteophytes",
+"Selected single- or multilevel anterior compression"
+],
+"position": "Supine, neck slightly extended, shoulders gently taped down for radiography.",
+"steps": [
+{
+"h": "Incision",
+"t": "Transverse incision in a skin crease at the level confirmed on fluoroscopy. Right- and left-sided approaches are both used; the left recurrent laryngeal nerve has a more predictable course, which some surgeons prefer.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Plane",
+"t": "Divide platysma. Develop the plane medial to sternocleidomastoid and the carotid sheath and lateral to the strap muscles, trachea and oesophagus, down to the prevertebral fascia.",
+"reveal": [
+"incision",
+"corridor"
+]
+},
+{
+"h": "Level check",
+"t": "Place a marker in the disc and confirm the level radiographically. Elevate the longus colli on each side and place retractors beneath them.",
+"reveal": [
+"incision",
+"corridor"
+]
+},
+{
+"h": "Discectomy",
+"t": "Remove the disc and posterior osteophytes; open or resect the posterior longitudinal ligament as needed; decompress the foramina towards the uncovertebral joints.",
+"reveal": [
+"incision",
+"corridor",
+"bone"
+]
+},
+{
+"h": "Fusion",
+"t": "Insert an interbody cage or graft, with or without an anterior plate.",
+"reveal": [
+"incision",
+"corridor",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Right carotid artery and internal jugular vein",
+"match": "right common carotid|right internal jugular vein",
+"why": "Retracted laterally inside the carotid sheath."
+},
+{
+"label": "Thyroid gland and larynx",
+"match": "thyroid gland|thyroid cartilage",
+"why": "Retracted medially; the superior and inferior thyroid vessels cross the field at some levels."
+},
+{
+"label": "Vertebral artery",
+"match": "right vertebral artery",
+"why": "Lies lateral to the uncovertebral joint in the transverse foramen."
+},
+{
+"label": "Recurrent laryngeal nerve and oesophagus",
+"match": null,
+"why": "Hoarseness, dysphagia, perforation (not modelled)."
+}
+],
+"pearls": [
+"Stay medial to the uncovertebral joints to protect the vertebral artery."
+],
+"pitfalls": [
+"Postoperative neck haematoma can compromise the airway."
+],
+"schematic": "Neck skin and oesophagus are not modelled; the skin incision is placed at an approximate depth in front of the larynx.",
+"meshes": [
+{
+"name": "Approach: anterior cervical discectomy C5–C6 — anterior corridor",
+"tag": "corridor"
+},
+{
+"name": "Approach: anterior cervical discectomy C5–C6 — disc space and interbody cage site",
+"tag": "bone"
+},
+{
+"name": "Approach: anterior cervical discectomy C5–C6 — transverse skin incision",
+"tag": "incision"
+}
+],
+"target": [
+-4.33,
+-49.85,
+31.65
+],
+"eye": [
+83.85,
+-18.69,
+-156.38
+]
+},
+{
+"id": "post_cervical",
+"specimen": "approaches_head.glb",
+"title": "Posterior cervical laminectomy with lateral mass screws (C3–C6)",
+"cat": "Spinal",
+"side": "midline",
+"summary": "A midline posterior exposure, en bloc removal of the laminae and lateral mass screw fixation decompress the cord over several levels while preventing post-laminectomy kyphosis.",
+"indications": [
+"Multilevel cervical spondylotic myelopathy with preserved or lordotic alignment",
+"Ossification of the posterior longitudinal ligament",
+"Posterior compressive lesions"
+],
+"position": "Prone, head in pins, neck neutral to slightly flexed; reverse Trendelenburg reduces venous bleeding.",
+"steps": [
+{
+"h": "Incision",
+"t": "Midline incision along the spinous processes of the levels to be treated.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Exposure",
+"t": "Subperiosteal exposure to the lateral edge of the lateral masses; preserve the facet capsules of levels not being fused.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Screw paths",
+"t": "Mark entry points at the centre of each lateral mass (just medial to it in some techniques) and drill laterally and cephalad (in this model about 30° lateral and 15° cephalad; techniques differ).",
+"reveal": [
+"incision",
+"corridor"
+]
+},
+{
+"h": "Laminectomy",
+"t": "Troughs at the lamina–lateral mass junction on both sides; lift the laminae off en bloc.",
+"reveal": [
+"incision",
+"corridor",
+"bone"
+]
+},
+{
+"h": "Rods",
+"t": "Place screws and contoured rods; decorticate and graft the facets.",
+"reveal": [
+"incision",
+"corridor",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "Vertebral arteries",
+"match": "vertebral artery",
+"why": "Lie anterior to the lateral masses; a medially directed screw puts them at risk."
+},
+{
+"label": "Exiting nerve roots",
+"match": null,
+"why": "C5 palsy is a recognised complication after posterior decompression (not modelled)."
+},
+{
+"label": "Spinal cord and dura",
+"match": null,
+"why": "Dural tear or cord injury during lamina removal (not modelled)."
+}
+],
+"pearls": [
+"Lateral angulation keeps the screw away from the vertebral artery; cephalad angulation helps avoid the exiting nerve root."
+],
+"pitfalls": [
+"Laminectomy without fusion can lead to kyphosis in susceptible patients."
+],
+"schematic": "Lateral masses and canal are located automatically on the CT vertebrae; screw positions are approximate.",
+"meshes": [
+{
+"name": "Approach: posterior cervical laminectomy — C3 lamina removal",
+"tag": "bone"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C4 lamina removal",
+"tag": "bone"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C5 lamina removal",
+"tag": "bone"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C6 lamina removal",
+"tag": "bone"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C3 right lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C3 left lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C4 right lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C4 left lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C5 right lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C5 left lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C6 right lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — C6 left lateral mass screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: posterior cervical laminectomy — midline incision",
+"tag": "incision"
+}
+],
+"target": [
+-3.23,
+-35.89,
+46.48
+],
+"eye": [
+28.45,
+16.91,
+257.69
+]
+},
+{
+"id": "lumbar_laminectomy",
+"specimen": "case_spine_mets.glb",
+"title": "Lumbar laminectomy (L4)",
+"cat": "Spinal",
+"side": "midline",
+"summary": "Removal of the spinous process and lamina, with undercutting of the medial facets, decompresses the central canal and lateral recesses.",
+"indications": [
+"Lumbar canal stenosis with neurogenic claudication",
+"Central compressive lesions"
+],
+"position": "Prone on a frame with the abdomen free to reduce epidural venous bleeding.",
+"steps": [
+{
+"h": "Incision",
+"t": "Midline incision over the target level confirmed with fluoroscopy.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Exposure",
+"t": "Subperiosteal elevation of the paraspinal muscles, preserving the facet capsules.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Decompression",
+"t": "Remove the spinous process and lamina; resect ligamentum flavum; undercut the medial facets to open the lateral recesses; follow each traversing root into its foramen.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Preserve stability",
+"t": "Keep enough pars interarticularis and facet joint to avoid iatrogenic instability.",
+"reveal": [
+"incision",
+"bone"
+]
+}
+],
+"risks": [
+{
+"label": "L4 vertebra (pars and facets)",
+"match": "l4 vertebra",
+"why": "Over-resection causes pars fracture or instability."
+},
+{
+"label": "Dura and nerve roots",
+"match": null,
+"why": "Dural tear and root injury (not modelled)."
+}
+],
+"pearls": [
+"Confirm the level twice; wrong-level surgery is a classic error."
+],
+"pitfalls": [
+"Thinning the pars too much."
+],
+"schematic": "Bone to be removed is drawn on the rebuilt vertebra of the spine-metastasis case; the skin incision depth is estimated.",
+"meshes": [
+{
+"name": "Approach: lumbar laminectomy L4 — lamina and spinous process removal",
+"tag": "bone"
+},
+{
+"name": "Approach: lumbar laminectomy L4 — midline incision",
+"tag": "incision"
+}
+],
+"target": [
+343.89,
+77.16,
+-17.12
+],
+"eye": [
+165.91,
+160.95,
+18.97
+]
+},
+{
+"id": "pedicle_screws",
+"specimen": "case_spine_mets.glb",
+"title": "Lumbar pedicle screw fixation (L4–L5)",
+"cat": "Spinal",
+"side": "bilateral",
+"summary": "Screws passed through the pedicles into the vertebral bodies, joined by rods, provide three-column fixation.",
+"indications": [
+"Instability (for example spondylolisthesis)",
+"Fusion after decompression",
+"Trauma, tumour and deformity"
+],
+"position": "Prone on a frame, abdomen free; fluoroscopy or navigation.",
+"steps": [
+{
+"h": "Entry point",
+"t": "Conventional lumbar entry is near the junction of the transverse process and the lateral edge of the superior articular process.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Trajectory",
+"t": "Converge medially; convergence usually increases caudally (often roughly 10–15° at L4 and more at L5). This model uses a single illustrative 12°; confirm on the patient's imaging. Stay parallel to the superior endplate on the lateral view.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Pedicle tract",
+"t": "Probe, palpate the tract walls and floor, tap if needed.",
+"reveal": [
+"corridor"
+]
+},
+{
+"h": "Screws and rods",
+"t": "Place screws into the anterior body short of the anterior cortex, then connect with rods.",
+"reveal": [
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "L4 and L5 pedicles",
+"match": "l4 vertebra|l5 vertebra",
+"why": "Medial or inferior breach injures the dura or nerve roots."
+},
+{
+"label": "Great vessels",
+"match": null,
+"why": "An anterior cortical breach risks the aorta, vena cava or iliac vessels (not modelled)."
+}
+],
+"pearls": [
+"Medial wall breaches are the most consequential; check with palpation and imaging."
+],
+"pitfalls": [
+"Entry too lateral with too little convergence exits the pedicle laterally."
+],
+"schematic": "Pedicle centres are estimated from the canal walls; screws are 40 mm schematic cylinders.",
+"meshes": [
+{
+"name": "Approach: pedicle screws L4–L5 — L4 right pedicle screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: pedicle screws L4–L5 — L4 left pedicle screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: pedicle screws L4–L5 — L5 right pedicle screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: pedicle screws L4–L5 — L5 left pedicle screw",
+"tag": "corridor"
+},
+{
+"name": "Approach: pedicle screws L4–L5 — right rod",
+"tag": "corridor"
+},
+{
+"name": "Approach: pedicle screws L4–L5 — left rod",
+"tag": "corridor"
+}
+],
+"target": [
+342.6,
+62.95,
+-17.5
+],
+"eye": [
+158.87,
+127.26,
+28.43
+]
+},
+{
+"id": "costotransversectomy",
+"specimen": "case_spine_mets.glb",
+"title": "Costotransversectomy (T9, right)",
+"cat": "Spinal",
+"side": "right",
+"summary": "A posterolateral route that removes the medial rib, transverse process and pedicle to reach the lateral and ventral thoracic canal without retracting the spinal cord.",
+"indications": [
+"Thoracic disc herniation (selected)",
+"Ventral or lateral epidural tumour",
+"Vertebral body biopsy or corpectomy combined with posterior stabilisation"
+],
+"position": "Prone.",
+"steps": [
+{
+"h": "Incision",
+"t": "Paramedian (or curved midline) incision over the rib and transverse process of the level.",
+"reveal": [
+"incision"
+]
+},
+{
+"h": "Rib and transverse process",
+"t": "Expose and remove the transverse process and medial part of the rib, working subperiosteally to keep the pleura intact.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Foramen and pedicle",
+"t": "Follow the intercostal nerve to the foramen; remove the pedicle to open the lateral canal.",
+"reveal": [
+"incision",
+"bone"
+]
+},
+{
+"h": "Ventral work",
+"t": "Reach the posterolateral vertebral body and ventral canal lateral to the cord; add posterior fixation when stability is compromised.",
+"reveal": [
+"incision",
+"bone",
+"corridor"
+]
+}
+],
+"risks": [
+{
+"label": "T9 vertebra and canal",
+"match": "t9 vertebra",
+"why": "The cord must never be retracted."
+},
+{
+"label": "Pleura",
+"match": null,
+"why": "Pneumothorax (not modelled)."
+},
+{
+"label": "Segmental arteries",
+"match": null,
+"why": "The artery of Adamkiewicz usually arises in the lower thoracic region, more often on the left; check angiography when relevant (not modelled)."
+}
+],
+"pearls": [
+"Unilateral bone removal can destabilise the segment; plan fixation."
+],
+"pitfalls": [
+"Pleural tears are common; check before closure."
+],
+"schematic": "Ribs are not present in this specimen, so only transverse process and pedicle removal are drawn.",
+"meshes": [
+{
+"name": "Approach: costotransversectomy T9 (right) — transverse process and pedicle resection",
+"tag": "bone"
+},
+{
+"name": "Approach: costotransversectomy T9 (right) — posterolateral corridor",
+"tag": "corridor"
+},
+{
+"name": "Approach: costotransversectomy T9 (right) — paramedian incision",
+"tag": "incision"
+}
+],
+"target": [
+314.08,
+271.93,
+-6.93
+],
+"eye": [
+152.48,
+311.15,
+104.19
+]
+}
+]
+}
