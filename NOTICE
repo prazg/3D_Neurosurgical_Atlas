@@ -18,6 +18,9 @@ ANATOMY
   Nature 2016). https://github.com/wayalan/HCPex
 - JHU ICBM-DTI-81 probabilistic tractography atlas (Mori, Hua, Wakana et al.),
   distributed with FSL.
+- HCP-1065 population-averaged tractography atlas, Yeh FC, Nature Communications
+  2022;13:4933, doi:10.1038/s41467-022-32595-4 (brain.labsolver.org). CC BY-SA 4.0.
+  Meshes derived from the atlas NIfTI masks (smoothed, decimated, renamed).
 - Digital 3D Brain MRI Arterial Territories Atlas, Liu et al., Scientific Data
   2023, doi:10.1038/s41597-022-01923-0. CC BY-SA 4.0.
 - Juelich histological (cytoarchitectonic) atlas (Eickhoff et al.), distributed
@@ -28,7 +31,7 @@ ANATOMY
 
 APPROACHES SPECIMEN (approaches_head.glb) is a composite: SPL Head & Neck skull and
 neck vessels, SPL-PNL brain structures registered into that skull, and MNI-space
-tracts and arteries mapped into the same frame. Dural sinuses, bone flaps,
+HCP-1065 tracts/cranial nerves and arteries mapped into the same frame. Dural sinuses, bone flaps,
 corridors, incisions, entry points and trajectory angles are schematic.
 
 PATHOLOGY (all de-identified and de-faced at source)

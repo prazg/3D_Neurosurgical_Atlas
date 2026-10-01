@@ -52,9 +52,21 @@
         "swatch": "#cfd2d8"
       },
       {
+        "file": "tracts_hcp1065_assoc.glb",
+        "label": "Association tracts & cranial nerves (HCP-1065)",
+        "swatch": "#e8964a"
+      },
+      {
+        "file": "tracts_hcp1065_proj.glb",
+        "label": "Projection, commissural & cerebellar tracts (HCP-1065)",
+        "swatch": "#5a8ce6",
+        "off": true
+      },
+      {
         "file": "tracts.glb",
-        "label": "White-matter tracts",
-        "swatch": "#dc4a3c"
+        "label": "White-matter tracts (JHU, 20)",
+        "swatch": "#dc4a3c",
+        "off": true
       },
       {
         "file": "arterial_territories.glb",
@@ -137,7 +149,8 @@
     "Molecular case library: UCSF-PDGM (Calabrese et al., TCIA, doi:10.7937/tcia.bdgf-8v37, CC BY 4.0); NIfTI derivatives via the Pittsburgh Fiber Data Hub (data-nih/tcia).",
     "Vestibular schwannoma: Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA, CC BY 4.0. Tumour and cochlea contours only — patient skull contours deliberately excluded to avoid any re-identifiable surface.",
     "Spine: Spine-Mets-CT-SEG, TCIA, CC BY 4.0. Vertebral segmentations only.",
-    "Approaches specimen: composite teaching model. Skull, neck vessels and cervical spine from the SPL Head and Neck CT atlas; brain structures from the SPL-PNL atlas registered into that skull; white-matter tracts (JHU) and intracranial arteries (Mouches & Forkert, Sci Data 2019;6:29, CC0 vessel atlas, doi:10.1038/s41597-019-0034-5) mapped from MNI space. Dural sinuses, flaps, corridors, incisions and trajectories are schematic."
+    "Approaches specimen: composite teaching model. Skull, neck vessels and cervical spine from the SPL Head and Neck CT atlas; brain structures from the SPL-PNL atlas registered into that skull; white-matter tracts (JHU) and intracranial arteries (Mouches & Forkert, Sci Data 2019;6:29, CC0 vessel atlas, doi:10.1038/s41597-019-0034-5) mapped from MNI space. Dural sinuses, flaps, corridors, incisions and trajectories are schematic.",
+    "Tracts & cranial nerves layer and Approaches-specimen tracts: HCP-1065 population-averaged tractography atlas, Yeh FC, Nature Communications 2022;13:4933, doi:10.1038/s41467-022-32595-4 (brain.labsolver.org). CC BY-SA 4.0. Meshes derived from the atlas NIfTI masks (smoothed and decimated)."
   ],
   "approaches": "approaches.json"
 }

@@ -21,7 +21,9 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
   glands, and vessels (carotids, vertebrals, subclavians, jugulars) — plus six schematic
   **craniotomy footprints** projected onto the skull surface (pterional, retrosigmoid,
   midline suboccipital, far-lateral/transcondylar, frontal Kocher flap, subtemporal).
-- **Co-registered MNI overlay**: translucent brain shell with white-matter tracts, arterial
+- **Co-registered MNI overlay**: translucent brain shell with the HCP-1065 population tractography atlas
+  (87 bundles in two layers: association tracts and cranial nerves on by default; projection,
+  commissural and cerebellar tracts off), the original 20 JHU tracts, arterial
   territories, HCP-MMP parcellation, Jülich cytoarchitecture and schematic ventricular
   entry points (Kocher, Keen, Frazier, Dandy), each independently toggleable.
 
@@ -30,7 +32,7 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
 - **Approaches specimen** — a composite head built for approach teaching: the SPL Head & Neck CT
   skull, neck vessels and cervical spine; the SPL-PNL brain registered into that skull (affine fit
   to the inner table, a smooth radial warp, then a local correction that keeps every structure
-  inside the cranial cavity); JHU tracts and intracranial arteries from a CC0 MRA atlas
+  inside the cranial cavity); HCP-1065 tracts and cranial nerves and intracranial arteries from a CC0 MRA atlas
   (Mouches & Forkert 2019) mapped from MNI space; schematic dural venous sinuses.
 - **28 guided approaches** with step-by-step cards, a surgeon's-view camera, progressive reveal
   (incision → bone opening → corridor/trajectory) and highlighted structures at risk:
@@ -77,6 +79,12 @@ python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
 
+## Deploy (GitHub Pages)
+
+Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
+`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
+files unprocessed.
+
 ## Rebuilding the page
 
 `build_atlas.py` embeds a folder of `.glb` models into the viewer template
@@ -98,6 +106,7 @@ viewer's `LOOKUP` table).
 | SPL Head & Neck CT (59 structures) | Jakab & Kikinis, SPL; CT from the MANIX/OsiriX dataset | 3D Slicer licence, part B |
 | HCP-MMP parcellation (424 areas) | HCPex (Huang et al.); HCP-MMP1 (Glasser et al. 2016) | see source repo |
 | White-matter tracts (20 bundles) | JHU ICBM-DTI-81 (Mori/Hua/Wakana), via FSL | research / educational |
+| Tracts & cranial nerves (87 bundles) | HCP-1065 tractography atlas, Yeh FC, *Nat Commun* 2022;13:4933, doi:10.1038/s41467-022-32595-4 | CC BY-SA 4.0 |
 | Arterial territories (32) | Liu et al., *Scientific Data* 2023, doi:10.1038/s41597-022-01923-0 | CC BY-SA 4.0 |
 | Cytoarchitecture (121 areas) | Jülich histological atlas (Eickhoff et al.), via FSL | **non-commercial** |
 | MNI brain shell | ICBM152 2009c | see MNI terms |
@@ -132,6 +141,3 @@ Classification of CNS Tumours (5th ed., 2021). No text is reproduced from those 
 
 Viewer and build script: MIT (see `LICENSE`). Anatomical and patient-derived model files
 retain their own licences — see the table above and `NOTICE`.
-
-## Created by
-Prajwal Ghimire (c) 2026

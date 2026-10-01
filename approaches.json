@@ -215,9 +215,9 @@
 "why": "Periorbital breach leads to fat herniation and later enophthalmos."
 },
 {
-"label": "Oculomotor nerve",
-"match": null,
-"why": "Crosses the carotid-oculomotor window (not modelled)."
+"label": "Right oculomotor nerve",
+"match": "oculomotor nerve \\(cn iii\\) r",
+"why": "Crosses the carotid-oculomotor window; shown from population tractography, so its course is approximate."
 }
 ],
 "pearls": [
@@ -537,9 +537,9 @@
 "why": "Venous injury at the foramen can infarct the basal ganglia."
 },
 {
-"label": "Supplementary motor area",
-"match": "right superior frontal gyrus",
-"why": "Retraction can produce a transient SMA syndrome."
+"label": "Supplementary motor area and frontal aslant tract",
+"match": "right superior frontal gyrus|frontal aslant tract r",
+"why": "Retraction can produce a transient SMA syndrome; the frontal aslant tract runs from the SMA region to the inferior frontal gyrus."
 }
 ],
 "pearls": [
@@ -643,9 +643,9 @@
 "why": "Retraction contusion."
 },
 {
-"label": "Trochlear and oculomotor nerves",
-"match": null,
-"why": "Run along the tentorial edge (not modelled)."
+"label": "Oculomotor nerve",
+"match": "oculomotor nerve \\(cn iii\\) r",
+"why": "Runs towards the tentorial edge and cavernous sinus; the trochlear nerve along the tentorial edge is not modelled."
 }
 ],
 "pearls": [
@@ -755,9 +755,19 @@
 "why": "Medial limit of the angle."
 },
 {
-"label": "Facial and cochlear nerves, AICA",
+"label": "Facial and vestibulocochlear nerves",
+"match": "facial nerve \\(cn vii\\) r|vestibulocochlear nerve \\(cn viii\\) r",
+"why": "Main functional risks in CPA surgery; shown from population tractography, so positions are approximate."
+},
+{
+"label": "Trigeminal nerve",
+"match": "trigeminal nerve \\(cn v\\) r",
+"why": "Upper level of the angle; the target in microvascular decompression."
+},
+{
+"label": "AICA and petrosal vein",
 "match": null,
-"why": "Main functional risks in CPA surgery (not modelled)."
+"why": "Key vascular relationships in the angle (not modelled)."
 }
 ],
 "pearls": [
@@ -855,9 +865,9 @@
 "why": "Cranial nerve nuclei; injury causes facial or gaze palsy and bulbar dysfunction."
 },
 {
-"label": "Dentate nuclei",
-"match": "dentate-nucleus",
-"why": "Bilateral injury is associated with cerebellar mutism."
+"label": "Dentate nuclei and superior cerebellar peduncle",
+"match": "dentate-nucleus|superior cerebellar peduncle",
+"why": "Injury to the dentate–superior peduncle outflow, especially bilaterally, is associated with cerebellar mutism."
 },
 {
 "label": "PICA branches",
@@ -1461,9 +1471,9 @@
 "why": "Lies beneath the GSPN."
 },
 {
-"label": "Pons and trigeminal root",
-"match": "pons",
-"why": "Petroclival lesions compress the pons."
+"label": "Pons and trigeminal nerve",
+"match": "pons|trigeminal nerve \\(cn v\\) r",
+"why": "Petroclival lesions compress the pons and displace the trigeminal root."
 },
 {
 "label": "Cochlea and GSPN",
@@ -1748,8 +1758,8 @@
 },
 {
 "label": "Optic radiation",
-"match": null,
-"why": "Runs lateral to the atrium (not modelled; see the Julich layer in the MNI overlay)."
+"match": "optic radiation r",
+"why": "Runs in the lateral wall of the atrium; shown from population tractography."
 }
 ],
 "pearls": [
@@ -1817,7 +1827,7 @@
 },
 {
 "label": "Visual cortex and optic radiation",
-"match": "right visual cortex|right cuneus",
+"match": "right visual cortex|right cuneus|optic radiation r",
 "why": "Visual field deficits."
 }
 ],
@@ -2235,6 +2245,11 @@
 "label": "Ventral lateral thalamus (Vim)",
 "match": "right ventral lateral thalamic nucleus",
 "why": "Target."
+},
+{
+"label": "Dentatorubrothalamic tract",
+"match": "dentatorubrothalamic tract r",
+"why": "The cerebellothalamic fibres reaching Vim; increasingly used as a tractography target for tremor."
 },
 {
 "label": "Ventral posterior (sensory) thalamus",
