@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Advanced 3D Surgical Anatomy Atlas — Brain &amp; Spine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<meta name="theme-color" content="#0d1317" />
+<title>Advanced 3D Surgical Anatomy Atlas — Brain &amp; Spine (mobile)</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" integrity="sha384-fljlqkjWlmSFjkESkQvm77heIZpoWmXEOzlCA7kOpGUH+95Zk0yGfQieWM2q136E" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
@@ -187,7 +188,7 @@
    To refresh: drop a .glb in the Drive folder, update its
    manifest.json, and ask Claude to re-sync (re-embeds here).
    ============================================================ */
-const EMBEDDED_MODELS = [{label:"Sample (stylised)",b64:"Z2xURgIAAADwQwAA9BQAAEpTT057InNjZW5lIjowLCJzY2VuZXMiOlt7Im5vZGVzIjpbMF19XSwiYXNzZXQiOnsidmVyc2lvbiI6IjIuMCIsImdlbmVyYXRvciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9taWtlZGgvdHJpbWVzaCJ9LCJhY2Nlc3NvcnMiOlt7ImNvbXBvbmVudFR5cGUiOjUxMjUsInR5cGUiOiJTQ0FMQVIiLCJidWZmZXJWaWV3IjowLCJjb3VudCI6MjQwLCJtYXgiOls0MV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MSwiY291bnQiOjQyLCJtYXgiOlsxLjc1LDMuNzUsMi4wXSwibWluIjpbLTEuNzUsMC45NDk5OTk5ODgwNzkwNzEsLTEuODk5OTk5OTc2MTU4MTQyXX0seyJjb21wb25lbnRUeXBlIjo1MTI2LCJ0eXBlIjoiVkVDMyIsImJ5dGVPZmZzZXQiOjAsImJ1ZmZlclZpZXciOjIsImNvdW50Ijo0MiwibWF4IjpbMS4wLDEuNzMwMDAwMDE5MDczNDg2MywtMC4yMDAwMDAwMDI5ODAyMzIyNF0sIm1pbiI6Wy0xLjAsMC4zNzAwMDAwMDQ3NjgzNzE2LC0xLjc5OTk5OTk1MjMxNjI4NDJdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjUsInR5cGUiOiJTQ0FMQVIiLCJidWZmZXJWaWV3IjozLCJjb3VudCI6MTY4LCJtYXgiOlsyOV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6NCwiY291bnQiOjMwLCJtYXgiOlswLjM0MDAwMDAwMzU3NjI3ODcsMS40ODE0NzU0NzI0NTAyNTYzLDAuNjk5OTk5OTg4MDc5MDcxXSwibWluIjpbLTAuMzQwMDAwMDAzNTc2Mjc4NywwLjgxODUyNDUzOTQ3MDY3MjYsLTEuMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNSwidHlwZSI6IlNDQUxBUiIsImJ1ZmZlclZpZXciOjUsImNvdW50IjoxNDQsIm1heCI6WzI1XSwibWluIjpbMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3Ijo2LCJjb3VudCI6MjYsIm1heCI6WzAuMTcwMDAwMDAxNzg4MTM5MzQsLTEuMTc5OTk5OTQ3NTQ3OTEyNiwxLjY0OTk5OTk3NjE1ODE0Ml0sIm1pbiI6Wy0wLjE3MDAwMDAwMTc4ODEzOTM0LC0xLjUxOTk5OTk4MDkyNjUxMzcsLTEuOTUwMDAwMDQ3NjgzNzE1OF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3Ijo3LCJjb3VudCI6MzAsIm1heCI6WzAuNDE5OTk5OTg2ODg2OTc4MTUsMC4zMTAwMDAwMDIzODQxODU4LDAuODI5NDY5NzQwMzkwNzc3Nl0sIm1pbiI6Wy0wLjQxOTk5OTk4Njg4Njk3ODE1LC0wLjEwOTk5OTk5OTQwMzk1MzU1LDAuMDEwNTMwMjc3MTU1MzM5NzE4XX0seyJjb21wb25lbnRUeXBlIjo1MTI1LCJ0eXBlIjoiU0NBTEFSIiwiYnVmZmVyVmlldyI6OCwiY291bnQiOjc2OCwibWF4IjpbMTI3XSwibWluIjpbMF19LHsiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJieXRlT2Zmc2V0IjowLCJidWZmZXJWaWV3Ijo5LCJjb3VudCI6MTI4LCJtYXgiOlswLjQ0OTk5OTk4ODA3OTA3MTA0LDAuNTUwMDAwMDExOTIwOTI5LC0wLjAwOTk5OTk5OTc3NjQ4MjU4Ml0sIm1pbiI6Wy0wLjQ0OTk5OTk4ODA3OTA3MTA0LC0wLjM0OTk5OTk5NDAzOTUzNTUsLTAuMjMwMDAwMDA0MTcyMzI1MTNdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTAsImNvdW50IjozMCwibWF4IjpbMC40MTk5OTk5ODY4ODY5NzgxNSwtMC41NDAwMDAwMjE0NTc2NzIxLDAuODI5NDY5NzQwMzkwNzc3Nl0sIm1pbiI6Wy0wLjQxOTk5OTk4Njg4Njk3ODE1LC0wLjk1OTk5OTk3ODU0MjMyNzksMC4wMTA1MzAyNzcxNTUzMzk3MThdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTEsImNvdW50IjoxMjgsIm1heCI6WzAuNDQ5OTk5OTg4MDc5MDcxMDQsLTAuMzAwMDAwMDExOTIwOTI4OTYsLTAuMDA5OTk5OTk5Nzc2NDgyNTgyXSwibWluIjpbLTAuNDQ5OTk5OTg4MDc5MDcxMDQsLTEuMjAwMDAwMDQ3NjgzNzE1OCwtMC4yMzAwMDAwMDQxNzIzMjUxM119LHsiY29tcG9uZW50VHlwZSI6NTEyNSwidHlwZSI6IlNDQUxBUiIsImJ1ZmZlclZpZXciOjEyLCJjb3VudCI6MTIwLCJtYXgiOlsyMV0sIm1pbiI6WzBdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTMsImNvdW50IjoyMiwibWF4IjpbMC4xMTk5OTk5OTczMTc3OTA5OSwwLjA1NzA2MzM4OTU2OTUyMDk1LDIuMDQ5OTk5OTUyMzE2Mjg0XSwibWluIjpbMC4wLC0wLjA1NzA2MzM4OTU2OTUyMDk1LC0yLjM0OTk5OTkwNDYzMjU2ODRdfSx7ImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiYnl0ZU9mZnNldCI6MCwiYnVmZmVyVmlldyI6MTQsImNvdW50Ijo0MiwibWF4IjpbMC41NTAwMDAwMTE5MjA5MjksMi43MjAwMDAwMjg2MTAyMjk1LDEuMjAwMDAwMDQ3NjgzNzE1OF0sIm1pbiI6Wy0wLjU1MDAwMDAxMTkyMDkyOSwyLjA3OTk5OTkyMzcwNjA1NDcsLTAuODk5OTk5OTc2MTU4MTQyMV19XSwibWVzaGVzIjpbeyJuYW1lIjoiQ2VyZWJydW0iLCJleHRyYXMiOnsic2hhcGUiOiJzcGhlcmUiLCJyYWRpdXMiOjEuMH0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjF9LCJpbmRpY2VzIjowLCJtb2RlIjo0fV19LHsibmFtZSI6IkNlcmViZWxsdW0iLCJleHRyYXMiOnsic2hhcGUiOiJzcGhlcmUiLCJyYWRpdXMiOjEuMH0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjJ9LCJpbmRpY2VzIjowLCJtb2RlIjo0fV19LHsibmFtZSI6IkJyYWluc3RlbSIsImV4dHJhcyI6eyJzaGFwZSI6ImN5bGluZGVyIiwiaGVpZ2h0IjoxLjcsInJhZGl1cyI6MC4zNCwicHJvY2Vzc2VkIjp0cnVlfSwicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6NH0sImluZGljZXMiOjMsIm1vZGUiOjR9XX0seyJuYW1lIjoiU3BpbmFsIGNvcmQiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6My42LCJyYWRpdXMiOjAuMTcsInByb2Nlc3NlZCI6dHJ1ZX0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjZ9LCJpbmRpY2VzIjo1LCJtb2RlIjo0fV19LHsibmFtZSI6IkJvZHkgb2YgdmVydGVicmEgQzMiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6MC40MiwicmFkaXVzIjowLjQyLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjo3fSwiaW5kaWNlcyI6MywibW9kZSI6NH1dfSx7Im5hbWUiOiJWZXJ0ZWJyYWwgYXJjaCBDMyIsImV4dHJhcyI6eyJzaGFwZSI6InRvcnVzIiwibWFqb3JfcmFkaXVzIjowLjM0LCJtaW5vcl9yYWRpdXMiOjAuMTEsInByb2Nlc3NlZCI6dHJ1ZX0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjl9LCJpbmRpY2VzIjo4LCJtb2RlIjo0fV19LHsibmFtZSI6IkJvZHkgb2YgdmVydGVicmEgQzQiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6MC40MiwicmFkaXVzIjowLjQyLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjoxMH0sImluZGljZXMiOjMsIm1vZGUiOjR9XX0seyJuYW1lIjoiVmVydGVicmFsIGFyY2ggQzQiLCJleHRyYXMiOnsic2hhcGUiOiJ0b3J1cyIsIm1ham9yX3JhZGl1cyI6MC4zNCwibWlub3JfcmFkaXVzIjowLjExLCJwcm9jZXNzZWQiOnRydWV9LCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjoxMX0sImluZGljZXMiOjgsIm1vZGUiOjR9XX0seyJuYW1lIjoiQmFzaWxhciBhcnRlcnkiLCJleHRyYXMiOnsic2hhcGUiOiJjeWxpbmRlciIsImhlaWdodCI6NC40LCJyYWRpdXMiOjAuMDYsInByb2Nlc3NlZCI6dHJ1ZX0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjEzfSwiaW5kaWNlcyI6MTIsIm1vZGUiOjR9XX0seyJuYW1lIjoiTGF0ZXJhbCB2ZW50cmljbGUiLCJleHRyYXMiOnsic2hhcGUiOiJzcGhlcmUiLCJyYWRpdXMiOjEuMH0sInByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjE0fSwiaW5kaWNlcyI6MCwibW9kZSI6NH1dfV0sIm5vZGVzIjpbeyJuYW1lIjoid29ybGQiLCJjaGlsZHJlbiI6WzEsMiwzLDQsNSw2LDcsOCw5LDEwXX0seyJuYW1lIjoiQ2VyZWJydW0iLCJtZXNoIjowfSx7Im5hbWUiOiJDZXJlYmVsbHVtIiwibWVzaCI6MX0seyJuYW1lIjoiQnJhaW5zdGVtIiwibWVzaCI6Mn0seyJuYW1lIjoiU3BpbmFsIGNvcmQiLCJtZXNoIjozfSx7Im5hbWUiOiJCb2R5IG9mIHZlcnRlYnJhIEMzIiwibWVzaCI6NH0seyJuYW1lIjoiVmVydGVicmFsIGFyY2ggQzMiLCJtZXNoIjo1fSx7Im5hbWUiOiJCb2R5IG9mIHZlcnRlYnJhIEM0IiwibWVzaCI6Nn0seyJuYW1lIjoiVmVydGVicmFsIGFyY2ggQzQiLCJtZXNoIjo3fSx7Im5hbWUiOiJCYXNpbGFyIGFydGVyeSIsIm1lc2giOjh9LHsibmFtZSI6IkxhdGVyYWwgdmVudHJpY2xlIiwibWVzaCI6OX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMjAwMH1dLCJidWZmZXJWaWV3cyI6W3siYnVmZmVyIjowLCJieXRlT2Zmc2V0IjowLCJieXRlTGVuZ3RoIjo5NjB9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo5NjAsImJ5dGVMZW5ndGgiOjUwNH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjE0NjQsImJ5dGVMZW5ndGgiOjUwNH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjE5NjgsImJ5dGVMZW5ndGgiOjY3Mn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjI2NDAsImJ5dGVMZW5ndGgiOjM2MH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjMwMDAsImJ5dGVMZW5ndGgiOjU3Nn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjM1NzYsImJ5dGVMZW5ndGgiOjMxMn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjM4ODgsImJ5dGVMZW5ndGgiOjM2MH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjQyNDgsImJ5dGVMZW5ndGgiOjMwNzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MzIwLCJieXRlTGVuZ3RoIjoxNTM2fSx7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6ODg1NiwiYnl0ZUxlbmd0aCI6MzYwfSx7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6OTIxNiwiYnl0ZUxlbmd0aCI6MTUzNn0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjEwNzUyLCJieXRlTGVuZ3RoIjo0ODB9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMTIzMiwiYnl0ZUxlbmd0aCI6MjY0fSx7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MTE0OTYsImJ5dGVMZW5ndGgiOjUwNH1dfSAgICDgLgAAQklOAAAAAAAlAAAAEAAAACUAAAALAAAAKAAAABAAAAAoAAAABQAAACUAAAAoAAAAEAAAAAAAAAAQAAAADAAAABAAAAAFAAAAEQAAAAwAAAARAAAAAQAAABAAAAARAAAADAAAAAAAAAAMAAAAFQAAAAwAAAABAAAAFgAAABUAAAAWAAAABwAAAAwAAAAWAAAAFQAAAAAAAAAVAAAAIQAAABUAAAAHAAAAJAAAACEAAAAkAAAACgAAABUAAAAkAAAAIQAAAAAAAAAhAAAAJQAAACEAAAAKAAAAKQAAACUAAAApAAAACwAAACEAAAApAAAAJQAAAAEAAAARAAAAHAAAABEAAAAFAAAAHwAAABwAAAAfAAAACQAAABEAAAAfAAAAHAAAAAUAAAAoAAAAEgAAACgAAAALAAAAJwAAABIAAAAnAAAABAAAACgAAAAnAAAAEgAAAAsAAAApAAAAJgAAACkAAAAKAAAAIgAAACYAAAAiAAAAAgAAACkAAAAiAAAAJgAAAAoAAAAkAAAAIwAAACQAAAAHAAAAFwAAACMAAAAXAAAABgAAACQAAAAXAAAAIwAAAAcAAAAWAAAAGwAAABYAAAABAAAAGAAAABsAAAAYAAAACAAAABYAAAAYAAAAGwAAAAMAAAAdAAAADwAAAB0AAAAJAAAAHgAAAA8AAAAeAAAABAAAAB0AAAAeAAAADwAAAAMAAAAPAAAADQAAAA8AAAAEAAAADgAAAA0AAAAOAAAAAgAAAA8AAAAOAAAADQAAAAMAAAANAAAAFAAAAA0AAAACAAAAEwAAABQAAAATAAAABgAAAA0AAAATAAAAFAAAAAMAAAAUAAAAGQAAABQAAAAGAAAAGgAAABkAAAAaAAAACAAAABQAAAAaAAAAGQAAAAMAAAAZAAAAHQAAABkAAAAIAAAAIAAAAB0AAAAgAAAACQAAABkAAAAgAAAAHQAAAAQAAAAeAAAAEgAAAB4AAAAJAAAAHwAAABIAAAAfAAAABQAAAB4AAAAfAAAAEgAAAAIAAAAOAAAAJgAAAA4AAAAEAAAAJwAAACYAAAAnAAAACwAAAA4AAAAnAAAAJgAAAAYAAAATAAAAIwAAABMAAAACAAAAIgAAACMAAAAiAAAACgAAABMAAAAiAAAAIwAAAAgAAAAaAAAAGwAAABoAAAAGAAAAFwAAABsAAAAXAAAABwAAABoAAAAXAAAAGwAAAAkAAAAgAAAAHAAAACAAAAAIAAAAGAAAABwAAAAYAAAAAQAAACAAAAAYAAAAHAAAAA2Ha79KnmJAzcxMPQ2Haz9KnmJAzcxMPQ2Ha78GXZQ/zcxMPQ2Haz8GXZQ/zcxMPQAAAADIls4/8rjaPwAAAABpgUVA8rjaPwAAAADIls4/JezNvwAAAABpgUVAJezNv7iLvj9mZhZAHaV5v7iLvj9mZhZAW5+JP7iLvr9mZhZAHaV5v7iLvr9mZhZAW5+JPwAAAAAAAHBAzcxMPQAAAAAzM3M/zcxMPYtwCr/80ps/MzODP4twCj/80ps/MzODP4twCr9P415AMzODP4twCj9P415AMzODPwAAAABmZhZAAAAAQItwCr/80ps/zcxsv4twCj/80ps/zcxsv4twCr9P415Azcxsv4twCj9P415AzcxsvwAAAABmZhZAMzPzv0U4tT8zM0NAF3YNv0U4tT8zM9M/F3YNvwAAYD+VbPU/2IfDvwAAYD+CFjJA2IfDv0U4tT8zM0NAsA8nP0U4tT8zM9M/sA8nPwAAYD+VbPU/pVTQPwAAYD+CFjJApVTQPwAA4D9mZhZAzcxMPUU4tb8zM0NAF3YNv0U4tb8zM9M/F3YNvwAAYL+VbPU/2IfDvwAAYL+CFjJA2IfDv0U4tb8zM0NAsA8nP0U4tb8zM9M/sA8nPwAAYL+VbPU/pVTQPwAAYL+CFjJApVTQPwAA4L9mZhZAzcxMPVCWBr/OcNA/AACAv1CWBj/OcNA/AACAv1CWBr/6b/E+AACAv1CWBj/6b/E+AACAvwAAAADeRzE/zJKjvgAAAADeKLQ/zJKjvgAAAADeRzE/TRvXvwAAAADeKLQ/TRvXv0DEWT9mZoY/utW1v0DEWT9mZoY/jFQUv0DEWb9mZoY/utW1v0DEWb9mZoY/jFQUvwAAAACkcN0/AACAvwAAAACkcL0+AACAv3o3nr7C7v8+mpkZv3o3nj7C7v8+mpkZv3o3nr4c0cw/mpkZv3o3nj4c0cw/mpkZvwAAAABmZoY/zcxMvno3nr7C7v8+MzOzv3o3nj7C7v8+MzOzv3o3nr4c0cw/MzOzv3o3nj4c0cw/MzOzvwAAAABmZoY/Zmbmv70bTz+F67E/sqSfv70bTz+PwjU/sqSfvwAAAD+eAVc/5dfSvwAAAD/+S6E/5dfSv70bTz+F67E/nLZAv70bTz+PwjU/nLZAvwAAAD+eAVc/a6C0vgAAAD/+S6E/a6C0vgAAgD9mZoY/AACAv70bT7+F67E/sqSfv70bT7+PwjU/sqSfvwAAAL+eAVc/5dfSvwAAAL/+S6E/5dfSv70bT7+F67E/nLZAv70bT7+PwjU/nLZAvwAAAL+eAVc/a6C0vgAAAL/+S6E/a6C0vgAAgL9mZoY/AACAvwEAAAAAAAAABAAAAAEAAAAEAAAAAgAAAAIAAAAEAAAABQAAAAIAAAAFAAAAAwAAAAQAAAAAAAAABgAAAAQAAAAGAAAABQAAAAUAAAAGAAAABwAAAAUAAAAHAAAAAwAAAAYAAAAAAAAACAAAAAYAAAAIAAAABwAAAAcAAAAIAAAACQAAAAcAAAAJAAAAAwAAAAgAAAAAAAAACgAAAAgAAAAKAAAACQAAAAkAAAAKAAAACwAAAAkAAAALAAAAAwAAAAoAAAAAAAAADAAAAAoAAAAMAAAACwAAAAsAAAAMAAAADQAAAAsAAAANAAAAAwAAAAwAAAAAAAAADgAAAAwAAAAOAAAADQAAAA0AAAAOAAAADwAAAA0AAAAPAAAAAwAAAA4AAAAAAAAAEAAAAA4AAAAQAAAADwAAAA8AAAAQAAAAEQAAAA8AAAARAAAAAwAAABAAAAAAAAAAEgAAABAAAAASAAAAEQAAABEAAAASAAAAEwAAABEAAAATAAAAAwAAABIAAAAAAAAAFAAAABIAAAAUAAAAEwAAABMAAAAUAAAAFQAAABMAAAAVAAAAAwAAABQAAAAAAAAAFgAAABQAAAAWAAAAFQAAABUAAAAWAAAAFwAAABUAAAAXAAAAAwAAABYAAAAAAAAAGAAAABYAAAAYAAAAFwAAABcAAAAYAAAAGQAAABcAAAAZAAAAAwAAABgAAAAAAAAAGgAAABgAAAAaAAAAGQAAABkAAAAaAAAAGwAAABkAAAAbAAAAAwAAABoAAAAAAAAAHAAAABoAAAAcAAAAGwAAABsAAAAcAAAAHQAAABsAAAAdAAAAAwAAABwAAAAAAAAAAQAAABwAAAABAAAAHQAAAB0AAAABAAAAAgAAAB0AAAACAAAAAwAAAAAAAAAzM5M/AACAv3sUrj4zM5M/AACAv3sUrj4zM5M/MzMzPwAAAAAzM5M/MzMzPzbXnD4nFaY/AACAvzbXnD4nFaY/MzMzP/8SWT6uObU/AACAv/8SWT6uObU/MzMzPx7ymj39oL0/AACAvx7ymj39oL0/MzMzPx7ymr39oL0/AACAvx7ymr39oL0/MzMzP/8SWb6uObU/AACAv/8SWb6uObU/MzMzPzbXnL4nFaY/AACAvzbXnL4nFaY/MzMzP3sUrr4zM5M/AACAv3sUrr4zM5M/MzMzPzbXnL5AUYA/AACAvzbXnL5AUYA/MzMzP/8SWb5xWWI/AACAv/8SWb5xWWI/MzMzPx7ymr3TilE/AACAvx7ymr3TilE/MzMzPx7ymj3TilE/AACAvx7ymj3TilE/MzMzP/8SWT5xWWI/AACAv/8SWT5xWWI/MzMzPzbXnD5AUYA/AACAvzbXnD5AUYA/MzMzPwEAAAAAAAAABAAAAAEAAAAEAAAAAgAAAAIAAAAEAAAABQAAAAIAAAAFAAAAAwAAAAQAAAAAAAAABgAAAAQAAAAGAAAABQAAAAUAAAAGAAAABwAAAAUAAAAHAAAAAwAAAAYAAAAAAAAACAAAAAYAAAAIAAAABwAAAAcAAAAIAAAACQAAAAcAAAAJAAAAAwAAAAgAAAAAAAAACgAAAAgAAAAKAAAACQAAAAkAAAAKAAAACwAAAAkAAAALAAAAAwAAAAoAAAAAAAAADAAAAAoAAAAMAAAACwAAAAsAAAAMAAAADQAAAAsAAAANAAAAAwAAAAwAAAAAAAAADgAAAAwAAAAOAAAADQAAAA0AAAAOAAAADwAAAA0AAAAPAAAAAwAAAA4AAAAAAAAAEAAAAA4AAAAQAAAADwAAAA8AAAAQAAAAEQAAAA8AAAARAAAAAwAAABAAAAAAAAAAEgAAABAAAAASAAAAEQAAABEAAAASAAAAEwAAABEAAAATAAAAAwAAABIAAAAAAAAAFAAAABIAAAAUAAAAEwAAABMAAAAUAAAAFQAAABMAAAAVAAAAAwAAABQAAAAAAAAAFgAAABQAAAAWAAAAFQAAABUAAAAWAAAAFwAAABUAAAAXAAAAAwAAABYAAAAAAAAAGAAAABYAAAAYAAAAFwAAABcAAAAYAAAAGQAAABcAAAAZAAAAAwAAABgAAAAAAAAAAQAAABgAAAABAAAAGQAAABkAAAABAAAAAgAAABkAAAACAAAAAwAAAAAAAADNzKy/mpn5v3sULj7NzKy/mpn5v3sULj7NzKy/MzPTPwAAAADNzKy/MzPTP/nBFj6F66G/mpn5v/nBFj6F66G/MzPTP3sUrj2O9Jm/mpn5v3sUrj2O9Jm/MzPTP3cFQCM9Cpe/mpn5v3cFQCM9Cpe/MzPTP3sUrr2O9Jm/mpn5v3sUrr2O9Jm/MzPTP/nBFr6F66G/mpn5v/nBFr6F66G/MzPTP3sULr7NzKy/mpn5v3sULr7NzKy/MzPTP/nBFr4Urre/mpn5v/nBFr4Urre/MzPTP3sUrr0Mpb+/mpn5v3sUrr0Mpb+/MzPTPxkEEKRcj8K/mpn5vxkEEKRcj8K/MzPTP3sUrj0Mpb+/mpn5v3sUrj0Mpb+/MzPTP/nBFj4Urre/mpn5v/nBFj4Urre/MzPTPwAAAABSuJ4+PQrXPj0K1z5SuJ4+PQrXPj0K1z6uR+G9PQrXPgAAAACuR+G9PQrXPo2+wT5SuJ4+0isaP42+wT6uR+G90isaP0MThj5SuJ4+IJU/P0MThj6uR+G9IJU/P1Nnvz1SuJ4+IVhUP1Nnvz2uR+G9IVhUP1Nnv71SuJ4+IVhUP1Nnv72uR+G9IVhUP0MThr5SuJ4+IJU/P0MThr6uR+G9IJU/P42+wb5SuJ4+0isaP42+wb6uR+G90isaPz0K175SuJ4+PQrXPj0K176uR+G9PQrXPo2+wb5SuJ4+rHlzPo2+wb6uR+G9rHlzPkMThr5SuJ4+66i7PUMThr6uR+G966i7PVNnv71SuJ4+L4csPFNnv72uR+G9L4csPFNnvz1SuJ4+L4csPFNnvz2uR+G9L4csPEMThj5SuJ4+66i7PUMThj6uR+G966i7PY2+wT5SuJ4+rHlzPo2+wT6uR+G9rHlzPgAAAAAIAAAAAQAAAAEAAAAIAAAACQAAAAEAAAAJAAAAAgAAAAIAAAAJAAAACgAAAAIAAAAKAAAAAwAAAAMAAAAKAAAACwAAAAMAAAALAAAABAAAAAQAAAALAAAADAAAAAQAAAAMAAAABQAAAAUAAAAMAAAADQAAAAUAAAANAAAABgAAAAYAAAANAAAADgAAAAYAAAAOAAAABwAAAAcAAAAOAAAADwAAAAcAAAAPAAAAAAAAAAAAAAAPAAAACAAAAAgAAAAQAAAACQAAAAkAAAAQAAAAEQAAAAkAAAARAAAACgAAAAoAAAARAAAAEgAAAAoAAAASAAAACwAAAAsAAAASAAAAEwAAAAsAAAATAAAADAAAAAwAAAATAAAAFAAAAAwAAAAUAAAADQAAAA0AAAAUAAAAFQAAAA0AAAAVAAAADgAAAA4AAAAVAAAAFgAAAA4AAAAWAAAADwAAAA8AAAAWAAAAFwAAAA8AAAAXAAAACAAAAAgAAAAXAAAAEAAAABAAAAAYAAAAEQAAABEAAAAYAAAAGQAAABEAAAAZAAAAEgAAABIAAAAZAAAAGgAAABIAAAAaAAAAEwAAABMAAAAaAAAAGwAAABMAAAAbAAAAFAAAABQAAAAbAAAAHAAAABQAAAAcAAAAFQAAABUAAAAcAAAAHQAAABUAAAAdAAAAFgAAABYAAAAdAAAAHgAAABYAAAAeAAAAFwAAABcAAAAeAAAAHwAAABcAAAAfAAAAEAAAABAAAAAfAAAAGAAAABgAAAAgAAAAGQAAABkAAAAgAAAAIQAAABkAAAAhAAAAGgAAABoAAAAhAAAAIgAAABoAAAAiAAAAGwAAABsAAAAiAAAAIwAAABsAAAAjAAAAHAAAABwAAAAjAAAAJAAAABwAAAAkAAAAHQAAAB0AAAAkAAAAJQAAAB0AAAAlAAAAHgAAAB4AAAAlAAAAJgAAAB4AAAAmAAAAHwAAAB8AAAAmAAAAJwAAAB8AAAAnAAAAGAAAABgAAAAnAAAAIAAAACAAAAAoAAAAIQAAACEAAAAoAAAAKQAAACEAAAApAAAAIgAAACIAAAApAAAAKgAAACIAAAAqAAAAIwAAACMAAAAqAAAAKwAAACMAAAArAAAAJAAAACQAAAArAAAALAAAACQAAAAsAAAAJQAAACUAAAAsAAAALQAAACUAAAAtAAAAJgAAACYAAAAtAAAALgAAACYAAAAuAAAAJwAAACcAAAAuAAAALwAAACcAAAAvAAAAIAAAACAAAAAvAAAAKAAAACgAAAAwAAAAKQAAACkAAAAwAAAAMQAAACkAAAAxAAAAKgAAACoAAAAxAAAAMgAAACoAAAAyAAAAKwAAACsAAAAyAAAAMwAAACsAAAAzAAAALAAAACwAAAAzAAAANAAAACwAAAA0AAAALQAAAC0AAAA0AAAANQAAAC0AAAA1AAAALgAAAC4AAAA1AAAANgAAAC4AAAA2AAAALwAAAC8AAAA2AAAANwAAAC8AAAA3AAAAKAAAACgAAAA3AAAAMAAAADAAAAA4AAAAMQAAADEAAAA4AAAAOQAAADEAAAA5AAAAMgAAADIAAAA5AAAAOgAAADIAAAA6AAAAMwAAADMAAAA6AAAAOwAAADMAAAA7AAAANAAAADQAAAA7AAAAPAAAADQAAAA8AAAANQAAADUAAAA8AAAAPQAAADUAAAA9AAAANgAAADYAAAA9AAAAPgAAADYAAAA+AAAANwAAADcAAAA+AAAAPwAAADcAAAA/AAAAMAAAADAAAAA/AAAAOAAAADgAAABAAAAAOQAAADkAAABAAAAAQQAAADkAAABBAAAAOgAAADoAAABBAAAAQgAAADoAAABCAAAAOwAAADsAAABCAAAAQwAAADsAAABDAAAAPAAAADwAAABDAAAARAAAADwAAABEAAAAPQAAAD0AAABEAAAARQAAAD0AAABFAAAAPgAAAD4AAABFAAAARgAAAD4AAABGAAAAPwAAAD8AAABGAAAARwAAAD8AAABHAAAAOAAAADgAAABHAAAAQAAAAEAAAABIAAAAQQAAAEEAAABIAAAASQAAAEEAAABJAAAAQgAAAEIAAABJAAAASgAAAEIAAABKAAAAQwAAAEMAAABKAAAASwAAAEMAAABLAAAARAAAAEQAAABLAAAATAAAAEQAAABMAAAARQAAAEUAAABMAAAATQAAAEUAAABNAAAARgAAAEYAAABNAAAATgAAAEYAAABOAAAARwAAAEcAAABOAAAATwAAAEcAAABPAAAAQAAAAEAAAABPAAAASAAAAEgAAABQAAAASQAAAEkAAABQAAAAUQAAAEkAAABRAAAASgAAAEoAAABRAAAAUgAAAEoAAABSAAAASwAAAEsAAABSAAAAUwAAAEsAAABTAAAATAAAAEwAAABTAAAAVAAAAEwAAABUAAAATQAAAE0AAABUAAAAVQAAAE0AAABVAAAATgAAAE4AAABVAAAAVgAAAE4AAABWAAAATwAAAE8AAABWAAAAVwAAAE8AAABXAAAASAAAAEgAAABXAAAAUAAAAFAAAABYAAAAUQAAAFEAAABYAAAAWQAAAFEAAABZAAAAUgAAAFIAAABZAAAAWgAAAFIAAABaAAAAUwAAAFMAAABaAAAAWwAAAFMAAABbAAAAVAAAAFQAAABbAAAAXAAAAFQAAABcAAAAVQAAAFUAAABcAAAAXQAAAFUAAABdAAAAVgAAAFYAAABdAAAAXgAAAFYAAABeAAAAVwAAAFcAAABeAAAAXwAAAFcAAABfAAAAUAAAAFAAAABfAAAAWAAAAFgAAABgAAAAWQAAAFkAAABgAAAAYQAAAFkAAABhAAAAWgAAAFoAAABhAAAAYgAAAFoAAABiAAAAWwAAAFsAAABiAAAAYwAAAFsAAABjAAAAXAAAAFwAAABjAAAAZAAAAFwAAABkAAAAXQAAAF0AAABkAAAAZQAAAF0AAABlAAAAXgAAAF4AAABlAAAAZgAAAF4AAABmAAAAXwAAAF8AAABmAAAAZwAAAF8AAABnAAAAWAAAAFgAAABnAAAAYAAAAGAAAABoAAAAYQAAAGEAAABoAAAAaQAAAGEAAABpAAAAYgAAAGIAAABpAAAAagAAAGIAAABqAAAAYwAAAGMAAABqAAAAawAAAGMAAABrAAAAZAAAAGQAAABrAAAAbAAAAGQAAABsAAAAZQAAAGUAAABsAAAAbQAAAGUAAABtAAAAZgAAAGYAAABtAAAAbgAAAGYAAABuAAAAZwAAAGcAAABuAAAAbwAAAGcAAABvAAAAYAAAAGAAAABvAAAAaAAAAGgAAABwAAAAaQAAAGkAAABwAAAAcQAAAGkAAABxAAAAagAAAGoAAABxAAAAcgAAAGoAAAByAAAAawAAAGsAAAByAAAAcwAAAGsAAABzAAAAbAAAAGwAAABzAAAAdAAAAGwAAAB0AAAAbQAAAG0AAAB0AAAAdQAAAG0AAAB1AAAAbgAAAG4AAAB1AAAAdgAAAG4AAAB2AAAAbwAAAG8AAAB2AAAAdwAAAG8AAAB3AAAAaAAAAGgAAAB3AAAAcAAAAHAAAAB4AAAAcQAAAHEAAAB4AAAAeQAAAHEAAAB5AAAAcgAAAHIAAAB5AAAAegAAAHIAAAB6AAAAcwAAAHMAAAB6AAAAewAAAHMAAAB7AAAAdAAAAHQAAAB7AAAAfAAAAHQAAAB8AAAAdQAAAHUAAAB8AAAAfQAAAHUAAAB9AAAAdgAAAHYAAAB9AAAAfgAAAHYAAAB+AAAAdwAAAHcAAAB+AAAAfwAAAHcAAAB/AAAAcAAAAHAAAAB/AAAAeAAAAHgAAAAAAAAAeQAAAHkAAAAAAAAAAQAAAHkAAAABAAAAegAAAHoAAAABAAAAAgAAAHoAAAACAAAAewAAAHsAAAACAAAAAwAAAHsAAAADAAAAfAAAAHwAAAADAAAABAAAAHwAAAAEAAAAfQAAAH0AAAAEAAAABQAAAH0AAAAFAAAAfgAAAH4AAAAFAAAABgAAAH4AAAAGAAAAfwAAAH8AAAAGAAAABwAAAH8AAAAHAAAAeAAAAHgAAAAHAAAAAAAAAGZm5j7NzMw9j8L1vX3n1T7NzMw9DO0svXsUrj7NzMw9CtcjvHlBhj7NzMw9DO0svR+Faz7NzMw9j8L1vXlBhj7NzMw9TIdKvnsUrj7NzMw9H4Vrvn3n1T7NzMw9TIdKvqLc1D7KXos+j8L1vSyfxT7ADoU+DO0svTbUoD6Uoms+CtcjvIASeD6nJ00+DO0svZSXWT6Uh0A+j8L1vYASeD6nJ00+TIdKvjbUoD6Uoms+H4VrviyfxT7ADoU+TIdKvtvqoj4OHtY+j8L1vc5Alz4CdMo+DO0svbEvdj4MS64+CtcjvMbdPT4WIpI+DO0sva2JJj4JeIY+j8L1vcbdPT4WIpI+TIdKvrEvdj4MS64+H4Vrvs5Alz4CdMo+TIdKvi1XMD7rBwQ/j8L1vRm3Iz5f0vg+DO0svS08BT5pB9Q+CtcjvIKCzT1zPK8+DO0svVtCtD39/p8+j8L1vYKCzT1zPK8+TIdKvi08BT5pB9Q+H4Vrvhm3Iz5f0vg+TIdKvlkl/iPNzAw/j8L1vTXz6yNYjQQ/DO0svXcFwCOuR+E+CtcjvLgXlCOsdLk+DO0svZTlgSPD9ag+j8L1vbgXlCOsdLk+TIdKvncFwCOuR+E+H4VrvjXz6yNYjQQ/TIdKvi1XML7rBwQ/j8L1vRm3I75f0vg+DO0svS08Bb5pB9Q+CtcjvIKCzb1zPK8+DO0svVtCtL39/p8+j8L1vYKCzb1zPK8+TIdKvi08Bb5pB9Q+H4Vrvhm3I75f0vg+TIdKvtvqor4OHtY+j8L1vc5Al74CdMo+DO0svbEvdr4MS64+CtcjvMbdPb4WIpI+DO0sva2JJr4JeIY+j8L1vcbdPb4WIpI+TIdKvrEvdr4MS64+H4Vrvs5Al74CdMo+TIdKvqLc1L7KXos+j8L1vSyfxb7ADoU+DO0svTbUoL6Uoms+CtcjvIASeL6nJ00+DO0svZSXWb6Uh0A+j8L1vYASeL6nJ00+TIdKvjbUoL6Uoms+H4Vrviyfxb7ADoU+TIdKvmZm5r7NzMw9j8L1vX3n1b7NzMw9DO0svXsUrr7NzMw9CtcjvHlBhr7NzMw9DO0svR+Fa77NzMw9j8L1vXlBhr7NzMw9TIdKvnsUrr7NzMw9H4Vrvn3n1b7NzMw9TIdKvqLc1L6N4ZO9j8L1vSyfxb7LQnW9DO0svTbUoL42rva8CtcjvIASeL5itbW5DO0svZSXWb6NU0Q8j8L1vYASeL5itbW5TIdKvjbUoL42rva8H4Vrviyfxb7LQnW9TIdKvtvqor5Pb1++j8L1vc5Al742G0i+DO0svbEvdr5LyQ++CtcjvMbdPb6+7q69DO0sva2JJr6MRoC9j8L1vcbdPb6+7q69TIdKvrEvdr5LyQ++H4Vrvs5Al742G0i+TIdKvi1XML5vqaG+j8L1vRm3I775a5K+DO0svS08Bb4GQlu+CtcjvIKCzb0arBG+DO0svVtCtL1cYua9j8L1vYKCzb0arBG+TIdKvi08Bb4GQlu+H4Vrvhm3I775a5K+TIdKvgOcvqQzM7O+j8L1vWj2sKRKtKK+DO0svRkEkKSPwnW+CtcjvJQjXqSLHCa+DO0svV7YQqS4HgW+j8L1vZQjXqSLHCa+TIdKvhkEkKSPwnW+H4Vrvmj2sKRKtKK+TIdKvi1XMD5vqaG+j8L1vRm3Iz75a5K+DO0svS08BT4GQlu+CtcjvIKCzT0arBG+DO0svVtCtD1cYua9j8L1vYKCzT0arBG+TIdKvi08BT4GQlu+H4Vrvhm3Iz75a5K+TIdKvtvqoj5Pb1++j8L1vc5Alz42G0i+DO0svbEvdj5LyQ++CtcjvMbdPT6+7q69DO0sva2JJj6MRoC9j8L1vcbdPT6+7q69TIdKvrEvdj5LyQ++H4Vrvs5Alz42G0i+TIdKvqLc1D6N4ZO9j8L1vSyfxT7LQnW9DO0svTbUoD42rva8CtcjvIASeD5itbW5DO0svZSXWT6NU0Q8j8L1vYASeD5itbW5TIdKvjbUoD42rva8H4VrviyfxT7LQnW9TIdKvgAAAABxPQq/PQrXPj0K1z5xPQq/PQrXPj0K1z6PwnW/PQrXPgAAAACPwnW/PQrXPo2+wT5xPQq/0isaP42+wT6PwnW/0isaP0MThj5xPQq/IJU/P0MThj6PwnW/IJU/P1Nnvz1xPQq/IVhUP1Nnvz2PwnW/IVhUP1Nnv71xPQq/IVhUP1Nnv72PwnW/IVhUP0MThr5xPQq/IJU/P0MThr6PwnW/IJU/P42+wb5xPQq/0isaP42+wb6PwnW/0isaPz0K175xPQq/PQrXPj0K176PwnW/PQrXPo2+wb5xPQq/rHlzPo2+wb6PwnW/rHlzPkMThr5xPQq/66i7PUMThr6PwnW/66i7PVNnv71xPQq/L4csPFNnv72PwnW/L4csPFNnvz1xPQq/L4csPFNnvz2PwnW/L4csPEMThj5xPQq/66i7PUMThj6PwnW/66i7PY2+wT5xPQq/rHlzPo2+wT6PwnW/rHlzPmZm5j4AAEC/j8L1vX3n1T4AAEC/DO0svXsUrj4AAEC/CtcjvHlBhj4AAEC/DO0svR+Faz4AAEC/j8L1vXlBhj4AAEC/TIdKvnsUrj4AAEC/H4Vrvn3n1T4AAEC/TIdKvqLc1D416hO/j8L1vSyfxT46Ehe/DO0svTbUoD71sB6/CtcjvIASeD6wTya/DO0svZSXWT61dym/j8L1vYASeD6wTya/TIdKvjbUoD71sB6/H4VrviyfxT46Ehe/TIdKvtvqoj4lFd2+j8L1vc5Alz4yv+i+DO0svbEvdj4UdAK/CtcjvMbdPT6PiBC/DO0sva2JJj6VXRa/j8L1vcbdPT6PiBC/TIdKvrEvdj4UdAK/H4Vrvs5Alz4yv+i+TIdKvi1XMD5eI6u+j8L1vRm3Iz7UYLq+DO0svS08BT7KK9++CtcjvIKCzT1g+wG/DO0svVtCtD0bmgm/j8L1vYKCzT1g+wG/TIdKvi08BT7KK9++H4Vrvhm3Iz7UYLq+TIdKvlkl/iOamZm+j8L1vTXz6yODGKq+DO0svXcFwCOF69G+CtcjvLgXlCOHvvm+DO0svZTlgSO4HgW/j8L1vbgXlCOHvvm+TIdKvncFwCOF69G+H4VrvjXz6yODGKq+TIdKvi1XML5eI6u+j8L1vRm3I77UYLq+DO0svS08Bb7KK9++CtcjvIKCzb1g+wG/DO0svVtCtL0bmgm/j8L1vYKCzb1g+wG/TIdKvi08Bb7KK9++H4Vrvhm3I77UYLq+TIdKvtvqor4lFd2+j8L1vc5Al74yv+i+DO0svbEvdr4UdAK/CtcjvMbdPb6PiBC/DO0sva2JJr6VXRa/j8L1vcbdPb6PiBC/TIdKvrEvdr4UdAK/H4Vrvs5Al74yv+i+TIdKvqLc1L416hO/j8L1vSyfxb46Ehe/DO0svTbUoL71sB6/CtcjvIASeL6wTya/DO0svZSXWb61dym/j8L1vYASeL6wTya/TIdKvjbUoL71sB6/H4Vrviyfxb46Ehe/TIdKvmZm5r4AAEC/j8L1vX3n1b4AAEC/DO0svXsUrr4AAEC/CtcjvHlBhr4AAEC/DO0svR+Fa74AAEC/j8L1vXlBhr4AAEC/TIdKvnsUrr4AAEC/H4Vrvn3n1b4AAEC/TIdKvqLc1L7LFWy/j8L1vSyfxb7G7Wi/DO0svTbUoL4LT2G/CtcjvIASeL5QsFm/DO0svZSXWb5LiFa/j8L1vYASeL5QsFm/TIdKvjbUoL4LT2G/H4Vrviyfxb7G7Wi/TIdKvtvqor63uoi/j8L1vc5Al7400IW/DO0svbEvdr7si32/CtcjvMbdPb5xd2+/DO0sva2JJr5romm/j8L1vcbdPb5xd2+/TIdKvrEvdr7si32/H4Vrvs5Al7400IW/TIdKvi1XML4oN5W/j8L1vRm3I77LZ5G/DO0svS08Bb4ONYi/CtcjvIKCzb2gBH6/DO0svVtCtL3lZXa/j8L1vYKCzb2gBH6/TIdKvi08Bb4ONYi/H4Vrvhm3I77LZ5G/TIdKvgOcvqSamZm/j8L1vWj2sKTfeZW/DO0svRkEkKQfhYu/CtcjvJQjXqRekIG/DO0svV7YQqRI4Xq/j8L1vZQjXqRekIG/TIdKvhkEkKQfhYu/H4Vrvmj2sKTfeZW/TIdKvi1XMD4oN5W/j8L1vRm3Iz7LZ5G/DO0svS08BT4ONYi/CtcjvIKCzT2gBH6/DO0svVtCtD3lZXa/j8L1vYKCzT2gBH6/TIdKvi08BT4ONYi/H4Vrvhm3Iz7LZ5G/TIdKvtvqoj63uoi/j8L1vc5Alz400IW/DO0svbEvdj7si32/CtcjvMbdPT5xd2+/DO0sva2JJj5romm/j8L1vcbdPT5xd2+/TIdKvrEvdj7si32/H4Vrvs5Alz400IW/TIdKvqLc1D7LFWy/j8L1vSyfxT7G7Wi/DO0svTbUoD4LT2G/CtcjvIASeD5QsFm/DO0svZSXWT5LiFa/j8L1vYASeD5QsFm/TIdKvjbUoD4LT2G/H4VrviyfxT7G7Wi/TIdKvgEAAAAAAAAABAAAAAEAAAAEAAAAAgAAAAIAAAAEAAAABQAAAAIAAAAFAAAAAwAAAAQAAAAAAAAABgAAAAQAAAAGAAAABQAAAAUAAAAGAAAABwAAAAUAAAAHAAAAAwAAAAYAAAAAAAAACAAAAAYAAAAIAAAABwAAAAcAAAAIAAAACQAAAAcAAAAJAAAAAwAAAAgAAAAAAAAACgAAAAgAAAAKAAAACQAAAAkAAAAKAAAACwAAAAkAAAALAAAAAwAAAAoAAAAAAAAADAAAAAoAAAAMAAAACwAAAAsAAAAMAAAADQAAAAsAAAANAAAAAwAAAAwAAAAAAAAADgAAAAwAAAAOAAAADQAAAA0AAAAOAAAADwAAAA0AAAAPAAAAAwAAAA4AAAAAAAAAEAAAAA4AAAAQAAAADwAAAA8AAAAQAAAAEQAAAA8AAAARAAAAAwAAABAAAAAAAAAAEgAAABAAAAASAAAAEQAAABEAAAASAAAAEwAAABEAAAATAAAAAwAAABIAAAAAAAAAFAAAABIAAAAUAAAAEwAAABMAAAAUAAAAFQAAABMAAAAVAAAAAwAAABQAAAAAAAAAAQAAABQAAAABAAAAFQAAABUAAAABAAAAAgAAABUAAAACAAAAAwAAAI/CdT0AAAAAZmYWwI/C9T0AAAAAZmYWwI/C9T0AAAAAMzMDQI/CdT0AAAAAMzMDQMFK3j1AdBA9ZmYWwMFK3j1AdBA9MzMDQB3aoD1Nu2k9ZmYWwB3aoD1Nu2k9MzMDQOTQKT1Nu2k9ZmYWwOTQKT1Nu2k9MzMDQHK+OzxAdBA9ZmYWwHK+OzxAdBA9MzMDQAAAAABjiwcjZmYWwAAAAABjiwcjMzMDQHK+OzxAdBC9ZmYWwHK+OzxAdBC9MzMDQOTQKT1Nu2m9ZmYWwOTQKT1Nu2m9MzMDQB3aoD1Nu2m9ZmYWwB3aoD1Nu2m9MzMDQMFK3j1AdBC9ZmYWwMFK3j1AdBC9MzMDQL8LlL52BStAmpkZPr8LlD52BStAmpkZPr8LlL69LQhAmpkZPr8LlD69LQhAmpkZPgAAAABB1Q5ACIeFPwAAAADyXSRACIeFPwAAAABB1Q5AREE+vwAAAADyXSRAREE+vxSL7z6amRlAQtXNvhSL7z6amRlAbrczPxSL776amRlAQtXNvhSL776amRlAbrczPwAAAAB7FC5AmpkZPgAAAAC4HgVAmpkZPtMJLr4FCAlAzcwsP9MJLj4FCAlAzcwsP9MJLr4uKypAzcwsP9MJLj4uKypAzcwsPwAAAACamRlAmpmZP9MJLr4FCAlAAADAvtMJLj4FCAlAAADAvtMJLr4uKypAAADAvtMJLj4uKypAAADAvgAAAACamRlAZmZmv7bR4z4K1yNAs6cyvrbR4z4pXA9As6cyvs3MjD52RRNAUxAzv83MjD697R9AUxAzv7bR4z4K1yNAc+3yPrbR4z4pXA9Ac+3yPs3MjD52RRNAIN1/P83MjD697R9AIN1/P83MDD+amRlAmpkZPrbR474K1yNAs6cyvrbR474pXA9As6cyvs3MjL52RRNAUxAzv83MjL697R9AUxAzv7bR474K1yNAc+3yPrbR474pXA9Ac+3yPs3MjL52RRNAIN1/P83MjL697R9AIN1/P83MDL+amRlAmpkZPg=="}];   // [{label, b64}]
+const EMBEDDED_MODELS = [];   // [{label, b64}]
 
 (function(){var ok=(typeof THREE!=='undefined');
   if(ok){try{var c=document.createElement('canvas');ok=!!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){ok=false;}}
@@ -410,7 +411,7 @@ function apOffset(on){if(on&&innerWidth>820){const dx=Math.round((280+350+20)/2)
 function apExit(){apOffset(false);AP.active=null;selectable.forEach(m=>{m.userData._risk=false;});apCard.classList.remove('show');
   document.querySelectorAll('.aprow').forEach(r=>r.classList.remove('active'));applyOpacity();try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}
 function apView(){const a=apCur();if(!a||!modelRoot)return;modelRoot.updateMatrixWorld(true);
-  const t=modelRoot.localToWorld(new THREE.Vector3(...a.target)),e=modelRoot.localToWorld(new THREE.Vector3(...a.eye)),d=e.clone().sub(t),r=d.length()*(a.cat==='Spinal'?1.2:1.9);d.normalize();apOffset(true);
+  const t=modelRoot.localToWorld(new THREE.Vector3(...a.target)),e=modelRoot.localToWorld(new THREE.Vector3(...a.eye)),d=e.clone().sub(t),r=d.length()*(a.cat==='Spinal'?1.2:1.9)*(window.AP_RSCALE||1);d.normalize();apOffset(true);
   const to={x:t.x,y:t.y,z:t.z,r:r,phi:Math.acos(Math.max(-1,Math.min(1,d.y))),theta:Math.atan2(d.x,d.z)};
   const fr={x:target.x,y:target.y,z:target.z,r:orbit.r,phi:orbit.phi,theta:orbit.theta};
   let dth=to.theta-fr.theta;while(dth>Math.PI)dth-=2*Math.PI;while(dth<-Math.PI)dth+=2*Math.PI;to.theta=fr.theta+dth;
@@ -472,7 +473,7 @@ async function loadOverlay(sp){
   if(!THREE.GLTFLoader){toast('Open in a normal browser to load the overlay atlases.');return;}
   clearScene();modelRoot=new THREE.Group();scene.add(modelRoot);overlayVis={};toast('Loading overlay layers…');
   for(const L of sp.layers){
-    overlayVis[L.label]=!L.off;
+    overlayVis[L.label]=!L.off;if(window.M_LAZY&&L.off&&L.file&&!L._cache)continue;
     if(L.markers){addMarkers(L);continue;}
     try{
       const _f=safeFile(L.file);if(!_f){toast('Blocked unsafe model path in manifest.');continue;}
@@ -573,5 +574,343 @@ animate();
 (function(){var b=document.getElementById('mBanner');if(!b)return;var small=Math.min(screen.width,screen.height)<=820,coarse=matchMedia('(pointer:coarse)').matches;
   if(small&&coarse){b.href='mobile.html'+(location.hash||'');b.hidden=false;}document.getElementById('mBannerX').onclick=function(e){e.preventDefault();e.stopPropagation();b.hidden=true;};})();
 </script>
+<script>window.M_LAZY=true;window.M_SIZES={"approaches_head.glb": 17611884, "arterial_territories.glb": 8120236, "brain_cervical_spine.glb": 6751324, "case_gbm_upenn002.glb": 3890532, "case_library_gbm.glb": 14537900, "case_library_molecular.glb": 8048376, "case_spine_mets.glb": 7279644, "case_vestibular_schwannoma.glb": 583364, "hcpex_brain.glb": 12258496, "head_neck_ct.glb": 7811012, "juelich.glb": 9522928, "mni_shell.glb": 787616, "spl_brain.glb": 14659808, "tracts.glb": 3053328, "tracts_hcp1065_assoc.glb": 2477528, "tracts_hcp1065_proj.glb": 3125256};</script>
+<!-- MOBILE LAYER: injected into mobile.html by build_mobile.py (not loaded by the desktop atlas) -->
+<style id="mobile-css">
+  body.m{--tabh:calc(58px + env(safe-area-inset-bottom));--toph:calc(48px + env(safe-area-inset-top));font-size:15px}
+  body.m .topbar,body.m .rail,body.m #creditsBtn,body.m #pinsvg,body.m .pin,body.m .mbanner{display:none!important}
+  /* top bar */
+  .mtop{position:fixed;top:0;left:0;right:0;z-index:22;height:var(--toph);padding:env(safe-area-inset-top) 10px 0 14px;display:flex;align-items:center;gap:10px;
+    background:linear-gradient(180deg,rgba(13,19,23,.96) 55%,rgba(13,19,23,0));pointer-events:none}
+  .mtitle{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.2}
+  .mtitle b{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
+  .mtitle span{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mib{pointer-events:auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--edge-2);background:rgba(21,29,34,.9);color:var(--ink);
+    font:600 15px/1 var(--sans);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto}
+  .mprog{position:absolute;left:0;bottom:0;height:2px;background:var(--accent);width:0;transition:width .15s;opacity:0}
+  .mprog.on{opacity:1}
+  /* tab bar */
+  .mtabs{position:fixed;left:0;right:0;bottom:0;z-index:27;height:var(--tabh);padding:0 4px env(safe-area-inset-bottom);display:flex;
+    background:rgba(16,23,27,.97);border-top:1px solid var(--edge-2);backdrop-filter:blur(10px)}
+  .mtabs button{flex:1;min-width:0;background:none;border:0;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    font:500 10.5px/1.1 var(--sans);letter-spacing:.02em;cursor:pointer;padding:6px 0}
+  .mtabs button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .mtabs button.on{color:var(--accent)}
+  .mtabs button:disabled{opacity:.35}
+  .mtabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;border-radius:8px}
+  /* sheets */
+  .mscrim{position:fixed;inset:0;z-index:25;background:rgba(5,8,10,.45);opacity:0;pointer-events:none;transition:opacity .2s}
+  .mscrim.on{opacity:1;pointer-events:auto}
+  .msheet{position:fixed;left:0;right:0;bottom:var(--tabh);z-index:26;max-height:calc(86vh - var(--tabh));display:flex;flex-direction:column;background:var(--panel);
+    border-top:1px solid var(--edge-2);border-radius:16px 16px 0 0;transform:translateY(calc(100% + 90px));transition:transform .26s cubic-bezier(.2,.7,.2,1);
+    box-shadow:0 -10px 40px rgba(0,0,0,.45)}
+  @supports (height:1dvh){.msheet{max-height:calc(86dvh - var(--tabh))}}
+  .msheet.on{transform:none}
+  .mgrab{width:40px;height:5px;border-radius:3px;background:var(--edge-2);margin:8px auto 2px;flex:0 0 auto}
+  .msheet header{display:flex;align-items:center;justify-content:space-between;padding:4px 16px 8px;flex:0 0 auto;touch-action:none}
+  .msheet h2{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500}
+  .mx{background:none;border:0;color:var(--muted);font:500 14px var(--sans);padding:8px 4px;cursor:pointer}
+  .mbody{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 12px 16px;flex:1 1 auto;overscroll-behavior:contain}
+  .mintro{font-size:13px;line-height:1.5;color:var(--muted);margin:0 4px 10px}
+  .mrow{display:flex;align-items:center;gap:12px;padding:12px 10px;border-radius:10px;cursor:pointer;border:1px solid transparent;min-height:52px}
+  .mrow:active{background:var(--panel-2)}
+  .mrow.on{background:rgba(95,176,173,.13);border-color:rgba(95,176,173,.32)}
+  .mrow .mt{flex:1;min-width:0}
+  .mrow .me{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  .mrow .mn{display:block;font-size:14.5px;line-height:1.3;color:var(--ink)}
+  .mrow .ms{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+  .mrow .mdot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .mgrp{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:14px 10px 4px}
+  .msearch{position:sticky;top:0;z-index:1;background:var(--panel);padding:2px 2px 8px}
+  .msearch input{width:100%;font:15px var(--sans);color:var(--ink);background:var(--panel-2);border:1px solid var(--edge-2);border-radius:10px;padding:11px 12px;outline:none}
+  .msearch input:focus{border-color:var(--accent)}
+  .mnote{font-size:12px;color:var(--faint);margin:8px 6px;line-height:1.45}
+  .mrow.dim .mn{color:var(--muted)}
+  /* layers + tools reuse the desktop controls */
+  body.m #layers .layer{padding:13px 10px;min-height:50px;border-radius:10px}
+  body.m #layers .layer .nm{font-size:14.5px}
+  body.m .dock{position:static;transform:none;display:flex;flex-direction:column;align-items:stretch;gap:16px;background:none;border:0;padding:4px 4px 8px;max-width:none;backdrop-filter:none}
+  body.m .dock .vline,body.m .dock .grp:first-child{display:none}
+  body.m .dock .grp{flex-wrap:wrap;gap:8px}
+  body.m .dock .grp .cap{width:100%;font-size:10px}
+  body.m .dock button.tool{flex:1;font-size:13px;padding:12px 10px;border-radius:10px}
+  body.m .dock input[type=range]{flex:1 1 100%;width:100%;height:6px}
+  body.m .dock input[type=range]::-webkit-slider-thumb{width:26px;height:26px}
+  body.m .dock input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--cool);border:2px solid var(--bg)}
+  .mlinks{display:flex;flex-direction:column;gap:8px;margin:18px 4px 4px;border-top:1px solid var(--edge);padding-top:14px}
+  .mlinks a,.mlinks button{font:500 14px var(--sans);color:var(--ink);text-decoration:none;background:var(--panel-2);border:1px solid var(--edge);border-radius:10px;padding:12px;text-align:left;cursor:pointer}
+  .mlinks small{display:block;color:var(--faint);font-size:11.5px;margin-top:2px}
+  /* readout = pull-up card */
+  body.m .readout{top:auto!important;left:0!important;right:0!important;width:auto!important;bottom:var(--tabh)!important;border-radius:16px 16px 0 0;border-bottom:0;
+    max-height:64vh!important;padding:0 16px 14px;transform:translateY(16px);z-index:21;overscroll-behavior:contain}
+  body.m .readout.show{transform:none}
+  body.m .readout .name{font-size:18px;margin:6px 0 4px}
+  body.m .readout .txt{font-size:14px;line-height:1.55}
+  .mrobar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;padding:6px 0 4px;background:rgba(21,29,34,.97);margin:0 -2px}
+  .mrobar .mgrab{margin:4px auto 4px}
+  .mrobtn{background:var(--panel-2);border:1px solid var(--edge-2);color:var(--ink);border-radius:8px;font:500 12.5px var(--sans);padding:7px 11px;cursor:pointer}
+  .mrobtn.on{background:var(--accent);color:#1a0f06;border-color:var(--accent)}
+  .mromore{font-size:12px;color:var(--faint);margin-top:2px}
+  body.m .readout.peek>*:not(.eyebrow):not(.name):not(.mrobar):not(.mromore){display:none!important}
+  body.m .readout:not(.peek) .mromore{display:none}
+  body.m .readout .eyebrow,body.m .readout .name{cursor:pointer}
+  /* approach card = compact step card */
+  body.m .apcard{top:auto!important;left:0!important;right:0!important;width:auto!important;bottom:var(--tabh)!important;max-height:46vh!important;
+    border-radius:16px 16px 0 0;border-bottom:0;padding:0 16px 14px;z-index:20;overscroll-behavior:contain}
+  body.m .apcard.full{max-height:76vh!important}
+  body.m .apcard:not(.full) .apmore{display:none!important}
+  body.m .apcard.ducked{display:none!important}
+  body.m .apcard h3{font-size:16px;margin:2px 0 4px}
+  body.m .apcard .txt,body.m .apcard ul{font-size:14px}
+  body.m .apnav button.tool{padding:11px 18px;font-size:14px;border-radius:10px}
+  body.m .apdots span{width:10px;height:10px}
+  body.m .apcard .mapbtns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  body.m .apcard .mapbtns button.tool{flex:1;font-size:12.5px;padding:10px 8px;border-radius:10px;margin:0!important}
+  body.m .apcard .chip{font-size:13px;padding:6px 10px}
+  /* misc */
+  body.m .hint{top:calc(var(--toph) + 6px);font-size:11px;width:90vw}
+  body.m .toast{top:40%}
+  body.m #credits{padding:10px!important;z-index:45!important}
+  body.m #credits>div{margin:calc(env(safe-area-inset-top) + 10px) auto 20px!important;padding:18px!important}
+  body.m .lightbox{padding:10px;z-index:55}
+  body.m .lightbox img{max-height:60vh}
+  .mempty{position:fixed;left:50%;top:44%;transform:translate(-50%,-50%);z-index:9;text-align:center;width:min(320px,86vw);color:var(--muted);font-size:14px;line-height:1.5}
+  .mempty b{display:block;color:var(--ink);font-size:18px;font-weight:600;margin-bottom:6px}
+  .mempty button{margin-top:16px;background:var(--accent);color:#1a0f06;border:0;border-radius:10px;font:600 15px var(--sans);padding:12px 22px;cursor:pointer}
+  .mempty.off{display:none}
+  .mempty small{display:block;margin-top:14px;font-size:11.5px;color:var(--faint)}
+  /* phone landscape: panels on the right instead of the bottom */
+  @media (orientation:landscape) and (max-height:540px){
+    body.m{--tabh:calc(46px + env(safe-area-inset-bottom));--toph:calc(40px + env(safe-area-inset-top))}
+    .mtabs button{flex-direction:row;gap:6px;font-size:11px}.mtabs button svg{width:18px;height:18px}
+    .msheet{left:auto;right:0;top:0;bottom:var(--tabh);width:min(400px,52vw);max-height:none;border-radius:16px 0 0 0;border-left:1px solid var(--edge-2);transform:translateX(105%)}
+    .msheet.on{transform:none}
+    body.m .readout,body.m .apcard{left:auto!important;width:min(380px,48vw)!important;top:var(--toph)!important;max-height:none!important;border-radius:14px 0 0 0;border-left:1px solid var(--edge-2)}
+    body.m .readout.peek{top:auto!important}
+  }
+</style>
+<div class="mtop" id="mTop">
+  <div class="mtitle"><b>Surgical Atlas</b><span id="mSpec">Mobile · choose a specimen</span></div>
+  <button class="mib" id="mInfo" aria-label="About, credits and licence">i</button>
+  <div class="mprog" id="mProg"></div>
+</div>
+<div class="mempty" id="mEmpty"><b>Advanced 3D Surgical Anatomy Atlas</b>Brain &amp; spine, mobile edition.
+  Pick a specimen or a guided approach to start.<br/><button id="mStart">Choose a specimen</button>
+  <small>Educational use only. Not for diagnosis, operative planning or navigation.</small></div>
+<div class="mscrim" id="mScrim"></div>
+<section class="msheet" id="sh-spec" role="dialog" aria-label="Specimens"><div class="mgrab"></div><header><h2>Specimens</h2><button class="mx">Done</button></header>
+  <div class="mbody"><p class="mintro">Each specimen downloads when you open it (size shown). Larger ones are best on Wi-Fi.</p><div id="mSpecList"></div></div></section>
+<section class="msheet" id="sh-appr" role="dialog" aria-label="Approaches"><div class="mgrab"></div><header><h2>Guided approaches</h2><button class="mx">Done</button></header>
+  <div class="mbody"><p class="mintro">Step-by-step approaches with the surgeon's view. Opening one loads its model if needed.</p><div id="mApList"></div></div></section>
+<section class="msheet" id="sh-layers" role="dialog" aria-label="Layers"><div class="mgrab"></div><header><h2>Layers</h2><button class="mx">Done</button></header>
+  <div class="mbody" id="mLayersBody"></div></section>
+<section class="msheet" id="sh-find" role="dialog" aria-label="Find a structure"><div class="mgrab"></div><header><h2>Find a structure</h2><button class="mx">Done</button></header>
+  <div class="mbody"><div class="msearch"><input id="mQ" type="search" placeholder="Search structures, e.g. caudate, CN VII, C5" autocomplete="off" aria-label="Search structures"/></div><div id="mFindList"></div></div></section>
+<section class="msheet" id="sh-tools" role="dialog" aria-label="View tools"><div class="mgrab"></div><header><h2>View tools</h2><button class="mx">Done</button></header>
+  <div class="mbody" id="mToolsBody"><div class="mlinks">
+    <button id="mCredits">Credits &amp; licence<small>Data sources, licences and the educational-use disclaimer</small></button>
+    <a href="atlas.html" id="mDesk">Desktop version<small>Full layout with the side panel; first load ~9 MB</small></a>
+    <a href="index.html">Atlas home</a></div></div></section>
+<nav class="mtabs" id="mTabs" aria-label="Atlas sections">
+  <button data-sheet="spec" aria-label="Specimens"><svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 2.6-7 6.3 0 2 .9 3.4 2.2 4.4.3 2.2 1 4.3 2.3 5.3h5c1.3-1 2-3.1 2.3-5.3C18.1 12.7 19 11.3 19 9.3 19 5.6 16 3 12 3z"/><path d="M12 3v16"/></svg>Specimens</button>
+  <button data-sheet="appr" aria-label="Approaches"><svg viewBox="0 0 24 24"><path d="M4 20 14 10"/><path d="m14 10 3-6 3 3-6 3z"/><path d="M4 20h5"/></svg>Approaches</button>
+  <button data-sheet="layers" aria-label="Layers"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg>Layers</button>
+  <button data-sheet="find" aria-label="Find"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Find</button>
+  <button data-sheet="tools" aria-label="Tools"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>Tools</button>
+</nav>
+<script id="mobile-js">
+(function(){
+'use strict';
+document.body.classList.add('m');
+const $=id=>document.getElementById(id);
+const M={sheet:null,apFull:false,multi:false,apDy:0};
+const SIZES=window.M_SIZES||{};
+function mb(bytes){return bytes?(bytes/1048576).toFixed(bytes<1048576?1:0)+' MB':'';}
+function specBytes(sp){if(sp.overlay)return (sp.layers||[]).reduce((t,L)=>t+(!L.off&&L.file&&SIZES[L.file]||0),0);return sp.url?SIZES[sp.url]||0:0;}
+function splitLabel(l){const m=/^([A-Z][A-Z ]+):\s*(.*)$/.exec(l||'');return m?[m[1].toLowerCase(),m[2]]:['',l||''];}
+function landscape(){return matchMedia('(orientation:landscape) and (max-height:540px)').matches;}
+
+/* rendering: cap pixel ratio for phone GPUs */
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.setSize(innerWidth,innerHeight);
+hintEl.textContent='drag to rotate · pinch to zoom · two fingers to pan · tap a structure';
+
+/* the init path built a stylised placeholder because nothing is embedded; clear it */
+clearScene();buildUI();select(null);srcBadge.textContent='';
+/* the core craniospinal model, hosted instead of embedded */
+specimens.unshift({label:'Brain & cervical spine',url:'brain_cervical_spine.glb',theta:-0.6,_core:true});
+const empty=$('mEmpty');
+
+/* ---------- sheets ---------- */
+const scrim=$('mScrim'),tabs=$('mTabs');
+function openSheet(k){closeSheet(true);const s=$('sh-'+k);if(!s)return;M.sheet=k;
+  if(k==='spec')renderSpecs();if(k==='appr')renderAps();if(k==='find')renderFind();
+  s.classList.add('on');scrim.classList.add('on');tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.sheet===k));
+  if(k==='find')setTimeout(()=>{if(!matchMedia('(pointer:coarse)').matches)$('mQ').focus();},250);}
+function closeSheet(quiet){document.querySelectorAll('.msheet.on').forEach(s=>s.classList.remove('on'));scrim.classList.remove('on');M.sheet=null;
+  tabs.querySelectorAll('button').forEach(b=>b.classList.remove('on'));}
+tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(M.sheet===b.dataset.sheet)closeSheet();else openSheet(b.dataset.sheet);});
+scrim.onclick=()=>closeSheet();
+document.querySelectorAll('.msheet .mx').forEach(b=>b.onclick=()=>closeSheet());
+addEventListener('keydown',e=>{if(e.key==='Escape'&&M.sheet)closeSheet();});
+/* swipe a sheet down (or right, in landscape) to close */
+document.querySelectorAll('.msheet').forEach(s=>{let y0=null,x0=null;const hd=[s.querySelector('header'),s.querySelector('.mgrab')];
+  hd.forEach(h=>{h.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;x0=e.touches[0].clientX;},{passive:true});
+    h.addEventListener('touchend',e=>{if(y0==null)return;const t=e.changedTouches[0],dy=t.clientY-y0,dx=t.clientX-x0;y0=null;if(dy>50||(landscape()&&dx>50))closeSheet();},{passive:true});});});
+$('mStart').onclick=()=>openSheet('spec');
+$('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.display='block';};
+
+/* move the shared desktop controls into the sheets (their handlers stay attached) */
+$('mLayersBody').appendChild($('layers'));
+const ln=document.createElement('p');ln.className='mnote';ln.id='mLayerNote';$('mLayersBody').appendChild(ln);
+const dock=document.querySelector('.dock');$('mToolsBody').insertBefore(dock,$('mToolsBody').firstChild);
+dock.querySelectorAll('.cap').forEach(c=>{c.textContent={Others:'Fade other structures',Light:'Brightness',Section:'Cross-section (tap again to turn off)'}[c.textContent]||c.textContent;});
+
+/* ---------- specimens ---------- */
+function renderSpecs(){const el=$('mSpecList');el.innerHTML='';
+  specimens.forEach((sp,i)=>{const r=document.createElement('div');r.className='mrow'+(i===activeSpecimen?' on':'');r.tabIndex=0;r.setAttribute('role','button');
+    const t=document.createElement('span');t.className='mt';const [eb,nm]=splitLabel(sp.label);
+    if(eb||sp._core||sp.overlay){const e=document.createElement('span');e.className='me';e.textContent=sp._core?'core anatomy':(sp.overlay?'co-registered overlay':eb);t.appendChild(e);}
+    const n=document.createElement('span');n.className='mn';n.textContent=nm;t.appendChild(n);r.appendChild(t);
+    const z=document.createElement('span');z.className='ms';z.textContent=sp._cache?'ready':(sp.overlay?'from '+mb(specBytes(sp)):mb(specBytes(sp)));r.appendChild(z);
+    const go=()=>{closeSheet();loadSpecimen(i);};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});}
+
+/* ---------- download with progress ---------- */
+const prog=$('mProg');
+function stick(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(toastTimer);}
+function setProg(f){prog.classList.toggle('on',f!=null);prog.style.width=f==null?'0':(Math.max(2,Math.min(100,f*100))+'%');}
+async function fetchBuf(file,label,onp){const r=await fetch(file);if(!r.ok)throw new Error('HTTP '+r.status);
+  const tot=+r.headers.get('content-length')||SIZES[file]||0;if(!r.body||!r.body.getReader)return r.arrayBuffer();
+  const rd=r.body.getReader(),parts=[];let got=0;for(;;){const {done,value}=await rd.read();if(done)break;parts.push(value);got+=value.length;onp(got,tot);}
+  const out=new Uint8Array(got);let o=0;parts.forEach(p=>{out.set(p,o);o+=p.length;});return out.buffer;}
+const _loadSpecimen=loadSpecimen;
+loadSpecimen=async function(i){const sp=specimens[i];if(!sp)return;
+  const [eb0,nm]=splitLabel(sp.label);$('mSpec').textContent=(sp._core?'Core anatomy · ':(sp.overlay?'Overlay · ':(eb0?eb0.charAt(0).toUpperCase()+eb0.slice(1)+' · ':'')))+nm;empty.classList.add('off');select(null);
+  try{
+    if(sp.url&&!sp._cache){const f=safeFile(sp.url);if(!f){toast('Blocked unsafe model path.');return;}
+      stick('Downloading '+nm+'…');sp._cache=await fetchBuf(f,nm,(g,t)=>{setProg(t?g/t:null);if(t)stick('Downloading '+nm+' · '+Math.round(100*g/t)+'% of '+mb(t));});
+      setProg(1);toast('Preparing the 3D model…');await new Promise(r=>setTimeout(r,60));}
+    if(sp.overlay){const need=(sp.layers||[]).filter(L=>!L.off&&L.file&&!L._cache);let done=0,tot=need.reduce((t,L)=>t+(SIZES[L.file]||0),0);
+      for(const L of need){const f=safeFile(L.file);if(!f)continue;let base=done;
+        L._cache=await fetchBuf(f,L.label,(g)=>{if(tot)setProg((base+g)/tot);});done+=SIZES[L.file]||0;}}
+  }catch(e){setProg(null);toast('Could not download '+nm+'. Check your connection and try again.');sp._cache=null;return;}
+  setTimeout(()=>setProg(null),400);
+  return _loadSpecimen(i);};
+const _buildSpecimenList=buildSpecimenList;
+buildSpecimenList=function(){_buildSpecimenList();if(M.sheet==='spec')renderSpecs();};
+
+/* ---------- approaches (all specimens) ---------- */
+function renderAps(){const el=$('mApList');el.innerHTML='';
+  if(!AP.all.length){el.innerHTML='<p class="mnote">Loading the approach list…</p>';return;}
+  const cats=[];AP.all.forEach(a=>{if(cats.indexOf(a.cat)<0)cats.push(a.cat);});
+  cats.forEach(c=>{const h=document.createElement('div');h.className='mgrp';h.textContent=c;el.appendChild(h);
+    AP.all.filter(a=>a.cat===c).forEach(a=>{const r=document.createElement('div');r.className='mrow'+(AP.active===a.id?' on':'');r.tabIndex=0;r.setAttribute('role','button');
+      const t=document.createElement('span');t.className='mt';const n=document.createElement('span');n.className='mn';n.textContent=a.title;t.appendChild(n);r.appendChild(t);
+      const si=specimens.findIndex(s=>s.url===a.specimen),sp=specimens[si];const z=document.createElement('span');z.className='ms';
+      z.textContent=(AP.file===a.specimen&&modelRoot)?'':(sp&&!sp._cache?mb(specBytes(sp)):'');r.appendChild(z);
+      const go=()=>{closeSheet();if(AP.file===a.specimen&&modelRoot)apStart(a.id);else if(si>=0){AP.pending=a.id;loadSpecimen(si);}};
+      r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});});}
+
+/* ---------- find ---------- */
+const q=$('mQ');q.addEventListener('input',()=>renderFind());
+function renderFind(){const el=$('mFindList');el.innerHTML='';
+  const all=selectable.filter(m=>!m.userData.apprPart);
+  if(!all.length){el.innerHTML='<p class="mnote">Load a specimen first.</p>';return;}
+  const s=q.value.trim().toLowerCase(),words=s.split(/\s+/).filter(Boolean);
+  const hit=all.filter(m=>{const n=(m.userData.name||'').toLowerCase();return words.every(w=>n.indexOf(w)>=0);});
+  const cap=150;hit.slice(0,cap).forEach(m=>{const r=document.createElement('div');r.className='mrow'+(m===selected?' on':'')+(m.visible?'':' dim');r.tabIndex=0;r.setAttribute('role','button');
+    const d=document.createElement('span');d.className='mdot';d.style.background=hex(SYSTEMS[m.userData.system].color);r.appendChild(d);
+    const t=document.createElement('span');t.className='mt';const n=document.createElement('span');n.className='mn';n.textContent=m.userData.name;t.appendChild(n);r.appendChild(t);
+    if(!m.visible){const z=document.createElement('span');z.className='ms';z.textContent='hidden';r.appendChild(z);}
+    const go=()=>{closeSheet();select(m);};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});
+  const p=document.createElement('p');p.className='mnote';
+  p.textContent=hit.length>cap?('Showing '+cap+' of '+hit.length+' matches; type more to narrow.'):(hit.length?hit.length+' of '+all.length+' structures':'No match. Try a shorter word.');el.appendChild(p);}
+
+/* ---------- readout as a pull-up card ---------- */
+const bar=document.createElement('div');bar.className='mrobar';
+const isoQ=document.createElement('button');isoQ.className='mrobtn';isoQ.textContent='Isolate';isoQ.onclick=e=>{e.stopPropagation();isoBtn.click();isoQ.classList.toggle('on',isolate);};
+const xQ=document.createElement('button');xQ.className='mrobtn';xQ.textContent='Close';xQ.setAttribute('aria-label','Close notes');xQ.onclick=e=>{e.stopPropagation();select(null);};
+const grab=document.createElement('div');grab.className='mgrab';bar.appendChild(isoQ);bar.appendChild(grab);bar.appendChild(xQ);
+readout.insertBefore(bar,readout.firstChild);
+const more=document.createElement('div');more.className='mromore';more.textContent='Tap for anatomy and surgical notes ▲';
+readout.insertBefore(more,document.getElementById('ro-name').nextSibling);
+function roToggle(){readout.classList.toggle('peek');readout.scrollTop=0;}
+[readout.querySelector('.eyebrow'),$('ro-name'),more,grab].forEach(n=>n.addEventListener('click',roToggle));
+(function(){let y0=null;bar.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;},{passive:true});
+  bar.addEventListener('touchend',e=>{if(y0==null)return;const dy=e.changedTouches[0].clientY-y0;y0=null;
+    if(dy<-30)readout.classList.remove('peek');else if(dy>40){if(readout.classList.contains('peek'))select(null);else readout.classList.add('peek');}},{passive:true});})();
+const _select=select;
+select=function(m){_select(m);if(m){readout.classList.add('peek');readout.scrollTop=0;closeSheet();}isoQ.classList.toggle('on',isolate);mSync();};
+isoBtn.addEventListener('click',()=>isoQ.classList.toggle('on',isolate));
+
+/* ---------- approach card ---------- */
+const _apRender=apRender;
+apRender=function(){_apRender();const a=apCur();if(!a)return;
+  const kids=[].slice.call(apCard.children),keep=new Set();let vb=null,xb=null;
+  kids.forEach(k=>{if(k.classList.contains('eyebrow')||k.tagName==='H3'||k.classList.contains('apstep')||k.classList.contains('apnav'))keep.add(k);
+    if(k.classList.contains('lbl')&&/^Step /.test(k.textContent))keep.add(k);
+    if(k.tagName==='BUTTON'&&/Surgeon/.test(k.textContent))vb=k;if(k.tagName==='BUTTON'&&/Exit/.test(k.textContent))xb=k;});
+  kids.forEach(k=>{if(!keep.has(k)&&k!==vb&&k!==xb)k.classList.add('apmore');});
+  const row=document.createElement('div');row.className='mapbtns';const det=el_('button','tool',M.apFull?'Less ▼':'Details ▲');
+  det.onclick=()=>{M.apFull=!M.apFull;apCard.classList.toggle('full',M.apFull);det.textContent=M.apFull?'Less ▼':'Details ▲';if(!M.apFull)apCard.scrollTop=0;};
+  if(vb){vb.textContent='View';row.appendChild(vb);}row.appendChild(det);if(xb){xb.textContent='Exit';row.appendChild(xb);}
+  const nav=apCard.querySelector('.apnav');if(nav&&nav.nextSibling)apCard.insertBefore(row,nav.nextSibling);else apCard.appendChild(row);
+  const g=document.createElement('div');g.className='mgrab';g.style.margin='8px auto 6px';g.onclick=()=>det.click();apCard.insertBefore(g,apCard.firstChild);
+  (function(){let y0=null;g.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;},{passive:true});
+    g.addEventListener('touchend',e=>{if(y0==null)return;const dy=e.changedTouches[0].clientY-y0;y0=null;if((dy<-30&&!M.apFull)||(dy>30&&M.apFull))det.click();},{passive:true});})();
+  apCard.classList.toggle('full',M.apFull);mSync();};
+const _apStart=apStart;apStart=function(id){M.apFull=false;closeSheet();empty.classList.add('off');_apStart(id);};
+const _apExit=apExit;apExit=function(){M.apFull=false;apCard.classList.remove('full');_apExit();mSync();};
+/* keep the model clear of the card: shift the view up (portrait) or left (landscape) */
+apOffset=function(on){if(on&&AP.active){const c=apCard.getBoundingClientRect();
+    if(landscape()){const dx=Math.round((c.width||innerWidth*0.45)/2);camera.setViewOffset(innerWidth,innerHeight,dx,0,innerWidth,innerHeight);}
+    else{const tb=tabs.getBoundingClientRect().height,tp=$('mTop').getBoundingClientRect().height;const h=Math.min(c.height||innerHeight*0.4,innerHeight*0.46);
+      const dy=Math.round((h+tb-tp)/2);camera.setViewOffset(innerWidth,innerHeight,0,dy,innerWidth,innerHeight);}}
+  else camera.clearViewOffset();camera.updateProjectionMatrix();};
+/* portrait screens are narrow: pull the surgeon's-view camera back a little */
+function rscale(){const a=innerWidth/innerHeight;window.AP_RSCALE=landscape()?1:Math.max(1,Math.min(1.4,0.55/Math.max(a,0.4)));}
+rscale();addEventListener('resize',rscale);
+/* the card ducks while a structure's notes are open */
+function mSync(){const ro=readout.classList.contains('show');apCard.classList.toggle('ducked',!!(ro&&AP.active));
+  empty.classList.toggle('off',!!(modelRoot&&selectable.length)||activeSpecimen>=0);
+  tabs.querySelector('[data-sheet=layers]').disabled=!selectable.length;tabs.querySelector('[data-sheet=find]').disabled=!selectable.length;
+  const ov=specimens[activeSpecimen]&&specimens[activeSpecimen].overlay;$('mLayerNote').textContent=ov?'Overlay layers download the first time you switch them on (size shown). Arterial territories, HCP-MMP and Jülich replace each other.':'Tap a system to hide or show it.';}
+const _finishBuild=finishBuild;finishBuild=function(){_finishBuild();mSync();if(/^Preparing/.test(toastEl.textContent))toastEl.classList.remove('show');};
+
+/* ---------- overlay: download extra layers only when switched on ---------- */
+function layerLoaded(L){return selectable.some(m=>m.userData.layer===L.label)||!!L.markers;}
+async function loadLayer(sp,L,row){const f=safeFile(L.file);if(!f)return;
+  try{stick('Downloading '+L.label+'…');if(!L._cache)L._cache=await fetchBuf(f,L.label,(g,t)=>{setProg(t?g/t:null);if(t)stick('Downloading '+L.label+' · '+Math.round(100*g/t)+'%');});
+    setProg(1);stick('Preparing '+L.label+'…');await new Promise(r=>setTimeout(r,40));
+    if(specimens[activeSpecimen]!==sp||layerLoaded(L))return;const nm=glbNames(L._cache);
+    await new Promise(res=>{new THREE.GLTFLoader().parse(L._cache,'',g=>{g.scene.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();registerMesh(o,metaFor(origName(o,nm)));o.userData.layer=L.label;o.userData.baseOpacity=(L.opacity!=null?L.opacity:1);}});
+      g.scene.traverse(o=>{if(o.isMesh)o.material.clippingPlanes=clipOn?[clipPlane]:null;});modelRoot.add(g.scene);res();},()=>{toast('Could not load '+L.label);res();});});
+    applyOpacity();toastEl.classList.remove('show');if(row){const z=row.querySelector('.ct');if(z)z.remove();}
+  }catch(e){toast('Could not download '+L.label+'.');}finally{setTimeout(()=>setProg(null),300);}}
+$('layers').addEventListener('click',e=>{const sp=specimens[activeSpecimen];if(!sp||!sp.overlay)return;const row=e.target.closest('.layer');if(!row)return;
+  const i=[].indexOf.call($('layers').children,row),L=sp.layers[i];if(L&&L.file&&!layerLoaded(L))loadLayer(sp,L,row);},true);
+const _buildOverlayUI=buildOverlayUI;
+buildOverlayUI=function(sp){_buildOverlayUI(sp);[].forEach.call($('layers').children,(row,i)=>{const L=sp.layers[i];if(L&&L.file&&!layerLoaded(L)&&SIZES[L.file]){
+  const c=document.createElement('span');c.className='ct';c.textContent=mb(SIZES[L.file]);row.appendChild(c);}});mSync();};
+
+/* ---------- touch: two-finger pan, and no accidental taps after a pinch ---------- */
+let pm=null;
+el.addEventListener('touchstart',e=>{if(e.touches.length>=2){M.multi=true;dragging=false;pm={x:(e.touches[0].clientX+e.touches[1].clientX)/2,y:(e.touches[0].clientY+e.touches[1].clientY)/2};}},{passive:true});
+el.addEventListener('touchmove',e=>{if(e.touches.length!==2||!pm)return;dragging=false;const x=(e.touches[0].clientX+e.touches[1].clientX)/2,y=(e.touches[0].clientY+e.touches[1].clientY)/2;
+  const k=2*orbit.r*Math.tan(camera.fov*Math.PI/360)/innerHeight,right=new THREE.Vector3(),up=new THREE.Vector3();
+  camera.updateMatrixWorld();right.setFromMatrixColumn(camera.matrixWorld,0);up.setFromMatrixColumn(camera.matrixWorld,1);
+  target.addScaledVector(right,-(x-pm.x)*k).addScaledVector(up,(y-pm.y)*k);pm={x,y};},{passive:true});
+el.addEventListener('touchend',e=>{if(e.touches.length<2)pm=null;if(e.touches.length===0)setTimeout(()=>{M.multi=false;},0);},{passive:true});
+addEventListener('pointerup',e=>{if(M.multi&&e.pointerType==='touch'){dragging=false;e.stopImmediatePropagation();}},true);
+/* double-tap empty space to re-frame */
+let lastTap=0;el.addEventListener('pointerup',e=>{if(e.pointerType!=='touch'||M.multi)return;const now=performance.now();
+  if(now-lastTap<300&&!selected&&!AP.active){frameScene(false);}lastTap=now;});
+
+/* ---------- start ---------- */
+mSync();
+if(!/#approach=/.test(location.hash||''))setTimeout(()=>{if(activeSpecimen<0&&!AP.pending&&!M.sheet)openSheet('spec');},700);
+window.addEventListener('orientationchange',()=>setTimeout(()=>{if(AP.active)apOffset(true);},300));
+})();
+</script>
+
 </body>
 </html>

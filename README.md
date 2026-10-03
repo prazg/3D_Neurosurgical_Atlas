@@ -74,6 +74,14 @@ brightness controls, sagittal/coronal/axial cross-section with a scrub slider,
 click-to-label with anatomy + surgical relevance + further reading, and an in-page
 *Credits & licence* panel populated from `manifest.json`.
 
+**Mobile version (`mobile.html`):** a phone-first edition with the same content —
+specimens, guided approaches, teaching notes and illustrations — laid out for touch:
+a bottom tab bar (Specimens, Approaches, Layers, Find, Tools), pull-up note cards, a
+compact step card for approaches, structure search, two-finger pan and pinch zoom.
+Nothing is embedded: each specimen downloads when opened (sizes shown), and overlay
+layers download only when switched on. The landing page and the desktop atlas point
+phone users to it; `#approach=<id>` deep links work in both versions.
+
 ## Run locally
 
 The page loads model files over HTTP, so it will **not** work from `file://`:
@@ -82,6 +90,12 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
+
+## Deploy (GitHub Pages)
+
+Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
+`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
+files unprocessed.
 
 ## Rebuilding the page
 
@@ -94,6 +108,15 @@ python build_atlas.py --html atlas-pilot.html --models ./models --out atlas.html
 
 Options: `--manifest` (order/labels), `--lookup` (teaching-note JSON injected as the
 viewer's `LOOKUP` table).
+
+Then regenerate the mobile edition from the built page (it reuses the same viewer
+code and notes, and injects the phone UI from `mobile_layer.html`):
+
+```bash
+python build_mobile.py
+```
+
+`brain_cervical_spine.glb` is a hosted copy of the embedded core model, for the mobile page.
 
 ## Data sources & licences
 
@@ -140,6 +163,3 @@ Classification of CNS Tumours (5th ed., 2021). No text is reproduced from those 
 
 Viewer and build script: MIT (see `LICENSE`). Anatomical and patient-derived model files
 retain their own licences — see the table above and `NOTICE`.
-
-## Created and compiled by: Prajwal Ghimire 
-Contact: prajwal.1.ghimire@kcl.ac.uk for collaboration
