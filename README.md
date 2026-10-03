@@ -1,4 +1,4 @@
-# 3D Surgical Anatomy Atlas — Brain & Spine
+# Advanced 3D Surgical Anatomy Atlas — Brain & Spine
 
 An interactive, browser-based 3D atlas of craniospinal anatomy and neuro-oncological
 pathology, built for neurosurgical teaching. Structures are clickable and labelled with
@@ -65,6 +65,10 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
   to brainstem contact), cochlea, and an interval-growth pair from serial imaging.
 - **Spinal metastasis** — eleven individually segmented vertebrae, T7–L5, from a planning CT.
 
+**Reference illustrations** — 56 captioned 2D illustrations from Servier Medical Art (CC BY 4.0), shown under
+"Illustration" when a matching structure is clicked and as "Illustrations" in each approach card (click to enlarge).
+Mapping lives in `figures.json`; images in `img/smart/`.
+
 **Viewer features:** specimen switcher, per-layer visibility, isolate, opacity and
 brightness controls, sagittal/coronal/axial cross-section with a scrub slider,
 click-to-label with anatomy + surgical relevance + further reading, and an in-page
@@ -78,6 +82,12 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
+
+## Deploy (GitHub Pages)
+
+Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
+`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
+files unprocessed.
 
 ## Rebuilding the page
 
@@ -108,6 +118,7 @@ viewer's `LOOKUP` table).
 | Molecular glioma cases | UCSF-PDGM (Calabrese et al.), TCIA, doi:10.7937/tcia.bdgf-8v37 | CC BY 4.0 |
 | Vestibular schwannoma | Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA | CC BY 4.0 |
 | Spinal metastasis | Spine-Mets-CT-SEG, TCIA | CC BY 4.0 |
+| 2D reference illustrations (56) | Servier Medical Art, smart.servier.com (adapted: resized) | CC BY 4.0 |
 | Intracranial arteries (approaches specimen) | Mouches & Forkert, *Sci Data* 2019;6:29, doi:10.1038/s41597-019-0034-5 (figshare vessel occurrence atlas) | CC0 |
 
 Several datasets are **CC BY-SA**, so derived model files and this page inherit
@@ -135,5 +146,3 @@ Classification of CNS Tumours (5th ed., 2021). No text is reproduced from those 
 
 Viewer and build script: MIT (see `LICENSE`). Anatomical and patient-derived model files
 retain their own licences — see the table above and `NOTICE`.
-
-## Prajwal Ghimire | Snayu Labs

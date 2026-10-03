@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>3D Surgical Anatomy Atlas — Brain &amp; Spine</title>
+<title>Advanced 3D Surgical Anatomy Atlas — Brain &amp; Spine</title>
 <meta name="description" content="Interactive 3D atlas of craniospinal anatomy and neuro-oncological pathology for neurosurgical teaching." />
 <style>
   :root{
@@ -24,7 +24,7 @@
   .cta:hover{filter:brightness(1.07)}
   .cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
   .note{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:12px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:40px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:40px}
   .card{background:var(--panel);border:1px solid var(--edge);border-radius:11px;padding:15px 16px}
   .card h2{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--faint);margin:0 0 9px;font-weight:500}
@@ -44,9 +44,10 @@
 <body>
   <main class="wrap">
     <p class="eyebrow">Neurosurgical teaching resource</p>
-    <h1>3D Surgical Anatomy Atlas<br/>Brain &amp; Spine</h1>
+    <h1>Advanced 3D Surgical<br/>Anatomy Atlas — Brain &amp; Spine</h1>
     <p class="lede">An interactive 3D atlas of craniospinal anatomy and neuro-oncological pathology.
-      Structures are clickable and labelled with anatomy notes, operative approaches and pitfalls.</p>
+      Structures are clickable and labelled with anatomy notes, operative approaches and pitfalls,
+      with captioned reference illustrations.</p>
 
     <a class="cta" href="atlas.html">Open the atlas</a>
     <p class="note">Loads ~9 MB · needs WebGL · best on desktop</p>
@@ -55,7 +56,7 @@
       <div class="card"><h2>Anatomy</h2>
         <p>Craniospinal specimen, 327-structure MRI brain, head &amp; neck CT with craniotomy footprints.</p></div>
       <div class="card"><h2>Overlay</h2>
-        <p>Co-registered white-matter tracts, arterial territories, HCP-MMP parcellation and cytoarchitecture.</p></div>
+        <p>Co-registered HCP-1065 tractography, arterial territories, HCP-MMP parcellation and cytoarchitecture.</p></div>
       <div class="card"><h2>Approaches</h2>
         <p>28 guided cranial, skull-base, functional and spinal approaches with step-by-step cards.</p></div>
       <div class="card"><h2>Pathology</h2>
@@ -69,8 +70,8 @@
     </div>
 
     <footer>
-      Built from open anatomical and imaging collections — BodyParts3D, the SPL atlases, HCPex, JHU, the
-      Jülich atlas, and TCIA cohorts — each under its own licence. Full attribution is in the atlas's
+      Built from open anatomical and imaging collections — BodyParts3D, the SPL atlases, HCPex, HCP-1065,
+      JHU, the Jülich atlas, an MRA artery atlas, TCIA cohorts and Servier Medical Art illustrations — each under its own licence. Full attribution is in the atlas's
       <em>Credits &amp; licence</em> panel and in
       <a href="https://github.com/prazg/3D_Neurosurgical_Atlas">the repository</a>.
     </footer>

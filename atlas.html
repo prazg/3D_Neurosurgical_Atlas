@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Surgical Anatomy Atlas — Pilot</title>
+<title>Advanced 3D Surgical Anatomy Atlas — Brain &amp; Spine</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" integrity="sha384-fljlqkjWlmSFjkESkQvm77heIZpoWmXEOzlCA7kOpGUH+95Zk0yGfQieWM2q136E" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
@@ -98,6 +98,19 @@
   .chip{display:inline-block;font-size:12px;padding:3px 8px;margin:4px 4px 0 0;border-radius:12px;border:1px solid rgba(95,176,173,.45);color:var(--ink);cursor:pointer}
   .chip.nm{border-style:dashed;color:var(--muted);cursor:default}
   .chip:hover{background:rgba(95,176,173,.15)}
+  .figs{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .fig{flex:1 1 120px;max-width:150px;background:#f4f1ea;border-radius:8px;padding:6px;cursor:zoom-in;border:1px solid var(--edge-2)}
+  .fig img{width:100%;height:96px;object-fit:contain;display:block}
+  .fig .cap{font-size:10.5px;line-height:1.35;color:#3b3f42;margin-top:4px}
+  .figcredit{font-size:10px;color:var(--faint);margin-top:6px;line-height:1.4}
+  .figcredit a{color:var(--muted)}
+  .lightbox{position:fixed;inset:0;z-index:50;background:rgba(8,12,15,.88);display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.show{display:flex}
+  .lightbox .lbin{background:#f7f5f0;border-radius:12px;max-width:min(760px,94vw);max-height:90vh;overflow:auto;padding:16px}
+  .lightbox img{max-width:100%;max-height:68vh;display:block;margin:0 auto}
+  .lightbox .lbcap{color:#22272a;font-size:13.5px;margin-top:10px;line-height:1.5}
+  .lightbox .lbcred{color:#5a6166;font-size:11.5px;margin-top:6px}
+  .lightbox .lbcred a{color:#2c6f8f}
   .apkey{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:10px;font-size:11px;color:var(--muted)}
   .apkey .kitem{display:inline-flex;align-items:center;gap:5px}
   .apkey .ksw{display:inline-block;width:16px;height:5px;border-radius:2px}
@@ -108,7 +121,7 @@
 <body>
   <div class="topbar">
     <button class="tool railtoggle" id="railBtn" style="pointer-events:auto">≡ Menu</button>
-    <div class="brand"><b>Surgical Atlas</b> <span class="sub">· brain &amp; spine · pilot</span></div>
+    <div class="brand"><b>Surgical Atlas</b> <span class="sub">· brain &amp; spine · advanced atlas</span></div>
     <span class="badge" id="srcBadge">loading…</span>
   </div>
   <aside class="rail" id="rail">
@@ -122,12 +135,14 @@
     <h2><span>Structures</span><span class="ct" id="scount"></span></h2>
     <div class="slist" id="slist"></div>
   </aside>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Illustration"><div class="lbin" id="lbin"></div></div>
   <div class="apcard" id="apcard" role="region" aria-label="Surgical approach"></div>
   <div class="readout" id="readout">
     <div class="eyebrow"><span class="sw" id="ro-sw"></span><span id="ro-sys"></span></div>
     <div class="name" id="ro-name"></div>
     <div class="lbl">Anatomy</div><div class="txt" id="ro-teach"></div>
     <div class="lbl">Surgical relevance</div><div class="txt surg" id="ro-surg"></div>
+    <div class="lbl" id="ro-figlbl" style="display:none">Illustration</div><div id="ro-fig"></div>
     <div class="lbl" id="ro-reflbl" style="display:none">Further reading</div><div class="txt ref" id="ro-ref" style="display:none"></div>
   </div>
   <svg id="pinsvg"><line id="pinline" stroke="#e8834a" stroke-width="1" stroke-dasharray="3 3"/><circle id="pindot" r="3" fill="#e8834a"/></svg>
@@ -161,7 +176,7 @@
   </div>
 <script>
 /* ============================================================
-   SURGICAL ANATOMY ATLAS — PILOT (three r128)
+   ADVANCED SURGICAL ANATOMY ATLAS (three r128)
    Models are embedded below (EMBEDDED_MODELS), synced from the
    Google Drive folder "Surgical-Atlas-Models". They auto-load
    on startup — no manual picking. "+ .glb" adds an ad-hoc one.
@@ -328,9 +343,31 @@ function select(mesh){selected=mesh;
   if(mesh){const s=SYSTEMS[mesh.userData.system];readout.classList.add('show');roName.textContent=mesh.userData.name;roSys.textContent=s.name;
     roSw.style.background=hex(s.color);roTeach.textContent=mesh.userData.teach;roSurg.textContent=mesh.userData.surg||'';var _hs=!!mesh.userData.surg;roSurg.style.display=_hs?'':'none';if(roSurg.previousElementSibling)roSurg.previousElementSibling.style.display=_hs?'':'none';
     var _rf=mesh.userData.ref;roRef.textContent=_rf||'';roRef.style.display=_rf?'':'none';roRefLbl.style.display=_rf?'':'none';
-    document.querySelectorAll('.srow').forEach(r=>r.classList.toggle('active',r.dataset.i==selectable.indexOf(mesh)));pin.textContent=mesh.userData.name.toLowerCase();
+    document.querySelectorAll('.srow').forEach(r=>r.classList.toggle('active',r.dataset.i==selectable.indexOf(mesh)));pin.textContent=mesh.userData.name.toLowerCase();showReadoutFigs(mesh);
   }else{readout.classList.remove('show');pin.classList.remove('show');document.querySelectorAll('.srow').forEach(r=>r.classList.remove('active'));}
   applyOpacity();}
+
+/* ---------- reference illustrations (Servier Medical Art, CC BY 4.0) ---------- */
+const FIG={figs:{},rules:[],appr:{},credit:''};
+function safeImg(p){p=String(p||'');return /^[A-Za-z0-9_.-]+\.png$/.test(p)?'img/smart/'+p:null;}
+function figsFor(name){const k=(name||'').toLowerCase(),out=[];FIG.rules.forEach(r=>{if(r[0].test(k))r[1].forEach(id=>{if(FIG.figs[id]&&out.indexOf(id)<0)out.push(id);});});return out.slice(0,2);}
+function figCredit(){const d=document.createElement('div');d.className='figcredit';d.appendChild(document.createTextNode('Illustrations adapted (resized) from '));
+  const a=document.createElement('a');a.href='https://smart.servier.com';a.target='_blank';a.rel='noopener';a.textContent='Servier Medical Art';d.appendChild(a);
+  d.appendChild(document.createTextNode(', '));const l=document.createElement('a');l.href='https://creativecommons.org/licenses/by/4.0/';l.target='_blank';l.rel='noopener';l.textContent='CC BY 4.0';d.appendChild(l);d.appendChild(document.createTextNode('.'));return d;}
+function figThumbs(ids){const w=document.createElement('div');w.className='figs';ids.forEach(id=>{const f=FIG.figs[id];const src=safeImg(f&&f.file);if(!src)return;
+  const b=document.createElement('div');b.className='fig';b.tabIndex=0;b.setAttribute('role','button');b.setAttribute('aria-label','Enlarge: '+f.caption);
+  const im=document.createElement('img');im.src=src;im.alt=f.caption;im.loading='lazy';im.onerror=()=>{b.style.display='none';};b.appendChild(im);
+  const c=document.createElement('div');c.className='cap';c.textContent=f.caption;b.appendChild(c);
+  const open=()=>openFig(id);b.onclick=open;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}};w.appendChild(b);});return w;}
+const lightbox=document.getElementById('lightbox'),lbin=document.getElementById('lbin');
+function openFig(id){const f=FIG.figs[id];const src=safeImg(f&&f.file);if(!src)return;lbin.innerHTML='';const im=document.createElement('img');im.src=src;im.alt=f.caption;lbin.appendChild(im);
+  const c=document.createElement('div');c.className='lbcap';c.textContent=f.caption;lbin.appendChild(c);
+  const cr=document.createElement('div');cr.className='lbcred';cr.appendChild(document.createTextNode('Source: '));const a=document.createElement('a');a.href=String(f.source||'https://smart.servier.com').replace(/^(?!https:\/\/smart\.servier\.com\/).*/,'https://smart.servier.com/');a.target='_blank';a.rel='noopener';a.textContent='Servier Medical Art — '+(f.title||'');cr.appendChild(a);
+  cr.appendChild(document.createTextNode(' · adapted (resized) · CC BY 4.0'));lbin.appendChild(cr);lightbox.classList.add('show');}
+lightbox.onclick=e=>{if(e.target===lightbox||e.target.tagName==='IMG')lightbox.classList.remove('show');};
+addEventListener('keydown',e=>{if(e.key==='Escape')lightbox.classList.remove('show');});
+function showReadoutFigs(mesh){const box=document.getElementById('ro-fig'),lbl=document.getElementById('ro-figlbl');box.innerHTML='';
+  const ids=mesh&&!mesh.userData.apprPart?figsFor(mesh.userData.name):[];lbl.style.display=ids.length?'':'none';if(!ids.length)return;box.appendChild(figThumbs(ids));box.appendChild(figCredit());}
 
 /* ---------- guided surgical approaches ---------- */
 const AP={all:[],active:null,step:0,file:null,meshes:[],tween:null};const RISKCOL=lin(0x3aa6ff);const apCard=document.getElementById('apcard');
@@ -398,6 +435,7 @@ function apRender(){const a=apCur();if(!a){apCard.classList.remove('show');retur
   apCard.appendChild(rk);
   const why=el_('ul');(a.risks||[]).forEach(r=>{const li=el_('li');const b=el_('b',null,r.label+': ');li.appendChild(b);li.appendChild(document.createTextNode(r.why||''));why.appendChild(li);});apCard.appendChild(why);
   const sec=(lbl,arr)=>{if(!arr||!arr.length)return;apCard.appendChild(el_('div','lbl',lbl));const u=el_('ul');arr.forEach(x=>u.appendChild(el_('li',null,x)));apCard.appendChild(u);};
+  const _af=(FIG.appr[a.id]||[]).filter(id=>FIG.figs[id]);if(_af.length){apCard.appendChild(el_('div','lbl','Illustrations'));apCard.appendChild(figThumbs(_af));apCard.appendChild(figCredit());}
   sec('Indications',a.indications);apCard.appendChild(el_('div','lbl','Positioning'));apCard.appendChild(el_('div','txt',a.position));
   sec('Pearls',a.pearls);sec('Pitfalls',a.pitfalls);
   apCard.appendChild(el_('div','apwarn','Model note: '+(a.schematic||'')+' Teaching illustration on a composite, partly schematic model. Not for diagnosis, operative planning or navigation.'));
@@ -521,6 +559,8 @@ else buildPlaceholders();
 (async()=>{try{const r=await fetch('manifest.json',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
   (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,url:m.file,approaches:!!m.approaches,theta:(typeof m.theta==='number'?m.theta:null),hide:(Array.isArray(m.hide)?m.hide.map(String):null)});});
   if(j.attribution)renderCredits([].concat(j.attribution));
+  if(j.figures){const _ff=safeJson(j.figures);if(_ff){try{const rf=await fetch(_ff,{cache:'no-store'});if(rf.ok){const jf=await rf.json();FIG.figs=jf.figures||{};FIG.appr=jf.approaches||{};
+    FIG.rules=(jf.rules||[]).map(r=>{try{return[new RegExp(r[0]),r[1]];}catch(e){return null;}}).filter(Boolean);if(selected)showReadoutFigs(selected);if(AP.active)apRender();}}catch(e){}}}
   if(j.approaches){const _af=safeJson(j.approaches);if(_af){try{const ra=await fetch(_af,{cache:'no-store'});if(ra.ok){const ja=await ra.json();AP.all=Array.isArray(ja.approaches)?ja.approaches:[];apDeepLink();}}catch(e){}}}
   if(j.overlay&&!specimens.some(s=>s.overlay))specimens.push({label:j.overlay.label||'MNI overlay',overlay:true,layers:j.overlay.layers||[],theta:(typeof j.overlay.theta==='number'?j.overlay.theta:null)});
   buildSpecimenList();}catch(e){}})();

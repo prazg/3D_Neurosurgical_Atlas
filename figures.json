@@ -1,0 +1,717 @@
+{
+ "version": 1,
+ "credit": "Illustrations adapted (resized) from Servier Medical Art (https://smart.servier.com), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+ "figures": {
+  "pituitary": {
+   "file": "smart_pituitary.png",
+   "caption": "Pituitary gland and stalk (schematic).",
+   "title": "Pituitary gland",
+   "source": "https://smart.servier.com/smart_image/pituitary-gland/"
+  },
+  "infarct": {
+   "file": "smart_infarct.png",
+   "caption": "Coronal brain section with an ischaemic infarct (shaded blue) after arterial occlusion.",
+   "title": "Ischemic Stroke",
+   "source": "https://smart.servier.com/smart_image/stroke-overview/"
+  },
+  "aneurysm": {
+   "file": "smart_aneurysm.png",
+   "caption": "Saccular (berry) aneurysm at an arterial branching point.",
+   "title": "Saccular Aneurysm",
+   "source": "https://smart.servier.com/smart_image/saccular-aneurysm-overview/"
+  },
+  "aneurysm_clip": {
+   "file": "smart_aneurysm_clip.png",
+   "caption": "Saccular aneurysm with a clip across its neck.",
+   "title": "Aneurysm clip",
+   "source": "https://smart.servier.com/smart_image/aneurysm-treatment/"
+  },
+  "neck_arteries": {
+   "file": "smart_neck_arteries.png",
+   "caption": "Arterial supply from the heart and aortic arch through the neck to the brain.",
+   "title": "Brain arteries",
+   "source": "https://smart.servier.com/smart_image/brain-arteries/"
+  },
+  "circle_willis": {
+   "file": "smart_circle_willis.png",
+   "caption": "Circle of Willis (schematic).",
+   "title": "Circle of Willis",
+   "source": "https://smart.servier.com/smart_image/circle-of-willis/"
+  },
+  "brain_regions": {
+   "file": "smart_brain_regions.png",
+   "caption": "Lateral view of the cerebral hemisphere with colour-coded functional regions.",
+   "title": "Functional areas of the Brain",
+   "source": "https://smart.servier.com/smart_image/brain-section/"
+  },
+  "cerebellum": {
+   "file": "smart_cerebellum.png",
+   "caption": "Cerebellum (schematic).",
+   "title": "Cerebellum",
+   "source": "https://smart.servier.com/smart_image/brain-17/"
+  },
+  "coronal_bg_plane": {
+   "file": "smart_coronal_bg_plane.png",
+   "caption": "Coronal brain section through the basal ganglia, with the section plane shown on the whole brain.",
+   "title": "Brain sections",
+   "source": "https://smart.servier.com/smart_image/smart-brain-sections/"
+  },
+  "dermatomes": {
+   "file": "smart_dermatomes.png",
+   "caption": "Dermatome map, anterior view.",
+   "title": "Dermatomes",
+   "source": "https://smart.servier.com/smart_image/dermatomes/"
+  },
+  "lumbar_canal": {
+   "file": "smart_lumbar_canal.png",
+   "caption": "Sagittal view of the lumbar spine: spinal canal, nerve roots and epidural space.",
+   "title": "Vertebral column",
+   "source": "https://smart.servier.com/smart_image/overview-vertebral-column/"
+  },
+  "csf": {
+   "file": "smart_csf.png",
+   "caption": "Midsagittal view of the brain showing the ventricles and the direction of CSF flow.",
+   "title": "Cerebrospinal fluid",
+   "source": "https://smart.servier.com/smart_image/cerebrospinal-fluid/"
+  },
+  "disc_herniation": {
+   "file": "smart_disc_herniation.png",
+   "caption": "Intervertebral disc herniation compressing neural structures (lumbar example).",
+   "title": "Disc herniation",
+   "source": "https://smart.servier.com/smart_image/disc-herniation/"
+  },
+  "meninges": {
+   "file": "smart_meninges.png",
+   "caption": "Meningeal layers beneath the skull at the midline, including a dural venous sinus.",
+   "title": "Meninges",
+   "source": "https://smart.servier.com/smart_image/meninges/"
+  },
+  "inner_ear": {
+   "file": "smart_inner_ear.png",
+   "caption": "Middle and inner ear: ossicles, cochlea, semicircular canals and the vestibulocochlear nerve.",
+   "title": "Inner ear",
+   "source": "https://smart.servier.com/smart_image/inner-ear/"
+  },
+  "labyrinth": {
+   "file": "smart_labyrinth.png",
+   "caption": "Bony labyrinth: cochlea and semicircular canals.",
+   "title": "Inner ear - Cochlea",
+   "source": "https://smart.servier.com/smart_image/cochlea/"
+  },
+  "paranasal": {
+   "file": "smart_paranasal.png",
+   "caption": "Paranasal sinuses, frontal view.",
+   "title": "Paranasal sinuses",
+   "source": "https://smart.servier.com/smart_image/paranasal-sinuses/"
+  },
+  "coronal_bg": {
+   "file": "smart_coronal_bg.png",
+   "caption": "Coronal brain section showing the basal ganglia and lateral ventricles.",
+   "title": "Brain section",
+   "source": "https://smart.servier.com/smart_image/brain-sagittal-overview/"
+  },
+  "axial_bg": {
+   "file": "smart_axial_bg.png",
+   "caption": "Axial brain section showing the lateral ventricles, basal ganglia and thalami.",
+   "title": "Brain section",
+   "source": "https://smart.servier.com/smart_image/brain-coronal/"
+  },
+  "brainstem": {
+   "file": "smart_brainstem.png",
+   "caption": "Brainstem with cranial nerve roots (schematic).",
+   "title": "Brainstem",
+   "source": "https://smart.servier.com/smart_image/brainstem/"
+  },
+  "brain_base_arteries": {
+   "file": "smart_brain_base_arteries.png",
+   "caption": "Inferior surface of the brain with the circle of Willis and its branches.",
+   "title": "Brain arteries",
+   "source": "https://smart.servier.com/smart_image/smart-brain-arteries/"
+  },
+  "skull": {
+   "file": "smart_skull.png",
+   "caption": "Skull, anterior view.",
+   "title": "Skull",
+   "source": "https://smart.servier.com/smart_image/head-skull/"
+  },
+  "cord_c5": {
+   "file": "smart_cord_c5.png",
+   "caption": "Spinal cord cross-section at the C5 level.",
+   "title": "Spinal cord section",
+   "source": "https://smart.servier.com/smart_image/spinal-cord/"
+  },
+  "cord_t8": {
+   "file": "smart_cord_t8.png",
+   "caption": "Spinal cord cross-section at the T8 level.",
+   "title": "Spinal cord section",
+   "source": "https://smart.servier.com/smart_image/smart-spinal-cord-view/"
+  },
+  "cord_l1": {
+   "file": "smart_cord_l1.png",
+   "caption": "Spinal cord cross-section at the L1 level.",
+   "title": "Spinal cord section",
+   "source": "https://smart.servier.com/smart_image/spinal-cord-overview/"
+  },
+  "vertebra_lat": {
+   "file": "smart_vertebra_lat.png",
+   "caption": "Cervical vertebra, lateral view.",
+   "title": "Vertebra",
+   "source": "https://smart.servier.com/smart_image/vertebra/"
+  },
+  "vertebra_sup": {
+   "file": "smart_vertebra_sup.png",
+   "caption": "Cervical vertebra, superior view.",
+   "title": "Vertebra",
+   "source": "https://smart.servier.com/smart_image/vertebra-view/"
+  },
+  "lobes": {
+   "file": "smart_lobes.png",
+   "caption": "Lateral view of the brain with the lobes colour-coded (frontal, parietal, temporal, occipital), plus cerebellum and brainstem.",
+   "title": "Brain",
+   "source": "https://smart.servier.com/smart_image/brain-area/"
+  },
+  "midsagittal": {
+   "file": "smart_midsagittal.png",
+   "caption": "Midsagittal view of the brain: corpus callosum, thalamus, brainstem, cerebellum and pituitary region.",
+   "title": "Brain",
+   "source": "https://smart.servier.com/smart_image/whole-brain/"
+  },
+  "midsag_cc": {
+   "file": "smart_midsag_cc.png",
+   "caption": "Midsagittal view with the corpus callosum and brainstem highlighted.",
+   "title": "Brain",
+   "source": "https://smart.servier.com/smart_image/brain-sagittal/"
+  },
+  "brain_superior": {
+   "file": "smart_brain_superior.png",
+   "caption": "Superior view of the cerebral hemispheres and the interhemispheric fissure.",
+   "title": "Brain",
+   "source": "https://smart.servier.com/smart_image/brain-overview-smart/"
+  },
+  "brain_inferior": {
+   "file": "smart_brain_inferior.png",
+   "caption": "Inferior surface of the brain: olfactory tracts, optic chiasm and the cut upper brainstem.",
+   "title": "Brain",
+   "source": "https://smart.servier.com/smart_image/regular-brain-overview/"
+  },
+  "medial_arteries": {
+   "file": "smart_medial_arteries.png",
+   "caption": "Medial surface of the hemisphere with its cortical arterial branches (schematic).",
+   "title": "Brain circulation",
+   "source": "https://smart.servier.com/smart_image/smart-brain-circulation/"
+  },
+  "ich": {
+   "file": "smart_ich.png",
+   "caption": "Coronal brain section with a deep haemorrhage from a ruptured perforating artery (haemorrhagic stroke); inset shows the vessel rupture.",
+   "title": "Hemorrhagic stroke",
+   "source": "https://smart.servier.com/smart_image/stroke/"
+  },
+  "midbrain": {
+   "file": "smart_midbrain.png",
+   "caption": "Axial section of the midbrain showing the substantia nigra region (darker bands) and the cerebral aqueduct.",
+   "title": "Parkinson's disease",
+   "source": "https://smart.servier.com/smart_image/parkinsons/"
+  },
+  "astrocyte": {
+   "file": "smart_astrocyte.png",
+   "caption": "Astrocyte (schematic).",
+   "title": "Astrocyte",
+   "source": "https://smart.servier.com/smart_image/astrocyte/"
+  },
+  "oligodendrocyte": {
+   "file": "smart_oligodendrocyte.png",
+   "caption": "Oligodendrocyte (schematic).",
+   "title": "Oligodendrocyte",
+   "source": "https://smart.servier.com/smart_image/smart-oligodendrocyte/"
+  },
+  "ependymal": {
+   "file": "smart_ependymal.png",
+   "caption": "Ependymal cell with apical cilia (schematic); these cells line the ventricles.",
+   "title": "Ependymal cell",
+   "source": "https://smart.servier.com/smart_image/ependymal-cell/"
+  },
+  "microglia": {
+   "file": "smart_microglia.png",
+   "caption": "Microglial cell (schematic).",
+   "title": "Microglia",
+   "source": "https://smart.servier.com/smart_image/microglia-overview/"
+  },
+  "cord_root": {
+   "file": "smart_cord_root.png",
+   "caption": "Spinal cord cross-section with nerve roots joining to form a spinal nerve.",
+   "title": "Spinal cord section",
+   "source": "https://smart.servier.com/smart_image/spinal-cord-ov/"
+  },
+  "dermatomes_post": {
+   "file": "smart_dermatomes_post.png",
+   "caption": "Dermatome map, posterior view.",
+   "title": "Dermatomes",
+   "source": "https://smart.servier.com/smart_image/smart-dermatomes/"
+  },
+  "spine_levels": {
+   "file": "smart_spine_levels.png",
+   "caption": "Spinal segments C1 to S5 along the vertebral column, colour-coded by region (cervical, thoracic, lumbar, sacral).",
+   "title": "Dermatomes",
+   "source": "https://smart.servier.com/smart_image/smart-dermatomes-overview/"
+  },
+  "sciatic": {
+   "file": "smart_sciatic.png",
+   "caption": "Posterior view of the lower spine and pelvis: lumbosacral nerve roots forming the sciatic nerve.",
+   "title": "Sciatic nerve",
+   "source": "https://smart.servier.com/smart_image/sciatic-nerve/"
+  },
+  "disc_1": {
+   "file": "smart_disc_1.png",
+   "caption": "Disc herniation series, 1 of 4 (superior view): nucleus pulposus contained within an intact annulus.",
+   "title": "Disc herniation",
+   "source": "https://smart.servier.com/smart_image/smart-disc-herniation/"
+  },
+  "disc_2": {
+   "file": "smart_disc_2.png",
+   "caption": "Disc herniation series, 2 of 4: nucleus displaced posteriorly within the annulus (bulge or protrusion).",
+   "title": "Disc herniation",
+   "source": "https://smart.servier.com/smart_image/smart-ov-disc-herniation/"
+  },
+  "disc_3": {
+   "file": "smart_disc_3.png",
+   "caption": "Disc herniation series, 3 of 4: nucleus extruding through a posterior annular tear.",
+   "title": "Disc herniation",
+   "source": "https://smart.servier.com/smart_image/disc-herniation-4/"
+  },
+  "disc_4": {
+   "file": "smart_disc_4.png",
+   "caption": "Disc herniation series, 4 of 4: extruded disc material with separate free fragments (sequestration).",
+   "title": "Disc herniation",
+   "source": "https://smart.servier.com/smart_image/disc-herniation-overview/"
+  },
+  "skull_vertex": {
+   "file": "smart_skull_vertex.png",
+   "caption": "Skull from above: coronal, sagittal and lambdoid sutures (bregma and lambda lie at their junctions).",
+   "title": "Skull",
+   "source": "https://smart.servier.com/smart_image/smart-skull/"
+  },
+  "vert_thor_lat": {
+   "file": "smart_vert_thor_lat.png",
+   "caption": "Thoracic vertebra, lateral view, with costal facets.",
+   "title": "Vertebra",
+   "source": "https://smart.servier.com/smart_image/vertebra-ov/"
+  },
+  "vert_thor_sup": {
+   "file": "smart_vert_thor_sup.png",
+   "caption": "Thoracic vertebra, superior view.",
+   "title": "Vertebra",
+   "source": "https://smart.servier.com/smart_image/vertebra-bone/"
+  },
+  "vert_lumb_lat": {
+   "file": "smart_vert_lumb_lat.png",
+   "caption": "Lumbar vertebra, lateral view.",
+   "title": "Vertebra",
+   "source": "https://smart.servier.com/smart_image/vertebral-bones/"
+  },
+  "vert_lumb_sup": {
+   "file": "smart_vert_lumb_sup.png",
+   "caption": "Lumbar vertebra, superior view.",
+   "title": "Vertebra",
+   "source": "https://smart.servier.com/smart_image/vertebra-bone-view/"
+  },
+  "aneurysm_rupture": {
+   "file": "smart_aneurysm_rupture.png",
+   "caption": "Ruptured saccular aneurysm bleeding from its dome.",
+   "title": "Saccular aneurysm",
+   "source": "https://smart.servier.com/smart_image/smart-saccular-aneurysm/"
+  },
+  "temporal_bone": {
+   "file": "smart_temporal_bone.png",
+   "caption": "Coronal section through the ear and temporal bone: external canal, middle ear, cochlea, Eustachian tube and mastoid air cells.",
+   "title": "Ear",
+   "source": "https://smart.servier.com/smart_image/smart-ear/"
+  },
+  "pituitary_portal": {
+   "file": "smart_pituitary_portal.png",
+   "caption": "Pituitary gland with hypothalamic neurons and the hypophyseal portal circulation (arteries red, veins blue).",
+   "title": "Pituitary gland",
+   "source": "https://smart.servier.com/smart_image/smart-pituitary-gland/"
+  },
+  "nasal_cavity": {
+   "file": "smart_nasal_cavity.png",
+   "caption": "Sagittal view of the nasal cavity: turbinates, cribriform plate with olfactory fibres, frontal lobe above and paranasal sinuses.",
+   "title": "Nasal cavity",
+   "source": "https://smart.servier.com/smart_image/nasal-cavity/"
+  }
+ },
+ "rules": [
+  [
+   "^t\\d+ vertebra",
+   [
+    "vert_thor_sup",
+    "vert_thor_lat"
+   ]
+  ],
+  [
+   "^l\\d vertebra",
+   [
+    "vert_lumb_sup",
+    "vert_lumb_lat"
+   ]
+  ],
+  [
+   "corpus callosum|fornix",
+   [
+    "midsag_cc",
+    "midsagittal"
+   ]
+  ],
+  [
+   "substantia nigra|red nucleus",
+   [
+    "midbrain",
+    "coronal_bg_plane"
+   ]
+  ],
+  [
+   "olfactory|optic chiasm|optic tract|optic nerve|mammill",
+   [
+    "brain_inferior"
+   ]
+  ],
+  [
+   "pericallosal|^anterior cerebral artery|(occipital|temporal) pars of posterior cerebral",
+   [
+    "medial_arteries"
+   ]
+  ],
+  [
+   "lenticulostriate",
+   [
+    "ich"
+   ]
+  ],
+  [
+   "^oligo",
+   [
+    "oligodendrocyte",
+    "microglia"
+   ]
+  ],
+  [
+   "^astro|^gbm|^enhancing tumour|^necrotic|peritumoural",
+   [
+    "astrocyte",
+    "microglia"
+   ]
+  ],
+  [
+   "^skull$",
+   [
+    "skull_vertex",
+    "skull"
+   ]
+  ],
+  [
+   "mastoidectomy",
+   [
+    "temporal_bone"
+   ]
+  ],
+  [
+   "brain surface|brain shell|telencephalon",
+   [
+    "lobes",
+    "brain_superior"
+   ]
+  ],
+  [
+   "\\(mra atlas\\)|^anterior cerebral artery|pars of (middle|posterior) cerebral|^basilar (left|right)|lenticulostriate|choroidal and thalamoperf|^(superior|inferior) cerebellar (left|right)",
+   [
+    "circle_willis",
+    "brain_base_arteries"
+   ]
+  ],
+  [
+   "pars of middle cerebral|lateral lenticulostriate",
+   [
+    "infarct"
+   ]
+  ],
+  [
+   "common carotid|internal carotid$|external carotid|vertebral artery|brachiocephalic|arch of aorta",
+   [
+    "neck_arteries",
+    "circle_willis"
+   ]
+  ],
+  [
+   "sinus \\(schematic\\)",
+   [
+    "meninges"
+   ]
+  ],
+  [
+   "^skull$|craniotomy",
+   [
+    "skull",
+    "meninges"
+   ]
+  ],
+  [
+   "ventricle|aqueduct|choroid plexus",
+   [
+    "csf",
+    "axial_bg"
+   ]
+  ],
+  [
+   "hypophysis|infundibulum|pituitary",
+   [
+    "pituitary"
+   ]
+  ],
+  [
+   "\\(cn [ivx]+|^pons$|medulla|midbrain|colliculus|^brainstem",
+   [
+    "brainstem"
+   ]
+  ],
+  [
+   "cochlea|vestibular schwannoma",
+   [
+    "labyrinth",
+    "inner_ear"
+   ]
+  ],
+  [
+   "caudate|putamen|pallidus|claustrum|accumbens|thalamic nucleus|^thal |pulvinar|subthalamic|diencephalon",
+   [
+    "coronal_bg_plane",
+    "axial_bg"
+   ]
+  ],
+  [
+   "cerebell|^(left|right)-|vermis|dentate",
+   [
+    "cerebellum"
+   ]
+  ],
+  [
+   "gyrus|lobule|cuneus|precuneus|frontal pole|temporal pole|insula$|visual cortex|telencephalon|limen insulae",
+   [
+    "brain_regions"
+   ]
+  ],
+  [
+   "spinal cord",
+   [
+    "cord_c5",
+    "cord_t8"
+   ]
+  ],
+  [
+   "^cervical\\d|^atlas|^axis|c1 vertebra|c2 vertebra|^_vertebra",
+   [
+    "vertebra_sup",
+    "cord_c5"
+   ]
+  ],
+  [
+   "spine metastasis case",
+   [
+    "vertebra_lat",
+    "lumbar_canal"
+   ]
+  ],
+  [
+   "^thoracic\\d",
+   [
+    "vert_thor_sup",
+    "cord_t8"
+   ]
+  ],
+  [
+   "gyrus|lobule|cuneus|precuneus|frontal pole|temporal pole|insula$|visual cortex|limen insulae",
+   [
+    "lobes"
+   ]
+  ],
+  [
+   "hypophysis|infundibulum|pituitary|hypothal",
+   [
+    "pituitary_portal"
+   ]
+  ],
+  [
+   "^midbrain$|part of midbrain",
+   [
+    "midbrain"
+   ]
+  ],
+  [
+   "superior sagittal sinus",
+   [
+    "skull_vertex"
+   ]
+  ],
+  [
+   "cochlea|vestibular schwannoma|vestibulocochlear|facial nerve",
+   [
+    "temporal_bone"
+   ]
+  ]
+ ],
+ "approaches": {
+  "pterional": [
+   "circle_willis",
+   "aneurysm",
+   "aneurysm_clip",
+   "aneurysm_rupture",
+   "lobes"
+  ],
+  "orbitozygomatic": [
+   "brain_base_arteries",
+   "skull",
+   "brain_inferior"
+  ],
+  "supraorbital": [
+   "circle_willis",
+   "aneurysm_clip",
+   "brain_inferior"
+  ],
+  "bifrontal": [
+   "skull",
+   "meninges",
+   "brain_inferior",
+   "brain_superior"
+  ],
+  "transcallosal": [
+   "midsag_cc",
+   "medial_arteries",
+   "csf",
+   "axial_bg",
+   "brain_superior"
+  ],
+  "subtemporal": [
+   "brain_base_arteries",
+   "brainstem",
+   "lobes"
+  ],
+  "retrosigmoid": [
+   "brainstem",
+   "inner_ear",
+   "temporal_bone",
+   "meninges"
+  ],
+  "telovelar": [
+   "csf",
+   "cerebellum",
+   "ependymal"
+  ],
+  "farlateral": [
+   "brainstem",
+   "neck_arteries"
+  ],
+  "scit": [
+   "csf",
+   "brainstem",
+   "midsagittal"
+  ],
+  "eea_sella": [
+   "nasal_cavity",
+   "paranasal",
+   "pituitary",
+   "pituitary_portal"
+  ],
+  "eea_planum": [
+   "nasal_cavity",
+   "paranasal",
+   "circle_willis",
+   "brain_inferior"
+  ],
+  "eea_clivus": [
+   "nasal_cavity",
+   "paranasal",
+   "brainstem",
+   "midsagittal"
+  ],
+  "kawase": [
+   "brainstem",
+   "labyrinth",
+   "temporal_bone"
+  ],
+  "presigmoid": [
+   "temporal_bone",
+   "inner_ear",
+   "labyrinth",
+   "meninges"
+  ],
+  "evd_kocher": [
+   "skull_vertex",
+   "csf",
+   "axial_bg"
+  ],
+  "keen": [
+   "csf",
+   "axial_bg",
+   "lobes"
+  ],
+  "frazier": [
+   "csf",
+   "axial_bg",
+   "lobes"
+  ],
+  "dandy": [
+   "csf",
+   "axial_bg",
+   "lobes"
+  ],
+  "etv": [
+   "csf",
+   "midsagittal",
+   "ependymal"
+  ],
+  "dbs_stn": [
+   "coronal_bg_plane",
+   "coronal_bg",
+   "midbrain"
+  ],
+  "dbs_gpi": [
+   "coronal_bg_plane",
+   "coronal_bg"
+  ],
+  "dbs_vim": [
+   "coronal_bg_plane",
+   "axial_bg"
+  ],
+  "acdf": [
+   "vertebra_sup",
+   "disc_herniation",
+   "dermatomes",
+   "spine_levels"
+  ],
+  "post_cervical": [
+   "vertebra_sup",
+   "cord_c5",
+   "cord_root",
+   "dermatomes_post"
+  ],
+  "lumbar_laminectomy": [
+   "lumbar_canal",
+   "vert_lumb_sup",
+   "disc_1",
+   "disc_2",
+   "disc_3",
+   "disc_4",
+   "sciatic",
+   "dermatomes"
+  ],
+  "pedicle_screws": [
+   "vert_lumb_lat",
+   "vert_lumb_sup",
+   "lumbar_canal"
+  ],
+  "costotransversectomy": [
+   "vert_thor_sup",
+   "vert_thor_lat",
+   "cord_t8",
+   "dermatomes_post"
+  ]
+ }
+}
