@@ -1,5 +1,7 @@
 # Advanced 3D Surgical Anatomy Atlas — Brain & Spine
 
+Created and compiled by **Prajwal Ghimire**
+
 An interactive, browser-based 3D atlas of craniospinal anatomy and neuro-oncological
 pathology, built for neurosurgical teaching. Structures are clickable and labelled with
 anatomy notes, operative approaches and pitfalls, and pointers to standard reference texts.
@@ -130,12 +132,6 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
-
-## Deploy (GitHub Pages)
-
-Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
-`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
-files unprocessed.
 
 ## Rebuilding the page
 
