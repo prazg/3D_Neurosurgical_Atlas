@@ -1,7 +1,5 @@
 # Advanced 3D Surgical Anatomy Atlas — Brain & Spine
 
-Compiled and built by Prajwal Ghimire
-
 An interactive, browser-based 3D atlas of craniospinal anatomy and neuro-oncological
 pathology, built for neurosurgical teaching. Structures are clickable and labelled with
 anatomy notes, operative approaches and pitfalls, and pointers to standard reference texts.
@@ -28,6 +26,18 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
   commissural and cerebellar tracts off), the original 20 JHU tracts, arterial
   territories, HCP-MMP parcellation, Jülich cytoarchitecture and schematic ventricular
   entry points (Kocher, Keen, Frazier, Dandy), each independently toggleable.
+
+**Fibre dissection walkthrough (BraDiPho)**
+
+- **Klingler fibre dissection, left hemisphere** — twelve photogrammetric 3D models of a real
+  fibre dissection (BraDiPho specimen 19), from intact cortex through sulcal decortication, the
+  posterior transverse system, the SLF and arcuate fasciculus, removal of the opercula and insula,
+  the frontal, occipital and temporal projections of the ventral system, to the lentiform nucleus
+  and the stem of the ventral system. Opens as a 12-step walkthrough.
+- The dissectors' manual annotations of the exposed superior longitudinal system (stages 4–6) are
+  painted onto the specimen surface, and 16 tractography bundles (HCP842 and SCIL atlases,
+  registered to the specimen by the BraDiPho team) appear with the matching stage. *Ghost specimen*
+  and *Show all tracts* let you compare dissected fibres with tractography.
 
 **Guided surgical approaches (teaching)**
 
@@ -92,6 +102,13 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
+
+## Deploy (GitHub Pages)
+
+Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
+`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
+files unprocessed.
+
 ## Rebuilding the page
 
 `build_atlas.py` embeds a folder of `.glb` models into the viewer template
@@ -131,11 +148,13 @@ python build_mobile.py
 | Vestibular schwannoma | Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA | CC BY 4.0 |
 | Spinal metastasis | Spine-Mets-CT-SEG, TCIA | CC BY 4.0 |
 | 2D reference illustrations (56) | Servier Medical Art, smart.servier.com (adapted: resized) | CC BY 4.0 |
+| Fibre dissection specimen (12 stages, annotations, registered tractography) | BraDiPho, Fondazione Bruno Kessler — Vavassori et al., *Nat Commun* 2025;16:9801, doi:10.1038/s41467-025-64788-y; https://bradipho.eu | **CC BY-NC-SA 4.0** (non-commercial, share-alike) |
 | Intracranial arteries (approaches specimen) | Mouches & Forkert, *Sci Data* 2019;6:29, doi:10.1038/s41597-019-0034-5 (figshare vessel occurrence atlas) | CC0 |
 
 Several datasets are **CC BY-SA**, so derived model files and this page inherit
 share-alike obligations: keep the attribution visible and redistribute under compatible
-terms. The **Jülich** layer is non-commercial — remove it if you publish commercially.
+terms. The **Jülich** layer and the **BraDiPho** dissection specimen are non-commercial — remove
+them if you publish commercially. The adapted `bradipho_spc19.glb` is shared under CC BY-NC-SA 4.0.
 
 ### Patient data
 

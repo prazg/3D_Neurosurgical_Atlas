@@ -34,6 +34,26 @@ neck vessels, SPL-PNL brain structures registered into that skull, and MNI-space
 HCP-1065 tracts/cranial nerves and arteries mapped into the same frame. Dural sinuses, bone flaps,
 corridors, incisions, entry points and trajectory angles are schematic.
 
+FIBRE DISSECTION SPECIMEN (bradipho_spc19.glb)
+- BraDiPho (Brain Dissection Photogrammetry), Fondazione Bruno Kessler and
+  collaborators. Vavassori L, Rheault F, Nocerino E, et al. Brain dissection
+  photogrammetry: a tool for studying human white matter connections integrating
+  ex vivo and in vivo multimodal datasets. Nature Communications 2025;16:9801,
+  doi:10.1038/s41467-025-64788-y. Data: https://bradipho.eu
+  Licence: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/).
+  Used: specimen 19 (left hemisphere) dissection stages 1-12, manual SLS bundle
+  annotations (stages 4-6), and HCP842/SCIL tractography registered to the specimen.
+  Changes: meshes decimated and textures downsampled for the web; annotation point
+  clouds painted onto the stage surfaces; tract envelopes reconstructed from the
+  streamline meshes. The adapted file is distributed under CC BY-NC-SA 4.0.
+  Non-commercial use only.
+
+ILLUSTRATIONS
+- Images in img/smart/ provided by Servier Medical Art (https://smart.servier.com),
+  licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  Changes: resized and colour-quantised for web delivery. Servier trademarks and
+  logos are not used.
+
 PATHOLOGY (all de-identified and de-faced at source)
 - UPenn-GBM cohort, Bakas et al., Scientific Data 2022;9:453. The Cancer
   Imaging Archive. CC BY 4.0.

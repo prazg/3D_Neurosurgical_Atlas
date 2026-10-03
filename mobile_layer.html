@@ -271,12 +271,15 @@ apRender=function(){_apRender();const a=apCur();if(!a)return;
   const kids=[].slice.call(apCard.children),keep=new Set();let vb=null,xb=null;
   kids.forEach(k=>{if(k.classList.contains('eyebrow')||k.tagName==='H3'||k.classList.contains('apstep')||k.classList.contains('apnav'))keep.add(k);
     if(k.classList.contains('lbl')&&/^Step /.test(k.textContent))keep.add(k);
-    if(k.tagName==='BUTTON'&&/Surgeon/.test(k.textContent))vb=k;if(k.tagName==='BUTTON'&&/Exit/.test(k.textContent))xb=k;});
+    if(k.tagName==='BUTTON'&&(k.dataset.role==='view'||/Surgeon/.test(k.textContent)))vb=k;if(k.tagName==='BUTTON'&&(k.dataset.role==='exit'||/^Exit/.test(k.textContent)))xb=k;});
   kids.forEach(k=>{if(!keep.has(k)&&k!==vb&&k!==xb)k.classList.add('apmore');});
+  const tg=[].slice.call(apCard.querySelectorAll('button[data-role=tracts],button[data-role=ghost]'));
   const row=document.createElement('div');row.className='mapbtns';const det=el_('button','tool',M.apFull?'Less ▼':'Details ▲');
   det.onclick=()=>{M.apFull=!M.apFull;apCard.classList.toggle('full',M.apFull);det.textContent=M.apFull?'Less ▼':'Details ▲';if(!M.apFull)apCard.scrollTop=0;};
   if(vb){vb.textContent='View';row.appendChild(vb);}row.appendChild(det);if(xb){xb.textContent='Exit';row.appendChild(xb);}
+  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):(AP.ghost?'Solid specimen':'Ghost specimen');r2.appendChild(b);});row._r2=r2;}
   const nav=apCard.querySelector('.apnav');if(nav&&nav.nextSibling)apCard.insertBefore(row,nav.nextSibling);else apCard.appendChild(row);
+  if(row._r2)apCard.insertBefore(row._r2,row.nextSibling);
   const g=document.createElement('div');g.className='mgrab';g.style.margin='8px auto 6px';g.onclick=()=>det.click();apCard.insertBefore(g,apCard.firstChild);
   (function(){let y0=null;g.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;},{passive:true});
     g.addEventListener('touchend',e=>{if(y0==null)return;const dy=e.changedTouches[0].clientY-y0;y0=null;if((dy<-30&&!M.apFull)||(dy>30&&M.apFull))det.click();},{passive:true});})();
@@ -292,6 +295,7 @@ apOffset=function(on){if(on&&AP.active){const c=apCard.getBoundingClientRect();
 /* portrait screens are narrow: pull the surgeon's-view camera back a little */
 function rscale(){const a=innerWidth/innerHeight;window.AP_RSCALE=landscape()?1:Math.max(1,Math.min(1.4,0.55/Math.max(a,0.4)));}
 rscale();addEventListener('resize',rscale);
+const _apView=apView;apView=function(){rscale();const a=apCur();if(a&&a.fitWide&&!landscape())window.AP_RSCALE*=1.5;return _apView();};
 /* the card ducks while a structure's notes are open */
 function mSync(){const ro=readout.classList.contains('show');apCard.classList.toggle('ducked',!!(ro&&AP.active));
   empty.classList.toggle('off',!!(modelRoot&&selectable.length)||activeSpecimen>=0);
