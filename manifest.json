@@ -150,7 +150,9 @@
     "Vestibular schwannoma: Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA, CC BY 4.0. Tumour and cochlea contours only — patient skull contours deliberately excluded to avoid any re-identifiable surface.",
     "Spine: Spine-Mets-CT-SEG, TCIA, CC BY 4.0. Vertebral segmentations only.",
     "Approaches specimen: composite teaching model. Skull, neck vessels and cervical spine from the SPL Head and Neck CT atlas; brain structures from the SPL-PNL atlas registered into that skull; white-matter tracts (JHU) and intracranial arteries (Mouches & Forkert, Sci Data 2019;6:29, CC0 vessel atlas, doi:10.1038/s41597-019-0034-5) mapped from MNI space. Dural sinuses, flaps, corridors, incisions and trajectories are schematic.",
-    "Tracts & cranial nerves layer and Approaches-specimen tracts: HCP-1065 population-averaged tractography atlas, Yeh FC, Nature Communications 2022;13:4933, doi:10.1038/s41467-022-32595-4 (brain.labsolver.org). CC BY-SA 4.0. Meshes derived from the atlas NIfTI masks (smoothed and decimated)."
+    "Tracts & cranial nerves layer and Approaches-specimen tracts: HCP-1065 population-averaged tractography atlas, Yeh FC, Nature Communications 2022;13:4933, doi:10.1038/s41467-022-32595-4 (brain.labsolver.org). CC BY-SA 4.0. Meshes derived from the atlas NIfTI masks (smoothed and decimated).",
+    "Reference illustrations adapted (resized) from Servier Medical Art (https://smart.servier.com), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
   ],
-  "approaches": "approaches.json"
+  "approaches": "approaches.json",
+  "figures": "figures.json"
 }
