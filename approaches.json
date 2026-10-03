@@ -1622,6 +1622,247 @@
    ]
   },
   {
+   "id": "translab",
+   "specimen": "approaches_head.glb",
+   "title": "Translabyrinthine approach",
+   "cat": "Skull base & endoscopic",
+   "side": "right",
+   "summary": "Removes the mastoid and the labyrinth to reach the internal acoustic meatus and cerebellopontine angle from the side, with little or no cerebellar retraction, at the cost of all hearing in that ear.",
+   "indications": [
+    "Vestibular schwannoma when useful hearing is absent or not realistically preservable, particularly larger tumours",
+    "Other cerebellopontine angle lesions centred on the internal acoustic meatus"
+   ],
+   "position": "Supine with the head turned away (or lateral), facial nerve monitoring; abdomen prepared for a fat graft.",
+   "steps": [
+    {
+     "h": "Incision",
+     "t": "Postauricular C-shaped incision a few centimetres behind the ear crease.",
+     "reveal": [
+      "incision"
+     ]
+    },
+    {
+     "h": "Mastoidectomy",
+     "t": "Complete mastoidectomy: skeletonise the sigmoid sinus, the middle fossa dura (tegmen) and the sinodural angle; open the antrum and identify the lateral semicircular canal.",
+     "reveal": [
+      "incision",
+      "bone"
+     ]
+    },
+    {
+     "h": "Labyrinthectomy",
+     "t": "Drill the lateral, posterior and superior semicircular canals and open the vestibule, keeping the mastoid segment of the facial nerve covered by a thin layer of bone.",
+     "reveal": [
+      "incision",
+      "bone"
+     ]
+    },
+    {
+     "h": "Internal acoustic meatus",
+     "t": "Skeletonise the meatus around most of its circumference. At the fundus the transverse (horizontal) crest divides the meatus into upper and lower halves; in the upper half the vertical crest (Bill’s bar) separates the facial nerve in front from the superior vestibular nerve behind.",
+     "reveal": [
+      "incision",
+      "bone",
+      "corridor"
+     ]
+    },
+    {
+     "h": "Tumour removal and closure",
+     "t": "Open the presigmoid dura, debulk the tumour and dissect it off the facial nerve under monitoring. Seal the aditus and middle ear and fill the defect with abdominal fat to prevent CSF leak.",
+     "reveal": [
+      "incision",
+      "bone",
+      "corridor"
+     ]
+    }
+   ],
+   "risks": [
+    {
+     "label": "Facial nerve",
+     "match": "facial nerve \\(cn vii\\) r",
+     "why": "Identified early at the fundus; stretched and thinned by large tumours."
+    },
+    {
+     "label": "Cochlear and vestibular nerves",
+     "match": "vestibulocochlear nerve \\(cn viii\\) r",
+     "why": "Hearing is sacrificed with the labyrinth."
+    },
+    {
+     "label": "Sigmoid sinus and jugular bulb",
+     "match": "right sigmoid sinus",
+     "why": "Skeletonised; a high jugular bulb narrows the approach."
+    },
+    {
+     "label": "Anterior inferior cerebellar artery",
+     "match": null,
+     "why": "May loop toward or into the porus or meatus in a proportion of patients; injury risks brainstem and cerebellar infarction (not modelled)."
+    },
+    {
+     "label": "Pons",
+     "match": "^pons$",
+     "why": "Medial limit of tumour dissection."
+    }
+   ],
+   "pearls": [
+    "Locates the facial nerve at the fundus regardless of tumour size, before the cisternal part is dissected.",
+    "A contracted mastoid, high jugular bulb or anterior sigmoid sinus narrows the window; depressing the bulb or retracting the sinus may be needed."
+   ],
+   "pitfalls": [
+    "Hearing is always lost, so it is a poor choice when serviceable hearing remains and tumour size allows a hearing-preservation route.",
+    "Unsealed air cells or middle ear are the usual route for CSF otorhinorrhoea."
+   ],
+   "schematic": "Mastoid and labyrinth drilling is drawn as a patch on the outer skull of this specimen; the inner ear itself is not modelled here (see the vestibular schwannoma case for the cochlea).",
+   "meshes": [
+    {
+     "name": "Approach: translabyrinthine (right) — postauricular incision",
+     "tag": "incision"
+    },
+    {
+     "name": "Approach: translabyrinthine (right) — extended mastoidectomy and labyrinthectomy",
+     "tag": "bone"
+    },
+    {
+     "name": "Approach: translabyrinthine (right) — translabyrinthine corridor to the internal acoustic meatus",
+     "tag": "corridor"
+    }
+   ],
+   "target": [
+    19.94,
+    62.27,
+    17.19
+   ],
+   "eye": [
+    233.87,
+    34.01,
+    96.8
+   ]
+  },
+  {
+   "id": "transcochlear",
+   "specimen": "approaches_head.glb",
+   "title": "Transcochlear approach",
+   "cat": "Skull base & endoscopic",
+   "side": "right",
+   "summary": "Extends the translabyrinthine route forward: the facial nerve is rerouted posteriorly and the cochlea and petrous apex are drilled, giving a wide lateral view of the petroclival region and the front of the brainstem.",
+   "indications": [
+    "Large petroclival meningiomas, chordomas or chondrosarcomas when hearing is already lost",
+    "Lesions ventral to the brainstem extending toward the midline clivus"
+   ],
+   "position": "Supine with the head turned away or lateral; facial nerve monitoring.",
+   "steps": [
+    {
+     "h": "Incision",
+     "t": "Extended postauricular incision; the external auditory canal is divided and closed as a blind sac.",
+     "reveal": [
+      "incision"
+     ]
+    },
+    {
+     "h": "Translabyrinthine stage",
+     "t": "Mastoidectomy and labyrinthectomy as for the translabyrinthine approach, with removal of the middle ear contents.",
+     "reveal": [
+      "incision",
+      "bone"
+     ]
+    },
+    {
+     "h": "Facial nerve rerouting",
+     "t": "Decompress the facial nerve from the stylomastoid foramen to the meatus, divide the greater superficial petrosal nerve at the geniculate ganglion and transpose the nerve posteriorly.",
+     "reveal": [
+      "incision",
+      "bone"
+     ]
+    },
+    {
+     "h": "Cochlear and petrous apex drilling",
+     "t": "Drill the cochlea and petrous apex toward the clivus, keeping the petrous carotid as the anterior limit and working posterior and medial to its genu and horizontal segment.",
+     "reveal": [
+      "incision",
+      "bone"
+     ]
+    },
+    {
+     "h": "Petroclival exposure",
+     "t": "Open the dura to expose the petroclival region, the basilar artery and the ventral pons.",
+     "reveal": [
+      "incision",
+      "bone",
+      "corridor"
+     ]
+    }
+   ],
+   "risks": [
+    {
+     "label": "Facial nerve",
+     "match": "facial nerve \\(cn vii\\) r",
+     "why": "Rerouting often leaves lasting facial weakness of moderate degree."
+    },
+    {
+     "label": "Internal carotid artery (petrous)",
+     "match": "right internal carotid artery, intracranial",
+     "why": "Lies just in front of the cochlea, separated only by thin bone, and forms the anterior limit of petrous drilling (petrous segment not modelled here)."
+    },
+    {
+     "label": "Basilar artery",
+     "match": "basilar artery",
+     "why": "At the depth of the exposure."
+    },
+    {
+     "label": "Abducens nerve",
+     "match": null,
+     "why": "Ascends the clivus into Dorello’s canal within the exposure (not modelled)."
+    },
+    {
+     "label": "Pons",
+     "match": "^pons$",
+     "why": "Ventral brainstem target and limit."
+    },
+    {
+     "label": "Jugular bulb, inferior petrosal sinus and lower cranial nerves",
+     "match": null,
+     "why": "Inferior limit of the exposure; injury to nerves IX–XI affects swallowing and voice (not modelled)."
+    },
+    {
+     "label": "Trigeminal nerve at the petrous apex",
+     "match": "trigeminal nerve \\(cn v\\) r",
+     "why": "Superior-anterior limit of the petrous apex exposure."
+    }
+   ],
+   "pearls": [
+    "Provides one of the widest lateral exposures of the clivus without brain retraction.",
+    "A transotic variant leaves the facial nerve in its canal to reduce facial morbidity, at the cost of a narrower view."
+   ],
+   "pitfalls": [
+    "Facial nerve morbidity is the main price of the approach.",
+    "Inadequate closure of the eustachian tube and ear canal leads to CSF leak."
+   ],
+   "schematic": "Petrous drilling is drawn as a patch on the outer skull; inner ear, petrous carotid and abducens nerve are not modelled.",
+   "meshes": [
+    {
+     "name": "Approach: transcochlear (right) — extended postauricular incision",
+     "tag": "incision"
+    },
+    {
+     "name": "Approach: transcochlear (right) — petrosectomy (mastoid, labyrinth and cochlea drilled)",
+     "tag": "bone"
+    },
+    {
+     "name": "Approach: transcochlear (right) — transcochlear corridor to the petroclival region",
+     "tag": "corridor"
+    }
+   ],
+   "target": [
+    14.94,
+    62.27,
+    11.19
+   ],
+   "eye": [
+    239.68,
+    63.33,
+    60.12
+   ]
+  },
+  {
    "id": "evd_kocher",
    "specimen": "approaches_head.glb",
    "title": "External ventricular drain at Kocher point",
@@ -2823,6 +3064,526 @@
    ]
   },
   {
+   "id": "c1c2",
+   "specimen": "approaches_head.glb",
+   "title": "C1–C2 posterior fixation (Goel–Harms technique)",
+   "cat": "Spinal",
+   "side": "midline",
+   "summary": "Polyaxial screws in the C1 lateral masses and the C2 pedicles (or pars), joined by rods, fix the atlantoaxial joint; each side is placed independently, so reduction can be done through the rods.",
+   "indications": [
+    "Atlantoaxial instability: odontoid non-union or unstable odontoid fractures unsuitable for an anterior screw, os odontoideum, rheumatoid or post-traumatic instability",
+    "Fixation after C1–C2 decompression or tumour resection"
+   ],
+   "position": "Prone in pins, neck neutral to slightly flexed; check C1–C2 alignment on fluoroscopy before draping.",
+   "steps": [
+    {
+     "h": "Exposure",
+     "t": "Midline incision from the occiput to C3 and subperiosteal exposure of the C1 posterior arch, the C2 lamina and the C1–C2 joints. Along the upper border of the C1 arch keep dissection within about 1.5 cm of the midline (less in children), where the vertebral artery lies in its groove.",
+     "reveal": [
+      "incision"
+     ]
+    },
+    {
+     "h": "C1 lateral mass screws",
+     "t": "Mobilise the C2 nerve root and control the venous plexus below the C1 arch. Enter the middle of the posterior lateral mass, converge modestly medially (commonly about 10–15 degrees) and, on lateral fluoroscopy, run roughly parallel to the C1 posterior arch toward the anterior tubercle, avoiding a steep upward path into the occipitocondylar joint.",
+     "reveal": [
+      "incision",
+      "c1"
+     ]
+    },
+    {
+     "h": "C2 pedicle (or pars) screws",
+     "t": "Enter the superomedial part of the C2 lateral mass and follow the pedicle, typically around 15–25 degrees medially and 20–30 degrees upward, individualised from CT. A pars screw is shorter and steeper when the pedicle is too small.",
+     "reveal": [
+      "incision",
+      "c1",
+      "c2"
+     ]
+    },
+    {
+     "h": "Rods and fusion",
+     "t": "Connect the screws with rods, correct alignment if needed, then decorticate and graft between the C1 arch and the C2 lamina.",
+     "reveal": [
+      "incision",
+      "c1",
+      "c2",
+      "rod"
+     ]
+    }
+   ],
+   "risks": [
+    {
+     "label": "Vertebral arteries",
+     "match": "vertebral artery",
+     "why": "Lie in the groove on the upper surface of the C1 arch and pass through the C2 transverse foramen beneath the pars; a high-riding artery can rule out a C2 pedicle screw, so review CT angiography first."
+    },
+    {
+     "label": "Internal carotid arteries",
+     "match": "internal carotid",
+     "why": "Lie in front of the C1 lateral masses; screw length is chosen from CT, as overpenetration of the anterior cortex endangers them."
+    },
+    {
+     "label": "C2 nerve root and venous plexus",
+     "match": null,
+     "why": "Brisk venous bleeding; the root is sometimes divided for access, leaving occipital numbness (not modelled)."
+    },
+    {
+     "label": "Spinal cord",
+     "match": null,
+     "why": "A medial breach of either screw enters the canal (not modelled here)."
+    }
+   ],
+   "pearls": [
+    "Measure the C2 pedicle width and trace both vertebral arteries on preoperative CT before choosing pedicle, pars or translaminar screws.",
+    "Placing screws before reduction lets the rods help reduce a subluxed C1–C2 joint."
+   ],
+   "pitfalls": [
+    "At C2 a lateral or inferior breach endangers the vertebral artery; at either level a medial breach endangers the cord.",
+    "Too-long C1 screws can reach the internal carotid artery or hypoglossal nerve in front of C1."
+   ],
+   "schematic": "Screws and rods are drawn on the C1 and C2 of this CT model; angles are illustrative, not a plan.",
+   "meshes": [
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — C1 right lateral mass screw",
+     "tag": "c1"
+    },
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — C2 right pedicle (pars) screw",
+     "tag": "c2"
+    },
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — C1 left lateral mass screw",
+     "tag": "c1"
+    },
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — C2 left pedicle (pars) screw",
+     "tag": "c2"
+    },
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — right rod",
+     "tag": "rod"
+    },
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — left rod",
+     "tag": "rod"
+    },
+    {
+     "name": "Approach: C1–C2 posterior fixation (Harms) — midline incision",
+     "tag": "incision"
+    }
+   ],
+   "target": [
+    -2.39,
+    13.04,
+    39.43
+   ],
+   "eye": [
+    21.59,
+    72.99,
+    239.25
+   ]
+  },
+  {
+   "id": "corpectomy",
+   "specimen": "approaches_head.glb",
+   "title": "Anterior cervical corpectomy C5 with reconstruction",
+   "cat": "Spinal",
+   "side": "right",
+   "summary": "Removes the C5 vertebral body with the discs above and below to decompress the spinal cord behind it, then reconstructs C4–C6 with a cage or strut graft and an anterior plate.",
+   "indications": [
+    "Cord compression behind the vertebral body: ossification of the posterior longitudinal ligament, spondylosis with retrovertebral compression",
+    "Vertebral body fracture, tumour or osteomyelitis"
+   ],
+   "position": "Supine with the neck neutral to slightly extended, avoiding hyperextension in a myelopathic patient; shoulders drawn down gently for lateral fluoroscopy.",
+   "steps": [
+    {
+     "h": "Incision",
+     "t": "Transverse skin-crease incision over C5 (an oblique incision along sternocleidomastoid for longer constructs).",
+     "reveal": [
+      "incision"
+     ]
+    },
+    {
+     "h": "Plane",
+     "t": "Divide platysma and develop the plane medial to sternocleidomastoid and the carotid sheath and lateral to the trachea and oesophagus down to the prevertebral fascia; elevate longus colli.",
+     "reveal": [
+      "incision",
+      "corridor"
+     ]
+    },
+    {
+     "h": "Discectomies",
+     "t": "Remove the C4–5 and C5–6 discs out to the uncovertebral joints, which mark the lateral limits of safe bone removal.",
+     "reveal": [
+      "incision",
+      "corridor",
+      "bone"
+     ]
+    },
+    {
+     "h": "Corpectomy trough",
+     "t": "Remove the central C5 body in a trough roughly 15–18 mm wide, planned from preoperative CT and centred between the uncovertebral joints (the distance between the vertebral arteries varies, and a tortuous artery may lie closer to the midline). Thin and remove the posterior cortex and, where it is compressive and separable, the posterior longitudinal ligament; in OPLL adherent to dura the ossified ligament may be thinned and allowed to float forward instead.",
+     "reveal": [
+      "incision",
+      "corridor",
+      "bone"
+     ]
+    },
+    {
+     "h": "Reconstruction",
+     "t": "Place a cage or strut graft from C4 to C6 and fix it with an anterior plate; consider posterior supplementation for longer or osteoporotic constructs.",
+     "reveal": [
+      "incision",
+      "corridor",
+      "bone",
+      "implant"
+     ]
+    }
+   ],
+   "risks": [
+    {
+     "label": "Vertebral arteries",
+     "match": "vertebral artery",
+     "why": "Lateral limit of the trough; drifting off the midline risks injury."
+    },
+    {
+     "label": "Carotid sheath",
+     "match": "right common carotid|right internal jugular vein",
+     "why": "Retracted laterally throughout."
+    },
+    {
+     "label": "Trachea, oesophagus and thyroid",
+     "match": "thyroid gland|thyroid cartilage",
+     "why": "Retracted medially; oesophageal injury is rare but serious."
+    },
+    {
+     "label": "Recurrent laryngeal nerve",
+     "match": null,
+     "why": "Hoarseness from retraction or injury (not modelled)."
+    },
+    {
+     "label": "Spinal cord",
+     "match": null,
+     "why": "Directly behind the posterior cortex and ligament (not modelled here)."
+    },
+    {
+     "label": "C5 nerve root palsy",
+     "match": null,
+     "why": "Deltoid or biceps weakness after decompression, typically appearing hours to days later; more frequent after corpectomy than after discectomy."
+    },
+    {
+     "label": "Dural tear and CSF leak",
+     "match": null,
+     "why": "Especially in OPLL with dural ossification."
+    },
+    {
+     "label": "Haematoma and airway compromise",
+     "match": null,
+     "why": "Neck swelling with stridor after surgery needs urgent wound opening."
+    },
+    {
+     "label": "Sympathetic chain",
+     "match": null,
+     "why": "Lies on longus colli; dissecting too far laterally causes Horner’s syndrome."
+    }
+   ],
+   "pearls": [
+    "Re-check both uncovertebral joints repeatedly to keep the trough centred.",
+    "Swallowing difficulty is common early after multilevel anterior surgery."
+   ],
+   "pitfalls": [
+    "Graft subsidence or dislodgement is more frequent than after discectomy alone, especially for multilevel corpectomy."
+   ],
+   "schematic": "Trough, cage and plate are drawn as simple solids on this CT model.",
+   "meshes": [
+    {
+     "name": "Approach: anterior cervical corpectomy C5 — central corpectomy trough (C4–5 disc, C5 body, C5–6 disc)",
+     "tag": "bone"
+    },
+    {
+     "name": "Approach: anterior cervical corpectomy C5 — anterior corridor",
+     "tag": "corridor"
+    },
+    {
+     "name": "Approach: anterior cervical corpectomy C5 — strut graft or cage and anterior plate C4–C6",
+     "tag": "implant"
+    },
+    {
+     "name": "Approach: anterior cervical corpectomy C5 — transverse skin incision",
+     "tag": "incision"
+    }
+   ],
+   "target": [
+    -4.93,
+    -42.81,
+    30.84
+   ],
+   "eye": [
+    84.51,
+    -11.66,
+    -156.59
+   ]
+  },
+  {
+   "id": "thoracic_screws",
+   "specimen": "case_spine_mets.glb",
+   "title": "Thoracic pedicle screws T10–T11",
+   "cat": "Spinal",
+   "side": "midline",
+   "summary": "Bilateral pedicle screws at T10 and T11 joined by rods. Thoracic pedicles are narrower and more variable than lumbar ones, so the entry point and trajectory need extra care.",
+   "indications": [
+    "Thoracolumbar fractures",
+    "Instability from spinal metastases",
+    "Deformity correction"
+   ],
+   "position": "Prone on a radiolucent frame, abdomen free.",
+   "steps": [
+    {
+     "h": "Exposure",
+     "t": "Midline incision and subperiosteal exposure out to the tips of the transverse processes.",
+     "reveal": [
+      "incision"
+     ]
+    },
+    {
+     "h": "Entry point",
+     "t": "At the junction of the transverse process with the lateral edge of the superior articular process; at T10–T11 this is around the upper third to the midpoint of the transverse process, varying by level and patient.",
+     "reveal": [
+      "incision",
+      "screw"
+     ]
+    },
+    {
+     "h": "Trajectory",
+     "t": "Converge slightly medially (often around 5–10 degrees at this level) and stay parallel to the superior endplate (straight-forward) or angle caudally (anatomical). Probe and palpate the four walls and the floor of the track before tapping.",
+     "reveal": [
+      "incision",
+      "screw"
+     ]
+    },
+    {
+     "h": "Screws and rods",
+     "t": "Confirm position on fluoroscopy, navigation or intraoperative CT and connect with rods.",
+     "reveal": [
+      "incision",
+      "screw",
+      "rod"
+     ]
+    }
+   ],
+   "risks": [
+    {
+     "label": "Spinal canal (medial wall)",
+     "match": null,
+     "why": "A medial (or inferior) breach enters the canal or foramen; at T10–T11 this is spinal cord with little room around it (not modelled)."
+    },
+    {
+     "label": "Pleura and lung",
+     "match": null,
+     "why": "A lateral breach beyond the rib head can cause pneumothorax or pleural injury (not modelled)."
+    },
+    {
+     "label": "Aorta and segmental vessels",
+     "match": null,
+     "why": "The aorta lies anterolateral to the vertebral body, usually on the left; overlong screws or a breach of the anterolateral body cortex put it and the segmental vessels at risk (not modelled)."
+    },
+    {
+     "label": "Pedicles of T10 and T11",
+     "match": "t10 vertebra|t11 vertebra",
+     "why": "Small or rotated pedicles reduce the safe margin."
+    }
+   ],
+   "pearls": [
+    "Thoracic pedicles are narrowest in the mid-thoracic spine and widen toward the thoracolumbar junction.",
+    "Navigation or intraoperative CT improves accuracy in small or rotated pedicles."
+   ],
+   "pitfalls": [
+    "An in–out–in path through the rib–pedicle junction is accepted in small pedicles but may give somewhat less pull-out strength than a fully intrapedicular screw, though studies differ."
+   ],
+   "schematic": "Screws and rods drawn on the T10–T11 vertebrae of this case; angles are illustrative.",
+   "meshes": [
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — T10 right pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — T10 left pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — T11 right pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — T11 left pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — right rod",
+     "tag": "rod"
+    },
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — left rod",
+     "tag": "rod"
+    },
+    {
+     "name": "Approach: thoracic pedicle screws T10–T11 — midline incision",
+     "tag": "incision"
+    }
+   ],
+   "target": [
+    312.65,
+    234.83,
+    -13.65
+   ],
+   "eye": [
+    128.93,
+    299.13,
+    32.29
+   ]
+  },
+  {
+   "id": "tlif",
+   "specimen": "case_spine_mets.glb",
+   "title": "TLIF L4–L5 (left-sided)",
+   "cat": "Spinal",
+   "side": "left",
+   "summary": "Transforaminal lumbar interbody fusion: a unilateral facetectomy opens the foramen so the disc can be cleared and an interbody cage placed through the transforaminal window (analogous to Kambin’s triangle), combined with bilateral pedicle screws.",
+   "indications": [
+    "Degenerative spondylolisthesis with stenosis",
+    "Foraminal stenosis needing indirect height restoration",
+    "Recurrent disc herniation with instability"
+   ],
+   "position": "Prone on a frame that keeps lumbar lordosis.",
+   "steps": [
+    {
+     "h": "Exposure and screws",
+     "t": "Midline incision, exposure to the transverse processes and placement of L4 and L5 pedicle screws; distract on the approach side.",
+     "reveal": [
+      "incision",
+      "screw"
+     ]
+    },
+    {
+     "h": "Facetectomy",
+     "t": "Remove the L4 inferior and L5 superior articular processes on the approach side, exposing the exiting L4 root above and the traversing L5 root and dura medially.",
+     "reveal": [
+      "incision",
+      "screw",
+      "bone"
+     ]
+    },
+    {
+     "h": "Discectomy through Kambin’s triangle",
+     "t": "Work in the triangle bounded by the exiting root, the traversing root and dura, and the L5 superior endplate; clear the disc and prepare the endplates without breaching them.",
+     "reveal": [
+      "incision",
+      "screw",
+      "bone",
+      "corridor"
+     ]
+    },
+    {
+     "h": "Cage, rods and compression",
+     "t": "Pack graft and place an oblique cage across the midline, then add rods and compress to restore lordosis.",
+     "reveal": [
+      "incision",
+      "screw",
+      "bone",
+      "corridor",
+      "implant",
+      "rod"
+     ]
+    }
+   ],
+   "risks": [
+    {
+     "label": "Exiting L4 root",
+     "match": null,
+     "why": "Upper border of the working window; injury causes painful dysaesthesia (not modelled)."
+    },
+    {
+     "label": "Traversing L5 root and dura",
+     "match": null,
+     "why": "Medial border of the window (not modelled)."
+    },
+    {
+     "label": "Dura",
+     "match": null,
+     "why": "Tears are common during facetectomy and when retracting the traversing root; repair or seal to avoid a CSF fistula (not modelled)."
+    },
+    {
+     "label": "Great vessels in front of the disc",
+     "match": null,
+     "why": "An instrument through the anterior annulus can injure the iliac vessels or the caval confluence, which lie in front of L4–L5 (not modelled)."
+    },
+    {
+     "label": "L4 and L5 vertebrae",
+     "match": "l4 vertebra|l5 vertebra",
+     "why": "Endplate injury leads to cage subsidence."
+    }
+   ],
+   "pearls": [
+    "Removing the whole facet lets the cage pass lateral to the dura with little retraction of the thecal sac, compared with a posterior interbody approach."
+   ],
+   "pitfalls": [
+    "Aggressive endplate preparation causes subsidence; a cage that sits too posterior can back out."
+   ],
+   "schematic": "Facetectomy, cage, screws and rods drawn on the L4–L5 vertebrae of this case; the nerve roots are not modelled.",
+   "meshes": [
+    {
+     "name": "Approach: TLIF L4–L5 (left) — left facetectomy (L4 inferior and L5 superior articular processes)",
+     "tag": "bone"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — interbody cage in the L4–5 disc space",
+     "tag": "implant"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — transforaminal corridor (Kambin triangle)",
+     "tag": "corridor"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — L4 right pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — L4 left pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — L5 right pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — L5 left pedicle screw",
+     "tag": "screw"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — right rod",
+     "tag": "rod"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — left rod",
+     "tag": "rod"
+    },
+    {
+     "name": "Approach: TLIF L4–L5 (left) — midline incision",
+     "tag": "incision"
+    }
+   ],
+   "target": [
+    363.53,
+    63.12,
+    -23.63
+   ],
+   "eye": [
+    192.9,
+    120.59,
+    -110.72
+   ]
+  },
+  {
    "id": "bradipho19",
    "specimen": "bradipho_spc19.glb",
    "mode": "dissection",
@@ -3162,6 +3923,121 @@
     16.295520782470703
    ],
    "fitWide": true
+  }
+ ],
+ "resources": [
+  {
+   "title": "Rhoton Collection channel (YouTube)",
+   "url": "https://www.youtube.com/@RhotonCollection",
+   "note": "Archive of lectures and dissections from the laboratory of Albert Rhoton Jr.",
+   "cats": [
+    "all"
+   ]
+  },
+  {
+   "title": "The Rhoton Collection (AANS)",
+   "url": "https://www.aans.org/education-publications/references/the-rhoton-collection/",
+   "note": "Albert Rhoton’s microsurgical anatomy lectures and dissections.",
+   "cats": [
+    "Cranial",
+    "Skull base & endoscopic",
+    "Ventricular & functional",
+    "Fibre dissection"
+   ]
+  },
+  {
+   "title": "The Rhoton Collection (2D) on YouTube",
+   "url": "https://www.youtube.com/playlist?list=PL6307C9E54B56AD87",
+   "note": "Open playlist of Rhoton anatomy lectures.",
+   "cats": [
+    "Cranial",
+    "Skull base & endoscopic",
+    "Ventricular & functional",
+    "Fibre dissection"
+   ]
+  },
+  {
+   "title": "Hernesniemi’s 1001 and more microsurgical videos",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5569399/",
+   "note": "Open-access article describing the free video collection and how to reach it.",
+   "cats": [
+    "Cranial",
+    "Skull base & endoscopic"
+   ]
+  },
+  {
+   "title": "ISPN Library",
+   "url": "https://ispnlibrary.org/",
+   "note": "Paediatric neurosurgery education archive (hydrocephalus, ETV and more).",
+   "ids": [
+    "etv",
+    "evd_kocher",
+    "keen",
+    "frazier",
+    "dandy"
+   ]
+  },
+  {
+   "title": "EANS past webinars",
+   "url": "https://www.eans.org/page/EANSPastWebinars",
+   "note": "Recorded webinars from the European Association of Neurosurgical Societies.",
+   "cats": [
+    "all"
+   ]
+  },
+  {
+   "title": "NREF videos (YouTube)",
+   "url": "https://www.youtube.com/@NREFvideos",
+   "note": "Neurosurgery Research & Education Foundation lectures.",
+   "cats": [
+    "all"
+   ]
+  },
+  {
+   "title": "AANS Neurosurgery (YouTube)",
+   "url": "https://www.youtube.com/@AANSNeurosurgery",
+   "note": "Lectures and technique videos from the AANS.",
+   "cats": [
+    "Spinal",
+    "Cranial",
+    "Skull base & endoscopic"
+   ]
+  },
+  {
+   "title": "UCLA 100 lectures (Surgical Neurology International)",
+   "url": "https://surgicalneurologyint.com/category/videos/ucla-100-lectures/",
+   "note": "Free recorded neurosurgical lectures.",
+   "cats": [
+    "all"
+   ]
+  },
+  {
+   "title": "Seattle Science Foundation (YouTube)",
+   "url": "https://www.youtube.com/@seattlesciencefoundation6700",
+   "note": "Anatomy demonstrations, lectures and surgical videos.",
+   "cats": [
+    "Skull base & endoscopic",
+    "Spinal"
+   ]
+  },
+  {
+   "title": "ACNS webinars (YouTube)",
+   "url": "https://www.youtube.com/@Acnswebinars",
+   "note": "Asian Congress of Neurological Surgeons technique webinars.",
+   "cats": [
+    "Spinal",
+    "Skull base & endoscopic"
+   ]
+  },
+  {
+   "title": "The Neurosurgical Atlas",
+   "url": "https://www.neurosurgicalatlas.com/",
+   "note": "Operative atlas by Aaron Cohen-Gadol; parts may require registration or a subscription.",
+   "cats": [
+    "Cranial",
+    "Skull base & endoscopic",
+    "Spinal"
+   ]
   }
  ]
 }

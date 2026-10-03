@@ -34,6 +34,14 @@ neck vessels, SPL-PNL brain structures registered into that skull, and MNI-space
 HCP-1065 tracts/cranial nerves and arteries mapped into the same frame. Dural sinuses, bone flaps,
 corridors, incisions, entry points and trajectory angles are schematic.
 
+SKULL BONES SPECIMEN (skull_bones.glb)
+- BodyParts3D, (c) The Database Center for Life Science (DBCLS), licensed CC BY-SA 2.1 JP.
+  Mitsuhashi N, et al. BodyParts3D: 3D structure database for anatomical concepts.
+  Nucleic Acids Research 2009. https://lifesciencedb.jp/bp3d/
+  Changes: 20 skull bones selected, recoloured and assembled; suture bands and craniometric
+  keypoints computed from bone contacts (the MacCarty keyhole is placed by rule). Shared under
+  CC BY-SA.
+
 FIBRE DISSECTION SPECIMEN (bradipho_spc19.glb)
 - BraDiPho (Brain Dissection Photogrammetry), Fondazione Bruno Kessler and
   collaborators. Vavassori L, Rheault F, Nocerino E, et al. Brain dissection
@@ -53,6 +61,20 @@ ILLUSTRATIONS
   licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
   Changes: resized and colour-quantised for web delivery. Servier trademarks and
   logos are not used.
+
+RHOTON COLLECTION PLATES (img/rhoton/, rhoton.json)
+- Courtesy of the Rhoton Collection, American Association of Neurological Surgeons
+  (AANS)/Neurosurgical Research and Education Foundation (NREF).
+- Source: "Rhoton Collection Top 100" slide set (http://rhoton.ineurodb.org). Images by
+  Albert Rhoton, Jeffrey Sorenson, Kaan Yagmurlu, Maria Peris-Celda, Marjorie Wang,
+  Adriano Garcia-Scaff, Toshiro Katsuta, Carolina Martins; editing by Jeffrey Sorenson,
+  Carl Heilman; supported by the NREF Rhoton Fund.
+- Terms (https://nref.org/education/The-Rhoton-Collection/): materials may be re-used for
+  educational or media purposes as long as credit is given to The Rhoton Collection;
+  watermarks may not be removed. Commercial or non-educational use requires NREF permission.
+- Changes: images resized and paired (left | right eye) into one JPEG per plate; outline
+  overlays converted from the slide set's vector paths to SVG; watermarks retained.
+- More: https://www.youtube.com/@RhotonCollection
 
 PATHOLOGY (all de-identified and de-faced at source)
 - UPenn-GBM cohort, Bakas et al., Scientific Data 2022;9:453. The Cancer

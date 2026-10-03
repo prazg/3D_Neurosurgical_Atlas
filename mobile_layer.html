@@ -186,6 +186,7 @@ $('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.di
 $('mLayersBody').appendChild($('layers'));
 const ln=document.createElement('p');ln.className='mnote';ln.id='mLayerNote';$('mLayersBody').appendChild(ln);
 const dock=document.querySelector('.dock');$('mToolsBody').insertBefore(dock,$('mToolsBody').firstChild);
+['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
 dock.querySelectorAll('.cap').forEach(c=>{c.textContent={Others:'Fade other structures',Light:'Brightness',Section:'Cross-section (tap again to turn off)'}[c.textContent]||c.textContent;});
 
 /* ---------- specimens ---------- */
@@ -244,7 +245,7 @@ function renderFind(){const el=$('mFindList');el.innerHTML='';
     const d=document.createElement('span');d.className='mdot';d.style.background=hex(SYSTEMS[m.userData.system].color);r.appendChild(d);
     const t=document.createElement('span');t.className='mt';const n=document.createElement('span');n.className='mn';n.textContent=m.userData.name;t.appendChild(n);r.appendChild(t);
     if(!m.visible){const z=document.createElement('span');z.className='ms';z.textContent='hidden';r.appendChild(z);}
-    const go=()=>{closeSheet();select(m);};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});
+    const go=()=>{closeSheet();select(m);flyTo(m);};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});
   const p=document.createElement('p');p.className='mnote';
   p.textContent=hit.length>cap?('Showing '+cap+' of '+hit.length+' matches; type more to narrow.'):(hit.length?hit.length+' of '+all.length+' structures':'No match. Try a shorter word.');el.appendChild(p);}
 

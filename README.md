@@ -1,7 +1,5 @@
 # Advanced 3D Surgical Anatomy Atlas — Brain & Spine
 
-Built and compiled by **Prajwal Ghimire**
-
 An interactive, browser-based 3D atlas of craniospinal anatomy and neuro-oncological
 pathology, built for neurosurgical teaching. Structures are clickable and labelled with
 anatomy notes, operative approaches and pitfalls, and pointers to standard reference texts.
@@ -29,6 +27,22 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
   territories, HCP-MMP parcellation, Jülich cytoarchitecture and schematic ventricular
   entry points (Kocher, Keen, Frazier, Dandy), each independently toggleable.
 
+**Skull and craniometric keypoints**
+
+- **Skull bones specimen** (BodyParts3D): 20 individually coloured cranial and facial bones with
+  suture bands (coronal, sagittal, lambdoid, squamous, sphenoparietal, sphenofrontal,
+  sphenosquamosal, occipitomastoid, frontozygomatic, frontonasal) computed from where the bones meet.
+- **17 craniometric keypoints** computed from bone junctions: bregma, lambda, nasion, glabella, inion,
+  opisthion, basion, and pterion, asterion, frontozygomatic suture, MacCarty keyhole (placed by the
+  classic 1 cm rule) and mastoid tip on each side.
+- **Cortical surface projections** on the approaches specimen: superior and inferior Rolandic points
+  and anterior and posterior Sylvian points on both sides, computed from that model's gyri.
+
+**Learning tools**: *Labels* (decluttered on-model labels), *Quiz* (Find-it and Name-it self-test on
+whatever is shown, with side-aware feedback), double-click or pick from a list to fly the camera to a
+structure, *3D* red-cyan anaglyph stereo, and *VR* on WebXR headsets (button appears only when supported).
+Approach cards include *Watch and learn* links to free external lecture and video collections.
+
 **Fibre dissection walkthrough (BraDiPho)**
 
 - **Klingler fibre dissection, left hemisphere** — twelve photogrammetric 3D models of a real
@@ -48,17 +62,17 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
   to the inner table, a smooth radial warp, then a local correction that keeps every structure
   inside the cranial cavity); HCP-1065 tracts and cranial nerves and intracranial arteries from a CC0 MRA atlas
   (Mouches & Forkert 2019) mapped from MNI space; schematic dural venous sinuses.
-- **28 guided approaches** with step-by-step cards, a surgeon's-view camera, progressive reveal
+- **34 guided approaches** with step-by-step cards, a surgeon's-view camera, progressive reveal
   (incision → bone opening → corridor/trajectory) and highlighted structures at risk:
   - *Cranial:* pterional, orbitozygomatic, supraorbital keyhole, bifrontal subfrontal, anterior
     interhemispheric transcallosal, subtemporal, retrosigmoid, midline suboccipital/telovelar,
     far-lateral, supracerebellar infratentorial.
   - *Skull base & endoscopic:* endoscopic transsphenoidal, extended transplanum/transtuberculum,
-    transclival, anterior petrosal (Kawase), presigmoid retrolabyrinthine.
+    transclival, anterior petrosal (Kawase), presigmoid retrolabyrinthine, translabyrinthine, transcochlear.
   - *Ventricular & functional:* EVD at Kocher point, Keen, Frazier and Dandy points, ETV, and DBS
     trajectories to STN, GPi and Vim.
-  - *Spinal:* ACDF C5–C6 and posterior cervical laminectomy with lateral mass screws (on the
-    approaches specimen); L4 laminectomy, L4–L5 pedicle screws and T9 costotransversectomy (on the
+  - *Spinal:* ACDF C5–C6, C5 corpectomy, C1–C2 posterior fixation (Goel–Harms) and posterior cervical
+    laminectomy with lateral mass screws (on the approaches specimen); T10–T11 pedicle screws, TLIF L4–L5, L4 laminectomy, L4–L5 pedicle screws and T9 costotransversectomy (on the
     spinal metastasis specimen).
 - Content lives in `approaches.json`; deep links work as `atlas.html#approach=pterional`.
 - Registration check: SPL and MNI-derived deep landmarks agree to roughly 4–10 mm in the skull
@@ -83,6 +97,18 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
 "Illustration" when a matching structure is clicked and as "Illustrations" in each approach card (click to enlarge).
 Mapping lives in `figures.json`; images in `img/smart/`.
 
+**Rhoton Collection plates** — 102 cadaveric photographs (1,171 outlined structures) from the *Rhoton Collection
+Top 100* slide set. Courtesy of the Rhoton Collection, American Association of Neurological Surgeons
+(AANS)/Neurosurgical Research and Education Foundation (NREF). Click a structure and matching plates appear under
+"Rhoton Collection"; each approach card lists the relevant plates; the **Rhoton** button opens a gallery with a
+structure search. In the plate viewer you can step through every outlined structure, view the original stereo pair
+side by side or as red–cyan 3D, and test yourself ("Test me"). Every plate links to the
+[Rhoton Collection YouTube channel](https://www.youtube.com/@RhotonCollection) via a topic search (these are channel
+searches, not hand-picked videos). Data in `rhoton.json`, images in `img/rhoton/` (each file is one stereo pair,
+left eye | right eye). Watermarks are retained; images are only resized; the outlines are the slide set's own
+vector outlines converted to SVG. A few source spellings were normalised (e.g. "Gryus" → "Gyrus"), and two plates
+filed under "Bones of the Orbit" in the source outline are shown as temporal-bone plates because of what they label.
+
 **Viewer features:** specimen switcher, per-layer visibility, isolate, opacity and
 brightness controls, sagittal/coronal/axial cross-section with a scrub slider,
 click-to-label with anatomy + surgical relevance + further reading, and an in-page
@@ -104,6 +130,12 @@ The page loads model files over HTTP, so it will **not** work from `file://`:
 python -m http.server 8000
 # open http://localhost:8000/atlas.html
 ```
+
+## Deploy (GitHub Pages)
+
+Push, then Settings → Pages → deploy from branch. `atlas.html`, `manifest.json` and all
+`.glb` files must sit in the same directory. `.nojekyll` is included so Pages serves the
+files unprocessed.
 
 ## Rebuilding the page
 
@@ -145,12 +177,16 @@ python build_mobile.py
 | Spinal metastasis | Spine-Mets-CT-SEG, TCIA | CC BY 4.0 |
 | 2D reference illustrations (56) | Servier Medical Art, smart.servier.com (adapted: resized) | CC BY 4.0 |
 | Fibre dissection specimen (12 stages, annotations, registered tractography) | BraDiPho, Fondazione Bruno Kessler — Vavassori et al., *Nat Commun* 2025;16:9801, doi:10.1038/s41467-025-64788-y; https://bradipho.eu | **CC BY-NC-SA 4.0** (non-commercial, share-alike) |
+| Cadaveric plates (102 stereo photographs) | Rhoton Collection Top 100 — Courtesy of the Rhoton Collection, American Association of Neurological Surgeons (AANS)/Neurosurgical Research and Education Foundation (NREF); https://nref.org/education/The-Rhoton-Collection/ | Educational/media re-use with credit; **watermarks must not be removed**; commercial or non-educational use needs NREF permission |
+| Skull bones specimen (20 bones), sutures and keypoints | BodyParts3D, DBCLS (Mitsuhashi et al., *Nucleic Acids Res* 2009) — adapted | CC BY-SA 2.1 JP |
 | Intracranial arteries (approaches specimen) | Mouches & Forkert, *Sci Data* 2019;6:29, doi:10.1038/s41597-019-0034-5 (figshare vessel occurrence atlas) | CC0 |
 
 Several datasets are **CC BY-SA**, so derived model files and this page inherit
 share-alike obligations: keep the attribution visible and redistribute under compatible
 terms. The **Jülich** layer and the **BraDiPho** dissection specimen are non-commercial — remove
 them if you publish commercially. The adapted `bradipho_spc19.glb` is shared under CC BY-NC-SA 4.0.
+The **Rhoton Collection** plates may be re-used only for educational or media purposes with the credit line above;
+remove `img/rhoton/` and `rhoton.json` (or ask NREF) before any commercial or non-educational use.
 
 ### Patient data
 

@@ -16,6 +16,11 @@
    "autostart": "bradipho19"
   },
   {
+   "file": "skull_bones.glb",
+   "label": "SKULL: Bones, sutures and craniometric keypoints (BodyParts3D)",
+   "theta": -1.1
+  },
+  {
    "file": "case_spine_mets.glb",
    "label": "CASE: Spinal metastasis — T7-L5 vertebrae + spinal approaches",
    "approaches": true
@@ -159,8 +164,11 @@
   "Approaches specimen: composite teaching model. Skull, neck vessels and cervical spine from the SPL Head and Neck CT atlas; brain structures from the SPL-PNL atlas registered into that skull; white-matter tracts (JHU) and intracranial arteries (Mouches & Forkert, Sci Data 2019;6:29, CC0 vessel atlas, doi:10.1038/s41597-019-0034-5) mapped from MNI space. Dural sinuses, flaps, corridors, incisions and trajectories are schematic.",
   "Tracts & cranial nerves layer and Approaches-specimen tracts: HCP-1065 population-averaged tractography atlas, Yeh FC, Nature Communications 2022;13:4933, doi:10.1038/s41467-022-32595-4 (brain.labsolver.org). CC BY-SA 4.0. Meshes derived from the atlas NIfTI masks (smoothed and decimated).",
   "Reference illustrations adapted (resized) from Servier Medical Art (https://smart.servier.com), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
-  "Fibre dissection specimen: BraDiPho (Brain Dissection Photogrammetry), Fondazione Bruno Kessler and collaborators — Vavassori L, Rheault F, Nocerino E, et al. \"Brain dissection photogrammetry: a tool for studying human white matter connections integrating ex vivo and in vivo multimodal datasets.\" Nat Commun 2025;16:9801. https://bradipho.eu — licensed CC BY-NC-SA 4.0. Specimen 19 (left hemisphere): 12 photogrammetric dissection stages, manual SLS bundle annotations, and HCP842/SCIL tractography registered to the specimen by the BraDiPho team. Adapted here: meshes decimated, textures downsampled, annotations painted onto the stage surfaces, tract envelopes reconstructed from the streamline meshes. The adapted file bradipho_spc19.glb is shared under the same CC BY-NC-SA 4.0 licence."
+  "Fibre dissection specimen: BraDiPho (Brain Dissection Photogrammetry), Fondazione Bruno Kessler and collaborators — Vavassori L, Rheault F, Nocerino E, et al. \"Brain dissection photogrammetry: a tool for studying human white matter connections integrating ex vivo and in vivo multimodal datasets.\" Nat Commun 2025;16:9801. https://bradipho.eu — licensed CC BY-NC-SA 4.0. Specimen 19 (left hemisphere): 12 photogrammetric dissection stages, manual SLS bundle annotations, and HCP842/SCIL tractography registered to the specimen by the BraDiPho team. Adapted here: meshes decimated, textures downsampled, annotations painted onto the stage surfaces, tract envelopes reconstructed from the streamline meshes. The adapted file bradipho_spc19.glb is shared under the same CC BY-NC-SA 4.0 licence.",
+  "Skull bones specimen (skull_bones.glb): BodyParts3D, © The Database Center for Life Science (DBCLS), licensed CC BY-SA 2.1 JP (Mitsuhashi N, et al. Nucleic Acids Res 2009). Adapted: bones recoloured and assembled; suture bands and craniometric keypoints computed from bone contacts in this model (keyhole placed by rule). Shared under CC BY-SA.",
+  "Cadaveric plates: Courtesy of the Rhoton Collection, American Association of Neurological Surgeons (AANS)/Neurosurgical Research and Education Foundation (NREF). From the “Rhoton Collection Top 100” slide set (images by Albert Rhoton, Jeffrey Sorenson, Kaan Yagmurlu, Maria Peris-Celda, Marjorie Wang, Adriano Garcia-Scaff, Toshiro Katsuta, Carolina Martins; editing by Jeffrey Sorenson, Carl Heilman; supported by the NREF Rhoton Fund). Re-used for education under the Rhoton Collection terms (https://nref.org/education/The-Rhoton-Collection/); watermarks retained; images resized only, outline overlays redrawn from the slide set. Commercial or non-educational use requires permission from NREF. Videos: https://www.youtube.com/@RhotonCollection"
  ],
  "approaches": "approaches.json",
- "figures": "figures.json"
+ "figures": "figures.json",
+ "rhoton": "rhoton.json"
 }

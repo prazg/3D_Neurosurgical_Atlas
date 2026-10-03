@@ -555,6 +555,62 @@
    [
     "temporal_bone"
    ]
+  ],
+  [
+   "^keypoint: (bregma|lambda)|^coronal suture|^sagittal suture|^lambdoid suture",
+   [
+    "skull_vertex",
+    "skull"
+   ]
+  ],
+  [
+   "^keypoint: (nasion|glabella)|^(frontal|parietal|occipital) bone|frontonasal suture",
+   [
+    "skull",
+    "skull_vertex"
+   ]
+  ],
+  [
+   "^(left |right )?temporal bone|^keypoint: (asterion|mastoid)|occipitomastoid|squamous suture",
+   [
+    "temporal_bone",
+    "skull"
+   ]
+  ],
+  [
+   "^keypoint: (opisthion|basion)",
+   [
+    "brainstem",
+    "skull"
+   ]
+  ],
+  [
+   "^(ethmoid bone|vomer|(left|right) nasal bone|(left|right) maxilla|(left|right) palatine|(left|right) lacrimal)",
+   [
+    "nasal_cavity",
+    "paranasal"
+   ]
+  ],
+  [
+   "^sphenoid bone",
+   [
+    "nasal_cavity",
+    "pituitary"
+   ]
+  ],
+  [
+   "^surface projection: .*(rolandic|sylvian)",
+   [
+    "lobes",
+    "brain_regions"
+   ]
+  ],
+  [
+   "^keypoint: (pterion|keyhole|frontozygomatic)|sphenoparietal|sphenofrontal|sphenosquamosal",
+   [
+    "skull",
+    "lobes"
+   ]
   ]
  ],
  "approaches": {
@@ -712,6 +768,37 @@
    "vert_thor_lat",
    "cord_t8",
    "dermatomes_post"
+  ],
+  "translab": [
+   "temporal_bone",
+   "inner_ear",
+   "labyrinth"
+  ],
+  "transcochlear": [
+   "temporal_bone",
+   "labyrinth",
+   "brainstem"
+  ],
+  "c1c2": [
+   "vertebra_sup",
+   "vertebra_lat",
+   "neck_arteries"
+  ],
+  "corpectomy": [
+   "vertebra_sup",
+   "cord_c5",
+   "disc_herniation"
+  ],
+  "thoracic_screws": [
+   "vert_thor_sup",
+   "vert_thor_lat",
+   "cord_t8"
+  ],
+  "tlif": [
+   "vert_lumb_sup",
+   "vert_lumb_lat",
+   "disc_3",
+   "sciatic"
   ]
  }
 }
