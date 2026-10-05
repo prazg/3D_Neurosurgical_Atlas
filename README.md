@@ -110,6 +110,21 @@ structures the atlas does not model (e.g. cranial nerve nuclei IV, VI, IX–XII,
 The card format was inspired by the syndrome browser in NeuroAxis (github.com/linkbag/neuroaxis-atlas, MIT); no
 text or data were copied. Teaching summaries only: real lesions rarely respect these boundaries.
 
+**Pathway walkthroughs** — 13 step-by-step functional pathways in the Approaches list ("Pathways"): corticospinal,
+corticobulbar/facial, dorsal column–medial lemniscus, trigeminal sensory, visual, pupillary light reflex, auditory,
+dentato-rubro-thalamo-cortical, cortico-ponto-cerebellar, basal ganglia (direct/indirect/hyperdirect, nigrostriatal),
+Papez circuit, language (dual stream) and oculosympathetic (Horner). The current step lights blue, earlier steps stay
+visible, and relay nuclei or crossings the atlas does not model (gracile/cuneate nuclei, decussations, cochlear
+nuclei, Edinger–Westphal, superior cervical ganglion…) appear as pale, approximate spheres. Each card links lesion
+level to deficit, and cites verified open-access StatPearls chapters. Text is original; the idea came from NeuroAxis.
+
+**Live 2D section** — the "2D" button next to the Sag/Cor/Ax section controls opens a panel that cuts every visible
+structure with the clipping plane and draws the outlines in radiological orientation (patient right on screen left;
+anterior up on axial, anterior left on sagittal). Click a region to select it, double-click to fly to it; it follows
+approach, syndrome and pathway cards, so it shows only what is on screen. Implemented in plain JavaScript (plane–
+triangle intersection with edge-keyed loop chaining); the approach was inspired by NeuroAxis's MIT-licensed section
+contours, but the code was written for this viewer.
+
 **Rhoton Collection plates** — 102 cadaveric photographs (1,171 outlined structures) from the *Rhoton Collection
 Top 100* slide set. Courtesy of the Rhoton Collection, American Association of Neurological Surgeons
 (AANS)/Neurosurgical Research and Education Foundation (NREF). Click a structure and matching plates appear under

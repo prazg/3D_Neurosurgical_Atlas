@@ -6486,6 +6486,1646 @@
    "viewLabel": "Lesion view",
    "exitLabel": "Exit",
    "meshes": []
+  },
+  {
+   "id": "pw_cst",
+   "title": "Corticospinal (pyramidal) tract",
+   "side": "right hemisphere → left body",
+   "viewDir": [
+    0.4,
+    0.15,
+    -1
+   ],
+   "viewR": 13,
+   "ytq": "internal capsule",
+   "summary": "The main voluntary motor pathway for the limbs, followed from the right motor cortex to the left side of the body. Upper motor neurones descend uncrossed to the lower medulla, where most fibres cross.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Motor cortex",
+     "t": "Upper motor neurones in the right precentral gyrus (primary motor cortex), with contributions from premotor and parietal cortex. Leg fibres arise from the paracentral lobule medially; arm and hand fibres arise from the lateral convexity.",
+     "lesion": "^right (precentral gyrus|paracentral lobule)$"
+    },
+    {
+     "h": "Corona radiata and internal capsule",
+     "t": "The fibres converge through the corona radiata into the posterior limb of the internal capsule. Small lesions here (lacunes) can cause a dense hemiparesis.",
+     "lesion": "^corticospinal tract r$"
+    },
+    {
+     "h": "Cerebral peduncle and basis pontis",
+     "t": "In the midbrain the tract occupies the middle of the cerebral peduncle (crus cerebri). In the pons it breaks into bundles among the pontine nuclei.",
+     "lesion": "^corticospinal tract r$",
+     "mark": [
+      [
+       2,
+       74,
+       -5,
+       3.5
+      ],
+      [
+       0,
+       56,
+       6,
+       3.5
+      ]
+     ]
+    },
+    {
+     "h": "Pyramid and decussation",
+     "t": "The fibres regroup as the medullary pyramid. At the cervicomedullary junction about 85–90% cross in the pyramidal decussation (approximate; sources vary) to form the lateral corticospinal tract. The rest descend uncrossed as the anterior corticospinal tract.",
+     "lesion": "^corticospinal tract r$",
+     "mark": [
+      [
+       -8,
+       21,
+       16,
+       3.5
+      ]
+     ]
+    },
+    {
+     "h": "Spinal cord to muscle",
+     "t": "The lateral corticospinal tract descends in the left lateral funiculus and synapses on lower motor neurones in the anterior horn, which supply the left limbs. The spinal cord is not modelled.",
+     "mark": [
+      [
+       -8,
+       21,
+       16,
+       3.5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Lesion level → expected deficit",
+   "risks": [
+    {
+     "label": "Cortex or capsule (right)",
+     "match": "^Corticospinal tract R$",
+     "why": "Left hemiparesis with upper motor neurone signs; face involved if corticobulbar fibres are hit too."
+    },
+    {
+     "label": "Brainstem (right, above decussation)",
+     "match": "^Corticospinal tract R$",
+     "why": "Left hemiparesis, often with an ipsilateral (right) cranial nerve palsy: a crossed syndrome."
+    },
+    {
+     "label": "Spinal cord (left lateral column)",
+     "match": null,
+     "why": "Left-sided weakness below the level (cord not modelled)."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Stroke, tumour, demyelination and trauma anywhere along the tract",
+    "Motor mapping and tractography for perirolandic and capsular tumours",
+    "Uncal herniation compressing the cerebral peduncle (see the lesion localisation cards)"
+   ],
+   "pearls": [
+    "Upper motor neurone signs: weakness in a pyramidal pattern, spasticity, brisk reflexes, extensor plantar. Early after an acute lesion, tone can be flaccid.",
+    "A crossed brainstem syndrome (cranial nerve on one side, limbs on the other) places the lesion above the decussation on the cranial-nerve side."
+   ],
+   "pitfalls": [
+    "The tract is a population tractography reconstruction; it is not a substitute for individual mapping before surgery."
+   ],
+   "schematic": "Tractography meshes are population averages (HCP-1065). Relay spheres and the decussation marker are approximate.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Pyramidal Tract — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK545314/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -4,
+    90,
+    6
+   ]
+  },
+  {
+   "id": "pw_corticobulbar",
+   "title": "Corticobulbar tract and the facial nucleus",
+   "side": "right hemisphere",
+   "viewDir": [
+    0.6,
+    0.1,
+    -1
+   ],
+   "viewR": 11,
+   "ytq": "facial nerve",
+   "summary": "Upper motor neurones for the cranial nerve motor nuclei. Most of these nuclei receive input from both hemispheres. The part of the facial nucleus that supplies the lower face is mainly crossed, which explains why the forehead is spared in an upper motor neurone facial palsy.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Lateral motor cortex",
+     "t": "Face, tongue and pharynx are represented on the lower lateral precentral gyrus.",
+     "lesion": "^right precentral gyrus$"
+    },
+    {
+     "h": "Descending corticobulbar fibres",
+     "t": "The fibres pass through the genu and posterior limb of the internal capsule and the cerebral peduncle, then leave at the level of each motor nucleus.",
+     "lesion": "^corticobulbar tract r$"
+    },
+    {
+     "h": "Facial nucleus (pons)",
+     "t": "The upper-face part of each facial nucleus receives input from both hemispheres. The lower-face part receives mainly crossed input. The spheres mark the left and right facial nuclei (not modelled).",
+     "lesion": "^corticobulbar tract r$",
+     "mark": [
+      [
+       -13,
+       52,
+       18,
+       3
+      ],
+      [
+       -3,
+       52,
+       18,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Facial nerve",
+     "t": "Lower motor neurones leave as the facial nerve. A nerve or nucleus lesion paralyses the whole half of the face on that side; a cortical or capsular lesion weakens mainly the opposite lower face.",
+     "lesion": "^facial nerve \\(cn vii\\) [lr]$",
+     "mark": [
+      [
+       -13,
+       52,
+       18,
+       3
+      ],
+      [
+       -3,
+       52,
+       18,
+       3
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Lesion level → expected deficit",
+   "risks": [
+    {
+     "label": "Right cortex or capsule (UMN)",
+     "match": "^Corticobulbar tract R$",
+     "why": "Left lower facial weakness; forehead largely spared."
+    },
+    {
+     "label": "Facial nucleus or nerve (LMN)",
+     "match": "^Facial nerve \\(CN VII\\) L$",
+     "why": "Whole of the ipsilateral face, including the forehead."
+    },
+    {
+     "label": "Bilateral corticobulbar lesions",
+     "match": "^Corticobulbar tract L$",
+     "why": "Pseudobulbar palsy: dysarthria, dysphagia, emotional lability."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Distinguishing central (stroke) from peripheral (Bell palsy, CPA, temporal bone) facial weakness",
+    "Facial nerve monitoring in skull base surgery"
+   ],
+   "pearls": [
+    "Forehead sparing suggests a central lesion. Forehead involvement suggests a nucleus or nerve lesion.",
+    "Hypoglossal input is often described as predominantly crossed, so a hemispheric lesion can give contralateral tongue deviation; sources vary."
+   ],
+   "pitfalls": [
+    "Forehead sparing is not absolute: small pontine lesions near the nucleus, or partial nerve lesions, can blur the rule."
+   ],
+   "schematic": "Facial nuclei are shown as approximate spheres; tracts are population tractography.",
+   "refs": [
+    {
+     "title": "Facial Nerve Anatomy and Clinical Applications — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK554569/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -4,
+    85,
+    4
+   ]
+  },
+  {
+   "id": "pw_dcml",
+   "title": "Dorsal column–medial lemniscus",
+   "side": "left body → right hemisphere",
+   "viewDir": [
+    0.5,
+    0.2,
+    1
+   ],
+   "viewR": 13,
+   "ytq": "brainstem",
+   "summary": "Fine touch, vibration and joint-position sense from the left side of the body. The fibres ascend uncrossed in the spinal cord, cross in the lower medulla, and reach the right postcentral gyrus.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ]
+   ],
+   "steps": [
+    {
+     "h": "First-order neurone",
+     "t": "Dorsal root ganglion cells send fibres up the left dorsal columns of the cord: fasciculus gracilis (leg, medial) and fasciculus cuneatus (arm, lateral). The spinal cord is not modelled.",
+     "mark": [
+      [
+       -11,
+       22,
+       31,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Gracile and cuneate nuclei",
+     "t": "The first synapse is in the left gracile and cuneate nuclei of the dorsal caudal medulla (marked).",
+     "mark": [
+      [
+       -11,
+       26,
+       31,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Internal arcuate fibres and decussation",
+     "t": "Second-order fibres sweep ventromedially as internal arcuate fibres, cross the midline (sensory decussation) and form the right medial lemniscus.",
+     "lesion": "^medial lemniscus r$",
+     "mark": [
+      [
+       -11,
+       26,
+       31,
+       3
+      ],
+      [
+       -8,
+       30,
+       22,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "VPL nucleus of the thalamus",
+     "t": "The medial lemniscus ascends through the pons and midbrain to the right ventral posterolateral (VPL) nucleus.",
+     "lesion": "^right ventral posterolateral thalamic nucleus$"
+    },
+    {
+     "h": "Primary somatosensory cortex",
+     "t": "Third-order fibres run via the superior thalamic radiation through the posterior limb of the internal capsule to the right postcentral gyrus.",
+     "lesion": "^thalamic radiation, superior r$|^right postcentral gyrus$|^right paracentral lobule$"
+    }
+   ],
+   "riskLabel": "Lesion level → expected deficit",
+   "risks": [
+    {
+     "label": "Left dorsal columns (cord)",
+     "match": null,
+     "why": "Left-sided loss of vibration and proprioception below the level; sensory ataxia, Romberg positive."
+    },
+    {
+     "label": "Right medial lemniscus (brainstem)",
+     "match": "^Medial lemniscus R$",
+     "why": "Left-sided loss of vibration and proprioception."
+    },
+    {
+     "label": "Right VPL",
+     "match": "^right ventral posterolateral thalamic nucleus$",
+     "why": "Left hemisensory loss; possible later thalamic pain."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Brown-Séquard pattern (ipsilateral dorsal column loss below a cord hemisection)",
+    "Subacute combined degeneration (B12), tabes dorsalis",
+    "Medial medullary syndrome; thalamic infarcts"
+   ],
+   "pearls": [
+    "Below the medulla the deficit is on the same side as the lesion; above the medulla it is on the opposite side.",
+    "Pain and temperature travel separately (spinothalamic tract, crossing in the cord), which explains dissociated sensory loss."
+   ],
+   "pitfalls": [
+    "The spinothalamic tract and dorsal columns are not modelled in the cord here."
+   ],
+   "schematic": "Relay nuclei and the decussation are approximate spheres; tracts are population tractography.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Posterior Column (Dorsal Column) — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK507888/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -2,
+    90,
+    10
+   ]
+  },
+  {
+   "id": "pw_trigeminal",
+   "title": "Trigeminal sensory pathway (face)",
+   "side": "left face → right hemisphere",
+   "viewDir": [
+    -0.9,
+    0.3,
+    0.3
+   ],
+   "viewR": 11,
+   "ytq": "trigeminal nerve",
+   "summary": "Sensation from the left face enters with the trigeminal nerve. Touch relays in the principal sensory nucleus (pons); pain and temperature relay in the spinal trigeminal nucleus (down to the upper cord). The second-order fibres mainly cross to the right VPM nucleus and the lateral right postcentral gyrus.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Trigeminal nerve and ganglion",
+     "t": "Three divisions (V1, V2, V3) converge on the trigeminal ganglion in Meckel’s cave and enter the lateral pons.",
+     "lesion": "^trigeminal nerve \\(cn v\\) l$"
+    },
+    {
+     "h": "Brainstem nuclei",
+     "t": "Touch: principal sensory nucleus in the pons (upper sphere). Pain and temperature: spinal trigeminal tract and nucleus, descending into the medulla and upper cervical cord (lower sphere). This explains facial pain loss in lateral medullary infarcts.",
+     "mark": [
+      [
+       -18,
+       58,
+       20,
+       3
+      ],
+      [
+       -15,
+       36,
+       27,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Crossing to the thalamus",
+     "t": "Second-order fibres mainly cross and ascend as the trigeminothalamic tracts (not modelled) to the right VPM nucleus.",
+     "lesion": "^right ventral posteromedial thalamic nucleus$",
+     "mark": [
+      [
+       -18,
+       58,
+       20,
+       3
+      ],
+      [
+       -15,
+       36,
+       27,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Face area of the cortex",
+     "t": "VPM projects to the lateral, inferior part of the right postcentral gyrus.",
+     "lesion": "^right postcentral gyrus$"
+    }
+   ],
+   "riskLabel": "Lesion level → expected deficit",
+   "risks": [
+    {
+     "label": "Trigeminal nerve or ganglion",
+     "match": "^Trigeminal nerve \\(CN V\\) L$",
+     "why": "Ipsilateral facial numbness in the affected divisions; reduced corneal reflex (V1)."
+    },
+    {
+     "label": "Spinal trigeminal nucleus (lateral medulla)",
+     "match": null,
+     "why": "Ipsilateral facial pain and temperature loss (Wallenberg)."
+    },
+    {
+     "label": "Right VPM / cortex",
+     "match": "^right ventral posteromedial thalamic nucleus$",
+     "why": "Contralateral facial sensory loss, usually with arm and body involvement."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Trigeminal neuralgia and microvascular decompression",
+    "Percutaneous procedures at the foramen ovale",
+    "Skull base tumours of Meckel’s cave and the cavernous sinus"
+   ],
+   "pearls": [
+    "Numbness confined to one division suggests a peripheral lesion; an onion-skin (concentric) pattern suggests the spinal trigeminal nucleus.",
+    "The corneal reflex tests V1 afferents and VII efferents."
+   ],
+   "pitfalls": [
+    "The angle of the jaw is supplied by C2/C3, not the trigeminal nerve: sensory loss there is not trigeminal."
+   ],
+   "schematic": "Trigeminal nuclei are approximate spheres; trigeminothalamic tracts are not modelled.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Cranial Nerve 5 (Trigeminal) — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK482283/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -12,
+    70,
+    14
+   ]
+  },
+  {
+   "id": "pw_visual",
+   "title": "Visual pathway",
+   "side": "both eyes → left hemisphere (right visual field)",
+   "viewDir": [
+    -0.3,
+    0.9,
+    -0.3
+   ],
+   "viewR": 12,
+   "ytq": "optic radiation",
+   "summary": "From the retina to the primary visual cortex. Because nasal fibres cross at the chiasm, the left optic tract, radiation and cortex all carry the RIGHT visual field. The lesion site predicts the field defect.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Optic nerves",
+     "t": "Retinal ganglion cell axons leave each eye as the optic nerve. A nerve lesion causes monocular visual loss and a relative afferent pupillary defect.",
+     "lesion": "^(left|right) optic nerve$"
+    },
+    {
+     "h": "Optic chiasm",
+     "t": "Fibres from the nasal hemiretinas (temporal fields) cross. Central chiasmal compression, for example by a pituitary adenoma, causes bitemporal hemianopia.",
+     "lesion": "^optic chiasm$|^optic tract and chiasm"
+    },
+    {
+     "h": "Optic tract",
+     "t": "The left optic tract carries the right visual field from both eyes. A lesion here causes a right homonymous hemianopia, often incongruous.",
+     "lesion": "^left optic tract$"
+    },
+    {
+     "h": "Lateral geniculate body",
+     "t": "The fibres synapse in the left lateral geniculate body of the thalamus. Pupillary fibres leave earlier for the pretectum (see the pupillary light reflex card).",
+     "lesion": "^left lateral geniculate body$"
+    },
+    {
+     "h": "Optic radiation and Meyer’s loop",
+     "t": "Inferior fibres (upper field) loop forward around the temporal horn (Meyer’s loop). Temporal lobe lesions or resections can cause a contralateral superior quadrantanopia (\"pie in the sky\"). Parietal fibres serve the lower field.",
+     "lesion": "^optic radiation l$"
+    },
+    {
+     "h": "Primary visual cortex",
+     "t": "The calcarine cortex (V1). Above the calcarine sulcus represents the lower field; below it represents the upper field. Occipital lesions give congruous homonymous defects, sometimes with macular sparing.",
+     "lesion": "^left visual cortex$|^left calcarine sulcus$"
+    }
+   ],
+   "riskLabel": "Lesion level → field defect",
+   "risks": [
+    {
+     "label": "Optic nerve",
+     "match": "^left optic nerve$",
+     "why": "Monocular loss, RAPD."
+    },
+    {
+     "label": "Chiasm (midline)",
+     "match": "^optic chiasm$",
+     "why": "Bitemporal hemianopia."
+    },
+    {
+     "label": "Left optic tract",
+     "match": "^left optic tract$",
+     "why": "Right homonymous hemianopia (incongruous)."
+    },
+    {
+     "label": "Left Meyer’s loop (temporal)",
+     "match": "^Optic radiation L$",
+     "why": "Right superior quadrantanopia."
+    },
+    {
+     "label": "Left occipital cortex",
+     "match": "^left visual cortex$",
+     "why": "Right homonymous hemianopia, congruous, often macula-sparing."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Pituitary and parasellar tumours (chiasm)",
+    "Temporal lobectomy and transsylvian or temporal approaches (Meyer’s loop)",
+    "Occipital tumours and PCA infarction"
+   ],
+   "pearls": [
+    "Record formal visual fields before and after sellar, temporal and occipital surgery.",
+    "The anterior extent of Meyer’s loop varies between individuals, so tractography is used in epilepsy surgery planning."
+   ],
+   "pitfalls": [
+    "A homonymous defect localises behind the chiasm; a monocular defect localises in front of it."
+   ],
+   "schematic": "Optic radiation and tract meshes are population reconstructions; the model does not separate retinotopic fibres.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Visual Pathway — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK553189/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -14,
+    74,
+    4
+   ]
+  },
+  {
+   "id": "pw_pupil",
+   "title": "Pupillary light reflex",
+   "side": "bilateral",
+   "viewDir": [
+    -0.4,
+    0.8,
+    -0.6
+   ],
+   "viewR": 10,
+   "ytq": "oculomotor nerve",
+   "summary": "Light in one eye constricts both pupils. The afferent limb is the optic nerve; the efferent limb is parasympathetic fibres travelling on the oculomotor nerve. This reflex underlies the RAPD and the \"blown pupil\" of uncal herniation.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ],
+    [
+     "^(left|right) (superior|inferior) colliculus$",
+     0.25
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Afferent limb",
+     "t": "Light in the left eye: optic nerve, chiasm and both optic tracts. Pupillary fibres leave the tracts before the lateral geniculate body.",
+     "lesion": "^left optic nerve$|^optic chiasm$|^(left|right) optic tract$"
+    },
+    {
+     "h": "Pretectal nuclei",
+     "t": "The fibres synapse in the pretectal nuclei at the midbrain–diencephalon junction (spheres, not modelled).",
+     "mark": [
+      [
+       -12,
+       84,
+       12,
+       2.5
+      ],
+      [
+       -4,
+       84,
+       12,
+       2.5
+      ]
+     ]
+    },
+    {
+     "h": "Bilateral Edinger–Westphal nuclei",
+     "t": "Each pretectal nucleus projects to both Edinger–Westphal nuclei (via the posterior commissure for the opposite side). This is the basis of the consensual response.",
+     "mark": [
+      [
+       -12,
+       84,
+       12,
+       2.5
+      ],
+      [
+       -4,
+       84,
+       12,
+       2.5
+      ],
+      [
+       -10,
+       79,
+       5,
+       2.2
+      ],
+      [
+       -6,
+       79,
+       5,
+       2.2
+      ]
+     ]
+    },
+    {
+     "h": "Oculomotor nerve",
+     "t": "Preganglionic parasympathetic fibres run on the surface of each oculomotor nerve. That superficial position is why compression, for example by uncal herniation or a PComm aneurysm, often affects the pupil early.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) [lr]$"
+    },
+    {
+     "h": "Ciliary ganglion and sphincter",
+     "t": "They synapse in the ciliary ganglion (orbit, spheres). Short ciliary nerves then supply the pupillary sphincter.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) [lr]$",
+     "show": "^(left|right) eyeball$",
+     "mark": [
+      [
+       -32,
+       55,
+       -45,
+       2.5
+      ],
+      [
+       14,
+       55,
+       -45,
+       2.5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Lesion → pupil finding",
+   "risks": [
+    {
+     "label": "Left optic nerve (afferent)",
+     "match": "^left optic nerve$",
+     "why": "Left RAPD: both pupils constrict less when the light swings to the left eye."
+    },
+    {
+     "label": "Oculomotor nerve (efferent)",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Ipsilateral fixed dilated pupil, with or without ptosis and ophthalmoplegia."
+    },
+    {
+     "label": "Dorsal midbrain (pretectum)",
+     "match": null,
+     "why": "Light–near dissociation (Parinaud)."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Head injury and herniation monitoring",
+    "Posterior communicating artery aneurysm",
+    "Optic neuropathy (RAPD)"
+   ],
+   "pearls": [
+    "An afferent defect never causes anisocoria: unequal pupils point to an efferent (III or sympathetic) or local iris problem.",
+    "Pupil size and reactivity are core parts of neuro-observations after cranial surgery."
+   ],
+   "pitfalls": [
+    "Drugs (mydriatics, nebulised anticholinergics) and ocular trauma can mimic a third nerve pupil."
+   ],
+   "schematic": "Pretectal, Edinger–Westphal and ciliary ganglion positions are approximate spheres.",
+   "refs": [
+    {
+     "title": "Pupillary Light Reflex — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK537180/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -10,
+    68,
+    -20
+   ]
+  },
+  {
+   "id": "pw_auditory",
+   "title": "Auditory pathway",
+   "side": "left ear → both hemispheres",
+   "viewDir": [
+    0,
+    0.4,
+    1
+   ],
+   "viewR": 12,
+   "ytq": "auditory",
+   "summary": "From the cochlea to Heschl’s gyrus. The pathway becomes bilateral from the superior olive upward, so a unilateral lesion above the cochlear nuclei rarely causes deafness in one ear.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Cochlear nerve",
+     "t": "Spiral ganglion fibres run in the vestibulocochlear nerve to the brainstem.",
+     "lesion": "^vestibulocochlear nerve \\(cn viii\\) l$"
+    },
+    {
+     "h": "Cochlear nuclei",
+     "t": "The first synapse is in the dorsal and ventral cochlear nuclei at the pontomedullary junction (sphere). A lesion here or more peripherally causes ipsilateral deafness.",
+     "mark": [
+      [
+       -24,
+       50,
+       28,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Superior olivary complex and lateral lemniscus",
+     "t": "Fibres project to both superior olivary complexes (sound localisation), then ascend in the lateral lemnisci (not modelled).",
+     "mark": [
+      [
+       -24,
+       50,
+       28,
+       3
+      ],
+      [
+       -14,
+       52,
+       18,
+       2.5
+      ],
+      [
+       -2,
+       52,
+       18,
+       2.5
+      ]
+     ]
+    },
+    {
+     "h": "Inferior colliculus",
+     "t": "The midbrain relay, then via the brachium of the inferior colliculus.",
+     "lesion": "^(left|right) inferior colliculus$|^brachia of (left|right) inferior colliculus$"
+    },
+    {
+     "h": "Medial geniculate body",
+     "t": "The thalamic relay.",
+     "lesion": "^(left|right) medial geniculate body$"
+    },
+    {
+     "h": "Acoustic radiation and auditory cortex",
+     "t": "Through the sublenticular internal capsule to the transverse temporal gyri (Heschl, primary auditory cortex) on both sides.",
+     "lesion": "^acoustic radiation [lr]$|^(left|right) transverse temporal gyrus$"
+    }
+   ],
+   "riskLabel": "Lesion level → deficit",
+   "risks": [
+    {
+     "label": "Cochlea or cochlear nerve",
+     "match": "^Vestibulocochlear nerve \\(CN VIII\\) L$",
+     "why": "Ipsilateral sensorineural hearing loss (e.g. vestibular schwannoma)."
+    },
+    {
+     "label": "Cochlear nuclei",
+     "match": null,
+     "why": "Ipsilateral deafness (rare, e.g. AICA infarct)."
+    },
+    {
+     "label": "Central pathway (unilateral)",
+     "match": "^Acoustic radiation L$",
+     "why": "Usually no clear hearing loss; difficulty localising sound. Bilateral cortical lesions can cause cortical deafness."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Vestibular schwannoma and hearing preservation surgery",
+    "Brainstem auditory evoked potentials (BAEP) during CPA surgery",
+    "Auditory brainstem implants"
+   ],
+   "pearls": [
+    "BAEP waves are classically linked to relays along this pathway (nerve, cochlear nucleus, olivary complex, lateral lemniscus, inferior colliculus); the exact generators are debated."
+   ],
+   "pitfalls": [
+    "Unilateral hearing loss localises to the ear, nerve or cochlear nucleus, not to the hemispheres."
+   ],
+   "schematic": "Brainstem relays shown as approximate spheres; tracts are population reconstructions.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Auditory Pathway — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK532311/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -10,
+    74,
+    18
+   ]
+  },
+  {
+   "id": "pw_drtt",
+   "title": "Cerebellar output: dentato-rubro-thalamo-cortical pathway",
+   "side": "left cerebellum → right hemisphere",
+   "viewDir": [
+    0.3,
+    0.3,
+    1
+   ],
+   "viewR": 12,
+   "ytq": "cerebellum",
+   "summary": "The left cerebellar hemisphere coordinates the LEFT limbs. Its output crosses to the right thalamus and motor cortex, whose corticospinal fibres cross back to the left side. Two crossings explain why cerebellar signs are ipsilateral to the lesion.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Dentate nucleus",
+     "t": "The largest deep cerebellar nucleus, the output of the lateral cerebellar hemisphere.",
+     "lesion": "^left-dentate-nucleus$"
+    },
+    {
+     "h": "Superior cerebellar peduncle and decussation",
+     "t": "Output fibres leave in the superior cerebellar peduncle and cross in the lower midbrain (sphere).",
+     "lesion": "^superior cerebellar peduncle$",
+     "mark": [
+      [
+       -8,
+       72,
+       12,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Red nucleus and VL/VIM thalamus",
+     "t": "Some fibres end in the right red nucleus; most continue to the right ventral lateral thalamus (including the VIM region, the DBS target for tremor). The atlas tractography appears to label this tract by the hemisphere it ends in (R).",
+     "lesion": "^dentatorubrothalamic tract r$|^right red nucleus$|^right ventral lateral thalamic nucleus$",
+     "mark": [
+      [
+       -8,
+       72,
+       12,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Motor cortex and back down",
+     "t": "The thalamus projects to the right motor and premotor cortex, whose corticospinal output crosses again to act on the left limbs.",
+     "lesion": "^right precentral gyrus$|^corticospinal tract r$"
+    }
+   ],
+   "riskLabel": "Lesion level → deficit",
+   "risks": [
+    {
+     "label": "Left cerebellar hemisphere / dentate",
+     "match": "^left-Dentate-nucleus$",
+     "why": "Left limb ataxia, dysmetria, intention tremor."
+    },
+    {
+     "label": "Superior cerebellar peduncle / midbrain",
+     "match": "^Superior cerebellar peduncle$",
+     "why": "Ataxia: ipsilateral below the decussation, contralateral above it."
+    },
+    {
+     "label": "VL/VIM thalamus",
+     "match": "^right ventral lateral thalamic nucleus$",
+     "why": "Contralateral ataxia or tremor; also the target for tremor DBS."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "DBS for essential tremor (VIM); tractography-guided targeting of this tract",
+    "Midbrain syndromes with ataxia (Claude, Benedikt)",
+    "Cerebellar tumours and strokes"
+   ],
+   "pearls": [
+    "Two crossings: cerebellar lesions give ipsilateral signs; lesions after the first crossing (midbrain, thalamus) give contralateral signs."
+   ],
+   "pitfalls": [
+    "The dentatorubrothalamic mesh is a population tractography reconstruction; individual targeting needs patient imaging."
+   ],
+   "schematic": "Decussation marker is approximate; tract side labels follow the source atlas.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Cerebellum — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK538167/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -8,
+    82,
+    16
+   ]
+  },
+  {
+   "id": "pw_cpc",
+   "title": "Cortico-ponto-cerebellar pathway",
+   "side": "right hemisphere → left cerebellum",
+   "viewDir": [
+    0.6,
+    0.1,
+    0.8
+   ],
+   "viewR": 12,
+   "ytq": "pons",
+   "summary": "The cerebral cortex informs the opposite cerebellar hemisphere about planned movement. The relay is the pontine nuclei, and the crossed fibres enter the cerebellum through the middle cerebellar peduncle.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Cortex",
+     "t": "Frontal, parietal and occipital cortex all contribute (the right-hemisphere tracts are shown).",
+     "lesion": "^corticopontine tract, (frontal|parietal|occipital) r$"
+    },
+    {
+     "h": "Pontine nuclei",
+     "t": "The fibres descend through the internal capsule and cerebral peduncle and end on the pontine nuclei in the basis pontis (sphere).",
+     "lesion": "^corticopontine tract, (frontal|parietal|occipital) r$",
+     "mark": [
+      [
+       -4,
+       58,
+       6,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Middle cerebellar peduncle",
+     "t": "Pontocerebellar fibres cross the midline and enter the opposite (left) cerebellar hemisphere through the middle cerebellar peduncle.",
+     "lesion": "^middle cerebellar peduncle$|^white matter of left hemisphere of cerebellum$",
+     "mark": [
+      [
+       -4,
+       58,
+       6,
+       4
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Lesion level → deficit",
+   "risks": [
+    {
+     "label": "Basis pontis",
+     "match": null,
+     "why": "Ataxic hemiparesis can follow pontine (or capsular) lacunes."
+    },
+    {
+     "label": "Middle cerebellar peduncle",
+     "match": "^Middle cerebellar peduncle$",
+     "why": "Ipsilateral ataxia (e.g. large CPA tumours, demyelination)."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Crossed cerebellar diaschisis after hemispheric stroke (reduced metabolism in the opposite cerebellum)",
+    "Ataxic hemiparesis"
+   ],
+   "pearls": [
+    "Closes the loop with the dentato-rubro-thalamo-cortical pathway: cortex → opposite cerebellum → back to the original cortex."
+   ],
+   "pitfalls": [
+    "The middle cerebellar peduncle is modelled as a single bilateral structure."
+   ],
+   "schematic": "Pontine nuclei shown as an approximate sphere; tracts are population tractography.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Cerebellum — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK538167/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -6,
+    80,
+    14
+   ]
+  },
+  {
+   "id": "pw_bg",
+   "title": "Basal ganglia motor loop: direct, indirect and hyperdirect pathways",
+   "side": "left hemisphere",
+   "viewDir": [
+    -0.8,
+    0.5,
+    -0.4
+   ],
+   "viewR": 9,
+   "ytq": "basal ganglia",
+   "summary": "A cortico–basal ganglia–thalamo–cortical loop that gates movement. The direct pathway releases movement and the indirect pathway suppresses it. This simplified model underlies the reasoning behind DBS targets (STN, GPi) in Parkinson disease and dystonia.",
+   "context": [
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ],
+    [
+     "^left (putamen|caudate nucleus|globus pallidus pars (externa|interna)|subthalamic nucleus|substantia nigra)$",
+     0.2
+    ],
+    [
+     "^part of midbrain$",
+     0.12
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Cortical input to the striatum",
+     "t": "Motor and premotor cortex projects (glutamate) to the putamen.",
+     "lesion": "^corticostriatal tract, (superior|posterior) l$|^left putamen$"
+    },
+    {
+     "h": "Direct pathway",
+     "t": "Putamen → GPi (and SNr), inhibitory. Inhibiting the GPi releases its tonic inhibition of the thalamus, which facilitates movement.",
+     "lesion": "^left putamen$|^left globus pallidus pars interna$"
+    },
+    {
+     "h": "Indirect pathway",
+     "t": "Putamen → GPe → STN → GPi. The net effect increases GPi output and suppresses movement.",
+     "lesion": "^left globus pallidus pars externa$|^left subthalamic nucleus$|^left globus pallidus pars interna$"
+    },
+    {
+     "h": "Hyperdirect pathway",
+     "t": "Cortex projects directly to the STN, a fast \"brake\". In the model, both the STN and GPi are DBS targets.",
+     "lesion": "^left subthalamic nucleus$|^left precentral gyrus$"
+    },
+    {
+     "h": "Thalamic output and back to cortex",
+     "t": "GPi → VA/VL thalamus → motor and supplementary motor cortex, via the superior thalamic radiation.",
+     "lesion": "^left ventral (anterior|lateral) thalamic nucleus$|^thalamic radiation, superior l$"
+    },
+    {
+     "h": "Dopamine (nigrostriatal)",
+     "t": "Substantia nigra pars compacta → striatum. Dopamine excites the direct pathway (D1) and inhibits the indirect pathway (D2). Its loss in Parkinson disease favours the indirect pathway and causes bradykinesia.",
+     "lesion": "^left substantia nigra$|^left putamen$"
+    }
+   ],
+   "riskLabel": "Structure → clinical link",
+   "risks": [
+    {
+     "label": "Subthalamic nucleus",
+     "match": "^left subthalamic nucleus$",
+     "why": "DBS target for Parkinson disease; a lesion causes contralateral hemiballismus."
+    },
+    {
+     "label": "GPi",
+     "match": "^left globus pallidus pars interna$",
+     "why": "DBS target for Parkinson disease and dystonia."
+    },
+    {
+     "label": "Substantia nigra",
+     "match": "^left substantia nigra$",
+     "why": "Degenerates in Parkinson disease."
+    },
+    {
+     "label": "Putamen",
+     "match": "^left putamen$",
+     "why": "Common site of hypertensive haemorrhage."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Deep brain stimulation targeting (see the DBS cards)",
+    "Hemiballismus after STN lesions",
+    "Hypertensive basal ganglia haemorrhage"
+   ],
+   "pearls": [
+    "This rate model is a teaching simplification: real basal ganglia physiology also involves oscillations and parallel loops (limbic, associative)."
+   ],
+   "pitfalls": [
+    "Atlas nuclei are population-averaged; DBS targets are individualised on patient imaging and physiology."
+   ],
+   "schematic": "Nuclei from the SPL-PNL atlas; corticostriatal tracts from HCP-1065.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Basal Ganglia — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK537141/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -20,
+    86,
+    -4
+   ]
+  },
+  {
+   "id": "pw_papez",
+   "title": "Papez circuit (limbic memory loop)",
+   "side": "left hemisphere",
+   "viewDir": [
+    -1,
+    0.3,
+    -0.1
+   ],
+   "viewR": 10,
+   "ytq": "limbic system",
+   "summary": "A classic loop linking the hippocampus, mammillary bodies, anterior thalamus and cingulate cortex. It is implicated in episodic memory, and it maps neatly onto structures surgeons encounter around the third ventricle.",
+   "context": [
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$|^(left|right) pulvinar$",
+     0.14
+    ],
+    [
+     "^(third ventricle|left lateral ventricle)$",
+     0.1
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Hippocampus",
+     "t": "The circuit starts in the hippocampal formation (subiculum).",
+     "lesion": "^left hippocampus$"
+    },
+    {
+     "h": "Fornix",
+     "t": "The fornix arches over the thalamus beneath the corpus callosum to the mammillary body.",
+     "lesion": "^left fornix of forebrain$|^fornix fibres l$"
+    },
+    {
+     "h": "Mammillary body",
+     "t": "Hypothalamic relay. Damaged in Wernicke–Korsakoff syndrome.",
+     "lesion": "^left mammillary body$"
+    },
+    {
+     "h": "Mammillothalamic tract",
+     "t": "Mammillary body → anterior thalamic nucleus.",
+     "lesion": "^left mammillothalamic tract$"
+    },
+    {
+     "h": "Anterior thalamic nucleus and radiation",
+     "t": "Projects through the anterior limb of the internal capsule (anterior thalamic radiation) to the cingulate gyrus.",
+     "lesion": "^left anterior thalamic nucleus$|^thalamic radiation, anterior l$"
+    },
+    {
+     "h": "Cingulate gyrus and cingulum",
+     "t": "The cingulum bundle runs back to the parahippocampal gyrus and entorhinal cortex, which return to the hippocampus.",
+     "lesion": "^(caudal|rostral) part of left anterior cingulate gyrus$|^left posterior cingulate gyrus$|^cingulum, .* l$|^left parahippocampal gyrus$"
+    }
+   ],
+   "riskLabel": "Structure → clinical link",
+   "risks": [
+    {
+     "label": "Fornix (bilateral)",
+     "match": "^left fornix of forebrain$",
+     "why": "Anterograde amnesia; at risk in transcallosal/interforniceal approaches to the third ventricle and colloid cysts."
+    },
+    {
+     "label": "Mammillary bodies",
+     "match": "^left mammillary body$",
+     "why": "Wernicke–Korsakoff syndrome."
+    },
+    {
+     "label": "Anterior thalamus",
+     "match": "^left anterior thalamic nucleus$",
+     "why": "Thalamic amnesia; DBS target for some refractory epilepsies."
+    },
+    {
+     "label": "Hippocampus (bilateral)",
+     "match": "^left hippocampus$",
+     "why": "Severe anterograde amnesia; unilateral resection is usually tolerated, depending on memory lateralisation."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Transcallosal approaches to the third ventricle (fornix preservation)",
+    "Temporal lobe epilepsy surgery",
+    "Anterior thalamic DBS for epilepsy"
+   ],
+   "pearls": [
+    "Bilateral fornix injury causes a disabling amnesia; unilateral injury is usually better tolerated."
+   ],
+   "pitfalls": [
+    "Papez’s original proposal concerned emotion; memory roles are a later interpretation. The loop is a teaching scaffold, not the whole limbic system."
+   ],
+   "schematic": "Structures from the SPL-PNL atlas and HCP-1065 tractography.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Mammillary Bodies — StatPearls (covers the Papez circuit)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK537192/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -16,
+    86,
+    4
+   ]
+  },
+  {
+   "id": "pw_language",
+   "title": "Language network (dual stream)",
+   "side": "left (dominant) hemisphere",
+   "viewDir": [
+    -1,
+    0.25,
+    0.1
+   ],
+   "viewR": 12,
+   "ytq": "language",
+   "summary": "A simplified dual-stream model of the dominant hemisphere. A dorsal stream (arcuate fasciculus and SLF) links posterior temporal cortex to frontal speech areas for repetition and articulation. A ventral stream (IFOF, uncinate) supports meaning.",
+   "context": [
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.035
+    ],
+    [
+     "^left (superior temporal gyrus|supramarginal gyrus|middle temporal gyrus|precentral gyrus)$",
+     0.15
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Posterior temporal cortex (\"Wernicke\")",
+     "t": "Posterior superior temporal gyrus: comprehension of spoken language. The anatomical boundaries of \"Wernicke’s area\" are not standardised.",
+     "lesion": "^left superior temporal gyrus$"
+    },
+    {
+     "h": "Dorsal stream: arcuate fasciculus",
+     "t": "Arches around the Sylvian fissure from temporal to frontal cortex. Lesions are classically linked to conduction aphasia (poor repetition); SLF III runs alongside.",
+     "lesion": "^arcuate fasciculus l$|^superior longitudinal fasciculus iii l$"
+    },
+    {
+     "h": "Inferior frontal gyrus (\"Broca\")",
+     "t": "Pars opercularis and triangularis: speech production. Non-fluent aphasia follows larger lesions involving this area and the deeper frontal regions.",
+     "lesion": "^(opercular|triangular) part of left inferior frontal gyrus$"
+    },
+    {
+     "h": "Frontal aslant tract",
+     "t": "Links the supplementary motor area to the inferior frontal gyrus. Associated with speech initiation and fluency.",
+     "lesion": "^frontal aslant tract l$"
+    },
+    {
+     "h": "Ventral stream",
+     "t": "The inferior fronto-occipital fasciculus and uncinate fasciculus link temporal and occipital cortex with frontal cortex. Subcortical stimulation of the IFOF is often reported to cause semantic paraphasias.",
+     "lesion": "^inferior fronto-occipital fasciculus l$|^uncinate fasciculus l$"
+    }
+   ],
+   "riskLabel": "Structure → clinical link",
+   "risks": [
+    {
+     "label": "Arcuate fasciculus",
+     "match": "^Arcuate fasciculus L$",
+     "why": "Conduction aphasia; phonemic paraphasias during mapping."
+    },
+    {
+     "label": "Inferior frontal gyrus",
+     "match": "^opercular part of left inferior frontal gyrus$",
+     "why": "Non-fluent speech, articulation errors."
+    },
+    {
+     "label": "Frontal aslant tract",
+     "match": "^Frontal aslant tract L$",
+     "why": "Reduced speech initiation (often transient after SMA surgery)."
+    },
+    {
+     "label": "IFOF",
+     "match": "^Inferior fronto-occipital fasciculus L$",
+     "why": "Semantic errors during subcortical stimulation."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Awake craniotomy with cortical and subcortical language mapping",
+    "Glioma surgery in the dominant hemisphere",
+    "Stroke aphasia syndromes"
+   ],
+   "pearls": [
+    "Mapping positive sites and tracts matters more than classical boundaries, which vary between individuals.",
+    "See the fibre dissection walkthrough (BraDiPho) for these tracts in a real dissected hemisphere."
+   ],
+   "pitfalls": [
+    "Handedness does not guarantee left-language dominance; confirm when it matters."
+   ],
+   "schematic": "Tracts are HCP-1065 population tractography; cortical labels follow the SPL-PNL parcellation.",
+   "refs": [
+    {
+     "title": "Neuroanatomy, Wernicke Area — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK533001/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -40,
+    100,
+    10
+   ]
+  },
+  {
+   "id": "pw_sympathetic",
+   "title": "Oculosympathetic pathway (Horner syndrome)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.15,
+    -0.3
+   ],
+   "viewR": 17,
+   "ytq": "internal carotid artery",
+   "summary": "A three-neurone chain from the hypothalamus to the pupil dilator and the eyelid (Müller) muscle. A lesion anywhere along it causes an ipsilateral Horner syndrome: ptosis, miosis and sometimes anhidrosis. Its long course makes localisation a classic exercise.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.18
+    ],
+    [
+     "^(fourth ventricle|third ventricle|aqueduct)$",
+     0.12
+    ],
+    [
+     "^skull$",
+     0.06
+    ],
+    [
+     "^(cervical[3-7]|axis|atlas|thoracic1)$",
+     0.18
+    ],
+    [
+     "^left eyeball$",
+     0.3
+    ]
+   ],
+   "steps": [
+    {
+     "h": "First-order neurone",
+     "t": "From the posterolateral hypothalamus, fibres descend uncrossed through the lateral brainstem (sphere in the lateral medulla) and cervical cord.",
+     "lesion": "^left posterior superior hypothalamus$",
+     "mark": [
+      [
+       -16,
+       40,
+       27,
+       3
+      ]
+     ]
+    },
+    {
+     "h": "Ciliospinal centre (C8–T2)",
+     "t": "The first synapse is in the intermediolateral cell column (ciliospinal centre of Budge), at about C8–T2 (sphere near T1).",
+     "show": "^thoracic1$",
+     "mark": [
+      [
+       -8,
+       -78,
+       55,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Second-order neurone",
+     "t": "Preganglionic fibres leave with the upper thoracic roots, pass over the lung apex and ascend in the cervical sympathetic chain to the superior cervical ganglion (sphere, near C2).",
+     "mark": [
+      [
+       -8,
+       -78,
+       55,
+       4
+      ],
+      [
+       -32,
+       5,
+       18,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Third-order neurone",
+     "t": "Postganglionic fibres travel on the internal carotid artery through the skull base and cavernous sinus, then join V1 (nasociliary and long ciliary nerves) to reach the pupil dilator and Müller muscle.",
+     "lesion": "^left internal carotid$|^left internal carotid artery, intracranial"
+    },
+    {
+     "h": "Effector",
+     "t": "Pupil dilator and Müller muscle: their failure gives miosis and mild ptosis. Sweat fibres to the face mostly travel with the external carotid, so anhidrosis is typically absent in third-order lesions.",
+     "show": "^left eyeball$",
+     "lesion": "^left internal carotid artery, intracranial"
+    }
+   ],
+   "riskLabel": "Lesion level → associated clues",
+   "risks": [
+    {
+     "label": "Central (first order)",
+     "match": null,
+     "why": "Lateral medullary syndrome; brainstem or cord lesions."
+    },
+    {
+     "label": "Preganglionic (second order)",
+     "match": null,
+     "why": "Pancoast tumour, neck or chest surgery, trauma."
+    },
+    {
+     "label": "Postganglionic (third order)",
+     "match": "^left internal carotid$",
+     "why": "Carotid dissection (painful Horner), cavernous sinus disease, cluster headache."
+    }
+   ],
+   "indLabel": "Clinical relevance",
+   "indications": [
+    "Painful Horner syndrome: exclude carotid dissection",
+    "Anterior cervical approaches (sympathetic chain on the longus colli)",
+    "Cavernous sinus and skull base lesions"
+   ],
+   "pearls": [
+    "Anterior cervical spine surgery: dissection lateral to the longus colli risks the sympathetic chain.",
+    "Horner ptosis is mild (1–2 mm) because the levator is intact."
+   ],
+   "pitfalls": [
+    "The sympathetic chain and ganglia are not modelled; spheres are approximate."
+   ],
+   "schematic": "Nerves and ganglia not modelled; spheres approximate their positions.",
+   "refs": [
+    {
+     "title": "Horner Syndrome — StatPearls",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK500000/"
+    }
+   ],
+   "cat": "Pathways",
+   "specimen": "approaches_head.glb",
+   "mode": "pathway",
+   "viewLabel": "Overview",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -18,
+    10,
+    12
+   ]
   }
  ],
  "resources": [

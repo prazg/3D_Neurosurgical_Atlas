@@ -91,6 +91,8 @@
   body.m .apcard .mapbtns button.tool{flex:1;font-size:12.5px;padding:10px 8px;border-radius:10px;margin:0!important}
   body.m .apcard .chip{font-size:13px;padding:6px 10px}
   /* misc */
+  body.m .secpanel{right:6px;left:auto;top:calc(var(--toph) + 6px);bottom:auto;width:min(62vw,300px);height:min(62vw,300px);z-index:21}
+  body.m .secpanel.big{width:calc(100vw - 12px);height:min(100vw,60vh)}
   body.m .hint{top:calc(var(--toph) + 6px);font-size:11px;width:90vw}
   body.m .toast{top:40%}
   body.m #credits{padding:10px!important;z-index:45!important}
@@ -186,7 +188,7 @@ $('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.di
 $('mLayersBody').appendChild($('layers'));
 const ln=document.createElement('p');ln.className='mnote';ln.id='mLayerNote';$('mLayersBody').appendChild(ln);
 const dock=document.querySelector('.dock');$('mToolsBody').insertBefore(dock,$('mToolsBody').firstChild);
-['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
+['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn','secBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
 dock.querySelectorAll('.cap').forEach(c=>{c.textContent={Others:'Fade other structures',Light:'Brightness',Section:'Cross-section (tap again to turn off)'}[c.textContent]||c.textContent;});
 
 /* ---------- specimens ---------- */
@@ -278,7 +280,7 @@ apRender=function(){_apRender();const a=apCur();if(!a)return;
   const row=document.createElement('div');row.className='mapbtns';const det=el_('button','tool',M.apFull?'Less ▼':'Details ▲');
   det.onclick=()=>{M.apFull=!M.apFull;apCard.classList.toggle('full',M.apFull);det.textContent=M.apFull?'Less ▼':'Details ▲';if(!M.apFull)apCard.scrollTop=0;};
   if(vb){vb.textContent='View';row.appendChild(vb);}row.appendChild(det);if(xb){xb.textContent='Exit';row.appendChild(xb);}
-  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):((apCur()&&apCur().mode==='syndrome')?(AP.ghost?'Less context':'More context'):(AP.ghost?'Solid specimen':'Ghost specimen'));r2.appendChild(b);});row._r2=r2;}
+  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):((apCur()&&(apCur().mode==='syndrome'||apCur().mode==='pathway'))?(AP.ghost?'Less context':'More context'):(AP.ghost?'Solid specimen':'Ghost specimen'));r2.appendChild(b);});row._r2=r2;}
   const nav=apCard.querySelector('.apnav');if(nav&&nav.nextSibling)apCard.insertBefore(row,nav.nextSibling);else apCard.appendChild(row);
   if(row._r2)apCard.insertBefore(row._r2,row.nextSibling);
   const g=document.createElement('div');g.className='mgrab';g.style.margin='8px auto 6px';g.onclick=()=>det.click();apCard.insertBefore(g,apCard.firstChild);

@@ -145,6 +145,13 @@
   .rhchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;max-height:120px;overflow:auto}.rhchips .chip.on{background:rgba(232,131,74,.9);color:#1a0f06;border-color:transparent}
   .rhquiz{margin-top:8px}
   .rhq{width:100%;box-sizing:border-box;margin:4px 0 8px;padding:8px 10px;border-radius:8px;border:1px solid #33404a;background:#0d1215;color:#e7e3da;font:14px var(--sans)}
+
+  .secpanel{position:fixed;right:16px;bottom:60px;width:340px;height:340px;z-index:19;background:rgba(11,15,18,.95);border:1px solid var(--edge-2);border-radius:12px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+  .secpanel.big{width:min(600px,48vw);height:min(600px,72vh)}.secpanel[hidden]{display:none}
+  .sechd{display:flex;gap:6px;align-items:center;padding:6px 8px 4px;font-size:12px;color:var(--ink)}
+  .sechd button.tool{padding:2px 8px}.secname{flex:1;color:var(--cool);font-family:var(--mono);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #secCv{flex:1;width:100%;min-height:0;display:block;cursor:crosshair}.secft{font-size:10.5px;color:var(--faint);padding:3px 8px 6px;line-height:1.35}
+  body.secon .readout{max-height:calc(100vh - 440px)}
   .reslist a{color:var(--cool);text-decoration:none}.reslist a:hover{text-decoration:underline}.reslist li{margin-top:3px}
 </style>
 </head>
@@ -169,6 +176,7 @@
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Illustration"><div class="lbin" id="lbin"></div></div>
   <div class="apcard" id="apcard" role="region" aria-label="Surgical approach"></div>
   <div class="apcard" id="quizcard" role="region" aria-label="Self-test"></div>
+  <div class="secpanel" id="secPanel" hidden role="region" aria-label="2D section"><div class="sechd"><b id="secTitle">Section</b><span class="secname" id="secName"></span><button class="tool" id="secBig" title="Larger or smaller">⤢</button><button class="tool" id="secX" aria-label="Close section panel">×</button></div><canvas id="secCv"></canvas><div class="secft" id="secFt"></div></div>
   <div id="labels3d"></div>
   <div class="readout" id="readout">
     <div class="eyebrow"><span class="sw" id="ro-sw"></span><span id="ro-sys"></span></div>
@@ -208,7 +216,7 @@
       <button class="tool axis" id="axS" data-axis="s">Sag</button>
       <button class="tool axis" id="axC" data-axis="c">Cor</button>
       <button class="tool axis" id="axA" data-axis="a">Ax</button>
-      <input type="range" id="clip" min="0" max="100" value="50" disabled aria-label="Cross-section position"/></div>
+      <input type="range" id="clip" min="0" max="100" value="50" disabled aria-label="Cross-section position"/><button class="tool" id="secBtn" title="Show the cut as a live 2D section">2D</button></div>
   </div>
 <script>
 /* ============================================================
@@ -369,7 +377,7 @@ function buildUI(){const layersEl=document.getElementById('layers');layersEl.inn
   document.getElementById('scount').textContent=selectable.filter(m=>!m.userData.apprPart).length;}
 
 var overlayMode=false, overlayVis={};
-function applyOpacity(){selectable.forEach(m=>{const sel=m===selected;var vis;
+function applyOpacity(){const _pw=!!(AP.active&&(apCur()||{}).mode==='pathway');selectable.forEach(m=>{const sel=m===selected;var vis;
   if(overlayMode){vis=(overlayVis[m.userData.layer]!==false);if(isolate&&selected)vis=vis&&sel;}
   else{vis=(isolate&&selected)?(sel&&!layerHidden(m)):!layerHidden(m);}
   var base=(m.userData.baseOpacity!=null?m.userData.baseOpacity:1),apRisk=false,apLes=false;
@@ -377,7 +385,7 @@ function applyOpacity(){selectable.forEach(m=>{const sel=m===selected;var vis;
   else if(AP.active){var o=apOverride(m);if(o===0)vis=false;else if(o!=null)base=Math.min(base,o);apRisk=!!m.userData._risk;apLes=!!m.userData._lesion;}
   m.visible=vis;
   var op=sel?1:Math.min(base,othersOpacity),tr=op<0.999;m.material.opacity=op;
-  if(m.material.transparent!==tr){m.material.transparent=tr;m.material.needsUpdate=true;}m.material.depthWrite=!tr;const qz=!!m.userData._quiz;m.material.emissive.copy(sel?EMI:(qz?QZCOL:(apRisk?RISKCOL:(apLes?LESCOL:new THREE.Color(0)))));m.material.emissiveIntensity=sel?0.55:(qz?0.6:(apRisk?0.45:(apLes?0.55:0)));if(apLes&&!sel){if(!m.userData._c0)m.userData._c0=m.material.color.clone();m.material.color.copy(LESBASE);}else if(m.userData._c0){m.material.color.copy(m.userData._c0);m.userData._c0=null;}});}
+  if(m.material.transparent!==tr){m.material.transparent=tr;m.material.needsUpdate=true;}m.material.depthWrite=!tr;const qz=!!m.userData._quiz;m.material.emissive.copy(sel?EMI:(qz?QZCOL:(apRisk?RISKCOL:(apLes?(_pw?PWCOL:LESCOL):new THREE.Color(0)))));m.material.emissiveIntensity=sel?0.55:(qz?0.6:(apRisk?0.45:(apLes?0.55:0)));if(apLes&&!sel){if(!m.userData._c0)m.userData._c0=m.material.color.clone();m.material.color.copy(_pw?PWBASE:LESBASE);}else if(m.userData._c0){m.material.color.copy(m.userData._c0);m.userData._c0=null;}});}
 function select(mesh){if(QZ.on&&!QZ._int&&mesh){if(QZ.mode==='find'&&!QZ.answered){qzTap(mesh);return;}if(!QZ.answered)return;}selected=mesh;
   if(mesh){const s=SYSTEMS[mesh.userData.system];readout.classList.add('show');roName.textContent=mesh.userData.name;roSys.textContent=s.name;
     roSw.style.background=hex(s.color);roTeach.textContent=mesh.userData.teach;roSurg.textContent=mesh.userData.surg||'';var _hs=!!mesh.userData.surg;roSurg.style.display=_hs?'':'none';if(roSurg.previousElementSibling)roSurg.previousElementSibling.style.display=_hs?'':'none';
@@ -407,6 +415,90 @@ lightbox.onclick=e=>{if(e.target===lightbox||(e.target.tagName==='IMG'&&!lbin.cl
 addEventListener('keydown',e=>{if(e.key==='Escape')lightbox.classList.remove('show');});
 function showReadoutFigs(mesh){const box=document.getElementById('ro-fig'),lbl=document.getElementById('ro-figlbl');box.innerHTML='';
   const ids=mesh&&!mesh.userData.apprPart?figsFor(mesh.userData.name):[];lbl.style.display=ids.length?'':'none';if(!ids.length)return;box.appendChild(figThumbs(ids));box.appendChild(figCredit());}
+
+/* ---------- live 2D section panel: cuts every visible mesh with the clipping plane and draws the outlines (plain JS) ---------- */
+const SEC={on:false,big:false,items:[],view:null,tmr:0,ms:0,hover:null,basis:null,frame:null};
+function secFrame(){const sp=specimens[activeSpecimen]||{};const f=sp.frame;if(f==='none')return null;
+  if(f&&Array.isArray(f.R)&&Array.isArray(f.A))return {R:new THREE.Vector3(...f.R),A:new THREE.Vector3(...f.A),S:new THREE.Vector3(0,1,0)};
+  return {R:new THREE.Vector3(1,0,0),A:new THREE.Vector3(0,0,-1),S:new THREE.Vector3(0,1,0)};}
+function secBasis(){const n=clipPlane.normal,fr=secFrame()||{R:new THREE.Vector3(1,0,0),A:new THREE.Vector3(0,0,-1),S:new THREE.Vector3(0,1,0)};
+  const R=fr.R,A=fr.A,S=fr.S,ab=v=>Math.abs(v.dot(n));
+  // pick the in-plane axes in radiological convention: patient right on screen left, anterior up (axial) / anterior left (sagittal)
+  if(ab(R)>0.8)return {u:A.clone().negate(),v:S.clone(),name:'Sagittal'};
+  if(ab(A)>0.8)return {u:R.clone().negate(),v:S.clone(),name:'Coronal'};
+  return {u:R.clone().negate(),v:A.clone(),name:'Axial'};}
+function secLetters(B){const fr=secFrame();if(!fr)return null;const L=[[fr.R,'R'],[fr.R.clone().negate(),'L'],[fr.A,'A'],[fr.A.clone().negate(),'P'],[fr.S,'S'],[fr.S.clone().negate(),'I']];
+  const best=v=>{let b=null,bs=-2;L.forEach(([d,c])=>{const s=d.dot(v);if(s>bs){bs=s;b=c;}});return b;};
+  return {l:best(B.u.clone().negate()),r:best(B.u),t:best(B.v),b:best(B.v.clone().negate())};}
+function secColor(m){if(m.userData._c0||!m.material.vertexColors)return '#'+m.material.color.clone().convertLinearToSRGB().getHexString();
+  if(m.userData._secCol)return m.userData._secCol;const c=m.geometry&&m.geometry.attributes.color;let out='#c8c2bc';
+  if(c){let r=0,g=0,b=0,k=0;const st=Math.max(1,Math.floor(c.count/200));for(let i=0;i<c.count;i+=st){r+=c.getX(i);g+=c.getY(i);b+=c.getZ(i);k++;}
+    if(k)out='#'+new THREE.Color(r/k,g/k,b/k).convertLinearToSRGB().getHexString();}
+  m.userData._secCol=out;return out;}
+function secCompute(){SEC.tmr=0;if(!SEC.on)return;if(!clipOn||!modelRoot){SEC.items=[];secDraw();return;}
+  const t0=performance.now();modelRoot.updateMatrixWorld(true);const B=secBasis();SEC.basis=B;const P=clipPlane;const items=[];
+  const inv=new THREE.Matrix4(),lp=new THREE.Plane(),box=new THREE.Box3(),vb=new THREE.Box3();
+  for(const m of selectable){
+    if(!m.visible||!m.geometry||!m.geometry.attributes.position||(m.material&&m.material.opacity<0.03))continue;
+    const g=m.geometry;if(!g.boundingBox)g.computeBoundingBox();box.copy(g.boundingBox).applyMatrix4(m.matrixWorld);vb.union(box);if(!P.intersectsBox(box))continue;
+    inv.copy(m.matrixWorld).invert();lp.copy(P).applyMatrix4(inv);
+    const pos=g.attributes.position,idx=g.index,N=pos.count,nx=lp.normal.x,ny=lp.normal.y,nz=lp.normal.z,c=lp.constant;
+    const d=new Float32Array(N);for(let i=0;i<N;i++)d[i]=nx*pos.getX(i)+ny*pos.getY(i)+nz*pos.getZ(i)+c;
+    const e=m.matrixWorld.elements,ux=B.u.x,uy=B.u.y,uz=B.u.z,vx=B.v.x,vy=B.v.y,vz=B.v.z;
+    const ip=(i,j)=>{const t=d[i]/(d[i]-d[j]);const x=pos.getX(i)+(pos.getX(j)-pos.getX(i))*t,y=pos.getY(i)+(pos.getY(j)-pos.getY(i))*t,z=pos.getZ(i)+(pos.getZ(j)-pos.getZ(i))*t;
+      const wx=e[0]*x+e[4]*y+e[8]*z+e[12],wy=e[1]*x+e[5]*y+e[9]*z+e[13],wz=e[2]*x+e[6]*y+e[10]*z+e[14];return [ux*wx+uy*wy+uz*wz,vx*wx+vy*wy+vz*wz];};
+    const segs=[],T=idx?idx.count/3:N/3;
+    for(let k=0;k<T;k++){const a=idx?idx.getX(3*k):3*k,b=idx?idx.getX(3*k+1):3*k+1,q=idx?idx.getX(3*k+2):3*k+2;
+      const sa=d[a]>=0,sb=d[b]>=0,sq=d[q]>=0;if(sa===sb&&sb===sq)continue;const pts=[],ks=[];
+      if(sa!==sb){pts.push(ip(a,b));ks.push(a<b?a*N+b:b*N+a);}if(sb!==sq){pts.push(ip(b,q));ks.push(b<q?b*N+q:q*N+b);}if(sq!==sa){pts.push(ip(q,a));ks.push(q<a?q*N+a:a*N+q);}
+      if(pts.length===2)segs.push([ks[0],ks[1],pts[0],pts[1]]);}
+    if(!segs.length)continue;
+    const adj=new Map();segs.forEach((s,i)=>{for(const k of [s[0],s[1]]){let l=adj.get(k);if(!l)adj.set(k,l=[]);l.push(i);}});
+    const used=new Uint8Array(segs.length),loops=[];
+    for(let i=0;i<segs.length;i++){if(used[i])continue;used[i]=1;const s=segs[i],pts=[s[2],s[3]];let key=s[1];const start=s[0];let closed=false;
+      for(let gd=0;gd<segs.length;gd++){const l=adj.get(key);let nxt=-1;if(l)for(const j of l)if(!used[j]){nxt=j;break;}if(nxt<0)break;used[nxt]=1;const t=segs[nxt];
+        if(t[0]===key){pts.push(t[3]);key=t[1];}else{pts.push(t[2]);key=t[0];}if(key===start){closed=true;break;}}
+      if(pts.length>=2)loops.push({pts:pts,closed:closed});}
+    let area=0;loops.forEach(L=>{if(!L.closed)return;let a=0;const p=L.pts;for(let i=0,j=p.length-1;i<p.length;j=i++)a+=p[j][0]*p[i][1]-p[i][0]*p[j][1];area+=Math.abs(a/2);});
+    items.push({m:m,loops:loops,area:area,col:secColor(m),les:!!m.userData._lesion});}
+  items.sort((a,b)=>b.area-a.area);SEC.items=items;
+  if(!vb.isEmpty()){const cs=[];for(const x of [vb.min.x,vb.max.x])for(const y of [vb.min.y,vb.max.y])for(const z of [vb.min.z,vb.max.z])cs.push(new THREE.Vector3(x,y,z));
+    const us=cs.map(p=>p.dot(B.u)),vs=cs.map(p=>p.dot(B.v));SEC.view={u0:Math.min(...us),u1:Math.max(...us),v0:Math.min(...vs),v1:Math.max(...vs)};}
+  SEC.ms=Math.round(performance.now()-t0);secDraw();}
+function secDirty(){if(!SEC.on)return;if(SEC.tmr)clearTimeout(SEC.tmr);SEC.tmr=setTimeout(secCompute,90);}
+function secXf(){const cv=document.getElementById('secCv'),W=cv.clientWidth,H=cv.clientHeight,V=SEC.view;if(!V)return null;
+  const pad=14,s=Math.min((W-2*pad)/Math.max(1e-6,V.u1-V.u0),(H-2*pad)/Math.max(1e-6,V.v1-V.v0)),ox=(W-(V.u1-V.u0)*s)/2,oy=(H-(V.v1-V.v0)*s)/2;
+  return {W:W,H:H,X:u=>ox+(u-V.u0)*s,Y:v=>H-oy-(v-V.v0)*s};}
+function secDraw(){const cv=document.getElementById('secCv');if(!cv||!SEC.on)return;const dpr=Math.min(devicePixelRatio||1,2),W=cv.clientWidth,H=cv.clientHeight;
+  cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);const g=cv.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.fillStyle='#0b0f12';g.fillRect(0,0,W,H);
+  const ft=document.getElementById('secFt'),ti=document.getElementById('secTitle');
+  if(!clipOn){ti.textContent='Section';g.fillStyle='#8fa1a9';g.font='12px system-ui,sans-serif';g.textAlign='center';g.fillText('Choose Sag, Cor or Ax in the Section controls',W/2,H/2-8);g.fillText('then move the slider to cut the model.',W/2,H/2+10);ft.textContent='';return;}
+  ti.textContent=(SEC.basis?SEC.basis.name:'')+' section';const X=secXf();if(!X||!SEC.items.length){g.fillStyle='#8fa1a9';g.font='12px system-ui,sans-serif';g.textAlign='center';g.fillText('Nothing visible is cut at this level.',W/2,H/2);ft.textContent='';return;}
+  g.lineJoin='round';
+  SEC.items.forEach(it=>{const p=new Path2D();let any=false;it.loops.forEach(L=>{const q=L.pts;p.moveTo(X.X(q[0][0]),X.Y(q[0][1]));for(let i=1;i<q.length;i++)p.lineTo(X.X(q[i][0]),X.Y(q[i][1]));if(L.closed){p.closePath();any=true;}});
+    it.path=p;const big=it.m.userData.system==='context'||/^skull$|white matter|brain surface|shell/i.test(it.m.userData.name||'');
+    if(any){g.globalAlpha=big?0.22:(it.les?0.85:0.62);g.fillStyle=it.col;g.fill(p,'evenodd');}
+    g.globalAlpha=1;const sel=it.m===selected||it.m===SEC.hover;g.strokeStyle=sel?'#ffb070':it.col;g.lineWidth=sel?2.4:(big?0.8:1.1);g.stroke(p);});
+  const Lt=secLetters(SEC.basis||secBasis());if(Lt){g.fillStyle='#9fb0b8';g.font='600 11px system-ui,sans-serif';g.textAlign='left';g.fillText(Lt.l,4,X.H/2);g.textAlign='right';g.fillText(Lt.r,X.W-4,X.H/2);g.textAlign='center';g.fillText(Lt.t,X.W/2,12);g.fillText(Lt.b,X.W/2,X.H-4);}
+  ft.textContent=SEC.items.length+' structures cut · '+SEC.ms+' ms · click to select, double-click to fly to'+(Lt?' · radiological orientation':'');}
+function secHit(ev){const cv=document.getElementById('secCv'),r=cv.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top,g=cv.getContext('2d');
+  for(let i=SEC.items.length-1;i>=0;i--){const it=SEC.items[i];if(!it.path)continue;if(g.isPointInPath(it.path,x,y,'evenodd'))return it.m;}
+  g.lineWidth=6;for(let i=SEC.items.length-1;i>=0;i--){const it=SEC.items[i];if(it.path&&g.isPointInStroke(it.path,x,y))return it.m;}return null;}
+function secOpen(on){SEC.on=on;const p=document.getElementById('secPanel');p.hidden=!on;document.body.classList.toggle('secon',on);document.getElementById('secBtn').classList.toggle('on',on);
+  if(on){if(!clipOn&&modelRoot)setAxis('s');secDirty();}}
+function secInit(){const b=document.getElementById('secBtn');if(!b)return;b.onclick=()=>secOpen(!SEC.on);document.getElementById('secX').onclick=()=>secOpen(false);
+  document.getElementById('secBig').onclick=()=>{SEC.big=!SEC.big;document.getElementById('secPanel').classList.toggle('big',SEC.big);secDraw();};
+  const cv=document.getElementById('secCv');
+  cv.addEventListener('mousemove',ev=>{const m=secHit(ev);if(m!==SEC.hover){SEC.hover=m;document.getElementById('secName').textContent=m?m.userData.name:'';secDraw();}});
+  cv.addEventListener('mouseleave',()=>{SEC.hover=null;document.getElementById('secName').textContent='';secDraw();});
+  cv.addEventListener('click',ev=>{const m=secHit(ev);if(m){select(m);document.getElementById('secName').textContent=m.userData.name;}});
+  cv.addEventListener('dblclick',ev=>{const m=secHit(ev);if(m){select(m);flyTo(m);}});
+  const _ao=applyOpacity;applyOpacity=function(){_ao.apply(this,arguments);secDirty();};
+  const _uc=updateClip;updateClip=function(){_uc.apply(this,arguments);secDirty();};
+  const _sa=setAxis;setAxis=function(){_sa.apply(this,arguments);secDirty();};
+  addEventListener('resize',()=>{if(SEC.on)secDraw();});}
+setTimeout(secInit,0);
+
 /* rhoton.js-block */
 /* ---------- Rhoton Collection plates (re-used for education with the required credit; watermarks retained, images unaltered apart from resizing) ---------- */
 const RH={plates:[],appr:{},idx:{},keys:[],credit:'',yt:'https://www.youtube.com/@RhotonCollection',terms:'https://nref.org/education/The-Rhoton-Collection/',contrib:'',ctx:[],cur:null,mode:'2d',swap:false,quiz:null};
@@ -546,8 +638,8 @@ const AP_CORTEX=/gyrus|lobule|pole$|cuneus|insula$|visual cortex|limen|sulcus|-(
 const AP_TRACT=/fasciculus|^corticospinal tract|radiation|forceps|cingulum|aslant tract|^cortico(bulbar|pontine|striatal) tract|dentatorubrothalamic|lemniscus|reticulospinal|cerebellar peduncle| fibres( [lr])?$|\(cn [ivx]+( pathway)?\)/;
 function apOverride(m){const n=(m.userData.name||'').toLowerCase();if(m.userData._risk)return 1;if(m===selected)return null;
   const a=apCur(),spinal=a&&a.cat==='Spinal';
-  if(a&&a.mode==='syndrome'){/* LX-SYNDROME */const st=(a.steps&&a.steps[AP.step])||{};const t=q=>{if(!q)return false;try{return new RegExp(q,'i').test(n);}catch(e){return false;}};
-    if(t(st.lesion)){m.userData._lesion=true;return 1;}m.userData._lesion=false;if(t(st.show))return 0.85;const cx=a.context||[];
+  if(a&&(a.mode==='syndrome'||a.mode==='pathway')){/* LX-SYNDROME PW-PATHWAY */const st=(a.steps&&a.steps[AP.step])||{};const t=q=>{if(!q)return false;try{return new RegExp(q,'i').test(n);}catch(e){return false;}};
+    if(t(st.lesion)){m.userData._lesion=true;return 1;}m.userData._lesion=false;if(t(st.show))return 0.85;if(a.mode==='pathway'){for(let j=0;j<AP.step;j++){if(t(a.steps[j]&&a.steps[j].lesion))return 0.72;}}const cx=a.context||[];
     for(let i=0;i<cx.length;i++){if(t(cx[i][0]))return Math.min(0.9,(+cx[i][1]||0.2)*(AP.ghost?2.2:1));}return 0;}
   if(a&&a.mode==='dissection'){const tw=AP.ghost?0.9:0.55;if(AP.allTracts)return tw;const st=a.steps&&a.steps[AP.step];let re=null;try{re=st&&st.show?new RegExp(st.show,'i'):null;}catch(e){}return (re&&re.test(n))?tw:0;}
   if(AP_BONE.test(n))return spinal?0.55:0.26;
@@ -556,7 +648,7 @@ function apOverride(m){const n=(m.userData.name||'').toLowerCase();if(m.userData
   if(AP_ENV.test(n))return 0.1;
   if(AP_CORTEX.test(n))return 0;
   return null;}
-function apMarkRisks(a){selectable.forEach(m=>{m.userData._risk=false;m.userData._lesion=false;});if(a.mode==='dissection'||a.mode==='syndrome')return;(a.risks||[]).forEach(r=>{if(!r.match)return;let re;try{re=new RegExp(r.match,'i');}catch(e){return;}
+function apMarkRisks(a){selectable.forEach(m=>{m.userData._risk=false;m.userData._lesion=false;});if(a.mode==='dissection'||a.mode==='syndrome'||a.mode==='pathway')return;(a.risks||[]).forEach(r=>{if(!r.match)return;let re;try{re=new RegExp(r.match,'i');}catch(e){return;}
   selectable.forEach(m=>{if(!m.userData.apprPart&&re.test(m.userData.name||''))m.userData._risk=true;});});}
 function apStart(id){const a=AP.all.find(x=>x.id===id);if(!a||!modelRoot)return;
   if(a.specimen&&AP.file!==a.specimen){const si=specimens.findIndex(s=>s.url===a.specimen);if(si>=0){AP.pending=id;if(si!==activeSpecimen)loadSpecimen(si);}return;}
@@ -567,8 +659,8 @@ function apOffset(on){if(on&&innerWidth>820){const dx=Math.round((280+350+20)/2)
 function apExit(){apOffset(false);AP.active=null;AP.allTracts=false;AP.ghost=false;selectable.forEach(m=>{m.userData._risk=false;m.userData._lesion=false;});lxMarks(null);apCard.classList.remove('show');
   document.querySelectorAll('.aprow').forEach(r=>r.classList.remove('active'));applyOpacity();try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}
 function lxMarks(a){(AP.lxm||[]).forEach(x=>{if(x.parent)x.parent.remove(x);x.geometry.dispose();x.material.dispose();});AP.lxm=[];
-  if(!a||a.mode!=='syndrome'||!modelRoot)return;const st=(a.steps&&a.steps[AP.step])||{};const host=(selectable.find(m=>!m.userData.apprPart)||{}).parent||modelRoot;
-  (st.mark||[]).forEach(k=>{if(!Array.isArray(k)||k.length<4)return;const g=new THREE.SphereGeometry(+k[3],24,16),mt=new THREE.MeshBasicMaterial({color:0xe040fb,transparent:true,opacity:0.40,depthWrite:false,depthTest:false});
+  if(!a||(a.mode!=='syndrome'&&a.mode!=='pathway')||!modelRoot)return;const st=(a.steps&&a.steps[AP.step])||{};const host=(selectable.find(m=>!m.userData.apprPart)||{}).parent||modelRoot;
+  (st.mark||[]).forEach(k=>{if(!Array.isArray(k)||k.length<4)return;const g=new THREE.SphereGeometry(+k[3],24,16),mt=new THREE.MeshBasicMaterial({color:a.mode==='pathway'?0x9ef0ff:0xe040fb,transparent:true,opacity:a.mode==='pathway'?0.55:0.40,depthWrite:false,depthTest:false});
     const s=new THREE.Mesh(g,mt);s.position.set(+k[0],+k[1],+k[2]);s.renderOrder=5;s.userData.lxMark=true;host.add(s);AP.lxm.push(s);});}
 function apView(){const a=apCur();if(!a||!modelRoot)return;modelRoot.updateMatrixWorld(true);
   if(!a.eye||!a.target){const b=new THREE.Box3();(AP.lxm||[]).forEach(x=>b.expandByObject(x));if(b.isEmpty())selectable.forEach(m=>{if(m.visible&&m.userData._lesion)b.expandByObject(m);});
@@ -603,9 +695,10 @@ function apRender(){const a=apCur();if(!a){apCard.classList.remove('show');retur
   apCard.appendChild(vb);apCard.appendChild(xb);
   if(a.mode==='dissection'){const tb=el_('button','tool',AP.allTracts?'Matching tracts only':'Show all tracts');tb.dataset.role='tracts';tb.style.margin='10px 0 0 6px';tb.onclick=()=>{AP.allTracts=!AP.allTracts;apRender();applyOpacity();};
     const gb=el_('button','tool',AP.ghost?'Solid specimen':'Ghost specimen');gb.dataset.role='ghost';gb.style.margin='10px 0 0 6px';gb.onclick=()=>{AP.ghost=!AP.ghost;apRender();applyOpacity();};apCard.appendChild(tb);apCard.appendChild(gb);}
-  if(a.mode==='syndrome'){const gb=el_('button','tool',AP.ghost?'Less context':'More context');gb.dataset.role='ghost';gb.style.margin='10px 0 0 6px';gb.onclick=()=>{AP.ghost=!AP.ghost;apRender();applyOpacity();};apCard.appendChild(gb);}
+  if(a.mode==='syndrome'||a.mode==='pathway'){const gb=el_('button','tool',AP.ghost?'Less context':'More context');gb.dataset.role='ghost';gb.style.margin='10px 0 0 6px';gb.onclick=()=>{AP.ghost=!AP.ghost;apRender();applyOpacity();};apCard.appendChild(gb);}
   lxMarks(a);
-  const kd=el_('div','apkey');if(a.mode==='dissection'||a.mode==='syndrome')kd.style.display='none';
+  const kd=el_('div','apkey');if(a.mode==='dissection'||a.mode==='syndrome'||a.mode==='pathway')kd.style.display='none';
+  if(a.mode==='pathway'){const lk=el_('div','apkey');[['#52d6ff','Blue = this step of the pathway'],['#cfd6da','Plain = earlier steps (kept on screen)'],['#9ef0ff','Pale sphere = relay nucleus or crossing that is not modelled (approximate)']].forEach(k=>{const i=el_('span','kitem');const w=el_('span','ksw');w.style.background=k[0];i.appendChild(w);i.appendChild(document.createTextNode(k[1]));lk.appendChild(i);});apCard.appendChild(lk);}
   if(a.mode==='syndrome'){const lk=el_('div','apkey');[['#ff7a1a','Glow = structure in the lesion (tracts glow along their whole course)'],['#e040fb','Magenta sphere = lesion site (schematic)'],['#cfd6da','Plain = affected end-organ, landmark or spared structure']].forEach(k=>{const i=el_('span','kitem');const w=el_('span','ksw');w.style.background=k[0];i.appendChild(w);i.appendChild(document.createTextNode(k[1]));lk.appendChild(i);});apCard.appendChild(lk);}[['#a537eb','Skin incision (dashed)'],['#debe46','Bone flap'],['#f08c28','Bone removed / drilled'],['#50beff','Working corridor'],['#f0f0f0','Trajectory / implant'],['#c43430','Artery'],['#3c5ac8','Venous sinus (schematic)'],['#3aa6ff','Glow = structure at risk']].forEach(k=>{const i=el_('span','kitem');const w=el_('span','ksw');w.style.background=k[0];if(/dashed/.test(k[1]))w.style.background='repeating-linear-gradient(90deg,'+k[0]+' 0 4px,transparent 4px 7px)';i.appendChild(w);i.appendChild(document.createTextNode(k[1]));kd.appendChild(i);});apCard.appendChild(kd);
   apCard.appendChild(el_('div','lbl',a.riskLabel||'Structures at risk'));const rk=el_('div');
   (a.risks||[]).forEach(r=>{const c=el_('span','chip'+(r.match?'':' nm'),r.label);c.title=r.why||'';
@@ -620,7 +713,7 @@ function apRender(){const a=apCur();if(!a){apCard.classList.remove('show');retur
   sec(a.indLabel||'Indications',a.indications);if(a.position){apCard.appendChild(el_('div','lbl','Positioning'));apCard.appendChild(el_('div','txt',a.position));}
   sec('Pearls',a.pearls);sec('Pitfalls',a.pitfalls);
   const _rf=(a.refs||[]).filter(r=>/^https:\/\/(www\.ncbi\.nlm\.nih\.gov|pmc\.ncbi\.nlm\.nih\.gov)\//.test(String(r.url||'')));if(_rf.length){apCard.appendChild(el_('div','lbl','Further reading (open access)'));const _ul=el_('ul','reslist');_rf.forEach(r=>{const li=el_('li');const l=el_('a',null,String(r.title||r.url));l.href=String(r.url);l.target='_blank';l.rel='noopener noreferrer';li.appendChild(l);_ul.appendChild(li);});apCard.appendChild(_ul);}
-  apCard.appendChild(el_('div','apwarn',a.mode==='syndrome'?'Teaching summary: real lesions rarely respect these boundaries and presentations vary. '+(a.schematic||'')+' Not for diagnosis or clinical decision-making.':(a.mode==='dissection'?'Data note: '+(a.schematic||''):'Model note: '+(a.schematic||'')+' Teaching illustration on a composite, partly schematic model.')+' Not for diagnosis, operative planning or navigation.'));
+  apCard.appendChild(el_('div','apwarn',a.mode==='pathway'?'Teaching schematic: tracts are population-average tractography and relay spheres are approximate. '+(a.schematic||'')+' Not for diagnosis or surgical planning.':a.mode==='syndrome'?'Teaching summary: real lesions rarely respect these boundaries and presentations vary. '+(a.schematic||'')+' Not for diagnosis or clinical decision-making.':(a.mode==='dissection'?'Data note: '+(a.schematic||''):'Model note: '+(a.schematic||'')+' Teaching illustration on a composite, partly schematic model.')+' Not for diagnosis, operative planning or navigation.'));
   apCard.classList.add('show');}
 function apDeepLink(){const m=/#approach=([a-z0-9_]+)/i.exec(location.hash||'');if(!m)return;const a=AP.all.find(x=>x.id===m[1]);if(!a)return;
   const i=specimens.findIndex(s=>s.url===a.specimen);if(i<0)return;AP.pending=a.id;loadSpecimen(i);}
@@ -762,7 +855,7 @@ function updateLabels(){if(!LBL.on||QZ.on){if(LBL.pool.length&&LBL.el.style.disp
 const lblBtn=document.getElementById('lblBtn');lblBtn.onclick=()=>{LBL.on=!LBL.on;lblBtn.classList.toggle('on',LBL.on);if(!LBL.on)LBL.el.style.display='none';};
 
 /* ---------- quiz / self-test ---------- */
-var QZ={on:false,mode:'find',q:null,n:0,score:0,tries:0,total:10,answered:false,used:new Set(),opts:[],_int:false};const QZCOL=lin(0x3ddc84);const LESCOL=lin(0xff5a00);const LESBASE=lin(0xff9a3c);
+var QZ={on:false,mode:'find',q:null,n:0,score:0,tries:0,total:10,answered:false,used:new Set(),opts:[],_int:false};const QZCOL=lin(0x3ddc84);const LESCOL=lin(0xff5a00);const LESBASE=lin(0xff9a3c);const PWCOL=lin(0x0090d0);const PWBASE=lin(0x52d6ff);
 const qzCard=document.getElementById('quizcard');
 function qzBase(n){return String(n||'').toLowerCase().replace(/^(left|right)[ -]+/,'').replace(/\s+(l|r|left|right)$/,'').replace(/ (left|right) /,' ').trim();}
 function qzPool(){return selectable.filter(m=>m.visible&&!m.userData.apprPart&&m.userData.name&&m.userData.system!=='context'&&
@@ -852,7 +945,7 @@ else if(specimens.length)loadSpecimen(0);
 else buildPlaceholders();
 // also pull any hosted specimens listed in a sibling manifest.json (loaded on demand)
 (async()=>{try{const r=await fetch('manifest.json',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
-  (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,url:m.file,approaches:!!m.approaches,theta:(typeof m.theta==='number'?m.theta:null),hide:(Array.isArray(m.hide)?m.hide.map(String):null),autostart:(typeof m.autostart==='string'?m.autostart:null)});});
+  (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,url:m.file,approaches:!!m.approaches,theta:(typeof m.theta==='number'?m.theta:null),hide:(Array.isArray(m.hide)?m.hide.map(String):null),autostart:(typeof m.autostart==='string'?m.autostart:null),frame:(m.frame==='none'||(m.frame&&Array.isArray(m.frame.R)&&Array.isArray(m.frame.A))?m.frame:null)});});
   if(j.attribution)renderCredits([].concat(j.attribution));
   if(j.figures){const _ff=safeJson(j.figures);if(_ff){try{const rf=await fetch(_ff,{cache:'no-store'});if(rf.ok){const jf=await rf.json();FIG.figs=jf.figures||{};FIG.appr=jf.approaches||{};
     FIG.rules=(jf.rules||[]).map(r=>{try{return[new RegExp(r[0]),r[1]];}catch(e){return null;}}).filter(Boolean);if(selected)showReadoutFigs(selected);if(AP.active)apRender();}}catch(e){}}}
@@ -959,6 +1052,8 @@ renderer.setAnimationLoop(animate);
   body.m .apcard .mapbtns button.tool{flex:1;font-size:12.5px;padding:10px 8px;border-radius:10px;margin:0!important}
   body.m .apcard .chip{font-size:13px;padding:6px 10px}
   /* misc */
+  body.m .secpanel{right:6px;left:auto;top:calc(var(--toph) + 6px);bottom:auto;width:min(62vw,300px);height:min(62vw,300px);z-index:21}
+  body.m .secpanel.big{width:calc(100vw - 12px);height:min(100vw,60vh)}
   body.m .hint{top:calc(var(--toph) + 6px);font-size:11px;width:90vw}
   body.m .toast{top:40%}
   body.m #credits{padding:10px!important;z-index:45!important}
@@ -1054,7 +1149,7 @@ $('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.di
 $('mLayersBody').appendChild($('layers'));
 const ln=document.createElement('p');ln.className='mnote';ln.id='mLayerNote';$('mLayersBody').appendChild(ln);
 const dock=document.querySelector('.dock');$('mToolsBody').insertBefore(dock,$('mToolsBody').firstChild);
-['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
+['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn','secBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
 dock.querySelectorAll('.cap').forEach(c=>{c.textContent={Others:'Fade other structures',Light:'Brightness',Section:'Cross-section (tap again to turn off)'}[c.textContent]||c.textContent;});
 
 /* ---------- specimens ---------- */
@@ -1146,7 +1241,7 @@ apRender=function(){_apRender();const a=apCur();if(!a)return;
   const row=document.createElement('div');row.className='mapbtns';const det=el_('button','tool',M.apFull?'Less ▼':'Details ▲');
   det.onclick=()=>{M.apFull=!M.apFull;apCard.classList.toggle('full',M.apFull);det.textContent=M.apFull?'Less ▼':'Details ▲';if(!M.apFull)apCard.scrollTop=0;};
   if(vb){vb.textContent='View';row.appendChild(vb);}row.appendChild(det);if(xb){xb.textContent='Exit';row.appendChild(xb);}
-  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):((apCur()&&apCur().mode==='syndrome')?(AP.ghost?'Less context':'More context'):(AP.ghost?'Solid specimen':'Ghost specimen'));r2.appendChild(b);});row._r2=r2;}
+  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):((apCur()&&(apCur().mode==='syndrome'||apCur().mode==='pathway'))?(AP.ghost?'Less context':'More context'):(AP.ghost?'Solid specimen':'Ghost specimen'));r2.appendChild(b);});row._r2=r2;}
   const nav=apCard.querySelector('.apnav');if(nav&&nav.nextSibling)apCard.insertBefore(row,nav.nextSibling);else apCard.appendChild(row);
   if(row._r2)apCard.insertBefore(row._r2,row.nextSibling);
   const g=document.createElement('div');g.className='mgrab';g.style.margin='8px auto 6px';g.onclick=()=>det.click();apCard.insertBefore(g,apCard.firstChild);
