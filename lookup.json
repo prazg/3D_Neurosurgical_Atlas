@@ -50,9 +50,8 @@
   "ref": "Youmans & Winn (8th ed)."
  },
  "occipital bone": {
-  "teach": "Forms the foramen magnum and much of the posterior and inferior skull base: the squamous part (posterior-fossa wall), the condylar part (occipital condyles) and the basiocciput (clivus), which meets the sphenoid.",
-  "surg": "Landmark for suboccipital craniotomy/craniectomy and foramen-magnum decompression (e.g. Chiari); the condyle is partially drilled in the far-lateral/transcondylar approach to widen the ventral corridor to the lower clivus and craniovertebral junction. Pitfalls: the transverse and sigmoid sinuses and torcula on the squamous part, and the hypoglossal canal and condylar emissary vein at the condyle.",
-  "ref": "Figueiredo (ed.); Kobayashi."
+  "teach": "Back and base of the skull: squama, the two condyles that articulate with the atlas, the basilar part (clivus) and the foramen magnum. Internally the confluence of sinuses lies at the internal occipital protuberance.",
+  "surg": "Opened in midline and far-lateral suboccipital approaches; the transverse and sigmoid sinus grooves and the condylar (hypoglossal) canal are key landmarks."
  },
  "right vertebral artery": {
   "teach": "Ascends the transverse foramina from C6 to C1, loops over the posterior arch of the atlas, then pierces the dura to join its fellow as the basilar artery.",
@@ -70,9 +69,8 @@
   "ref": "Youmans & Winn, Neurological Surgery (8th ed); Figueiredo (ed.), Brain Anatomy and Neurosurgical Approaches."
  },
  "mandible": {
-  "teach": "The lower jaw, articulating at the temporomandibular joint; its ramus and condyle lie immediately anterior to the external auditory canal.",
-  "surg": "Relevant to transmandibular and transcervical exposures of the clivus and upper cervical spine; mandibular subluxation widens the corridor in high anterior approaches.",
-  "ref": "Youmans & Winn, Neurological Surgery (8th ed); Figueiredo (ed.), Brain Anatomy and Neurosurgical Approaches."
+  "teach": "Lower jaw; its condyle sits in the glenoid fossa of the temporal bone in front of the external acoustic meatus.",
+  "surg": "Relevant to subtemporal and infratemporal exposures, where the glenoid fossa and temporomandibular joint lie just below the middle fossa floor."
  },
  "right common carotid": {
   "teach": "Ascends in the carotid sheath with the internal jugular vein and vagus nerve, bifurcating near the upper border of the thyroid cartilage (about C3-4).",
@@ -2058,5 +2056,249 @@
  "frontal aslant tract (bradipho specimen 19)": {
   "teach": "Frontal aslant tract: short oblique bundle from the superior frontal gyrus (SMA/pre-SMA) to the pars opercularis. Here it is a population tractography atlas (HCP842 or SCIL) warped by the BraDiPho team into the space of dissection specimen 19, so it can be compared with the dissected fibres. It is not this donor’s own tractography.",
   "surg": "On the dominant side, injury or stimulation can cause speech initiation deficits; part of SMA syndrome."
+ },
+ "frontal bone": {
+  "teach": "Forms the forehead, the roof of the orbits and most of the anterior cranial fossa floor. Contains the frontal sinus between its tables above the nasion.",
+  "surg": "Opened in bifrontal and pterional craniotomies; a breached frontal sinus must be managed (exenteration of mucosa, cranialisation or a pericranial flap) to prevent CSF leak and mucocele."
+ },
+ "right parietal bone": {
+  "teach": "Paired bone forming the side and roof of the vault, meeting its partner at the sagittal suture and the frontal and occipital bones at the coronal and lambdoid sutures.",
+  "surg": "Parasagittal craniotomies cross it; the superior sagittal sinus runs beneath the sagittal suture, so midline bone work needs care."
+ },
+ "right temporal bone": {
+  "teach": "Squamous, petrous, mastoid and tympanic parts. The petrous part houses the cochlea, vestibule, semicircular canals, facial nerve canal and carotid canal; the mastoid is pneumatised.",
+  "surg": "Drilled in petrosal, translabyrinthine, retrosigmoid (internal acoustic meatus) and subtemporal approaches; opened mastoid air cells must be waxed to prevent CSF otorhinorrhoea."
+ },
+ "sphenoid bone": {
+  "teach": "Central skull-base bone: the body (sella turcica above, sphenoid sinus within), lesser wings (optic canals, anterior clinoids), greater wings (foramen rotundum, ovale, spinosum) and pterygoid processes. The superior orbital fissure lies between the wings.",
+  "surg": "Its sinus is the corridor for endoscopic transsphenoidal surgery; the sphenoid ridge is drilled in pterional approaches, and anterior clinoidectomy releases the optic nerve and ICA."
+ },
+ "ethmoid bone": {
+  "teach": "Light midline bone of the anterior skull base and medial orbit: cribriform plate (olfactory filaments), crista galli, perpendicular plate of the septum, ethmoid air cells and the thin lamina papyracea.",
+  "surg": "The cribriform plate is a common site of CSF leak and of olfactory groove meningiomas; it is the anterior limit of extended endonasal transplanum and transcribriform approaches."
+ },
+ "right zygomatic bone": {
+  "teach": "Cheek bone forming the lateral orbital rim and floor; joins the frontal bone at the frontozygomatic suture and the temporal bone through the zygomatic arch.",
+  "surg": "Osteotomised in orbitozygomatic approaches to gain a lower, more basal trajectory to the anterior and middle fossae."
+ },
+ "right maxilla": {
+  "teach": "Upper jaw: maxillary sinus, much of the orbital floor, the hard palate and the alveolar ridge.",
+  "surg": "Its medial wall and the sinus are opened in transmaxillary and extended endonasal routes to the pterygopalatine fossa and infratemporal fossa."
+ },
+ "right nasal bone": {
+  "teach": "Small paired bones forming the bridge of the nose; they meet the frontal bone at the nasion.",
+  "surg": "The nasion is the reference point for several craniometric measurements, including the distance to Kocher’s point."
+ },
+ "vomer": {
+  "teach": "Thin midline bone forming the posteroinferior nasal septum, articulating with the sphenoid rostrum.",
+  "surg": "A key endonasal landmark: following the vomer back leads to the sphenoid rostrum and sinus ostia."
+ },
+ "right lacrimal bone": {
+  "teach": "Small bone of the medial orbital wall containing the lacrimal sac fossa.",
+  "surg": "Relevant to endonasal orbital work and the nasolacrimal duct, which must be protected in medial maxillectomy."
+ },
+ "right palatine bone": {
+  "teach": "L-shaped bone forming the posterior hard palate and part of the lateral nasal wall and orbital floor.",
+  "surg": "Its sphenopalatine foramen transmits the sphenopalatine artery, which is coagulated during endonasal approaches and used for nasoseptal flap pedicles."
+ },
+ "left parietal bone": {
+  "teach": "Paired bone forming the side and roof of the vault, meeting its partner at the sagittal suture and the frontal and occipital bones at the coronal and lambdoid sutures.",
+  "surg": "Parasagittal craniotomies cross it; the superior sagittal sinus runs beneath the sagittal suture, so midline bone work needs care."
+ },
+ "left temporal bone": {
+  "teach": "Squamous, petrous, mastoid and tympanic parts. The petrous part houses the cochlea, vestibule, semicircular canals, facial nerve canal and carotid canal; the mastoid is pneumatised.",
+  "surg": "Drilled in petrosal, translabyrinthine, retrosigmoid (internal acoustic meatus) and subtemporal approaches; opened mastoid air cells must be waxed to prevent CSF otorhinorrhoea."
+ },
+ "left zygomatic bone": {
+  "teach": "Cheek bone forming the lateral orbital rim and floor; joins the frontal bone at the frontozygomatic suture and the temporal bone through the zygomatic arch.",
+  "surg": "Osteotomised in orbitozygomatic approaches to gain a lower, more basal trajectory to the anterior and middle fossae."
+ },
+ "left maxilla": {
+  "teach": "Upper jaw: maxillary sinus, much of the orbital floor, the hard palate and the alveolar ridge.",
+  "surg": "Its medial wall and the sinus are opened in transmaxillary and extended endonasal routes to the pterygopalatine fossa and infratemporal fossa."
+ },
+ "left nasal bone": {
+  "teach": "Small paired bones forming the bridge of the nose; they meet the frontal bone at the nasion.",
+  "surg": "The nasion is the reference point for several craniometric measurements, including the distance to Kocher’s point."
+ },
+ "left lacrimal bone": {
+  "teach": "Small bone of the medial orbital wall containing the lacrimal sac fossa.",
+  "surg": "Relevant to endonasal orbital work and the nasolacrimal duct, which must be protected in medial maxillectomy."
+ },
+ "left palatine bone": {
+  "teach": "L-shaped bone forming the posterior hard palate and part of the lateral nasal wall and orbital floor.",
+  "surg": "Its sphenopalatine foramen transmits the sphenopalatine artery, which is coagulated during endonasal approaches and used for nasoseptal flap pedicles."
+ },
+ "coronal suture (left)": {
+  "teach": "Between the frontal and the two parietal bones, running across the vault from pterion to pterion through bregma. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Kocher’s point is conventionally about 1 cm in front of the coronal suture in the mid-pupillary line; the motor strip lies several centimetres behind it."
+ },
+ "coronal suture (right)": {
+  "teach": "Between the frontal and the two parietal bones, running across the vault from pterion to pterion through bregma. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Kocher’s point is conventionally about 1 cm in front of the coronal suture in the mid-pupillary line; the motor strip lies several centimetres behind it."
+ },
+ "sagittal suture": {
+  "teach": "Midline suture between the two parietal bones, from bregma to lambda. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Overlies the superior sagittal sinus, which often lies slightly off the midline (frequently to the right), especially posteriorly; parasagittal and interhemispheric craniotomies are planned around it."
+ },
+ "lambdoid suture (left)": {
+  "teach": "Between the occipital bone and both parietal bones, from lambda down to asterion on each side. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Its lower end at asterion guides retrosigmoid exposure; the transverse sinus runs deep to the region below it."
+ },
+ "lambdoid suture (right)": {
+  "teach": "Between the occipital bone and both parietal bones, from lambda down to asterion on each side. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Its lower end at asterion guides retrosigmoid exposure; the transverse sinus runs deep to the region below it."
+ },
+ "squamous suture (left)": {
+  "teach": "Curved, bevelled suture between the temporal squama and the parietal bone. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Crossed in pterional and subtemporal craniotomies; the middle meningeal artery branches run on the inner surface nearby."
+ },
+ "squamous suture (right)": {
+  "teach": "Curved, bevelled suture between the temporal squama and the parietal bone. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Crossed in pterional and subtemporal craniotomies; the middle meningeal artery branches run on the inner surface nearby."
+ },
+ "sphenoparietal suture (left)": {
+  "teach": "Short suture between the greater wing of the sphenoid and the parietal bone; it forms the crossbar of the H-shaped pterion. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "The pterion marker in this model sits at its centre; the lateral sphenoid ridge lies deep to this point and is drilled flat from inside the craniotomy in pterional approaches."
+ },
+ "sphenoparietal suture (right)": {
+  "teach": "Short suture between the greater wing of the sphenoid and the parietal bone; it forms the crossbar of the H-shaped pterion. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "The pterion marker in this model sits at its centre; the lateral sphenoid ridge lies deep to this point and is drilled flat from inside the craniotomy in pterional approaches."
+ },
+ "sphenofrontal suture (left)": {
+  "teach": "Between the greater wing of the sphenoid and the frontal bone, extending from the pterion toward the orbit. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "The MacCarty keyhole burr hole is placed just above this suture behind the frontozygomatic suture."
+ },
+ "sphenofrontal suture (right)": {
+  "teach": "Between the greater wing of the sphenoid and the frontal bone, extending from the pterion toward the orbit. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "The MacCarty keyhole burr hole is placed just above this suture behind the frontozygomatic suture."
+ },
+ "sphenosquamosal suture (left)": {
+  "teach": "Between the greater wing of the sphenoid and the temporal squama. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Posteroinferior limb of the H-shaped pterion; relevant when extending a pterional craniotomy toward the middle fossa floor."
+ },
+ "sphenosquamosal suture (right)": {
+  "teach": "Between the greater wing of the sphenoid and the temporal squama. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Posteroinferior limb of the H-shaped pterion; relevant when extending a pterional craniotomy toward the middle fossa floor."
+ },
+ "occipitomastoid suture (left)": {
+  "teach": "Between the occipital bone and the mastoid part of the temporal bone, running down from asterion. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "The sigmoid sinus lies deep to the mastoid just in front of it; emissary veins often cross near this suture in retrosigmoid exposures."
+ },
+ "occipitomastoid suture (right)": {
+  "teach": "Between the occipital bone and the mastoid part of the temporal bone, running down from asterion. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "The sigmoid sinus lies deep to the mastoid just in front of it; emissary veins often cross near this suture in retrosigmoid exposures."
+ },
+ "frontozygomatic suture (left)": {
+  "teach": "On the lateral orbital rim between the frontal and zygomatic bones. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Landmark for the keyhole burr hole and for the orbital cuts of orbitozygomatic approaches."
+ },
+ "frontozygomatic suture (right)": {
+  "teach": "On the lateral orbital rim between the frontal and zygomatic bones. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Landmark for the keyhole burr hole and for the orbital cuts of orbitozygomatic approaches."
+ },
+ "frontonasal suture": {
+  "teach": "Between the frontal bone and the nasal bones; its midpoint is the nasion. Shown as a coloured band computed from where the bones meet in this model.",
+  "surg": "Reference point for midline craniometric measurements."
+ },
+ "keypoint: bregma": {
+  "teach": "Meeting point of the coronal and sagittal sutures; site of the anterior fontanelle in infants.",
+  "surg": "Reference for Kocher’s point and for frontal burr holes; computed here from the frontal–parietal junction in this model."
+ },
+ "keypoint: lambda": {
+  "teach": "Meeting point of the sagittal and lambdoid sutures; site of the posterior fontanelle in infants.",
+  "surg": "Reference for posterior parietal and occipital approaches."
+ },
+ "keypoint: asterion (left)": {
+  "teach": "Junction of the lambdoid, parietomastoid and occipitomastoid sutures, where the parietal, temporal and occipital bones meet.",
+  "surg": "Lies near the transverse–sigmoid junction, but the relationship varies between people (over, above or below it), so it guides rather than guarantees the retrosigmoid burr hole."
+ },
+ "keypoint: pterion (left)": {
+  "teach": "H-shaped junction of the frontal, parietal, sphenoid (greater wing) and temporal bones. Deep to it lie the lateral end of the sphenoid ridge and sylvian fissure and, often, the anterior branch of the middle meningeal artery.",
+  "surg": "The centre of the classic pterional craniotomy. Marked here at the centre of the sphenoparietal suture, computed from bone contacts in this model."
+ },
+ "keypoint: frontozygomatic suture (left)": {
+  "teach": "Point on the lateral orbital rim where the frontal and zygomatic bones meet.",
+  "surg": "Reference for the keyhole burr hole and for orbitozygomatic osteotomies."
+ },
+ "keypoint: keyhole, maccarty (left)": {
+  "teach": "Burr-hole site just behind the frontozygomatic suture, above the frontosphenoidal suture.",
+  "surg": "A correctly placed keyhole exposes frontal dura above and periorbita below through one hole. Placed here 1 cm behind the frontozygomatic suture following the classic description, not computed from a suture."
+ },
+ "keypoint: mastoid tip (left)": {
+  "teach": "Inferior tip of the mastoid process of the temporal bone.",
+  "surg": "Landmark for retrosigmoid and far-lateral incisions; the facial nerve leaves the stylomastoid foramen anteromedial to it."
+ },
+ "keypoint: asterion (right)": {
+  "teach": "Junction of the lambdoid, parietomastoid and occipitomastoid sutures, where the parietal, temporal and occipital bones meet.",
+  "surg": "Lies near the transverse–sigmoid junction, but the relationship varies between people (over, above or below it), so it guides rather than guarantees the retrosigmoid burr hole."
+ },
+ "keypoint: pterion (right)": {
+  "teach": "H-shaped junction of the frontal, parietal, sphenoid (greater wing) and temporal bones. Deep to it lie the lateral end of the sphenoid ridge and sylvian fissure and, often, the anterior branch of the middle meningeal artery.",
+  "surg": "The centre of the classic pterional craniotomy. Marked here at the centre of the sphenoparietal suture, computed from bone contacts in this model."
+ },
+ "keypoint: frontozygomatic suture (right)": {
+  "teach": "Point on the lateral orbital rim where the frontal and zygomatic bones meet.",
+  "surg": "Reference for the keyhole burr hole and for orbitozygomatic osteotomies."
+ },
+ "keypoint: keyhole, maccarty (right)": {
+  "teach": "Burr-hole site just behind the frontozygomatic suture, above the frontosphenoidal suture.",
+  "surg": "A correctly placed keyhole exposes frontal dura above and periorbita below through one hole. Placed here 1 cm behind the frontozygomatic suture following the classic description, not computed from a suture."
+ },
+ "keypoint: mastoid tip (right)": {
+  "teach": "Inferior tip of the mastoid process of the temporal bone.",
+  "surg": "Landmark for retrosigmoid and far-lateral incisions; the facial nerve leaves the stylomastoid foramen anteromedial to it."
+ },
+ "keypoint: nasion": {
+  "teach": "Midpoint of the frontonasal suture at the root of the nose.",
+  "surg": "Start point of the nasion–inion arc used in surface rules such as the Taylor–Haughton lines and Kocher’s point."
+ },
+ "keypoint: glabella": {
+  "teach": "Most prominent midline point of the frontal bone between the brows, as modelled here.",
+  "surg": "The frontal sinus lies beneath; bifrontal flaps that open it need sinus management."
+ },
+ "keypoint: inion": {
+  "teach": "Most prominent point of the external occipital protuberance in the midline.",
+  "surg": "Lies roughly over the confluence of sinuses, though the relationship varies; reference for Frazier’s and Dandy’s points and for midline suboccipital incisions."
+ },
+ "keypoint: opisthion": {
+  "teach": "Posterior midpoint of the margin of the foramen magnum.",
+  "surg": "The midline suboccipital craniectomy for Chiari decompression opens the foramen magnum here."
+ },
+ "keypoint: basion": {
+  "teach": "Anterior midpoint of the margin of the foramen magnum, at the lower end of the clivus.",
+  "surg": "The basion–dens relationship is used to assess craniocervical alignment. It marks the lower end of the clivus; endoscopic endonasal exposure can continue below it to the anterior arch of C1 and the dens."
+ },
+ "surface projection: superior rolandic point (left)": {
+  "teach": "Upper end of the central sulcus projected onto the skull surface. Surface rules (Taylor–Haughton) place it roughly 2 cm behind the midpoint of the nasion–inion arc, near the midline.",
+  "surg": "Locates the top of the motor strip. Computed here from where this model’s precentral and postcentral gyri meet; individual variation is large, so use navigation clinically."
+ },
+ "surface projection: inferior rolandic point (left)": {
+  "teach": "Lower end of the central sulcus projected onto the skull, just above the sylvian fissure.",
+  "surg": "The line from the superior to the inferior Rolandic point approximates the central sulcus on the skull surface; the sulcus is sinuous, so the straight line is only an approximation."
+ },
+ "surface projection: posterior sylvian point (left)": {
+  "teach": "Posterior end of the sylvian fissure (posterior ramus), where it turns up into the supramarginal gyrus, projected onto the skull.",
+  "surg": "In the dominant hemisphere the surrounding cortex (supramarginal and posterior superior temporal gyri) is classically language territory; language areas vary between individuals and are confirmed by mapping when surgery is nearby."
+ },
+ "surface projection: anterior sylvian point (left)": {
+  "teach": "Point where the sylvian fissure widens below the pars triangularis, projected onto the skull.",
+  "surg": "Classic starting point for opening the sylvian fissure in pterional and trans-sylvian approaches."
+ },
+ "surface projection: superior rolandic point (right)": {
+  "teach": "Upper end of the central sulcus projected onto the skull surface. Surface rules (Taylor–Haughton) place it roughly 2 cm behind the midpoint of the nasion–inion arc, near the midline.",
+  "surg": "Locates the top of the motor strip. Computed here from where this model’s precentral and postcentral gyri meet; individual variation is large, so use navigation clinically."
+ },
+ "surface projection: inferior rolandic point (right)": {
+  "teach": "Lower end of the central sulcus projected onto the skull, just above the sylvian fissure.",
+  "surg": "The line from the superior to the inferior Rolandic point approximates the central sulcus on the skull surface; the sulcus is sinuous, so the straight line is only an approximation."
+ },
+ "surface projection: posterior sylvian point (right)": {
+  "teach": "Posterior end of the sylvian fissure (posterior ramus), where it turns up into the supramarginal gyrus, projected onto the skull.",
+  "surg": "In the dominant hemisphere the surrounding cortex (supramarginal and posterior superior temporal gyri) is classically language territory; language areas vary between individuals and are confirmed by mapping when surgery is nearby."
+ },
+ "surface projection: anterior sylvian point (right)": {
+  "teach": "Point where the sylvian fissure widens below the pars triangularis, projected onto the skull.",
+  "surg": "Classic starting point for opening the sylvian fissure in pterional and trans-sylvian approaches."
  }
 }

@@ -174,7 +174,7 @@ python build_mobile.py
 | 2D reference illustrations (56) | Servier Medical Art, smart.servier.com (adapted: resized) | CC BY 4.0 |
 | Fibre dissection specimen (12 stages, annotations, registered tractography) | BraDiPho, Fondazione Bruno Kessler — Vavassori et al., *Nat Commun* 2025;16:9801, doi:10.1038/s41467-025-64788-y; https://bradipho.eu | **CC BY-NC-SA 4.0** (non-commercial, share-alike) |
 | Cadaveric plates (102 stereo photographs) | Rhoton Collection Top 100 — Courtesy of the Rhoton Collection, American Association of Neurological Surgeons (AANS)/Neurosurgical Research and Education Foundation (NREF); https://nref.org/education/The-Rhoton-Collection/ | Educational/media re-use with credit; **watermarks must not be removed**; commercial or non-educational use needs NREF permission |
-| Skull bones specimen (20 bones), sutures and keypoints | BodyParts3D, DBCLS (Mitsuhashi et al., *Nucleic Acids Res* 2009) — adapted | CC BY-SA 2.1 JP |
+| Skull bones specimen (20 bones), sutures and keypoints | BodyParts3D 4.0 — “BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International” (Mitsuhashi et al., *Nucleic Acids Res* 2009) — adapted | CC BY 4.0 |
 | Intracranial arteries (approaches specimen) | Mouches & Forkert, *Sci Data* 2019;6:29, doi:10.1038/s41597-019-0034-5 (figshare vessel occurrence atlas) | CC0 |
 
 Several datasets are **CC BY-SA**, so derived model files and this page inherit

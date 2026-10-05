@@ -243,8 +243,8 @@ function linearizeColors(geo){var a=geo.attributes.color;if(!a||geo.userData._li
 function glbNames(buf){var map={};try{var dv=new DataView(buf);if(dv.getUint32(0,true)!==0x46546C67)return map;
   var len=dv.getUint32(12,true),js=JSON.parse(new TextDecoder().decode(new Uint8Array(buf,20,len))),san=THREE.PropertyBinding.sanitizeNodeName;
   [].concat(js.nodes||[],js.meshes||[]).forEach(function(d){if(d&&d.name)map[san(d.name)]=d.name;});}catch(e){}return map;}
-function origName(o,map){if(o.userData&&typeof o.userData.name==='string'&&o.userData.name)return o.userData.name;
-  var n=o.name||(o.parent&&o.parent.name)||'mesh',b=n.replace(/_\d+$/,'');return map[n]||map[b]||n.replace(/_/g,' ');}
+function origName(o,map){if(o.userData&&typeof o.userData.name==='string'&&o.userData.name)return o.userData.name.replace(/_/g,' ');
+  var n=o.name||(o.parent&&o.parent.name)||'mesh',b=n.replace(/_\d+$/,'');return (map[n]||map[b]||n).replace(/_/g,' ');}
 function systemFor(name){const n=(name||'').toLowerCase();
   if(/arter|\bvena\b|venous|vein|jugular|sinus|basilar|carotid|subclavian|vascul|aorta|trunk/.test(n))return 'vascular';
   if(/ventricle|cistern|\bcsf\b|ependym|choroid/.test(n))return 'csf';
@@ -554,7 +554,9 @@ function apOverride(m){const n=(m.userData.name||'').toLowerCase();if(m.userData
   return null;}
 function apMarkRisks(a){selectable.forEach(m=>{m.userData._risk=false;});if(a.mode==='dissection')return;(a.risks||[]).forEach(r=>{if(!r.match)return;let re;try{re=new RegExp(r.match,'i');}catch(e){return;}
   selectable.forEach(m=>{if(!m.userData.apprPart&&re.test(m.userData.name||''))m.userData._risk=true;});});}
-function apStart(id){const a=AP.all.find(x=>x.id===id);if(!a||!modelRoot)return;AP.active=id;AP.step=0;apMarkRisks(a);
+function apStart(id){const a=AP.all.find(x=>x.id===id);if(!a||!modelRoot)return;
+  if(a.specimen&&AP.file!==a.specimen){const si=specimens.findIndex(s=>s.url===a.specimen);if(si>=0){AP.pending=id;if(si!==activeSpecimen)loadSpecimen(si);}return;}
+  AP.active=id;AP.step=0;apMarkRisks(a);
   document.querySelectorAll('.aprow').forEach(r=>r.classList.toggle('active',r.dataset.id===id));
   select(null);apRender();applyOpacity();apView();try{history.replaceState(null,'','#approach='+id);}catch(e){}}
 function apOffset(on){if(on&&innerWidth>820){const dx=Math.round((280+350+20)/2)-140;camera.setViewOffset(innerWidth,innerHeight,-dx,0,innerWidth,innerHeight);}else camera.clearViewOffset();camera.updateProjectionMatrix();}

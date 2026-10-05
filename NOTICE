@@ -35,7 +35,8 @@ HCP-1065 tracts/cranial nerves and arteries mapped into the same frame. Dural si
 corridors, incisions, entry points and trajectory angles are schematic.
 
 SKULL BONES SPECIMEN (skull_bones.glb)
-- BodyParts3D, (c) The Database Center for Life Science (DBCLS), licensed CC BY-SA 2.1 JP.
+- BodyParts3D 4.0: "BodyParts3D, (c) The Database Center for Life Science licensed under CC
+  Attribution 4.0 International" (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html).
   Mitsuhashi N, et al. BodyParts3D: 3D structure database for anatomical concepts.
   Nucleic Acids Research 2009. https://lifesciencedb.jp/bp3d/
   Changes: 20 skull bones selected, recoloured and assembled; suture bands and craniometric

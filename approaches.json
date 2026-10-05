@@ -2885,29 +2885,28 @@
     {
      "h": "Entry point",
      "t": "Conventional lumbar entry is near the junction of the transverse process and the lateral edge of the superior articular process.",
-     "reveal": [
-      "corridor"
-     ]
+     "reveal": []
     },
     {
      "h": "Trajectory",
      "t": "Converge medially; convergence usually increases caudally (often roughly 10–15° at L4 and more at L5). This model uses a single illustrative 12°; confirm on the patient's imaging. Stay parallel to the superior endplate on the lateral view.",
      "reveal": [
-      "corridor"
+      "screw"
      ]
     },
     {
      "h": "Pedicle tract",
      "t": "Probe, palpate the tract walls and floor, tap if needed.",
      "reveal": [
-      "corridor"
+      "screw"
      ]
     },
     {
      "h": "Screws and rods",
      "t": "Place screws into the anterior body short of the anterior cortex, then connect with rods.",
      "reveal": [
-      "corridor"
+      "screw",
+      "rod"
      ]
     }
    ],
@@ -2933,27 +2932,27 @@
    "meshes": [
     {
      "name": "Approach: pedicle screws L4–L5 — L4 right pedicle screw",
-     "tag": "corridor"
+     "tag": "screw"
     },
     {
      "name": "Approach: pedicle screws L4–L5 — L4 left pedicle screw",
-     "tag": "corridor"
+     "tag": "screw"
     },
     {
      "name": "Approach: pedicle screws L4–L5 — L5 right pedicle screw",
-     "tag": "corridor"
+     "tag": "screw"
     },
     {
      "name": "Approach: pedicle screws L4–L5 — L5 left pedicle screw",
-     "tag": "corridor"
+     "tag": "screw"
     },
     {
      "name": "Approach: pedicle screws L4–L5 — right rod",
-     "tag": "corridor"
+     "tag": "rod"
     },
     {
      "name": "Approach: pedicle screws L4–L5 — left rod",
-     "tag": "corridor"
+     "tag": "rod"
     }
    ],
    "target": [
