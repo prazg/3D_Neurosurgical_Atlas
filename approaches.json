@@ -3922,6 +3922,2570 @@
     16.295520782470703
    ],
    "fitWide": true
+  },
+  {
+   "id": "lx_wallenberg",
+   "title": "Lateral medullary syndrome (Wallenberg)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.3,
+    0.8
+   ],
+   "viewR": 6,
+   "ytq": "medulla",
+   "summary": "Infarction of the left dorsolateral medulla. Most often due to vertebral artery disease, less often isolated PICA occlusion. The signature is a crossed sensory pattern: face on the side of the lesion, body on the other side.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Level and territory",
+     "t": "Dorsolateral medulla, supplied by penetrating branches of the vertebral artery and the posterior inferior cerebellar artery (PICA; not modelled). The red sphere marks the lesion site.",
+     "lesion": "^left vertebral artery$",
+     "mark": [
+      [
+       -16,
+       40,
+       28,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Crossed sensory loss",
+     "t": "Spinal trigeminal nucleus and tract: loss of pain and temperature on the same (left) side of the face. Lateral spinothalamic tract: loss of pain and temperature on the opposite (right) side of the body. Neither pathway is modelled here; both run through the marked region.",
+     "mark": [
+      [
+       -16,
+       40,
+       28,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Bulbar, vestibular and cerebellar signs",
+     "t": "Nucleus ambiguus: dysphagia, hoarseness, ipsilateral palatal and vocal-cord weakness. Vestibular nuclei: vertigo, nystagmus, nausea and vomiting. Inferior cerebellar peduncle (glowing) and any PICA-territory cerebellum: ipsilateral limb ataxia and lateropulsion.",
+     "lesion": "^inferior cerebellar peduncle l$",
+     "mark": [
+      [
+       -16,
+       40,
+       28,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Ipsilateral Horner syndrome",
+     "t": "Descending central sympathetic fibres pass through the lateral medulla: ipsilateral miosis, mild ptosis and sometimes facial anhidrosis. The fibres are not modelled.",
+     "show": "^left eyeball$",
+     "mark": [
+      [
+       -16,
+       40,
+       28,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "What is spared",
+     "t": "The pyramid (corticospinal tract) and medial lemniscus lie medially, in the medial medullary territory, so limb strength and proprioception are usually preserved. Both are shown without glow.",
+     "show": "^corticospinal tract l$|^medial lemniscus l$",
+     "mark": [
+      [
+       -16,
+       40,
+       28,
+       5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Spinal trigeminal nucleus and tract",
+     "match": null,
+     "why": "Ipsilateral facial pain and temperature loss; reduced corneal reflex. Not modelled."
+    },
+    {
+     "label": "Lateral spinothalamic tract",
+     "match": null,
+     "why": "Contralateral body pain and temperature loss. Not modelled."
+    },
+    {
+     "label": "Nucleus ambiguus",
+     "match": null,
+     "why": "Dysphagia, dysphonia, ipsilateral palatal and vocal-cord weakness. Not modelled."
+    },
+    {
+     "label": "Vestibular nuclei",
+     "match": null,
+     "why": "Vertigo, nystagmus, nausea, vomiting. Not modelled."
+    },
+    {
+     "label": "Inferior cerebellar peduncle",
+     "match": "^Inferior cerebellar peduncle L$",
+     "why": "Ipsilateral limb and gait ataxia."
+    },
+    {
+     "label": "Descending sympathetic fibres",
+     "match": null,
+     "why": "Ipsilateral Horner syndrome. Not modelled."
+    },
+    {
+     "label": "Left vertebral artery",
+     "match": "^left vertebral artery$",
+     "why": "Parent vessel; PICA usually arises from it (PICA not modelled)."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Vertebral artery atherothrombosis or dissection (dissection is an important cause in younger patients)",
+    "PICA occlusion",
+    "Less often: demyelination, haemorrhage or tumour"
+   ],
+   "pearls": [
+    "A crossed pattern (face on one side, body on the other) localises to the lateral medulla or caudal pons.",
+    "Assess swallowing before any oral intake: aspiration is a major early risk.",
+    "Neurosurgical red flag: an associated PICA-territory cerebellar infarct can swell, compress the fourth ventricle and cause hydrocephalus and brainstem compression."
+   ],
+   "pitfalls": [
+    "Small brainstem infarcts can be missed on early diffusion-weighted MRI; repeat imaging if clinical suspicion persists.",
+    "Marked hemiparesis is not part of the pure syndrome and suggests medial extension or a second lesion."
+   ],
+   "schematic": "Lesion sphere is schematic; nuclei and spinothalamic fibres are not modelled. Tracts glow along their whole course.",
+   "refs": [
+    {
+     "title": "Lateral Medullary Syndrome (Wallenberg Syndrome) — StatPearls (Easton-Carr, Lui, Das)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK551670/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_medialmed",
+   "title": "Medial medullary syndrome (Dejerine)",
+   "side": "left",
+   "viewDir": [
+    -0.6,
+    0.1,
+    -1
+   ],
+   "viewR": 6,
+   "ytq": "medulla",
+   "summary": "Infarction of the left paramedian medulla, usually from occlusion of vertebral or anterior spinal artery branches. Gives a contralateral hemiparesis that spares the face, with an ipsilateral tongue palsy.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Level and territory",
+     "t": "Paramedian medulla: the pyramid, medial lemniscus and hypoglossal fascicles lie side by side close to the midline. Supply comes from penetrating branches of the vertebral and anterior spinal arteries.",
+     "lesion": "^left vertebral artery$",
+     "mark": [
+      [
+       -10,
+       40,
+       16,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Pyramid",
+     "t": "Corticospinal fibres in the pyramid (above the decussation): contralateral (right) arm and leg weakness. The face is spared because the fibres to the facial nucleus have already left the pathway in the pons.",
+     "lesion": "^corticospinal tract l$",
+     "mark": [
+      [
+       -10,
+       40,
+       16,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Medial lemniscus",
+     "t": "Contralateral loss of vibration and joint-position sense. In the medulla the lemniscus is already crossed, so the left lemniscus serves the right body.",
+     "lesion": "^medial lemniscus l$",
+     "mark": [
+      [
+       -10,
+       40,
+       16,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Hypoglossal fascicles",
+     "t": "Ipsilateral tongue weakness: on protrusion the tongue deviates toward the side of the lesion. The hypoglossal nucleus and nerve are not modelled.",
+     "mark": [
+      [
+       -10,
+       40,
+       16,
+       4
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Pyramid (corticospinal tract)",
+     "match": "^Corticospinal tract L$",
+     "why": "Contralateral hemiparesis sparing the face."
+    },
+    {
+     "label": "Medial lemniscus",
+     "match": "^Medial lemniscus L$",
+     "why": "Contralateral loss of vibration and proprioception."
+    },
+    {
+     "label": "Hypoglossal fascicles / nucleus",
+     "match": null,
+     "why": "Ipsilateral tongue weakness, deviation toward the lesion. Not modelled."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Atherosclerosis of the vertebral artery or its paramedian branches",
+    "Vertebral artery dissection",
+    "Rarely bilateral, giving quadriparesis; a \"heart-shaped\" diffusion signal has been described"
+   ],
+   "pearls": [
+    "Tongue deviates toward the weak side (the side of the lesion); limbs are weak on the opposite side.",
+    "Unlike the lateral medullary syndrome, pain and temperature are usually spared."
+   ],
+   "pitfalls": [
+    "Presentations are often partial; isolated pure motor hemiparesis from a medullary infarct can mimic a capsular lacune."
+   ],
+   "schematic": "Lesion sphere is schematic; hypoglossal nucleus and nerve are not modelled. Tracts glow along their whole course.",
+   "refs": [
+    {
+     "title": "Medial Medullary Syndrome — StatPearls (Siddik, Singh, Gupta)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK560590/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_millard",
+   "title": "Ventral caudal pons (Millard–Gubler syndrome)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0,
+    -0.6
+   ],
+   "viewR": 8,
+   "ytq": "pons",
+   "summary": "A lesion of the left ventral caudal pons that catches the fascicles of the abducens and facial nerves as they run ventrally, and the corticospinal fibres in the basis pontis.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Level and territory",
+     "t": "Ventral caudal pons, supplied by paramedian and short circumferential branches of the basilar artery.",
+     "lesion": "^basilar artery",
+     "mark": [
+      [
+       -12,
+       54,
+       8,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Corticospinal fibres",
+     "t": "Contralateral (right) hemiparesis.",
+     "lesion": "^corticospinal tract l$",
+     "mark": [
+      [
+       -12,
+       54,
+       8,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Facial nerve fascicles",
+     "t": "Ipsilateral lower motor neurone facial palsy, involving forehead and lower face.",
+     "lesion": "^facial nerve \\(cn vii\\) l$",
+     "mark": [
+      [
+       -12,
+       54,
+       8,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Abducens fascicles",
+     "t": "Ipsilateral lateral rectus palsy: horizontal diplopia worse looking to the left, failure of abduction. The abducens nerve is not modelled; its target muscle is shown (no glow).",
+     "show": "^left lateral rectus$",
+     "mark": [
+      [
+       -12,
+       54,
+       8,
+       5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Corticospinal fibres",
+     "match": "^Corticospinal tract L$",
+     "why": "Contralateral hemiparesis."
+    },
+    {
+     "label": "Facial nerve fascicles",
+     "match": "^Facial nerve \\(CN VII\\) L$",
+     "why": "Ipsilateral LMN facial palsy."
+    },
+    {
+     "label": "Abducens nerve fascicles",
+     "match": null,
+     "why": "Ipsilateral abduction failure. Not modelled."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Pontine infarction (basilar branch disease)",
+    "Haemorrhage, including cavernous malformation",
+    "Tumour (e.g. pontine glioma) and demyelination"
+   ],
+   "pearls": [
+    "A fascicular abducens palsy with a facial palsy and contralateral hemiparesis localises to the ventral caudal pons.",
+    "Eponym definitions vary: some sources call abducens palsy with contralateral hemiparesis alone \"Raymond syndrome\"."
+   ],
+   "pitfalls": [
+    "A gaze palsy (both eyes cannot look to one side) points instead to the abducens nucleus or PPRF in the dorsal pons, not the fascicle."
+   ],
+   "schematic": "Lesion sphere is schematic; abducens nerve not modelled. Tracts and nerves glow along their whole course.",
+   "refs": [
+    {
+     "title": "Millard-Gubler Syndrome — StatPearls (Sakuru, Elnahry, Lui, Bollu)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK532907/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -16,
+    56,
+    -10
+   ]
+  },
+  {
+   "id": "lx_faccoll",
+   "title": "Dorsal caudal pons: facial colliculus lesion (Foville)",
+   "side": "left",
+   "viewDir": [
+    -0.6,
+    0.5,
+    1
+   ],
+   "viewR": 8,
+   "ytq": "fourth ventricle",
+   "summary": "A lesion of the left floor of the fourth ventricle at the facial colliculus, where the facial nerve fibres loop around the abducens nucleus. Relevant to any surgery on the fourth-ventricle floor.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Level",
+     "t": "Facial colliculus on the floor of the fourth ventricle (lower pons). The fourth ventricle is shown faintly; the sphere marks the colliculus.",
+     "show": "^fourth ventricle$",
+     "mark": [
+      [
+       -11,
+       55,
+       27,
+       3.5
+      ]
+     ]
+    },
+    {
+     "h": "Facial nerve genu",
+     "t": "The internal genu of the facial nerve: ipsilateral lower motor neurone facial palsy.",
+     "lesion": "^facial nerve \\(cn vii\\) l$",
+     "mark": [
+      [
+       -11,
+       55,
+       27,
+       3.5
+      ]
+     ]
+    },
+    {
+     "h": "Abducens nucleus and PPRF",
+     "t": "Damage to the abducens nucleus (or the nearby PPRF) causes an ipsilateral horizontal gaze palsy: neither eye can look to the left. The yoked muscles that fail together are shown: left lateral rectus and right medial rectus (no glow; the nucleus is not modelled).",
+     "show": "^left lateral rectus$|^right medial rectus$",
+     "mark": [
+      [
+       -11,
+       55,
+       27,
+       3.5
+      ]
+     ]
+    },
+    {
+     "h": "Variants",
+     "t": "If the medial longitudinal fasciculus is also involved, the result is a one-and-a-half syndrome. Ventral extension adds contralateral hemiparesis; that combination is often called Foville syndrome, although definitions vary between sources.",
+     "lesion": "^corticospinal tract l$",
+     "mark": [
+      [
+       -11,
+       55,
+       27,
+       3.5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Facial nerve genu",
+     "match": "^Facial nerve \\(CN VII\\) L$",
+     "why": "Ipsilateral LMN facial palsy."
+    },
+    {
+     "label": "Abducens nucleus / PPRF",
+     "match": null,
+     "why": "Ipsilateral horizontal gaze palsy. Not modelled."
+    },
+    {
+     "label": "Medial longitudinal fasciculus",
+     "match": null,
+     "why": "Internuclear ophthalmoplegia; with the above, one-and-a-half syndrome. Not modelled."
+    },
+    {
+     "label": "Corticospinal fibres (if ventral extension)",
+     "match": "^Corticospinal tract L$",
+     "why": "Contralateral hemiparesis."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Pontine tegmental haemorrhage, including cavernous malformation",
+    "Infarction, demyelination, tumour",
+    "Surgical injury to the fourth-ventricle floor"
+   ],
+   "pearls": [
+    "Gaze palsy (nucleus) versus abduction palsy (nerve) is the key localising distinction.",
+    "In fourth-ventricle and brainstem surgery the facial colliculus is a landmark to avoid; entry zones above and below it are described in the literature. See the Telovelar approach card."
+   ],
+   "pitfalls": [
+    "Facial colliculus syndrome is a clinical description of a region, not a single disease; image to find the cause."
+   ],
+   "schematic": "Lesion sphere is schematic; abducens nucleus, PPRF and MLF are not modelled.",
+   "refs": [
+    {
+     "title": "Foville Syndrome — StatPearls (Khazaal, Marquez, Naqvi)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK544268/"
+    },
+    {
+     "title": "Neuroanatomy, Facial Colliculus — StatPearls (Nem, Yoo, Omole)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK555907/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -8,
+    56,
+    8
+   ]
+  },
+  {
+   "id": "lx_lockedin",
+   "title": "Locked-in syndrome (bilateral ventral pons)",
+   "side": "midline",
+   "viewDir": [
+    0,
+    -0.15,
+    -1
+   ],
+   "viewR": 7,
+   "ytq": "basilar artery",
+   "summary": "Bilateral destruction of the ventral pons, classically from basilar artery occlusion. The patient is awake and aware but cannot move the limbs or face, or speak. Vertical eye movements and blinking are spared.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Territory",
+     "t": "The basis pontis, supplied by the basilar artery (glowing). Occlusion of its paramedian branches destroys the ventral pons on both sides.",
+     "lesion": "^basilar artery",
+     "mark": [
+      [
+       -6,
+       60,
+       6,
+       9
+      ]
+     ]
+    },
+    {
+     "h": "Descending motor pathways",
+     "t": "Both corticospinal tracts (quadriplegia) and both corticobulbar tracts (anarthria, dysphagia, facial weakness).",
+     "lesion": "^cortico(spinal|bulbar) tract [lr]$",
+     "mark": [
+      [
+       -6,
+       60,
+       6,
+       9
+      ]
+     ]
+    },
+    {
+     "h": "What is spared",
+     "t": "The tegmentum, including the reticular activating system, is spared, so consciousness is preserved. The midbrain is spared, so vertical gaze and lid elevation (oculomotor nerves) remain. Horizontal gaze is often lost. Sensation may be preserved.",
+     "show": "^part of midbrain$|^oculomotor nerve \\(cn iii\\) [lr]$",
+     "mark": [
+      [
+       -6,
+       60,
+       6,
+       9
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Corticospinal tracts, both sides",
+     "match": "^Corticospinal tract [LR]$",
+     "why": "Quadriplegia."
+    },
+    {
+     "label": "Corticobulbar tracts, both sides",
+     "match": "^Corticobulbar tract [LR]$",
+     "why": "Anarthria, dysphagia, facial paralysis."
+    },
+    {
+     "label": "Abducens nuclei / PPRF (variable)",
+     "match": null,
+     "why": "Loss of horizontal gaze. Not modelled."
+    },
+    {
+     "label": "Basilar artery",
+     "match": "^Basilar artery",
+     "why": "Usual culprit vessel."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Basilar artery thrombosis or embolism (most common)",
+    "Pontine haemorrhage",
+    "Osmotic demyelination (central pontine myelinolysis)",
+    "Trauma"
+   ],
+   "pearls": [
+    "Always test for awareness with vertical eye movement and blinking commands: an unresponsive patient may be fully aware.",
+    "Basilar occlusion is time-critical for reperfusion; prodromal symptoms are common."
+   ],
+   "pitfalls": [
+    "Can be mistaken for coma or a vegetative state."
+   ],
+   "schematic": "Lesion sphere is schematic. Tracts glow along their whole course; the lesion involves only their pontine segment.",
+   "refs": [
+    {
+     "title": "Locked-in Syndrome — StatPearls (Das, Anosike, Asuncion)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK559026/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_weber",
+   "title": "Ventral midbrain (Weber syndrome)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.35,
+    -0.25
+   ],
+   "viewR": 9,
+   "ytq": "midbrain",
+   "summary": "A lesion of the left cerebral peduncle catching the oculomotor fascicles. Gives an ipsilateral third nerve palsy with a contralateral hemiparesis.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Level and territory",
+     "t": "Ventromedial midbrain (cerebral peduncle), supplied by paramedian perforators from the top of the basilar artery and the P1 segment of the posterior cerebral artery.",
+     "lesion": "^basilar artery",
+     "mark": [
+      [
+       -19,
+       73,
+       -5,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Oculomotor fascicles",
+     "t": "Ipsilateral third nerve palsy: ptosis, a dilated pupil, and the eye resting \"down and out\". The muscles that fail are shown. Superior oblique (CN IV) and lateral rectus (CN VI) are spared.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) l$",
+     "show": "^left (medial|superior|inferior) rectus$|^left levator palpebrae superioris$",
+     "mark": [
+      [
+       -19,
+       73,
+       -5,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Cerebral peduncle",
+     "t": "Corticospinal and corticobulbar fibres: contralateral (right) hemiparesis, including upper motor neurone weakness of the lower face and tongue.",
+     "lesion": "^corticospinal tract l$|^corticobulbar tract l$",
+     "show": "^left substantia nigra$",
+     "mark": [
+      [
+       -19,
+       73,
+       -5,
+       5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Oculomotor fascicles",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Ipsilateral ptosis, mydriasis, ophthalmoplegia."
+    },
+    {
+     "label": "Corticospinal fibres",
+     "match": "^Corticospinal tract L$",
+     "why": "Contralateral hemiparesis."
+    },
+    {
+     "label": "Corticobulbar fibres",
+     "match": "^Corticobulbar tract L$",
+     "why": "Contralateral UMN facial and tongue weakness."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Infarction of PCA or basilar perforators",
+    "Haemorrhage or tumour",
+    "Neurosurgical mimic: uncal herniation compressing the ipsilateral nerve and peduncle (see the uncal herniation card)"
+   ],
+   "pearls": [
+    "Third nerve palsy plus contralateral hemiparesis localises to the ipsilateral midbrain until proven otherwise."
+   ],
+   "pitfalls": [
+    "A pupil-involving third nerve palsy without other signs suggests compression (e.g. a posterior communicating artery aneurysm), not a midbrain stroke: image the vessels."
+   ],
+   "schematic": "Lesion sphere is schematic. Tracts and nerves glow along their whole course.",
+   "refs": [
+    {
+     "title": "Weber Syndrome — StatPearls (Munakomi, Das)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK559158/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -20,
+    66,
+    -28
+   ]
+  },
+  {
+   "id": "lx_benedikt",
+   "title": "Paramedian midbrain tegmentum (Benedikt syndrome)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.4,
+    -0.2
+   ],
+   "viewR": 9,
+   "ytq": "midbrain",
+   "summary": "A lesion of the left midbrain tegmentum involving the oculomotor fascicles and the red nucleus region. Gives an ipsilateral third nerve palsy with contralateral involuntary movements and ataxia.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Level",
+     "t": "Paramedian midbrain tegmentum at the level of the red nucleus, supplied by paramedian perforators of the basilar and P1 segments.",
+     "mark": [
+      [
+       -13,
+       79,
+       1,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Oculomotor fascicles",
+     "t": "Ipsilateral third nerve palsy.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) l$",
+     "show": "^left (medial|superior|inferior) rectus$|^left levator palpebrae superioris$",
+     "mark": [
+      [
+       -13,
+       79,
+       1,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Red nucleus and cerebellar outflow",
+     "t": "Red nucleus and crossed dentatorubrothalamic fibres: contralateral tremor, ataxia and involuntary movements (choreoathetosis). The fibres have already crossed in the caudal midbrain, so the signs are on the right.",
+     "lesion": "^left red nucleus$",
+     "mark": [
+      [
+       -13,
+       79,
+       1,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Variable extension",
+     "t": "Extension to the medial lemniscus adds contralateral sensory loss; extension to the cerebral peduncle adds contralateral hemiparesis.",
+     "lesion": "^medial lemniscus l$",
+     "mark": [
+      [
+       -13,
+       79,
+       1,
+       5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Oculomotor fascicles",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Ipsilateral third nerve palsy."
+    },
+    {
+     "label": "Red nucleus region",
+     "match": "^left red nucleus$",
+     "why": "Contralateral tremor, ataxia, choreoathetosis."
+    },
+    {
+     "label": "Medial lemniscus (variable)",
+     "match": "^Medial lemniscus L$",
+     "why": "Contralateral loss of vibration and proprioception."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Infarction (basilar or PCA perforators)",
+    "Haemorrhage, tumour, demyelination"
+   ],
+   "pearls": [
+    "Claude, Benedikt and Weber syndromes overlap: dorsal tegmentum gives ataxia (Claude), red nucleus gives added involuntary movements (Benedikt), and the ventral peduncle gives hemiparesis (Weber)."
+   ],
+   "pitfalls": [
+    "Clinical eponym boundaries are loose; describe the deficits and the imaging level rather than relying on the eponym."
+   ],
+   "schematic": "Lesion sphere is schematic. Tracts and nerves glow along their whole course.",
+   "refs": [
+    {
+     "title": "Benedikt Syndrome — StatPearls (Burr, Mandalaneni)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK560509/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -18,
+    70,
+    -24
+   ]
+  },
+  {
+   "id": "lx_claude",
+   "title": "Dorsal midbrain tegmentum (Claude syndrome)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.4,
+    -0.1
+   ],
+   "viewR": 9,
+   "ytq": "midbrain",
+   "summary": "A lesion of the left dorsal midbrain tegmentum involving the oculomotor fascicles and the cerebellar outflow (superior cerebellar peduncle fibres and dorsal red nucleus). Gives an ipsilateral third nerve palsy with contralateral ataxia.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Oculomotor fascicles",
+     "t": "Ipsilateral third nerve palsy.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) l$",
+     "show": "^left (medial|superior|inferior) rectus$|^left levator palpebrae superioris$",
+     "mark": [
+      [
+       -12,
+       79,
+       4,
+       3.5
+      ]
+     ]
+    },
+    {
+     "h": "Cerebellar outflow",
+     "t": "Fibres of the superior cerebellar peduncle (glowing) and the dorsal red nucleus: contralateral limb ataxia and dysmetria.",
+     "lesion": "^superior cerebellar peduncle$|^left red nucleus$",
+     "mark": [
+      [
+       -12,
+       79,
+       4,
+       3.5
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Oculomotor fascicles",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Ipsilateral third nerve palsy."
+    },
+    {
+     "label": "Superior cerebellar peduncle fibres",
+     "match": "^Superior cerebellar peduncle$",
+     "why": "Contralateral ataxia."
+    },
+    {
+     "label": "Red nucleus (dorsal part)",
+     "match": "^left red nucleus$",
+     "why": "Contralateral ataxia; tremor if more extensive (Benedikt overlap)."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Lacunar infarction of midbrain perforators",
+    "Less often haemorrhage, tumour or demyelination"
+   ],
+   "pearls": [
+    "Compare with the Benedikt and Weber cards: the deficits track the dorsal-to-ventral position of the lesion."
+   ],
+   "pitfalls": [
+    "The superior cerebellar peduncle is modelled as a single midline structure here, so its glow is not side-specific."
+   ],
+   "schematic": "Lesion sphere is schematic. Tracts and nerves glow along their whole course.",
+   "refs": [
+    {
+     "title": "Claude Syndrome: A Rare but Easily Recognizable Midbrain Lacunar Syndrome — Cureus 2025 (Carranza et al.)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12334073/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -18,
+    70,
+    -24
+   ]
+  },
+  {
+   "id": "lx_parinaud",
+   "title": "Dorsal midbrain (Parinaud) syndrome",
+   "side": "midline",
+   "viewDir": [
+    0,
+    0.5,
+    1
+   ],
+   "viewR": 6.5,
+   "ytq": "pineal region",
+   "summary": "Compression or damage of the dorsal midbrain (pretectum and posterior commissure). Gives a vertical gaze palsy, mainly of upgaze. A classic presentation of pineal region tumours and obstructive hydrocephalus.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ],
+    [
+     "^(left|right) (superior|inferior) colliculus$",
+     0.3
+    ]
+   ],
+   "steps": [
+    {
+     "h": "The mass",
+     "t": "Pineal region masses compress the tectal plate from behind and above. The pineal body is shown glowing as the \"mass\".",
+     "lesion": "^pineal body$",
+     "mark": [
+      [
+       -10,
+       86,
+       14,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Pretectum and posterior commissure",
+     "t": "Vertical (especially upward) gaze palsy; convergence–retraction nystagmus on attempted upgaze; light–near dissociation of the pupils; eyelid retraction (Collier sign). The responsible pretectal nuclei and posterior commissure are not modelled; the superior colliculi mark the tectal plate.",
+     "lesion": "^(left|right) superior colliculus$",
+     "mark": [
+      [
+       -10,
+       86,
+       14,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Aqueduct",
+     "t": "Compression of the cerebral aqueduct causes obstructive hydrocephalus. Raised pressure itself can produce the same dorsal midbrain signs.",
+     "lesion": "^aqueduct$",
+     "show": "^third ventricle$|^(left|right) lateral ventricle$",
+     "mark": [
+      [
+       -10,
+       86,
+       14,
+       6
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Posterior commissure / pretectal nuclei",
+     "match": null,
+     "why": "Upgaze palsy, light–near dissociation, convergence–retraction nystagmus. Not modelled."
+    },
+    {
+     "label": "Tectal plate (superior colliculi)",
+     "match": "^left superior colliculus$",
+     "why": "Landmark of the compressed dorsal midbrain."
+    },
+    {
+     "label": "Pineal body",
+     "match": "^pineal body$",
+     "why": "Site of pineal region tumours."
+    },
+    {
+     "label": "Cerebral aqueduct",
+     "match": "^aqueduct$",
+     "why": "Obstruction leads to hydrocephalus."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Pineal region tumours (germ cell tumours, pineal parenchymal tumours, others)",
+    "Obstructive hydrocephalus, including shunt malfunction",
+    "Tectal glioma; midbrain haemorrhage or infarction; trauma"
+   ],
+   "pearls": [
+    "In a child with a shunt, new upgaze failure (\"setting sun\" eyes) should prompt assessment for shunt malfunction.",
+    "For pineal region masses, serum and CSF tumour markers (AFP, β-hCG) help identify germ cell tumours before surgery.",
+    "See the Supracerebellar infratentorial approach card and the pineal region Rhoton plates."
+   ],
+   "pitfalls": [
+    "The superior colliculi are not themselves the cause of the gaze palsy; the critical structures are the pretectum and posterior commissure just rostral to them."
+   ],
+   "schematic": "Lesion sphere is schematic; pretectal nuclei and posterior commissure are not modelled.",
+   "refs": [
+    {
+     "title": "Parinaud Syndrome — StatPearls (Feroze, Patel)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK441892/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_cpa",
+   "title": "Cerebellopontine angle syndrome",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.1,
+    0.5
+   ],
+   "viewR": 7,
+   "ytq": "cerebellopontine angle",
+   "summary": "An extra-axial mass in the left cerebellopontine angle, most often a vestibular schwannoma. Deficits accumulate as the mass grows: the vestibulocochlear nerve first, then the trigeminal nerve, cerebellar peduncle and brainstem.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ],
+    [
+     "^skull$",
+     0.08
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Vestibulocochlear nerve",
+     "t": "Unilateral sensorineural hearing loss, tinnitus and imbalance. These are the earliest and commonest symptoms.",
+     "lesion": "^vestibulocochlear nerve \\(cn viii\\) l$",
+     "mark": [
+      [
+       -30,
+       57,
+       20,
+       8
+      ]
+     ]
+    },
+    {
+     "h": "Facial nerve",
+     "t": "The facial nerve is stretched and displaced, but clinical facial weakness before surgery is uncommon with schwannomas. Its preservation is the central surgical challenge.",
+     "show": "^facial nerve \\(cn vii\\) l$",
+     "mark": [
+      [
+       -30,
+       57,
+       20,
+       8
+      ]
+     ]
+    },
+    {
+     "h": "Trigeminal nerve",
+     "t": "Larger tumours reach the trigeminal nerve: facial numbness and a reduced corneal reflex.",
+     "lesion": "^trigeminal nerve \\(cn v\\) l$",
+     "mark": [
+      [
+       -30,
+       57,
+       20,
+       8
+      ]
+     ]
+    },
+    {
+     "h": "Brainstem, cerebellum and CSF pathways",
+     "t": "Middle cerebellar peduncle and cerebellar compression: ipsilateral ataxia. Brainstem distortion and fourth-ventricle compression can cause obstructive hydrocephalus.",
+     "lesion": "^middle cerebellar peduncle$",
+     "show": "^fourth ventricle$",
+     "mark": [
+      [
+       -30,
+       57,
+       20,
+       8
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Vestibulocochlear nerve",
+     "match": "^Vestibulocochlear nerve \\(CN VIII\\) L$",
+     "why": "Hearing loss, tinnitus, imbalance."
+    },
+    {
+     "label": "Facial nerve",
+     "match": "^Facial nerve \\(CN VII\\) L$",
+     "why": "Usually preserved before surgery; at risk during resection."
+    },
+    {
+     "label": "Trigeminal nerve",
+     "match": "^Trigeminal nerve \\(CN V\\) L$",
+     "why": "Facial numbness, reduced corneal reflex."
+    },
+    {
+     "label": "Middle cerebellar peduncle",
+     "match": "^Middle cerebellar peduncle$",
+     "why": "Ipsilateral ataxia."
+    },
+    {
+     "label": "Lower cranial nerves (large tumours)",
+     "match": null,
+     "why": "Dysphagia and hoarseness. Not modelled."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Vestibular schwannoma (the most common CPA mass)",
+    "Meningioma, epidermoid cyst",
+    "Other schwannomas, metastases and rarer lesions"
+   ],
+   "pearls": [
+    "Unilateral sensorineural hearing loss warrants MRI of the internal acoustic meati.",
+    "See the Vestibular schwannoma case specimen, the Retrosigmoid and Translabyrinthine approach cards, and the posterior fossa Rhoton plates."
+   ],
+   "pitfalls": [
+    "Early facial weakness or rapid progression is atypical for a schwannoma; consider meningioma, facial nerve schwannoma or malignancy."
+   ],
+   "schematic": "The mass sphere is schematic; cranial nerves are population tractography reconstructions.",
+   "refs": [
+    {
+     "title": "Vestibular Schwannoma — StatPearls (Sheikh, De Jesus)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK562312/"
+    },
+    {
+     "title": "Cerebellopontine Angle Cancer — StatPearls (Lak, Khan)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK559116/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_thalpain",
+   "title": "Thalamic sensory syndrome (Dejerine–Roussy)",
+   "side": "left",
+   "viewDir": [
+    -0.8,
+    0.6,
+    0.2
+   ],
+   "viewR": 6.5,
+   "ytq": "thalamus",
+   "summary": "A lesion of the left ventral posterior thalamus. Gives contralateral loss of sensation, and weeks to months later contralateral central (thalamic) pain may develop.",
+   "context": [
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$",
+     0.22
+    ],
+    [
+     "^(left|right) (pulvinar|internal medullary lamina|medial geniculate body|lateral geniculate body)$",
+     0.22
+    ],
+    [
+     "^(third ventricle|part of midbrain|pons)$",
+     0.2
+    ],
+    [
+     "^(left|right) lateral ventricle$",
+     0.12
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Territory",
+     "t": "Inferolateral thalamus, supplied by thalamogeniculate branches of the posterior cerebral artery (not modelled).",
+     "mark": [
+      [
+       -25,
+       88,
+       9,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Ventral posterior nuclei",
+     "t": "VPL (body) and VPM (face): contralateral loss of sensation, all modalities, face and body.",
+     "lesion": "^left ventral (posterolateral|posteromedial) thalamic nucleus$",
+     "mark": [
+      [
+       -25,
+       88,
+       9,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Late central pain",
+     "t": "Contralateral burning pain and allodynia can appear later and is often refractory. Mild hemiparesis (internal capsule), ataxia or involuntary movements may accompany it.",
+     "lesion": "^left ventral (posterolateral|posteromedial) thalamic nucleus$",
+     "show": "^corticospinal tract l$",
+     "mark": [
+      [
+       -25,
+       88,
+       9,
+       6
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "VPL nucleus",
+     "match": "^left ventral posterolateral thalamic nucleus$",
+     "why": "Contralateral body sensory loss; later central pain."
+    },
+    {
+     "label": "VPM nucleus",
+     "match": "^left ventral posteromedial thalamic nucleus$",
+     "why": "Contralateral facial sensory loss."
+    },
+    {
+     "label": "Posterior limb of internal capsule (variable)",
+     "match": null,
+     "why": "Contralateral hemiparesis. Not modelled as a separate structure."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Thalamic infarction (PCA thalamogeniculate branches)",
+    "Hypertensive thalamic haemorrhage",
+    "Tumour or other focal lesions"
+   ],
+   "pearls": [
+    "The pain often begins after partial sensory recovery.",
+    "Neuromodulation (e.g. motor cortex stimulation or deep brain stimulation) has been tried for refractory central pain, with variable results."
+   ],
+   "pitfalls": [
+    "Not every post-stroke pain is thalamic; central post-stroke pain also follows brainstem and cortical lesions."
+   ],
+   "schematic": "Lesion sphere is schematic; thalamic nuclei are from the SPL-PNL atlas.",
+   "refs": [
+    {
+     "title": "Dejerine-Roussy Syndrome — StatPearls (Jahngir, Qureshi)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK519047/"
+    },
+    {
+     "title": "Thalamic Pain Syndrome — StatPearls (Stretanski, Hu, Munakomi)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK554490/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_percheron",
+   "title": "Artery of Percheron infarction",
+   "side": "bilateral",
+   "viewDir": [
+    0,
+    0.4,
+    -1
+   ],
+   "viewR": 6.5,
+   "ytq": "thalamus",
+   "summary": "A single arterial trunk arising from one P1 segment supplies both paramedian thalami, and sometimes the rostral midbrain. Its occlusion causes bilateral paramedian thalamic infarction.",
+   "context": [
+    [
+     "^(left|right) (ventral (anterior|lateral|posterolateral|posteromedial)|dorsomedial|centromedian|lateral (dorsal|posterior)|anterior) thalamic nucleus$",
+     0.22
+    ],
+    [
+     "^(left|right) (pulvinar|internal medullary lamina|medial geniculate body|lateral geniculate body)$",
+     0.22
+    ],
+    [
+     "^(third ventricle|part of midbrain|pons)$",
+     0.2
+    ],
+    [
+     "^(left|right) lateral ventricle$",
+     0.12
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Bilateral paramedian thalami",
+     "t": "Dorsomedial and intralaminar nuclei on both sides: reduced consciousness or hypersomnolence, memory impairment, and behavioural change (abulia, apathy).",
+     "lesion": "^(left|right) (dorsomedial|centromedian) thalamic nucleus$|^(left|right) internal medullary lamina$",
+     "mark": [
+      [
+       -8.3,
+       92,
+       -2,
+       9
+      ]
+     ]
+    },
+    {
+     "h": "Rostral midbrain (variable)",
+     "t": "Midbrain involvement adds vertical gaze palsy and oculomotor signs. A V-shaped midbrain signal on FLAIR/diffusion imaging has been described.",
+     "show": "^part of midbrain$|^oculomotor nerve \\(cn iii\\) [lr]$",
+     "lesion": "^(left|right) (dorsomedial|centromedian) thalamic nucleus$",
+     "mark": [
+      [
+       -8.3,
+       92,
+       -2,
+       9
+      ],
+      [
+       -8.3,
+       74,
+       0,
+       6
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures in the lesion → deficit",
+   "risks": [
+    {
+     "label": "Dorsomedial nuclei",
+     "match": "^left dorsomedial thalamic nucleus$",
+     "why": "Memory and behavioural change."
+    },
+    {
+     "label": "Intralaminar nuclei / internal medullary lamina",
+     "match": "^left internal medullary lamina$",
+     "why": "Reduced arousal."
+    },
+    {
+     "label": "Rostral midbrain (variable)",
+     "match": "^part of midbrain$",
+     "why": "Vertical gaze palsy, oculomotor signs."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Embolic or small-vessel occlusion of the artery of Percheron variant"
+   ],
+   "pearls": [
+    "Consider this in unexplained reduced consciousness with a normal CT: diffusion MRI is diagnostic.",
+    "Differentials of bilateral thalamic change include deep cerebral venous thrombosis (internal cerebral veins), top-of-basilar occlusion and some metabolic or infective encephalopathies."
+   ],
+   "pitfalls": [
+    "Early CT is often normal."
+   ],
+   "schematic": "Lesion spheres are schematic.",
+   "refs": [
+    {
+     "title": "Clinical review and analysis of artery of Percheron infarction — IBRO Neurosci Rep 2023 (Li, Ge, Yang, Yao)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10776326/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_fosterkennedy",
+   "title": "Foster Kennedy syndrome",
+   "side": "left",
+   "viewDir": [
+    -0.3,
+    0.6,
+    -1
+   ],
+   "viewR": 7.5,
+   "ytq": "anterior cranial base",
+   "summary": "A left frontal base mass compresses the left optic nerve, causing optic atrophy on that side. Raised intracranial pressure causes papilloedema in the other eye. Anosmia on the side of the mass is common.",
+   "context": [
+    [
+     "^skull$",
+     0.12
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ],
+    [
+     "^(left|right) (lateral|medial|superior|inferior) rectus$|^(left|right) superior oblique$|^(left|right) levator palpebrae superioris$",
+     0.35
+    ],
+    [
+     "^(left|right) optic nerve$|^optic chiasm$|^adenohypophysis$|^neurohypophysis$|^infundibulum",
+     0.4
+    ],
+    [
+     "internal carotid artery, intracranial",
+     0.4
+    ],
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.2
+    ],
+    [
+     "^(left|right) straight gyrus$",
+     0.3
+    ]
+   ],
+   "steps": [
+    {
+     "h": "The mass",
+     "t": "Anterior cranial base, under the left frontal lobe (gyrus rectus shown). Classic causes are olfactory groove and medial sphenoid wing meningiomas.",
+     "show": "^left straight gyrus$",
+     "mark": [
+      [
+       -15,
+       66,
+       -48,
+       12
+      ]
+     ]
+    },
+    {
+     "h": "Ipsilateral optic atrophy",
+     "t": "Direct compression of the left optic nerve: visual loss and optic atrophy in the left eye.",
+     "lesion": "^left optic nerve$",
+     "mark": [
+      [
+       -15,
+       66,
+       -48,
+       12
+      ]
+     ]
+    },
+    {
+     "h": "Contralateral papilloedema",
+     "t": "Raised intracranial pressure: disc swelling in the right eye. The atrophic left disc cannot swell.",
+     "show": "^right optic nerve$|^right eyeball$",
+     "mark": [
+      [
+       -15,
+       66,
+       -48,
+       12
+      ]
+     ]
+    },
+    {
+     "h": "Anosmia",
+     "t": "Olfactory bulb and tract compression on the side of the mass: unilateral anosmia, often unnoticed by the patient. The olfactory tract is not modelled.",
+     "mark": [
+      [
+       -15,
+       66,
+       -48,
+       12
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Left optic nerve",
+     "match": "^left optic nerve$",
+     "why": "Ipsilateral visual loss and optic atrophy."
+    },
+    {
+     "label": "Olfactory bulb and tract",
+     "match": null,
+     "why": "Ipsilateral anosmia. Not modelled."
+    },
+    {
+     "label": "Raised intracranial pressure",
+     "match": null,
+     "why": "Contralateral papilloedema."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Olfactory groove meningioma",
+    "Medial sphenoid wing meningioma",
+    "Other frontal base tumours"
+   ],
+   "pearls": [
+    "Test smell in any patient with unexplained unilateral optic atrophy.",
+    "A \"pseudo-Foster Kennedy\" picture, for example sequential ischaemic optic neuropathy, is often more frequent than the true syndrome.",
+    "See the Bifrontal and Supraorbital approach cards and the anterior fossa Rhoton plates."
+   ],
+   "pitfalls": [
+    "Bilateral disc swelling with one atrophic disc can be misread as asymmetric papilloedema."
+   ],
+   "schematic": "The mass sphere is schematic.",
+   "refs": [
+    {
+     "title": "Foster Kennedy Syndrome — StatPearls (Musa, Zeppieri)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK582149/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_cavernous",
+   "title": "Cavernous sinus syndrome",
+   "side": "left",
+   "viewDir": [
+    -0.45,
+    1,
+    -0.35
+   ],
+   "viewR": 8,
+   "ytq": "cavernous sinus",
+   "summary": "Disease of the left cavernous sinus affects the nerves that pass through it: CN III, IV, V1 (sometimes V2), and VI. It also affects the sympathetic fibres on the internal carotid artery. Gives a painful or painless ophthalmoplegia with upper facial numbness.",
+   "context": [
+    [
+     "^skull$",
+     0.12
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ],
+    [
+     "^(left|right) (lateral|medial|superior|inferior) rectus$|^(left|right) superior oblique$|^(left|right) levator palpebrae superioris$",
+     0.35
+    ],
+    [
+     "^(left|right) optic nerve$|^optic chiasm$|^adenohypophysis$|^neurohypophysis$|^infundibulum",
+     0.4
+    ],
+    [
+     "internal carotid artery, intracranial",
+     0.4
+    ],
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.2
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Location",
+     "t": "Lateral to the sella and pituitary, around the cavernous internal carotid artery. The sphere marks the left sinus.",
+     "lesion": "^left internal carotid artery, intracranial",
+     "show": "^adenohypophysis$",
+     "mark": [
+      [
+       -18,
+       60,
+       -14,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Ocular motor nerves",
+     "t": "CN III (glowing), IV and VI (not modelled): ophthalmoplegia, diplopia and ptosis. All the extraocular muscles of the left eye are shown, because any of them can fail.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) l$",
+     "show": "^left (lateral|medial|superior|inferior) rectus$|^left superior oblique$|^left levator palpebrae superioris$",
+     "mark": [
+      [
+       -18,
+       60,
+       -14,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Trigeminal divisions",
+     "t": "V1, and sometimes V2: numbness of the forehead (and cheek) and a reduced corneal reflex. The whole trigeminal nerve glows; only its first two divisions run in or along the sinus.",
+     "lesion": "^trigeminal nerve \\(cn v\\) l$",
+     "mark": [
+      [
+       -18,
+       60,
+       -14,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Sympathetic fibres and venous congestion",
+     "t": "Horner syndrome; with a third nerve palsy as well, the pupil may be mid-sized. Venous obstruction or a carotid–cavernous fistula adds proptosis, chemosis and an orbital bruit. Vision is usually spared, unlike the orbital apex syndrome.",
+     "show": "^left eyeball$|^left optic nerve$",
+     "mark": [
+      [
+       -18,
+       60,
+       -14,
+       6
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Oculomotor nerve (CN III)",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Ptosis, ophthalmoplegia, pupil involvement."
+    },
+    {
+     "label": "Trochlear nerve (CN IV)",
+     "match": null,
+     "why": "Superior oblique weakness. Not modelled."
+    },
+    {
+     "label": "Abducens nerve (CN VI)",
+     "match": null,
+     "why": "Abduction failure; often the first nerve affected because it lies freely within the sinus. Not modelled."
+    },
+    {
+     "label": "Trigeminal V1 (± V2)",
+     "match": "^Trigeminal nerve \\(CN V\\) L$",
+     "why": "Forehead and cheek numbness, reduced corneal reflex."
+    },
+    {
+     "label": "Cavernous internal carotid artery",
+     "match": "^Left internal carotid artery, intracranial",
+     "why": "Aneurysm or fistula source; carries the sympathetic plexus."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Pituitary adenoma with lateral extension; pituitary apoplexy",
+    "Meningioma, metastasis, lymphoma",
+    "Carotid–cavernous fistula; cavernous carotid aneurysm",
+    "Cavernous sinus thrombosis (often septic)",
+    "Inflammation, e.g. Tolosa–Hunt syndrome (a diagnosis of exclusion)"
+   ],
+   "pearls": [
+    "The abducens nerve is often affected early because it lies within the sinus next to the carotid, rather than in the lateral wall.",
+    "See the Pterional, Orbitozygomatic, Kawase and endonasal approach cards and the cavernous sinus Rhoton plates."
+   ],
+   "pitfalls": [
+    "Visual loss means the lesion extends to the orbital apex or optic canal."
+   ],
+   "schematic": "Lesion sphere is schematic; CN IV, CN VI and the sympathetic plexus are not modelled.",
+   "refs": [
+    {
+     "title": "Cavernous Sinus Syndromes — StatPearls (Kuybu, Dossani)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK532976/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -20,
+    60,
+    -30
+   ]
+  },
+  {
+   "id": "lx_orbitalapex",
+   "title": "Superior orbital fissure and orbital apex syndromes",
+   "side": "left",
+   "viewDir": [
+    -0.8,
+    0.5,
+    -0.7
+   ],
+   "viewR": 7.5,
+   "ytq": "orbit",
+   "summary": "A lesion at the left superior orbital fissure affects CN III, IV, VI and V1. When the lesion extends to the orbital apex, the optic nerve is affected too and vision is threatened.",
+   "context": [
+    [
+     "^skull$",
+     0.12
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ],
+    [
+     "^(left|right) (lateral|medial|superior|inferior) rectus$|^(left|right) superior oblique$|^(left|right) levator palpebrae superioris$",
+     0.35
+    ],
+    [
+     "^(left|right) optic nerve$|^optic chiasm$|^adenohypophysis$|^neurohypophysis$|^infundibulum",
+     0.4
+    ],
+    [
+     "internal carotid artery, intracranial",
+     0.4
+    ],
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.2
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Superior orbital fissure",
+     "t": "CN III (glowing), IV and VI: ophthalmoplegia and ptosis. V1: forehead numbness. Superior ophthalmic vein: proptosis. Vision is spared.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) l$",
+     "show": "^left (lateral|medial|superior|inferior) rectus$|^left superior oblique$|^left levator palpebrae superioris$",
+     "mark": [
+      [
+       -28,
+       61,
+       -28,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Orbital apex",
+     "t": "Adds the optic nerve in the optic canal: reduced acuity, a relative afferent pupillary defect and visual field loss.",
+     "lesion": "^left optic nerve$|^oculomotor nerve \\(cn iii\\) l$",
+     "mark": [
+      [
+       -26,
+       60,
+       -30,
+       6
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Oculomotor nerve (CN III)",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Ptosis, ophthalmoplegia."
+    },
+    {
+     "label": "Trochlear and abducens nerves",
+     "match": null,
+     "why": "Ophthalmoplegia. Not modelled."
+    },
+    {
+     "label": "Ophthalmic nerve (V1)",
+     "match": null,
+     "why": "Forehead numbness, reduced corneal reflex. Only the trigeminal root is modelled."
+    },
+    {
+     "label": "Optic nerve (apex only)",
+     "match": "^left optic nerve$",
+     "why": "Visual loss, RAPD."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Trauma (orbital and skull base fractures)",
+    "Inflammation, e.g. IgG4-related disease or sarcoidosis",
+    "Infection: invasive fungal sinusitis is an emergency, especially in diabetic or immunocompromised patients",
+    "Neoplasm (local or metastatic); vascular lesions"
+   ],
+   "pearls": [
+    "Vision separates the orbital apex syndrome from the superior orbital fissure and cavernous sinus syndromes: check acuity and pupils.",
+    "See the Orbitozygomatic approach card and the orbit and orbital apex Rhoton plates."
+   ],
+   "pitfalls": [
+    "A painful ophthalmoplegia in a diabetic patient with sinus disease must be treated as invasive fungal infection until proven otherwise."
+   ],
+   "schematic": "Lesion spheres are schematic; CN IV, CN VI and V1 branches are not modelled.",
+   "refs": [
+    {
+     "title": "Orbital Apex Syndrome — StatPearls (Mohankumar, Gurnani)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK592386/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": [],
+   "viewAt": [
+    -28,
+    60,
+    -40
+   ]
+  },
+  {
+   "id": "lx_gradenigo",
+   "title": "Gradenigo syndrome (petrous apicitis)",
+   "side": "left",
+   "viewDir": [
+    -0.7,
+    0.8,
+    -0.2
+   ],
+   "viewR": 6.5,
+   "ytq": "temporal bone",
+   "summary": "Infection of the left petrous apex, usually complicating otitis media or mastoiditis. The classic triad is otorrhoea, deep facial or retro-orbital pain, and an ipsilateral abducens palsy. The full triad is often incomplete.",
+   "context": [
+    [
+     "^skull$",
+     0.12
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ],
+    [
+     "^(left|right) (lateral|medial|superior|inferior) rectus$|^(left|right) superior oblique$|^(left|right) levator palpebrae superioris$",
+     0.35
+    ],
+    [
+     "^(left|right) optic nerve$|^optic chiasm$|^adenohypophysis$|^neurohypophysis$|^infundibulum",
+     0.4
+    ],
+    [
+     "internal carotid artery, intracranial",
+     0.4
+    ],
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.2
+    ],
+    [
+     "^(left|right) sigmoid sinus",
+     0.3
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Petrous apex",
+     "t": "The sphere marks the left petrous apex, near Dorello’s canal (CN VI) and Meckel’s cave (trigeminal ganglion).",
+     "mark": [
+      [
+       -22,
+       50,
+       6,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Trigeminal ganglion",
+     "t": "Irritation gives deep facial and retro-orbital pain in the trigeminal (mainly V1) distribution.",
+     "lesion": "^trigeminal nerve \\(cn v\\) l$",
+     "mark": [
+      [
+       -22,
+       50,
+       6,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "Abducens nerve",
+     "t": "The abducens nerve is compressed or inflamed in Dorello’s canal: ipsilateral lateral rectus palsy (the nerve is not modelled; its muscle is shown).",
+     "show": "^left lateral rectus$",
+     "mark": [
+      [
+       -22,
+       50,
+       6,
+       6
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Trigeminal ganglion (Meckel’s cave)",
+     "match": "^Trigeminal nerve \\(CN V\\) L$",
+     "why": "Retro-orbital and facial pain."
+    },
+    {
+     "label": "Abducens nerve in Dorello’s canal",
+     "match": null,
+     "why": "Ipsilateral abduction failure. Not modelled."
+    },
+    {
+     "label": "Middle ear and mastoid",
+     "match": null,
+     "why": "Otorrhoea, otalgia. Not modelled."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Petrous apicitis complicating acute or chronic otitis media or mastoiditis",
+    "Differentials of petrous apex lesions: cholesterol granuloma, cholesteatoma, tumours"
+   ],
+   "pearls": [
+    "Image with CT of the temporal bones and contrast MRI; look for venous sinus thrombosis, meningitis and abscess.",
+    "See the Kawase and middle fossa Rhoton plates for petrous apex anatomy."
+   ],
+   "pitfalls": [
+    "A sixth nerve palsy is a false localising sign of raised pressure; with ear disease, think of the petrous apex."
+   ],
+   "schematic": "Lesion sphere is schematic; abducens nerve and middle ear are not modelled.",
+   "refs": [
+    {
+     "title": "The Diagnosis, Management, and Outcomes of Gradenigo Syndrome in Children: A Scoping Review — Diagnostics (Basel) 2025 (Schmit et al.)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12428227/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_jugular",
+   "title": "Jugular foramen syndromes (Vernet, Collet–Sicard)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    -0.1,
+    0.4
+   ],
+   "viewR": 7,
+   "ytq": "jugular foramen",
+   "summary": "Lesions of the left jugular foramen affect CN IX, X and XI (Vernet syndrome). Extension to the hypoglossal canal adds CN XII (Collet–Sicard syndrome).",
+   "context": [
+    [
+     "^skull$",
+     0.12
+    ],
+    [
+     "^(left|right) eyeball$",
+     0.3
+    ],
+    [
+     "^(left|right) (lateral|medial|superior|inferior) rectus$|^(left|right) superior oblique$|^(left|right) levator palpebrae superioris$",
+     0.35
+    ],
+    [
+     "^(left|right) optic nerve$|^optic chiasm$|^adenohypophysis$|^neurohypophysis$|^infundibulum",
+     0.4
+    ],
+    [
+     "internal carotid artery, intracranial",
+     0.4
+    ],
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.2
+    ],
+    [
+     "^(left|right) sigmoid sinus|^(left|right) internal jugular vein$",
+     0.35
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Jugular foramen",
+     "t": "Between the petrous temporal and occipital bones, where the sigmoid sinus becomes the internal jugular vein. The nerves are not modelled; the sphere marks the foramen.",
+     "show": "^left sigmoid sinus|^left internal jugular vein$",
+     "mark": [
+      [
+       -38,
+       33,
+       25,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "CN IX and X",
+     "t": "Dysphagia, hoarseness from ipsilateral vocal-cord palsy, a reduced gag reflex, palatal droop with the uvula pulled away from the lesion, and loss of taste on the posterior third of the tongue.",
+     "mark": [
+      [
+       -38,
+       33,
+       25,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "CN XI",
+     "t": "Weakness and wasting of the ipsilateral sternocleidomastoid and trapezius muscles (shown).",
+     "show": "^left sternocleidomastoideus muscle$|^left trapezius muscle$",
+     "mark": [
+      [
+       -38,
+       33,
+       25,
+       6
+      ]
+     ]
+    },
+    {
+     "h": "CN XII (Collet–Sicard)",
+     "t": "Extension to the hypoglossal canal: ipsilateral tongue weakness. Additional sympathetic involvement (Horner syndrome) points to the retrostyloid space (Villaret syndrome).",
+     "mark": [
+      [
+       -38,
+       33,
+       25,
+       6
+      ],
+      [
+       -30,
+       27,
+       22,
+       4
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Glossopharyngeal nerve (IX)",
+     "match": null,
+     "why": "Dysphagia, reduced gag, posterior tongue taste loss. Not modelled."
+    },
+    {
+     "label": "Vagus nerve (X)",
+     "match": null,
+     "why": "Hoarseness, vocal-cord palsy, palatal weakness. Not modelled."
+    },
+    {
+     "label": "Accessory nerve (XI)",
+     "match": "^left sternocleidomastoideus muscle$",
+     "why": "Sternocleidomastoid and trapezius weakness (muscle shown; nerve not modelled)."
+    },
+    {
+     "label": "Hypoglossal nerve (XII)",
+     "match": null,
+     "why": "Tongue weakness (Collet–Sicard). Not modelled."
+    },
+    {
+     "label": "Internal jugular vein / sigmoid sinus",
+     "match": "^left internal jugular vein$",
+     "why": "Venous structure through the foramen; thrombosis or tumour invasion."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Paraganglioma (glomus jugulare)",
+    "Schwannomas of IX–XI, meningioma, metastasis",
+    "Skull base fracture",
+    "Internal carotid artery dissection and jugular vein thrombosis have been reported"
+   ],
+   "pearls": [
+    "See the Far-lateral approach card and the jugular foramen Rhoton plates."
+   ],
+   "pitfalls": [
+    "Bilateral or progressive lower cranial nerve palsies with normal brainstem imaging need dedicated skull base and neck imaging."
+   ],
+   "schematic": "Lesion spheres are schematic; cranial nerves IX–XII are not modelled.",
+   "refs": [
+    {
+     "title": "Jugular Foramen Syndrome — StatPearls (Das, Al Khalili)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK549871/"
+    },
+    {
+     "title": "Combined Deficit of the Four Lower Cranial Nerves (Collet-Sicard): Systematic Review and Meta-analysis — Asian J Neurosurg 2024 (Beucler)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11226270/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_gerstmann",
+   "title": "Gerstmann syndrome (dominant inferior parietal lobule)",
+   "side": "left",
+   "viewDir": [
+    -1,
+    0.35,
+    0.25
+   ],
+   "viewR": 9,
+   "ytq": "parietal lobe",
+   "summary": "A lesion of the dominant (usually left) inferior parietal lobule, classically the angular gyrus. Gives the tetrad of agraphia, acalculia, finger agnosia and left–right disorientation.",
+   "context": [
+    [
+     "^white matter of (left|right) cerebral hemisphere$",
+     0.06
+    ],
+    [
+     "^(left|right) (supramarginal gyrus|superior parietal lobule|postcentral gyrus|superior temporal gyrus|lateral occipital gyrus)$",
+     0.22
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Inferior parietal lobule",
+     "t": "Agraphia, acalculia, finger agnosia and left–right disorientation. The pure tetrad is rare; it is usually accompanied by aphasia, alexia or apraxia.",
+     "lesion": "^left inferior parietal lobule$",
+     "mark": [
+      [
+       -58,
+       108,
+       55,
+       9
+      ]
+     ]
+    },
+    {
+     "h": "Underlying white matter",
+     "t": "Disconnection of parietal association fibres has been proposed as a mechanism in some cases. The superior longitudinal fasciculus III and arcuate fasciculus are shown for orientation.",
+     "lesion": "^left inferior parietal lobule$",
+     "show": "^superior longitudinal fasciculus iii l$|^arcuate fasciculus l$",
+     "mark": [
+      [
+       -58,
+       108,
+       55,
+       9
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Left inferior parietal lobule (angular gyrus)",
+     "match": "^left inferior parietal lobule$",
+     "why": "Agraphia, acalculia, finger agnosia, left–right disorientation."
+    },
+    {
+     "label": "Supramarginal gyrus (adjacent)",
+     "match": "^left supramarginal gyrus$",
+     "why": "Conduction aphasia and apraxia may accompany it."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Stroke in the territory of the inferior division of the left MCA",
+    "Tumour, trauma"
+   ],
+   "pearls": [
+    "Awake mapping for dominant parietal tumours often includes calculation and writing tasks in addition to language."
+   ],
+   "pitfalls": [
+    "Hand dominance does not guarantee language dominance; confirm when it matters (e.g. with fMRI or mapping)."
+   ],
+   "schematic": "Lesion sphere is schematic; parcellation from the SPL-PNL atlas.",
+   "refs": [
+    {
+     "title": "Gerstmann Syndrome — StatPearls (Altabakhi, Sun)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK519528/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
+  },
+  {
+   "id": "lx_kernohan",
+   "title": "Uncal herniation and the Kernohan notch phenomenon",
+   "side": "left",
+   "viewDir": [
+    -0.35,
+    -0.35,
+    -1
+   ],
+   "viewR": 7.5,
+   "ytq": "tentorial incisura",
+   "summary": "A left supratentorial mass pushes the medial temporal lobe (uncus) through the tentorial incisura. The usual picture is an ipsilateral third nerve palsy with contralateral hemiparesis. In the Kernohan notch phenomenon, the opposite cerebral peduncle is pressed against the tentorial edge, so the hemiparesis is on the same side as the mass.",
+   "context": [
+    [
+     "^(pons|medulla oblongata|part of midbrain)$",
+     0.28
+    ],
+    [
+     "^(fourth ventricle|aqueduct|third ventricle)$",
+     0.18
+    ],
+    [
+     "^(middle cerebellar peduncle|superior cerebellar peduncle|inferior cerebellar peduncle [lr])$",
+     0.16
+    ],
+    [
+     "^white matter of (left|right) hemisphere of cerebellum$",
+     0.08
+    ],
+    [
+     "^(basilar artery|(left|right) vertebral artery)",
+     0.35
+    ],
+    [
+     "^(left|right) (ambiens gyrus|parahippocampal gyrus|hippocampus)$",
+     0.25
+    ],
+    [
+     "^skull$",
+     0.06
+    ]
+   ],
+   "steps": [
+    {
+     "h": "Uncal herniation",
+     "t": "The uncus (ambiens and parahippocampal gyri shown) herniates medially over the tentorial edge.",
+     "lesion": "^left (ambiens|parahippocampal) gyrus$",
+     "mark": [
+      [
+       -29,
+       58,
+       -4,
+       7
+      ]
+     ]
+    },
+    {
+     "h": "Third nerve compression",
+     "t": "The left oculomotor nerve is compressed: the pupil dilates first (its parasympathetic fibres are superficial), followed by ptosis and ophthalmoplegia.",
+     "lesion": "^oculomotor nerve \\(cn iii\\) l$",
+     "mark": [
+      [
+       -29,
+       58,
+       -4,
+       7
+      ]
+     ]
+    },
+    {
+     "h": "Usual motor sign",
+     "t": "Compression of the left cerebral peduncle: right-sided (contralateral) hemiparesis.",
+     "lesion": "^corticospinal tract l$",
+     "mark": [
+      [
+       -29,
+       58,
+       -4,
+       7
+      ],
+      [
+       -19,
+       73,
+       -5,
+       4
+      ]
+     ]
+    },
+    {
+     "h": "Kernohan notch phenomenon",
+     "t": "The midbrain is displaced so that the right peduncle is notched by the right tentorial edge: left-sided hemiparesis, on the same side as the mass. This is a false localising sign.",
+     "lesion": "^corticospinal tract r$",
+     "mark": [
+      [
+       -29,
+       58,
+       -4,
+       7
+      ],
+      [
+       4,
+       72,
+       -6,
+       5
+      ]
+     ]
+    },
+    {
+     "h": "Later consequences",
+     "t": "Posterior cerebral artery compression causes occipital infarction. Downward brainstem displacement can tear perforators (Duret haemorrhages). Aqueduct compression causes hydrocephalus.",
+     "show": "^(left|right) visual cortex$|^aqueduct$|^basilar artery",
+     "mark": [
+      [
+       -29,
+       58,
+       -4,
+       7
+      ]
+     ]
+    }
+   ],
+   "riskLabel": "Structures involved → deficit",
+   "risks": [
+    {
+     "label": "Ipsilateral oculomotor nerve",
+     "match": "^Oculomotor nerve \\(CN III\\) L$",
+     "why": "Dilated pupil, then ptosis and ophthalmoplegia."
+    },
+    {
+     "label": "Ipsilateral cerebral peduncle",
+     "match": "^Corticospinal tract L$",
+     "why": "Contralateral hemiparesis (usual)."
+    },
+    {
+     "label": "Contralateral cerebral peduncle",
+     "match": "^Corticospinal tract R$",
+     "why": "Ipsilateral hemiparesis (Kernohan notch, false localising)."
+    },
+    {
+     "label": "Posterior cerebral artery",
+     "match": null,
+     "why": "Occipital infarction. Not separately modelled."
+    }
+   ],
+   "indLabel": "Typical causes",
+   "indications": [
+    "Acute subdural or extradural haematoma",
+    "Temporal lobe haemorrhage, contusion or tumour",
+    "Any rapidly expanding supratentorial mass"
+   ],
+   "pearls": [
+    "The dilated pupil is usually the more reliable lateralising sign; a hemiparesis can be falsely localising.",
+    "This is time-critical: treat raised pressure and evacuate the mass as indicated."
+   ],
+   "pitfalls": [
+    "In trauma, decide the side of surgery on imaging, not on the side of the hemiparesis alone.",
+    "A dilated pupil can also come from direct orbital or ocular trauma, or from drugs."
+   ],
+   "schematic": "Lesion spheres are schematic; the tentorium and PCA are not separately modelled. Tracts glow along their whole course.",
+   "refs": [
+    {
+     "title": "Uncal Herniation — StatPearls (Hall, Munakomi)",
+     "url": "https://www.ncbi.nlm.nih.gov/books/NBK537108/"
+    },
+    {
+     "title": "The Kernohan-Woltman Notch Phenomenon: A Systematic Review — J Korean Neurosurg Soc 2022 (Beucler et al.)",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9452377/"
+    }
+   ],
+   "cat": "Lesion localisation",
+   "specimen": "approaches_head.glb",
+   "mode": "syndrome",
+   "viewLabel": "Lesion view",
+   "exitLabel": "Exit",
+   "meshes": []
   }
  ],
  "resources": [

@@ -99,6 +99,17 @@ Approach cards include *Watch and learn* links to free external lecture and vide
 "Illustration" when a matching structure is clicked and as "Illustrations" in each approach card (click to enlarge).
 Mapping lives in `figures.json`; images in `img/smart/`.
 
+**Lesion localisation** — 19 clinical syndrome cards in the Approaches list ("Lesion localisation"), run on the
+Approaches specimen: lateral and medial medullary, Millard–Gubler, facial colliculus/Foville, locked-in, Weber,
+Benedikt, Claude, Parinaud, cerebellopontine angle, Dejerine–Roussy, artery of Percheron, Foster Kennedy, cavernous
+sinus, superior orbital fissure/orbital apex, Gradenigo, jugular foramen (Vernet/Collet–Sicard), Gerstmann, and uncal
+herniation with the Kernohan notch. Each card steps through the lesion: structures in the lesion turn orange, a
+magenta sphere marks the (schematic) lesion site, affected end-organs or spared structures are shown plainly, and
+structures the atlas does not model (e.g. cranial nerve nuclei IV, VI, IX–XII, spinothalamic tract) are listed as
+"not modelled" rather than drawn. Text is original and each card cites open-access sources (StatPearls / PMC).
+The card format was inspired by the syndrome browser in NeuroAxis (github.com/linkbag/neuroaxis-atlas, MIT); no
+text or data were copied. Teaching summaries only: real lesions rarely respect these boundaries.
+
 **Rhoton Collection plates** — 102 cadaveric photographs (1,171 outlined structures) from the *Rhoton Collection
 Top 100* slide set. Courtesy of the Rhoton Collection, American Association of Neurological Surgeons
 (AANS)/Neurosurgical Research and Education Foundation (NREF). Click a structure and matching plates appear under

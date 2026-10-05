@@ -278,7 +278,7 @@ apRender=function(){_apRender();const a=apCur();if(!a)return;
   const row=document.createElement('div');row.className='mapbtns';const det=el_('button','tool',M.apFull?'Less ▼':'Details ▲');
   det.onclick=()=>{M.apFull=!M.apFull;apCard.classList.toggle('full',M.apFull);det.textContent=M.apFull?'Less ▼':'Details ▲';if(!M.apFull)apCard.scrollTop=0;};
   if(vb){vb.textContent='View';row.appendChild(vb);}row.appendChild(det);if(xb){xb.textContent='Exit';row.appendChild(xb);}
-  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):(AP.ghost?'Solid specimen':'Ghost specimen');r2.appendChild(b);});row._r2=r2;}
+  if(tg.length){const r2=document.createElement('div');r2.className='mapbtns';tg.forEach(b=>{b.classList.remove('apmore');b.textContent=b.dataset.role==='tracts'?(AP.allTracts?'Matching tracts':'All tracts'):((apCur()&&apCur().mode==='syndrome')?(AP.ghost?'Less context':'More context'):(AP.ghost?'Solid specimen':'Ghost specimen'));r2.appendChild(b);});row._r2=r2;}
   const nav=apCard.querySelector('.apnav');if(nav&&nav.nextSibling)apCard.insertBefore(row,nav.nextSibling);else apCard.appendChild(row);
   if(row._r2)apCard.insertBefore(row._r2,row.nextSibling);
   const g=document.createElement('div');g.className='mgrab';g.style.margin='8px auto 6px';g.onclick=()=>det.click();apCard.insertBefore(g,apCard.firstChild);
