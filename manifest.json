@@ -1,5 +1,10 @@
 {
  "atlas": "Surgical Anatomy Atlas - brain & spine",
+ "version": "2026.10.06",
+ "feedback": {
+  "url": "https://forms.cloud.microsoft/e/knw9EGFEYp",
+  "note": "Microsoft Forms link for the atlas feedback questionnaire. Leave blank to hide the Feedback button."
+ },
  "note": "Serve these files together (static host); they won't load from file://. The MNI overlay layers share one coordinate frame and align.",
  "models": [
   {

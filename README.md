@@ -125,6 +125,11 @@ approach, syndrome and pathway cards, so it shows only what is on screen. Implem
 triangle intersection with edge-keyed loop chaining); the approach was inspired by NeuroAxis's MIT-licensed section
 contours, but the code was written for this viewer.
 
+**Feedback** — a "Feedback" button (desktop bottom right; phone Tools sheet) opens a 5-minute questionnaire about what
+works, accuracy concerns and what to add. It appears once a Google Forms or Microsoft Forms link is set in
+`manifest.json` → `feedback.url`; see `feedback/HOW_TO.md` (Google Apps Script that builds the form, or a Word file for
+Microsoft Forms Quick Import). The atlas version (`manifest.json` → `version`) and current view are passed to the form.
+
 **Rhoton Collection plates** — 102 cadaveric photographs (1,171 outlined structures) from the *Rhoton Collection
 Top 100* slide set. Courtesy of the Rhoton Collection, American Association of Neurological Surgeons
 (AANS)/Neurosurgical Research and Education Foundation (NREF). Click a structure and matching plates appear under

@@ -204,6 +204,7 @@
   <div class="toast" id="toast"></div>
 <noscript><div style="padding:24px;font-family:system-ui;color:#e9e4da">This atlas needs JavaScript and WebGL to display 3D anatomy.</div></noscript>
   <button class="tool" id="creditsBtn" style="position:fixed;right:16px;bottom:16px;z-index:18">Credits &amp; licence</button>
+  <button class="tool" id="fbBtn" hidden title="A 5-minute questionnaire: what works and what is missing" style="position:fixed;right:150px;bottom:16px;z-index:18">Feedback</button>
   <div id="credits" style="display:none;position:fixed;inset:0;z-index:40;background:rgba(8,12,15,.82);backdrop-filter:blur(4px);padding:24px;overflow-y:auto">
     <div style="max-width:720px;margin:40px auto;background:var(--panel);border:1px solid var(--edge-2);border-radius:14px;padding:22px 24px">
       <h3 style="margin:0 0 6px;font-size:17px">Credits &amp; licence</h3>
@@ -510,6 +511,12 @@ function secInit(){const b=document.getElementById('secBtn');if(!b)return;b.oncl
   addEventListener('resize',()=>{if(SEC.on)secDraw();});}
 setTimeout(secInit,0);
 
+
+/* ---------- feedback questionnaire link (URL set in manifest.json -> feedback.url) ---------- */
+const FB={url:'',version:''};
+function fbInfo(){const sp=specimens[activeSpecimen],t=sp?specMeta(sp).title:'none';return [FB.version?'v'+FB.version:'',t,AP.active||'',document.body.classList.contains('m')?'mobile':'desktop'].filter(Boolean).join(' | ');}
+function fbOpen(){if(!FB.url)return;const u=FB.url.replace(/\{info\}/g,encodeURIComponent(fbInfo()));window.open(u,'_blank','noopener');}
+function fbShow(){['fbBtn','mFeedback'].forEach(id=>{const b=document.getElementById(id);if(b){b.hidden=!FB.url;b.onclick=fbOpen;}});}
 /* rhoton.js-block */
 /* ---------- Rhoton Collection plates (re-used for education with the required credit; watermarks retained, images unaltered apart from resizing) ---------- */
 const RH={plates:[],appr:{},idx:{},keys:[],credit:'',yt:'https://www.youtube.com/@RhotonCollection',terms:'https://nref.org/education/The-Rhoton-Collection/',contrib:'',ctx:[],cur:null,mode:'2d',swap:false,quiz:null};
@@ -971,7 +978,8 @@ else buildPlaceholders();
 // also pull any hosted specimens listed in a sibling manifest.json (loaded on demand)
 (async()=>{try{const r=await fetch('manifest.json',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
   (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,title:(typeof m.title==='string'?m.title:null),sub:(typeof m.sub==='string'?m.sub:''),group:(typeof m.group==='string'?m.group:null),url:m.file,approaches:!!m.approaches,theta:(typeof m.theta==='number'?m.theta:null),hide:(Array.isArray(m.hide)?m.hide.map(String):null),autostart:(typeof m.autostart==='string'?m.autostart:null),frame:(m.frame==='none'||(m.frame&&Array.isArray(m.frame.R)&&Array.isArray(m.frame.A))?m.frame:null)});});
-  if(j.attribution)renderCredits([].concat(j.attribution));
+  if(typeof j.version==='string')FB.version=j.version;if(j.feedback&&typeof j.feedback.url==='string'&&/^https:\/\/(docs\.google\.com\/forms\/|forms\.gle\/|forms\.office\.com\/|forms\.microsoft\.com\/|forms\.cloud\.microsoft\/)/.test(j.feedback.url))FB.url=j.feedback.url;fbShow();
+  if(j.attribution)renderCredits((FB.version?['Atlas version '+FB.version+'.']:[]).concat(j.attribution));
   if(j.figures){const _ff=safeJson(j.figures);if(_ff){try{const rf=await fetch(_ff,{cache:'no-store'});if(rf.ok){const jf=await rf.json();FIG.figs=jf.figures||{};FIG.appr=jf.approaches||{};
     FIG.rules=(jf.rules||[]).map(r=>{try{return[new RegExp(r[0]),r[1]];}catch(e){return null;}}).filter(Boolean);if(selected)showReadoutFigs(selected);if(AP.active)apRender();}}catch(e){}}}
   if(j.rhoton){const _rf=safeJson(j.rhoton);if(_rf)rhLoad(_rf);}
@@ -1121,6 +1129,7 @@ renderer.setAnimationLoop(animate);
   <div class="mbody"><div class="msearch"><input id="mQ" type="search" placeholder="Search structures, e.g. caudate, CN VII, C5" autocomplete="off" aria-label="Search structures"/></div><div id="mFindList"></div></div></section>
 <section class="msheet" id="sh-tools" role="dialog" aria-label="View tools"><div class="mgrab"></div><header><h2>View tools</h2><button class="mx">Done</button></header>
   <div class="mbody" id="mToolsBody"><div class="mlinks">
+    <button id="mFeedback" hidden>Send feedback<small>A 5-minute questionnaire: what works and what is missing</small></button>
     <button id="mCredits">Credits &amp; licence<small>Data sources, licences and the educational-use disclaimer</small></button>
     <a href="atlas.html" id="mDesk">Desktop version<small>Full layout with the side panel; first load ~9 MB</small></a>
     <a href="index.html">Atlas home</a></div></div></section>
@@ -1170,7 +1179,7 @@ document.querySelectorAll('.msheet').forEach(s=>{let y0=null,x0=null;const hd=[s
   hd.forEach(h=>{h.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;x0=e.touches[0].clientX;},{passive:true});
     h.addEventListener('touchend',e=>{if(y0==null)return;const t=e.changedTouches[0],dy=t.clientY-y0,dx=t.clientX-x0;y0=null;if(dy>50||(landscape()&&dx>50))closeSheet();},{passive:true});});});
 $('mStart').onclick=()=>openSheet('spec');
-$('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.display='block';};
+$('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.display='block';};fbShow();
 
 /* move the shared desktop controls into the sheets (their handlers stay attached) */
 $('mLayersBody').appendChild($('layers'));

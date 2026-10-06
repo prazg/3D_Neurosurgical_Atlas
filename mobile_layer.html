@@ -135,6 +135,7 @@
   <div class="mbody"><div class="msearch"><input id="mQ" type="search" placeholder="Search structures, e.g. caudate, CN VII, C5" autocomplete="off" aria-label="Search structures"/></div><div id="mFindList"></div></div></section>
 <section class="msheet" id="sh-tools" role="dialog" aria-label="View tools"><div class="mgrab"></div><header><h2>View tools</h2><button class="mx">Done</button></header>
   <div class="mbody" id="mToolsBody"><div class="mlinks">
+    <button id="mFeedback" hidden>Send feedback<small>A 5-minute questionnaire: what works and what is missing</small></button>
     <button id="mCredits">Credits &amp; licence<small>Data sources, licences and the educational-use disclaimer</small></button>
     <a href="atlas.html" id="mDesk">Desktop version<small>Full layout with the side panel; first load ~9 MB</small></a>
     <a href="index.html">Atlas home</a></div></div></section>
@@ -184,7 +185,7 @@ document.querySelectorAll('.msheet').forEach(s=>{let y0=null,x0=null;const hd=[s
   hd.forEach(h=>{h.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;x0=e.touches[0].clientX;},{passive:true});
     h.addEventListener('touchend',e=>{if(y0==null)return;const t=e.changedTouches[0],dy=t.clientY-y0,dx=t.clientX-x0;y0=null;if(dy>50||(landscape()&&dx>50))closeSheet();},{passive:true});});});
 $('mStart').onclick=()=>openSheet('spec');
-$('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.display='block';};
+$('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.display='block';};fbShow();
 
 /* move the shared desktop controls into the sheets (their handlers stay attached) */
 $('mLayersBody').appendChild($('layers'));
