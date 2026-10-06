@@ -41,6 +41,8 @@
   .mrow .mt{flex:1;min-width:0}
   .mrow .me{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
   .mrow .mn{display:block;font-size:14.5px;line-height:1.3;color:var(--ink)}
+  .mrow .msub{display:block;font-size:12px;line-height:1.35;color:var(--faint);margin-top:2px}
+  .mrow .msub.mg{font-family:var(--mono);font-size:10.5px;color:var(--cool)}
   .mrow .ms{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
   .mrow .mdot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
   .mgrp{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:14px 10px 4px}
@@ -162,7 +164,7 @@ hintEl.textContent='drag to rotate · pinch to zoom · two fingers to pan · tap
 /* the init path built a stylised placeholder because nothing is embedded; clear it */
 clearScene();buildUI();select(null);srcBadge.textContent='';
 /* the core craniospinal model, hosted instead of embedded */
-specimens.unshift({label:'Brain & cervical spine',url:'brain_cervical_spine.glb',theta:-0.6,_core:true});
+specimens.unshift({label:'Brain & cervical spine',title:'Brain & cervical spine',sub:'Quick overview',group:'Anatomy',url:'brain_cervical_spine.glb',theta:-0.6,_core:true});
 const empty=$('mEmpty');
 
 /* ---------- sheets ---------- */
@@ -192,13 +194,14 @@ const dock=document.querySelector('.dock');$('mToolsBody').insertBefore(dock,$('
 dock.querySelectorAll('.cap').forEach(c=>{c.textContent={Others:'Fade other structures',Light:'Brightness',Section:'Cross-section (tap again to turn off)'}[c.textContent]||c.textContent;});
 
 /* ---------- specimens ---------- */
-function renderSpecs(){const el=$('mSpecList');el.innerHTML='';
-  specimens.forEach((sp,i)=>{const r=document.createElement('div');r.className='mrow'+(i===activeSpecimen?' on':'');r.tabIndex=0;r.setAttribute('role','button');
-    const t=document.createElement('span');t.className='mt';const [eb,nm]=splitLabel(sp.label);
-    if(eb||sp._core||sp.overlay){const e=document.createElement('span');e.className='me';e.textContent=sp._core?'core anatomy':(sp.overlay?'co-registered overlay':eb);t.appendChild(e);}
-    const n=document.createElement('span');n.className='mn';n.textContent=nm;t.appendChild(n);r.appendChild(t);
+function renderSpecs(){const el=$('mSpecList');el.innerHTML='';const groups={};
+  specimens.forEach((sp,i)=>{const g=specMeta(sp).group;(groups[g]=groups[g]||[]).push(i);});
+  SPEC_GROUPS.filter(g=>groups[g]).concat(Object.keys(groups).filter(g=>SPEC_GROUPS.indexOf(g)<0)).forEach(g=>{const h=document.createElement('div');h.className='mgrp';h.textContent=g;el.appendChild(h);
+  groups[g].forEach(i=>{const sp=specimens[i],mt=specMeta(sp),gd=specGuides(sp);const r=document.createElement('div');r.className='mrow'+(i===activeSpecimen?' on':'');r.tabIndex=0;r.setAttribute('role','button');
+    const t=document.createElement('span');t.className='mt';const n=document.createElement('span');n.className='mn';n.textContent=mt.title;t.appendChild(n);
+    if(mt.sub){const e=document.createElement('span');e.className='msub';e.textContent=mt.sub;t.appendChild(e);}if(gd){const e=document.createElement('span');e.className='msub mg';e.textContent=gd;t.appendChild(e);}r.appendChild(t);
     const z=document.createElement('span');z.className='ms';z.textContent=sp._cache?'ready':(sp.overlay?'from '+mb(specBytes(sp)):mb(specBytes(sp)));r.appendChild(z);
-    const go=()=>{closeSheet();loadSpecimen(i);};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});}
+    const go=()=>{closeSheet();loadSpecimen(i);};r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go();}};el.appendChild(r);});});}
 
 /* ---------- download with progress ---------- */
 const prog=$('mProg');
@@ -210,15 +213,15 @@ async function fetchBuf(file,label,onp){const r=await fetch(file);if(!r.ok)throw
   const out=new Uint8Array(got);let o=0;parts.forEach(p=>{out.set(p,o);o+=p.length;});return out.buffer;}
 const _loadSpecimen=loadSpecimen;
 loadSpecimen=async function(i){const sp=specimens[i];if(!sp)return;
-  const [eb0,nm]=splitLabel(sp.label);$('mSpec').textContent=(sp._core?'Core anatomy · ':(sp.overlay?'Overlay · ':(eb0?eb0.charAt(0).toUpperCase()+eb0.slice(1)+' · ':'')))+nm;empty.classList.add('off');select(null);
+  const _mt=specMeta(sp);$('mSpec').textContent=_mt.group+' \u00b7 '+_mt.title;empty.classList.add('off');select(null);
   try{
     if(sp.url&&!sp._cache){const f=safeFile(sp.url);if(!f){toast('Blocked unsafe model path.');return;}
-      stick('Downloading '+nm+'…');sp._cache=await fetchBuf(f,nm,(g,t)=>{setProg(t?g/t:null);if(t)stick('Downloading '+nm+' · '+Math.round(100*g/t)+'% of '+mb(t));});
+      stick('Downloading '+_mt.title+'…');sp._cache=await fetchBuf(f,_mt.title,(g,t)=>{setProg(t?g/t:null);if(t)stick('Downloading '+_mt.title+' · '+Math.round(100*g/t)+'% of '+mb(t));});
       setProg(1);toast('Preparing the 3D model…');await new Promise(r=>setTimeout(r,60));}
     if(sp.overlay){const need=(sp.layers||[]).filter(L=>!L.off&&L.file&&!L._cache);let done=0,tot=need.reduce((t,L)=>t+(SIZES[L.file]||0),0);
       for(const L of need){const f=safeFile(L.file);if(!f)continue;let base=done;
         L._cache=await fetchBuf(f,L.label,(g)=>{if(tot)setProg((base+g)/tot);});done+=SIZES[L.file]||0;}}
-  }catch(e){setProg(null);toast('Could not download '+nm+'. Check your connection and try again.');sp._cache=null;return;}
+  }catch(e){setProg(null);toast('Could not download '+_mt.title+'. Check your connection and try again.');sp._cache=null;return;}
   setTimeout(()=>setProg(null),400);
   return _loadSpecimen(i);};
 const _buildSpecimenList=buildSpecimenList;

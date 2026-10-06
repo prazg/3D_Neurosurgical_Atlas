@@ -151,6 +151,17 @@
   .sechd button.tool{padding:2px 8px}.secname{flex:1;color:var(--cool);font-family:var(--mono);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   #secCv{flex:1;width:100%;min-height:0;display:block;cursor:crosshair}.secft{font-size:10.5px;color:var(--faint);padding:3px 8px 6px;line-height:1.35}
   body.secon .readout{max-height:calc(100vh - 440px)}
+
+  .specgrp{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:10px 8px 3px}
+  .specgrp:first-child{margin-top:2px}
+  .spec{flex-direction:column;align-items:stretch;gap:1px;padding:6px 8px}
+  .spec .st{font-size:13px;line-height:1.3;color:inherit}
+  .spec .ss{font-size:11px;line-height:1.3;color:var(--faint)}
+  .spec.active .ss{color:var(--muted)}
+  .spec .sg{font-family:var(--mono);font-size:10px;line-height:1.35;color:var(--cool);opacity:.85}
+  #specHdr{cursor:pointer;user-select:none}#specHdr .chev{font-size:10px;color:var(--faint);transition:transform .15s}
+  .rail.speccol #specHdr .chev{transform:rotate(-90deg)}
+  .rail.speccol .spec:not(.active),.rail.speccol .specgrp{display:none}
   .reslist a{color:var(--cool);text-decoration:none}.reslist a:hover{text-decoration:underline}.reslist li{margin-top:3px}
 </style>
 </head>
@@ -162,7 +173,7 @@
   </div>
   <a class="mbanner" id="mBanner" href="mobile.html" hidden>On a phone? Open the mobile version →<button type="button" id="mBannerX" aria-label="Dismiss">×</button></a>
   <aside class="rail" id="rail">
-    <h2 id="specHdr"><span>Specimens</span></h2>
+    <h2 id="specHdr" title="Show or hide the specimen list" role="button" tabindex="0"><span>Specimens</span><span class="chev">▾</span></h2>
     <div class="slist" id="specimens"></div>
     <hr id="specHr"/>
     <div id="apSec" style="display:none"><h2><span>Approaches</span><span class="ct" id="apcount"></span></h2><div id="aplist"></div><hr/></div>
@@ -719,10 +730,24 @@ function apDeepLink(){const m=/#approach=([a-z0-9_]+)/i.exec(location.hash||'');
 
 /* specimens */
 let specimens=[],activeSpecimen=-1;
+
+const SPEC_GROUPS=['Guided','Anatomy','Pathology cases','Your files'];
+function specMeta(sp){if(!sp)return {group:'Your files',title:'',sub:''};
+  if(sp.title)return {group:sp.group||'Anatomy',title:sp.title,sub:sp.sub||''};
+  const m=/^([A-Z][A-Z ]+):\s*(.*)$/.exec(sp.label||'');return {group:sp.buf&&!sp._embedded?'Your files':'Anatomy',title:m?m[2]:(sp.label||''),sub:''};}
+function specGuides(sp){if(!sp||!sp.url||!AP.all)return '';const L=AP.all.filter(a=>a.specimen===sp.url);if(!L.length)return '';
+  const n=k=>L.filter(a=>k(a.mode)).length,ap=n(m=>!m||m==='dissection'),sy=n(m=>m==='syndrome'),pw=n(m=>m==='pathway'),out=[];
+  if(ap&&!(ap===1&&L[0].mode==='dissection'))out.push(ap+(ap===1?' approach':' approaches'));if(sy)out.push(sy+' lesion cards');if(pw)out.push(pw+' pathways');return out.join(' · ');}
 function buildSpecimenList(){const el=document.getElementById('specimens');el.innerHTML='';
   const on=specimens.length>0;document.getElementById('specHdr').style.display=on?'':'none';document.getElementById('specHr').style.display=on?'':'none';
-  specimens.forEach((sp,i)=>{const d=document.createElement('div');d.className='spec'+(i===activeSpecimen?' active':'');d.textContent=sp.label;
-    d.onclick=()=>{loadSpecimen(i);if(innerWidth<=820)rail.classList.remove('open');};el.appendChild(d);});}
+  const groups={};specimens.forEach((sp,i)=>{const g=specMeta(sp).group;(groups[g]=groups[g]||[]).push(i);});
+  const order=SPEC_GROUPS.filter(g=>groups[g]).concat(Object.keys(groups).filter(g=>SPEC_GROUPS.indexOf(g)<0));
+  order.forEach(g=>{el.appendChild(el_('div','specgrp',g));groups[g].forEach(i=>{const sp=specimens[i],mt=specMeta(sp),gd=specGuides(sp);
+    const d=el_('div','spec'+(i===activeSpecimen?' active':''));d.tabIndex=0;d.setAttribute('role','button');d.title=sp.label||mt.title;
+    d.appendChild(el_('span','st',mt.title));if(mt.sub)d.appendChild(el_('span','ss',mt.sub));if(gd)d.appendChild(el_('span','sg',gd));
+    const go=()=>{loadSpecimen(i);if(innerWidth<=820)rail.classList.remove('open');};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};el.appendChild(d);});});}
+(function(){const h=document.getElementById('specHdr'),r=document.getElementById('rail');let c=false;try{c=localStorage.getItem('atlasSpecCollapsed')==='1';}catch(e){}r.classList.toggle('speccol',c);
+  const t=()=>{const v=!r.classList.contains('speccol');r.classList.toggle('speccol',v);try{localStorage.setItem('atlasSpecCollapsed',v?'1':'0');}catch(e){}};h.onclick=t;h.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}};})();
 async function loadSpecimen(i){activeSpecimen=i;buildSpecimenList();const sp=specimens[i];apOffset(false);AP.active=null;AP.file=sp.url||null;apCard.classList.remove('show');document.getElementById('apSec').style.display='none';
   Object.keys(layerState).forEach(function(k){delete layerState[k];});(sp.hide||[]).forEach(function(k){layerState[k]=true;});
   if(sp.overlay){loadOverlay(sp);return;}
@@ -937,20 +962,20 @@ vrBtn.onclick=async()=>{if(renderer.xr.isPresenting){const s=renderer.xr.getSess
     vrBtn.classList.add('on');vrEnter();s.addEventListener('end',vrExit);}catch(e){toast('Could not start VR on this device.');}};
 
 /* init: auto-load synced models, else placeholders */
-specimens=EMBEDDED_MODELS.map(m=>({label:m.label,buf:b64ToBuf(m.b64),theta:-0.6}));
+specimens=EMBEDDED_MODELS.map(m=>({label:m.label,title:m.label,sub:'Quick overview',group:'Anatomy',_embedded:true,buf:b64ToBuf(m.b64),theta:-0.6}));
 buildSpecimenList();
 if(!THREE.GLTFLoader){buildPlaceholders();toast('GLTFLoader blocked in this preview — showing placeholder. Real models load in a normal browser.');}
 else if(specimens.length)loadSpecimen(0);
 else buildPlaceholders();
 // also pull any hosted specimens listed in a sibling manifest.json (loaded on demand)
 (async()=>{try{const r=await fetch('manifest.json',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
-  (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,url:m.file,approaches:!!m.approaches,theta:(typeof m.theta==='number'?m.theta:null),hide:(Array.isArray(m.hide)?m.hide.map(String):null),autostart:(typeof m.autostart==='string'?m.autostart:null),frame:(m.frame==='none'||(m.frame&&Array.isArray(m.frame.R)&&Array.isArray(m.frame.A))?m.frame:null)});});
+  (j.models||[]).forEach(m=>{if(m.file&&!specimens.some(s=>s.url===m.file))specimens.push({label:m.label||m.file,title:(typeof m.title==='string'?m.title:null),sub:(typeof m.sub==='string'?m.sub:''),group:(typeof m.group==='string'?m.group:null),url:m.file,approaches:!!m.approaches,theta:(typeof m.theta==='number'?m.theta:null),hide:(Array.isArray(m.hide)?m.hide.map(String):null),autostart:(typeof m.autostart==='string'?m.autostart:null),frame:(m.frame==='none'||(m.frame&&Array.isArray(m.frame.R)&&Array.isArray(m.frame.A))?m.frame:null)});});
   if(j.attribution)renderCredits([].concat(j.attribution));
   if(j.figures){const _ff=safeJson(j.figures);if(_ff){try{const rf=await fetch(_ff,{cache:'no-store'});if(rf.ok){const jf=await rf.json();FIG.figs=jf.figures||{};FIG.appr=jf.approaches||{};
     FIG.rules=(jf.rules||[]).map(r=>{try{return[new RegExp(r[0]),r[1]];}catch(e){return null;}}).filter(Boolean);if(selected)showReadoutFigs(selected);if(AP.active)apRender();}}catch(e){}}}
   if(j.rhoton){const _rf=safeJson(j.rhoton);if(_rf)rhLoad(_rf);}
   if(j.approaches){const _af=safeJson(j.approaches);if(_af){try{const ra=await fetch(_af,{cache:'no-store'});if(ra.ok){const ja=await ra.json();AP.all=Array.isArray(ja.approaches)?ja.approaches:[];AP.res=Array.isArray(ja.resources)?ja.resources:[];apDeepLink();}}catch(e){}}}
-  if(j.overlay&&!specimens.some(s=>s.overlay))specimens.push({label:j.overlay.label||'MNI overlay',overlay:true,layers:j.overlay.layers||[],theta:(typeof j.overlay.theta==='number'?j.overlay.theta:null)});
+  if(j.overlay&&!specimens.some(s=>s.overlay))specimens.push({label:j.overlay.label||'MNI overlay',title:(typeof j.overlay.title==='string'?j.overlay.title:null),sub:(typeof j.overlay.sub==='string'?j.overlay.sub:''),group:(typeof j.overlay.group==='string'?j.overlay.group:'Anatomy'),overlay:true,layers:j.overlay.layers||[],theta:(typeof j.overlay.theta==='number'?j.overlay.theta:null)});
   buildSpecimenList();}catch(e){}})();
 renderer.setAnimationLoop(animate);
 /* phones: offer the mobile edition (same content, phone layout) */

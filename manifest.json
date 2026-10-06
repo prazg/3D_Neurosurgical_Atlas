@@ -4,25 +4,80 @@
  "models": [
   {
    "file": "approaches_head.glb",
-   "label": "APPROACHES: cranial, skull base, functional & cervical (guided)",
+   "label": "Approaches, syndromes & pathways",
    "approaches": true,
-   "theta": 2.3
+   "theta": 2.3,
+   "title": "Approaches, syndromes & pathways",
+   "sub": "Head, neck & cervical spine",
+   "group": "Guided"
   },
   {
    "file": "bradipho_spc19.glb",
-   "label": "DISSECTION: Klingler fibre dissection, left hemisphere (BraDiPho, 12 stages + tracts)",
+   "label": "Fibre dissection walkthrough",
    "approaches": true,
    "theta": -1.57,
-   "autostart": "bradipho19"
+   "autostart": "bradipho19",
+   "title": "Fibre dissection walkthrough",
+   "sub": "Left hemisphere · BraDiPho",
+   "group": "Guided"
   },
   {
    "file": "skull_bones.glb",
-   "label": "SKULL: Bones, sutures and craniometric keypoints (BodyParts3D)",
-   "theta": -1.1
+   "label": "Skull",
+   "theta": -1.1,
+   "title": "Skull",
+   "sub": "Sutures and craniometric keypoints",
+   "group": "Anatomy"
+  },
+  {
+   "file": "spl_brain.glb",
+   "label": "Brain, detailed",
+   "hide": [
+    "soft"
+   ],
+   "title": "Brain, detailed",
+   "sub": "327 structures · SPL-PNL MRI atlas",
+   "group": "Anatomy"
+  },
+  {
+   "file": "head_neck_ct.glb",
+   "label": "Head & neck",
+   "title": "Head & neck",
+   "sub": "Skull, vessels, craniotomy sites",
+   "group": "Anatomy"
+  },
+  {
+   "file": "case_gbm_upenn002.glb",
+   "label": "Glioblastoma, right temporal",
+   "title": "Glioblastoma, right temporal",
+   "sub": "Single case · UPenn-GBM",
+   "group": "Pathology cases"
+  },
+  {
+   "file": "case_library_gbm.glb",
+   "label": "Glioblastoma by location",
+   "title": "Glioblastoma by location",
+   "sub": "16 cases on one brain",
+   "group": "Pathology cases"
+  },
+  {
+   "file": "case_library_molecular.glb",
+   "label": "Glioma by molecular class",
+   "title": "Glioma by molecular class",
+   "sub": "6 cases · WHO 2021",
+   "group": "Pathology cases"
+  },
+  {
+   "file": "case_vestibular_schwannoma.glb",
+   "label": "Vestibular schwannoma",
+   "theta": -0.6,
+   "title": "Vestibular schwannoma",
+   "sub": "Size series and interval growth",
+   "group": "Pathology cases"
   },
   {
    "file": "case_spine_mets.glb",
-   "label": "CASE: Spinal metastasis — T7-L5 vertebrae + spinal approaches",
+   "label": "Spinal metastasis",
    "approaches": true,
    "frame": {
     "R": [
@@ -35,39 +90,14 @@
      0,
      0
     ]
-   }
-  },
-  {
-   "file": "case_vestibular_schwannoma.glb",
-   "label": "CASE: Vestibular schwannoma — size series, cochlea, interval growth",
-   "theta": -0.6
-  },
-  {
-   "file": "case_library_molecular.glb",
-   "label": "CASE LIBRARY: Glioma by WHO 2021 molecular class (6 cases)"
-  },
-  {
-   "file": "case_library_gbm.glb",
-   "label": "CASE LIBRARY: GBM by location (16 cases, one brain)"
-  },
-  {
-   "file": "case_gbm_upenn002.glb",
-   "label": "CASE: Glioblastoma, right temporal (UPenn-GBM sub-002)"
-  },
-  {
-   "file": "head_neck_ct.glb",
-   "label": "SPL Head & Neck CT (skull, vessels + craniotomy footprints)"
-  },
-  {
-   "file": "spl_brain.glb",
-   "label": "SPL-PNL Brain (MRI, 327 structures)",
-   "hide": [
-    "soft"
-   ]
+   },
+   "title": "Spinal metastasis",
+   "sub": "T7–L5 vertebrae",
+   "group": "Pathology cases"
   }
  ],
  "overlay": {
-  "label": "MNI Atlas - overlay (co-registered)",
+  "label": "MNI atlas overlay",
   "layers": [
    {
     "file": "mni_shell.glb",
@@ -158,7 +188,10 @@
     ]
    }
   ],
-  "theta": 2.5
+  "theta": 2.5,
+  "title": "MNI atlas overlay",
+  "sub": "Tracts, parcellations, territories",
+  "group": "Anatomy"
  },
  "attribution": [
   "SPL-PNL Brain Atlas (3D Slicer License). Cite: spl.harvard.edu/publications/item/view/1265",
