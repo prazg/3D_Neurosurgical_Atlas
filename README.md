@@ -23,11 +23,27 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
   glands, and vessels (carotids, vertebrals, subclavians, jugulars) — plus six schematic
   **craniotomy footprints** projected onto the skull surface (pterional, retrosigmoid,
   midline suboccipital, far-lateral/transcondylar, frontal Kocher flap, subtemporal).
+- **Temporal bone & otic capsule (OpenEar, 125 µm CBCT + histology)**: translucent right temporal
+  bone & mastoid enclosing the intratemporal facial nerve (CN VII), chorda tympani, cochleovestibular
+  nerve (CN VIII), malleus, incus, stapes, tympanic & round window membranes, scala tympani, scala
+  vestibuli & semicircular canals, petrous internal carotid artery, and sigmoid sinus — plus 3 guided
+  lateral skull-base microanatomy walkthroughs (facial recess, translabyrinthine corridor, petrous ICA triad).
+- **Circle of Willis & variants (TopCoW)**: four real 13-vessel angiographic Circle of Willis trees
+  compared side by side (complete balanced ring, aplastic left A1, unilateral fetal-type PCA, and
+  triplicated ACA / median callosal 3rd-A2).
+- **Spinal cord & white-matter tracts (PAM50)**: C3–C7 cervical enlargement with 30 bilateral
+  ascending/descending white-matter tracts (fasciculus gracilis, fasciculus cuneatus, lateral & ventral
+  corticospinal, spinothalamic/spinal lemniscus, spinocerebellar, rubrospinal, reticulospinal, vestibulospinal,
+  tectospinal, MLF), ventral/intermediate/dorsal grey horns, dorsal nerve rootlets and CSF contour — paired
+  with 5 guided spinal cord syndrome & safe-entry myelotomy walkthroughs.
 - **Co-registered MNI overlay**: translucent brain shell with the HCP-1065 population tractography atlas
-  (87 bundles in two layers: association tracts and cranial nerves on by default; projection,
-  commissural and cerebellar tracts off), the original 20 JHU tracts, arterial
-  territories, HCP-MMP parcellation, Jülich cytoarchitecture and schematic ventricular
-  entry points (Kocher, Keen, Frazier, Dandy), each independently toggleable.
+  (87 bundles in two layers), the original 20 JHU tracts, **VENAT 7T cerebral venous system** (7 venous
+  territories), **55 subcortical, brainstem & deep cerebellar nuclei** (CIT168 700 µm + Harvard AAN v2.0 +
+  Levinson–Bari NTS + SUIT deep cerebellar nuclei), **SUIT cerebellar lobules I–X**, arterial
+  territories, HCP-MMP parcellation, Jülich cytoarchitecture, schematic ventricular
+  entry points (Kocher, Keen, Frazier, Dandy), and schematic **DBS & stereotactic targets**
+  (AC, PC, AC–PC intercommissural line, and bilateral STN, GPi, Vim, ANT, CM-Pf, NAcc),
+  each independently toggleable.
 
 **Skull and craniometric keypoints**
 
@@ -40,22 +56,22 @@ anatomy notes, operative approaches and pitfalls, and pointers to standard refer
 - **Cortical surface projections** on the approaches specimen: superior and inferior Rolandic points
   and anterior and posterior Sylvian points on both sides, computed from that model's gyri.
 
-**Learning tools**: *Labels* (decluttered on-model labels), *Quiz* (Find-it and Name-it self-test on
-whatever is shown, with side-aware feedback), double-click or pick from a list to fly the camera to a
-structure, *3D* red-cyan anaglyph stereo, and *VR* on WebXR headsets (button appears only when supported).
-Approach cards include *Watch and learn* links to free external lecture and video collections.
+**Learning & surgical-inspection tools**:
+- *Smart depth picking & click-through cycling*: clicks pass automatically through translucent outer context/skull shells to select internal tracts, vessels and tumours; clicking the same spot repeatedly cycles deeper through overlapping anatomy (`Layer 1 of N`).
+- *Virtual structure peeling (`Hide`)*: hide individual obstructing bones, lobes or tumour compartments (`H` key or `Hide` button) and restore all hidden structures with one click.
+- *X-Ray mode (`X`)*: renders cortex, bone and soft tissue translucent so vascular trees, CSF ventricles, tracts and lesions stand out in 3D space.
+- *3D Surgical Caliper (`Measure` / `M`)*: point-to-point 3D distance (`mm`) with stereotactic `ΔR/L`, `ΔA/P`, `ΔS/I` offsets (approximate atlas scale — educational only), plus a live zoom-aware `mm` scale bar and clickable 3D **Anatomical Orientation Compass** (`R / L / A / P / S / I`).
+- *Instant search (`/`)*, *Labels* (`L`), *Quiz* (Find-it and Name-it self-test with side-aware feedback), cross-linked *Related guides in this atlas* chips and one-click *Open-access reference search* links (`Radiopaedia` + `PubMed Central`) on structure cards, PNG *Snapshot* export, *3D* red-cyan anaglyph stereo, and *VR* on WebXR headsets.
+- Approach cards cite verified open-access primary literature (`StatPearls` / `PMC` / `Nature Communications`), include *Watch and learn* links across 17 curated free surgical and neuroimaging portals (`Neurosurgical Atlas`, `Rhoton`, `AO Surgery Reference`, `BraDiPho`, `Lead-DBS`, `EBRAINS Siibra`, `Radiopaedia`, etc.), and support `←` / `→` arrow-key stepping and `#specimen=<file>` / `#approach=<id>&step=<n>` deep links.
 
-**Fibre dissection walkthrough (BraDiPho)**
+**Fibre dissection walkthroughs (BraDiPho — Left & Right Hemispheres)**
 
-- **Klingler fibre dissection, left hemisphere** — twelve photogrammetric 3D models of a real
-  fibre dissection (BraDiPho specimen 19), from intact cortex through sulcal decortication, the
-  posterior transverse system, the SLF and arcuate fasciculus, removal of the opercula and insula,
-  the frontal, occipital and temporal projections of the ventral system, to the lentiform nucleus
-  and the stem of the ventral system. Opens as a 12-step walkthrough.
-- The dissectors' manual annotations of the exposed superior longitudinal system (stages 4–6) are
-  painted onto the specimen surface, and 16 tractography bundles (HCP842 and SCIL atlases,
-  registered to the specimen by the BraDiPho team) appear with the matching stage. *Ghost specimen*
-  and *Show all tracts* let you compare dissected fibres with tractography.
+- **Left hemisphere (`bradipho_spc19.glb`) & Right hemisphere (`bradipho_spc12.glb`)** — two 12-stage
+  photogrammetric 3D Klingler fibre dissections contrasting dominant left-hemisphere language streams
+  (specimen 19, with manual SLS surface annotations and 16 HCP842/SCIL tractography bundles) against
+  non-dominant right-hemisphere visuospatial attention & neglect networks (specimen 12, with 5 co-registered
+  right-hemisphere SLS tractography bundles). *Ghost specimen* and *Show all tracts* let you compare dissected
+  fibres directly with tractography.
 
 **Guided surgical approaches (teaching)**
 
@@ -82,6 +98,11 @@ Approach cards include *Watch and learn* links to free external lecture and vide
 
 **Pathology**
 
+- **Intracranial saccular aneurysms** — five angiographic Circle of Willis trees with segmented saccular
+  aneurysms (AComA, MCA bifurcation, PComA, supraclinoid ICA, and cavernous/infraclinoid ICA).
+- **Meningioma by skull-base & dural site** — 9 pre-operative cases (olfactory groove, medial/clinoidal
+  and lateral sphenoid wing, frontal & temporal convexity, parasagittal peri-rolandic, posterior falcine,
+  petroclival, and CPA/petrous) plus vasogenic brain oedema on one shared skull-stripped brain.
 - **GBM by location** — 16 cases spanning every distinct side/region combination found
   across 80 screened subjects, all on one shared reference brain so corridors can be
   compared directly. Region-specific approach notes for nine territories.
@@ -91,6 +112,11 @@ Approach cards include *Watch and learn* links to free external lecture and vide
   low-grade and codeleted cases have zero enhancing volume.
 - **Single GBM case** — enhancing tumour, necrotic core, peritumoural oedema and brain
   surface, with compartment-by-compartment operative notes.
+- **Brain metastases & longitudinal SRS response** — baseline pre-treatment parenchymal metastases and
+  vasogenic oedema paired with post-stereotactic radiosurgery follow-up contours (PROTEAS cohort).
+- **Paediatric posterior-fossa & midline CNS tumours** — 5 cases on one shared brain spanning fourth-ventricular/vermian
+  medulloblastoma corridor, cerebellar cystic-solid pilocytic corridor, intrinsic ventral pontine DIPG/DMG,
+  suprasellar hypothalamic-chiasmatic glioma, and thalamic DMG (BraTS-PEDs).
 - **Vestibular schwannoma** — three tumours spanning 0.2 → 3.7 → 7.7 mL (intracanalicular
   to brainstem contact), cochlea, and an interval-growth pair from serial imaging.
 - **Spinal metastasis** — eleven individually segmented vertebrae, T7–L5, from a planning CT.
@@ -118,17 +144,16 @@ visible, and relay nuclei or crossings the atlas does not model (gracile/cuneate
 nuclei, Edinger–Westphal, superior cervical ganglion…) appear as pale, approximate spheres. Each card links lesion
 level to deficit, and cites verified open-access StatPearls chapters. Text is original; the idea came from NeuroAxis.
 
-**Live 2D section** — the "2D" button next to the Sag/Cor/Ax section controls opens a panel that cuts every visible
-structure with the clipping plane and draws the outlines in radiological orientation (patient right on screen left;
+**Live 2D section** — the "2D" button (`2` key) next to the Sag/Cor/Ax section controls opens a zoomable, pannable panel that cuts every visible
+structure with the clipping plane (paired with a 3D slice-plane frame in the viewport), displays the slice offset and `mm` scale bar, and draws the outlines in radiological orientation (patient right on screen left;
 anterior up on axial, anterior left on sagittal). Click a region to select it, double-click to fly to it; it follows
 approach, syndrome and pathway cards, so it shows only what is on screen. Implemented in plain JavaScript (plane–
-triangle intersection with edge-keyed loop chaining); the approach was inspired by NeuroAxis's MIT-licensed section
+triangle intersection with edge-keyed and UV-seam loop chaining); the approach was inspired by NeuroAxis's MIT-licensed section
 contours, but the code was written for this viewer.
 
 **Feedback** — a "Feedback" button (desktop bottom right; phone Tools sheet) opens a 5-minute questionnaire about what
 works, accuracy concerns and what to add. It appears once a Google Forms or Microsoft Forms link is set in
-`manifest.json` → `feedback.url`; see `feedback/HOW_TO.md` (Google Apps Script that builds the form, or a Word file for
-Microsoft Forms Quick Import). The atlas version (`manifest.json` → `version`) and current view are passed to the form.
+`manifest.json` → `feedback.url` (optional `{info}` placeholder receives the atlas version and active view).
 
 **Rhoton Collection plates** — 102 cadaveric photographs (1,171 outlined structures) from the *Rhoton Collection
 Top 100* slide set. Courtesy of the Rhoton Collection, American Association of Neurological Surgeons
@@ -177,10 +202,17 @@ Options: `--manifest` (order/labels), `--lookup` (teaching-note JSON injected as
 viewer's `LOOKUP` table).
 
 Then regenerate the mobile edition from the built page (it reuses the same viewer
-code and notes, and injects the phone UI from `mobile_layer.html`):
+code and notes, and injects the phone UI from `mobile_layer.html`), and run the validation suite:
 
 ```bash
 python build_mobile.py
+python validate_atlas.py
+```
+
+To convert a new MNI152 NIfTI atlas (continuous probabilistic volume or discrete multi-label parcellation) into a co-registered `.glb` overlay aligned with `mni_shell.glb`:
+
+```bash
+python build_mni_glb.py --nifti volume.nii.gz --label "Atlas Name" --out overlay.glb
 ```
 
 `brain_cervical_spine.glb` is a hosted copy of the embedded core model, for the mobile page.
@@ -203,10 +235,18 @@ python build_mobile.py
 | Vestibular schwannoma | Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.), TCIA | CC BY 4.0 |
 | Spinal metastasis | Spine-Mets-CT-SEG, TCIA | CC BY 4.0 |
 | 2D reference illustrations (56) | Servier Medical Art, smart.servier.com (adapted: resized) | CC BY 4.0 |
-| Fibre dissection specimen (12 stages, annotations, registered tractography) | BraDiPho, Fondazione Bruno Kessler — Vavassori et al., *Nat Commun* 2025;16:9801, doi:10.1038/s41467-025-64788-y; https://bradipho.eu | **CC BY-NC-SA 4.0** (non-commercial, share-alike) |
+| Fibre dissection specimens (left `spc-19` & right `spc-12`, 12 stages each, registered tractography) | BraDiPho, Fondazione Bruno Kessler — Vavassori et al., *Nat Commun* 2025;16:9801, doi:10.1038/s41467-025-64788-y; https://bradipho.eu | **CC BY-NC-SA 4.0** (non-commercial, share-alike) |
 | Cadaveric plates (102 stereo photographs) | Rhoton Collection Top 100 — Courtesy of the Rhoton Collection, American Association of Neurological Surgeons (AANS)/Neurosurgical Research and Education Foundation (NREF); https://nref.org/education/The-Rhoton-Collection/ | Educational/media re-use with credit; **watermarks must not be removed**; commercial or non-educational use needs NREF permission |
 | Skull bones specimen (20 bones), sutures and keypoints | BodyParts3D 4.0 — “BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International” (Mitsuhashi et al., *Nucleic Acids Res* 2009) — adapted | CC BY 4.0 |
 | Intracranial arteries (approaches specimen) | Mouches & Forkert, *Sci Data* 2019;6:29, doi:10.1038/s41597-019-0034-5 (figshare vessel occurrence atlas) | CC0 |
+| Cerebral venous system (`venat_veins.glb`, 7 territories) | VENAT 7T QSM venous atlas — Huck et al., *Hum Brain Mapp* 2019, figshare doi:10.6084/m9.figshare.7205960 | CC BY 4.0 |
+| Subcortical, brainstem & deep cerebellar nuclei (`deep_nuclei_mni.glb`, 55 nuclei) & cerebellar lobules (`suit_cerebellum.glb`, 28 lobules) | CIT168 700 µm (Pauli et al., *Sci Data* 2018, CC BY 4.0); Harvard AAN v2.0 (Edlow et al., Dryad, CC0); Levinson–Bari NTS (*Sci Data* 2023, CC BY 4.0); SUIT cerebellum (Diedrichsen et al., *NeuroImage* 2009/2011) | CC BY 4.0 / CC0 / **CC BY-NC-SA** (SUIT) |
+| Temporal bone & otic capsule (`openear_temporal.glb`, 14 structures) | OpenEar 3D human temporal bone library (ALPHA) — Sieber et al., *Sci Data* 2019, Zenodo doi:10.5281/zenodo.1473724 | CC BY 4.0 |
+| Spinal cord & white-matter tracts (`pam50_spinal_cord.glb`, 39 structures) | PAM50 multimodal spinal cord template — De Leener et al., *NeuroImage* 2018 (Spinal Cord Toolbox) | MIT |
+| Circle of Willis variants (`circle_of_willis.glb`, 4 variants) | TopCoW Benchmark — Yang et al., Zenodo doi:10.5281/zenodo.15692630 (IXI MRA / CTA) | CC BY-SA 3.0 / Open Educational |
+| Intracranial saccular aneurysms (`case_aneurysms.glb`, 5 phenotypes) | RSNA Intracranial Aneurysm 26-Class Segmentation (derived lumen contours only) | Open Research / Educational |
+| Meningioma (`case_library_meningioma.glb`, 9 cases) & Paediatric tumours (`case_peds_tumours.glb`, 5 cases) | ASNR-MICCAI BraTS Pre-op Meningioma (LaBella et al., *Sci Data* 2024) & BraTS-PEDs (Kazerooni et al.) | CC BY 4.0 |
+| Brain metastases & SRS response (`case_brain_mets.glb`, longitudinal) | PROTEAS Brain Metastases Dataset — Zenodo doi:10.5281/zenodo.17253793 | CC BY 4.0 |
 
 Several datasets are **CC BY-SA**, so derived model files and this page inherit
 share-alike obligations: keep the attribution visible and redistribute under compatible
@@ -234,5 +274,5 @@ Classification of CNS Tumours (5th ed., 2021). No text is reproduced from those 
 
 ## Code licence
 
-Viewer and build script: MIT (see `LICENSE`). Anatomical and patient-derived model files
+Viewer and build script: MIT (see `LICENSE.md`). Anatomical and patient-derived model files
 retain their own licences — see the table above and `NOTICE`.

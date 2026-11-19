@@ -30,10 +30,10 @@
   @supports (height:1dvh){.msheet{max-height:calc(86dvh - var(--tabh))}}
   .msheet.on{transform:none}
   .mgrab{width:40px;height:5px;border-radius:3px;background:var(--edge-2);margin:8px auto 2px;flex:0 0 auto}
-  .msheet header{display:flex;align-items:center;justify-content:space-between;padding:4px 16px 8px;flex:0 0 auto;touch-action:none}
+  .msheet header{position:relative;z-index:2;background:var(--panel);display:flex;align-items:center;justify-content:space-between;padding:4px 16px 8px;flex:0 0 auto;touch-action:none;border-bottom:1px solid rgba(255,255,255,.05)}
   .msheet h2{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500}
   .mx{background:none;border:0;color:var(--muted);font:500 14px var(--sans);padding:8px 4px;cursor:pointer}
-  .mbody{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 12px 16px;flex:1 1 auto;overscroll-behavior:contain}
+  .mbody{position:relative;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px 12px 16px;flex:1 1 auto;overscroll-behavior:contain;min-height:0}
   .mintro{font-size:13px;line-height:1.5;color:var(--muted);margin:0 4px 10px}
   .mrow{display:flex;align-items:center;gap:12px;padding:12px 10px;border-radius:10px;cursor:pointer;border:1px solid transparent;min-height:52px}
   .mrow:active{background:var(--panel-2)}
@@ -76,9 +76,15 @@
   .mrobtn{background:var(--panel-2);border:1px solid var(--edge-2);color:var(--ink);border-radius:8px;font:500 12.5px var(--sans);padding:7px 11px;cursor:pointer}
   .mrobtn.on{background:var(--accent);color:#1a0f06;border-color:var(--accent)}
   .mromore{font-size:12px;color:var(--faint);margin-top:2px}
-  body.m .readout.peek>*:not(.eyebrow):not(.name):not(.mrobar):not(.mromore){display:none!important}
+  body.m .roacts{display:none!important}
+  body.m .readout.peek>*:not(.rohead):not(.name):not(.mrobar):not(.mromore):not(.rodepth){display:none!important}
   body.m .readout:not(.peek) .mromore{display:none}
   body.m .readout .eyebrow,body.m .readout .name{cursor:pointer}
+  body.m #quizcard{z-index:23!important}
+  body.m .hudbl{left:8px!important;top:calc(var(--toph) + 24px)!important;bottom:auto!important;z-index:18;display:flex!important}
+  body.m #orientCv{width:56px;height:56px}
+  body.m .scalebar{display:none!important}
+  body.m .measbar{left:50%!important;top:calc(var(--toph) + 6px)!important;max-width:94vw!important;font-size:11px;padding:7px 10px}
   /* approach card = compact step card */
   body.m .apcard{top:auto!important;left:0!important;right:0!important;width:auto!important;bottom:var(--tabh)!important;max-height:46vh!important;
     border-radius:16px 16px 0 0;border-bottom:0;padding:0 16px 14px;z-index:20;overscroll-behavior:contain}
@@ -165,7 +171,7 @@ hintEl.textContent='drag to rotate · pinch to zoom · two fingers to pan · tap
 /* the init path built a stylised placeholder because nothing is embedded; clear it */
 clearScene();buildUI();select(null);srcBadge.textContent='';
 /* the core craniospinal model, hosted instead of embedded */
-specimens.unshift({label:'Brain & cervical spine',title:'Brain & cervical spine',sub:'Quick overview',group:'Anatomy',url:'brain_cervical_spine.glb',theta:-0.6,_core:true});
+specimens.unshift({label:'Brain & cervical spine',title:'Brain & cervical spine',sub:'Quick overview',group:'Anatomy',url:'brain_cervical_spine.glb',theta:-0.6,frame:{R:[-1,0,0],A:[0,0,1]},_core:true});
 const empty=$('mEmpty');
 
 /* ---------- sheets ---------- */
@@ -188,10 +194,11 @@ $('mStart').onclick=()=>openSheet('spec');
 $('mInfo').onclick=$('mCredits').onclick=()=>{closeSheet();$('credits').style.display='block';};fbShow();
 
 /* move the shared desktop controls into the sheets (their handlers stay attached) */
+if($('peelBar'))$('mLayersBody').appendChild($('peelBar'));
 $('mLayersBody').appendChild($('layers'));
 const ln=document.createElement('p');ln.className='mnote';ln.id='mLayerNote';$('mLayersBody').appendChild(ln);
 const dock=document.querySelector('.dock');$('mToolsBody').insertBefore(dock,$('mToolsBody').firstChild);
-['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn','secBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
+['quizBtn','lblBtn','stereoBtn','vrBtn','rhBtn','secBtn','xrayBtn','measBtn'].forEach(id=>{const b=$(id);if(b)b.addEventListener('click',()=>setTimeout(closeSheet,120));});
 dock.querySelectorAll('.cap').forEach(c=>{c.textContent={Others:'Fade other structures',Light:'Brightness',Section:'Cross-section (tap again to turn off)'}[c.textContent]||c.textContent;});
 
 /* ---------- specimens ---------- */
@@ -258,8 +265,9 @@ function renderFind(){const el=$('mFindList');el.innerHTML='';
 /* ---------- readout as a pull-up card ---------- */
 const bar=document.createElement('div');bar.className='mrobar';
 const isoQ=document.createElement('button');isoQ.className='mrobtn';isoQ.textContent='Isolate';isoQ.onclick=e=>{e.stopPropagation();isoBtn.click();isoQ.classList.toggle('on',isolate);};
+const hideQ=document.createElement('button');hideQ.className='mrobtn';hideQ.textContent='Hide';hideQ.onclick=e=>{e.stopPropagation();if(selected)togglePeel(selected);};
 const xQ=document.createElement('button');xQ.className='mrobtn';xQ.textContent='Close';xQ.setAttribute('aria-label','Close notes');xQ.onclick=e=>{e.stopPropagation();select(null);};
-const grab=document.createElement('div');grab.className='mgrab';bar.appendChild(isoQ);bar.appendChild(grab);bar.appendChild(xQ);
+const grab=document.createElement('div');grab.className='mgrab';bar.appendChild(isoQ);bar.appendChild(hideQ);bar.appendChild(grab);bar.appendChild(xQ);
 readout.insertBefore(bar,readout.firstChild);
 const more=document.createElement('div');more.className='mromore';more.textContent='Tap for anatomy and surgical notes ▲';
 readout.insertBefore(more,document.getElementById('ro-name').nextSibling);
@@ -269,7 +277,7 @@ function roToggle(){readout.classList.toggle('peek');readout.scrollTop=0;}
   bar.addEventListener('touchend',e=>{if(y0==null)return;const dy=e.changedTouches[0].clientY-y0;y0=null;
     if(dy<-30)readout.classList.remove('peek');else if(dy>40){if(readout.classList.contains('peek'))select(null);else readout.classList.add('peek');}},{passive:true});})();
 const _select=select;
-select=function(m){_select(m);if(m){readout.classList.add('peek');readout.scrollTop=0;closeSheet();}isoQ.classList.toggle('on',isolate);mSync();};
+select=function(m){_select(m);if(QZ.on){readout.classList.remove('show');}else if(m){readout.classList.add('peek');readout.scrollTop=0;closeSheet();}isoQ.classList.toggle('on',isolate);mSync();};
 isoBtn.addEventListener('click',()=>isoQ.classList.toggle('on',isolate));
 
 /* ---------- approach card ---------- */
@@ -312,14 +320,15 @@ const _finishBuild=finishBuild;finishBuild=function(){_finishBuild();mSync();if(
 
 /* ---------- overlay: download extra layers only when switched on ---------- */
 function layerLoaded(L){return selectable.some(m=>m.userData.layer===L.label)||!!L.markers;}
-async function loadLayer(sp,L,row){const f=safeFile(L.file);if(!f)return;
+async function loadLayer(sp,L,row){const f=safeFile(L.file);if(!f)return;const seq=loadSeq;
   try{stick('Downloading '+L.label+'…');if(!L._cache)L._cache=await fetchBuf(f,L.label,(g,t)=>{setProg(t?g/t:null);if(t)stick('Downloading '+L.label+' · '+Math.round(100*g/t)+'%');});
     setProg(1);stick('Preparing '+L.label+'…');await new Promise(r=>setTimeout(r,40));
-    if(specimens[activeSpecimen]!==sp||layerLoaded(L))return;const nm=glbNames(L._cache);
-    await new Promise(res=>{new THREE.GLTFLoader().parse(L._cache,'',g=>{g.scene.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();registerMesh(o,metaFor(origName(o,nm)));o.userData.layer=L.label;o.userData.baseOpacity=(L.opacity!=null?L.opacity:1);}});
+    if(seq!==loadSeq||specimens[activeSpecimen]!==sp||layerLoaded(L))return;const nm=glbNames(L._cache);
+    await new Promise(res=>{new THREE.GLTFLoader().parse(L._cache,'',g=>{if(seq!==loadSeq){res();return;}g.scene.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();registerMesh(o,metaFor(origName(o,nm)));o.userData.layer=L.label;o.userData.baseOpacity=(L.opacity!=null?L.opacity:1);}});
       g.scene.traverse(o=>{if(o.isMesh)o.material.clippingPlanes=clipOn?[clipPlane]:null;});modelRoot.add(g.scene);res();},()=>{toast('Could not load '+L.label);res();});});
-    applyOpacity();toastEl.classList.remove('show');if(row){const z=row.querySelector('.ct');if(z)z.remove();}
-  }catch(e){toast('Could not download '+L.label+'.');}finally{setTimeout(()=>setProg(null),300);}}
+    if(seq!==loadSeq)return;
+    applyOpacity();populateStructureRows();toastEl.classList.remove('show');if(row){const z=row.querySelector('.ct');if(z)z.remove();}
+  }catch(e){if(seq===loadSeq)toast('Could not download '+L.label+'.');}finally{setTimeout(()=>setProg(null),300);}}
 $('layers').addEventListener('click',e=>{const sp=specimens[activeSpecimen];if(!sp||!sp.overlay)return;const row=e.target.closest('.layer');if(!row)return;
   const i=[].indexOf.call($('layers').children,row),L=sp.layers[i];if(L&&L.file&&!layerLoaded(L))loadLayer(sp,L,row);},true);
 const _buildOverlayUI=buildOverlayUI;
@@ -341,7 +350,7 @@ let lastTap=0;el.addEventListener('pointerup',e=>{if(e.pointerType!=='touch'||M.
 
 /* ---------- start ---------- */
 mSync();
-if(!/#approach=/.test(location.hash||''))setTimeout(()=>{if(activeSpecimen<0&&!AP.pending&&!M.sheet)openSheet('spec');},700);
+if(!/#(approach|specimen)=/i.test(location.hash||''))setTimeout(()=>{if(activeSpecimen<0&&!AP.pending&&!M.sheet)openSheet('spec');},700);
 window.addEventListener('orientationchange',()=>setTimeout(()=>{if(AP.active)apOffset(true);},300));
 })();
 </script>

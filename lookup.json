@@ -1113,6 +1113,254 @@
  },
  "_rules": [
   [
+   "^(right|left) transverse and sigmoid sinus \\(venat 7t\\)$",
+   "venat_transverse_sigmoid"
+  ],
+  [
+   "^(right|left) superficial cortical and sylvian veins \\(venat 7t\\)$",
+   "venat_cortical_sylvian"
+  ],
+  [
+   "^globus pallidus externus \\(gpe\\)",
+   "cit_gpe"
+  ],
+  [
+   "^globus pallidus internus \\(gpi\\)",
+   "cit_gpi"
+  ],
+  [
+   "^substantia nigra pars compacta \\(snc\\)",
+   "cit_snc"
+  ],
+  [
+   "^substantia nigra pars reticulata \\(snr\\)",
+   "cit_snr"
+  ],
+  [
+   "^parabrachial pigmented nucleus \\(pbp\\)",
+   "cit_pbp"
+  ],
+  [
+   "^ventral pallidum [lr] \\(cit168\\)$",
+   "cit_vep"
+  ],
+  [
+   "^habenular nuclei [lr] \\(cit168\\)$",
+   "cit_habenula"
+  ],
+  [
+   "^extended amygdala \\(slea/bst\\)",
+   "cit_exa"
+  ],
+  [
+   "^mammillary nucleus [lr] \\(cit168\\)$",
+   "mammillary body"
+  ],
+  [
+   "^periaqueductal grey",
+   "aan_pag"
+  ],
+  [
+   "^(dorsal|median) raphe nucleus",
+   "aan_raphe"
+  ],
+  [
+   "^locus coeruleus [lr] \\(harvard aan\\)$",
+   "aan_lc"
+  ],
+  [
+   "^laterodorsal tegmental nucleus [lr] \\(harvard aan\\)$",
+   "aan_ldtg"
+  ],
+  [
+   "^parabrachial complex [lr] \\(harvard aan\\)$",
+   "aan_pbc"
+  ],
+  [
+   "^pedunculopontine / pedunculotegmental nucleus",
+   "aan_ppn"
+  ],
+  [
+   "^(pontine reticular nucleus oralis|mesencephalic reticular formation)",
+   "aan_reticular"
+  ],
+  [
+   "^nucleus tractus solitarius",
+   "nts_medulla"
+  ],
+  [
+   "^dentate nucleus [lr] \\(suit\\)$",
+   "suit_dentate"
+  ],
+  [
+   "^interposed cerebellar nuclei",
+   "suit_interposed"
+  ],
+  [
+   "^fastigial nucleus [lr] \\(suit\\)$",
+   "suit_fastigial"
+  ],
+  [
+   "^cerebellar lobules? (i–iv|v) [lr]",
+   "suit_lobule_ant"
+  ],
+  [
+   "^cerebellar (lobule (vi|viib|viiia|viiib)|crus (i|ii)|vermis (vi|viiaf|viiat|viib|viiia|viiib))",
+   "suit_lobule_post"
+  ],
+  [
+   "^cerebellar (lobule (ix|x)|vermis (ix|x))",
+   "suit_tonsil_floc"
+  ],
+  [
+   "^(left|right) cervical dorsal nerve rootlets",
+   "pam_rootlets"
+  ],
+  [
+   "^(left|right) fasciculus gracilis \\(pam50\\)$",
+   "pam_gracilis"
+  ],
+  [
+   "^(left|right) fasciculus cuneatus \\(pam50\\)$",
+   "pam_cuneatus"
+  ],
+  [
+   "^(left|right) lateral corticospinal tract \\(pam50\\)$",
+   "pam_lcst"
+  ],
+  [
+   "^(left|right) ventral corticospinal tract \\(pam50\\)$",
+   "pam_vcst"
+  ],
+  [
+   "^(left|right) spinal lemniscus",
+   "pam_spinothalamic"
+  ],
+  [
+   "^(left|right) (ventral spinocerebellar|spino-olivary) tract \\(pam50\\)$",
+   "pam_spinocerebellar"
+  ],
+  [
+   "^(left|right) (rubrospinal|.*reticulospinal|lateral vestibulospinal|tectospinal|medial longitudinal fasciculus).*\\(pam50\\)$",
+   "pam_extrapyramidal"
+  ],
+  [
+   "^(left|right) spinal grey-matter ventral horn \\(pam50\\)$",
+   "pam_ventral_horn"
+  ],
+  [
+   "^(left|right) spinal grey-matter intermediate zone \\(pam50\\)$",
+   "pam_interm_horn"
+  ],
+  [
+   "^(left|right) spinal grey-matter dorsal horn \\(pam50\\)$",
+   "pam_dorsal_horn"
+  ],
+  [
+   "— complete balanced cow$",
+   "cow_variant_complete"
+  ],
+  [
+   "— absent left a1 variant$",
+   "cow_variant_absent_a1"
+  ],
+  [
+   "— left fetal pca \\(absent l-p1\\)$",
+   "cow_variant_fetal_pca"
+  ],
+  [
+   "— triplicated aca \\(3rd-a2\\)$",
+   "cow_variant_3rda2"
+  ],
+  [
+   "^parent circle of willis arterial tree",
+   "cow_parent_aneurysm"
+  ],
+  [
+   "meningioma — vasogenic brain oedema",
+   "men_oedema"
+  ],
+  [
+   "^olfactory groove meningioma — enhancing",
+   "men_olfactory"
+  ],
+  [
+   "^right medial sphenoid wing / clinoidal meningioma",
+   "men_medial_sphenoid"
+  ],
+  [
+   "^left lateral sphenoid wing meningioma",
+   "men_lat_sphenoid"
+  ],
+  [
+   "^(left frontal|left temporal) convexity meningioma",
+   "men_convexity"
+  ],
+  [
+   "^right parasagittal / peri-rolandic meningioma",
+   "men_parasagittal"
+  ],
+  [
+   "^posterior falcine meningioma — enhancing",
+   "men_falcine"
+  ],
+  [
+   "^petroclival / dorsum sellae skull-base meningioma — enhancing",
+   "men_petroclival"
+  ],
+  [
+   "^right cerebellopontine angle / petrous meningioma",
+   "men_cpa"
+  ],
+  [
+   "^paediatric fourth-ventricular / vermian midline tumour",
+   "ped_medullo"
+  ],
+  [
+   "^paediatric left cerebellar hemispheric cystic-solid tumour",
+   "ped_pilocytic"
+  ],
+  [
+   "^paediatric intrinsic ventral pontine diffuse midline glioma",
+   "ped_dipg"
+  ],
+  [
+   "^paediatric suprasellar / hypothalamic-chiasmatic",
+   "ped_suprasellar"
+  ],
+  [
+   "^paediatric left thalamic diffuse midline glioma",
+   "ped_thalamic"
+  ],
+  [
+   "^brain metastasis p(14|12|05) — baseline pre-srs enhancing",
+   "met_baseline"
+  ],
+  [
+   "^brain metastasis p14 — baseline pre-srs vasogenic oedema",
+   "met_oedema"
+  ],
+  [
+   "^brain metastasis p(14|12|05) — post-srs follow-up",
+   "met_followup"
+  ],
+  [
+   "^frontoparietal sensorimotor u-fibres — prcg–pocg r",
+   "bdp12_ufibres"
+  ],
+  [
+   "^superior longitudinal fasciculus i — sfg–ag r",
+   "hcp slf1"
+  ],
+  [
+   "^superior longitudinal fasciculus ii — mfg–ag r",
+   "hcp slf2"
+  ],
+  [
+   "^superior longitudinal fasciculus iii — ifg–ag r",
+   "hcp slf3"
+  ],
+  [
    "^arcuate fasciculus",
    "hcp arcuate"
   ],
@@ -2300,5 +2548,460 @@
  "surface projection: anterior sylvian point (right)": {
   "teach": "Point where the sylvian fissure widens below the pars triangularis, projected onto the skull.",
   "surg": "Classic starting point for opening the sylvian fissure in pterional and trans-sylvian approaches."
+ },
+ "arch of aorta": {
+  "teach": "Curved segment of the thoracic aorta in the superior mediastinum giving rise (in the standard ~70–75% branching pattern) to the brachiocephalic trunk, left common carotid artery, and left subclavian artery. Common anatomical variants include the bovine arch (shared origin of brachiocephalic and left common carotid, ~15–20%) and direct aortic origin of the left vertebral artery (~4–6%).",
+  "surg": "Key access corridor in diagnostic cerebral angiography and neuroendovascular thrombectomy/coiling: steep Type II/III arches, tortuosity, or bovine configuration dictate Simmons/Vitek catheter selection or radial-versus-femoral access. The left vagus nerve crosses its anterior aspect giving off the left recurrent laryngeal nerve beneath the ligamentum arteriosum.",
+  "ref": "Youmans & Winn, Neurological Surgery (8th ed)."
+ },
+ "c6 vertebra": {
+  "teach": "Sixth cervical vertebra marking the transition toward the cervicothoracic junction, aligned anteriorly with the cricoid cartilage. Its prominent anterior costal tubercle on the transverse process (Chassaignac carotid tubercle) lies immediately posterior to the common carotid artery, and its transverse foramen is the standard entry level for the V2 segment of the vertebral artery (~90% of individuals).",
+  "surg": "Primary surface and fluoroscopic landmark in anterior cervical spine surgery (ACDF/corpectomy at C5–C6 and C6–C7). Palpating Chassaignac tubercle orients the surgeon to the carotid sheath laterally and vertebral artery entry into the C6 foramen deeper to longus colli.",
+  "ref": "Youmans & Winn, Neurological Surgery (8th ed)."
+ },
+ "c7 vertebra": {
+  "teach": "Seventh cervical vertebra (vertebra prominens), transitional between the mobile cervical lordosis and rigid thoracic kyphosis. Characterised by a long, non-bifid palpable spinous process and small transverse foramina that usually transmit accessory vertebral veins rather than the vertebral artery.",
+  "surg": "Biomechanically critical transitional anchor in posterior cervicothoracic constructs: C7 pedicle screws offer superior pull-out strength over small C7 lateral masses. Always verify preoperative CTA/MRA because an anomalous vertebral artery enters the C7 transverse foramen in ~1–5% of patients; anteriorly, the inferior thyroid artery and thoracic duct (left) lie nearby.",
+  "ref": "Youmans & Winn, Neurological Surgery (8th ed)."
+ },
+ "pterional (frontotemporal) craniotomy": {
+  "teach": "Classic frontosphenotemporal skull-base craniotomy (Yasargil) centred on the pterion and Sylvian fissure, spanning frontal squamous bone, greater sphenoid wing, and anterior squamous temporal bone from the keyhole (MacCarty/frontozygomatic landmark) toward the zygomatic root.",
+  "surg": "Workhorse anterolateral corridor for anterior circulation aneurysms, sellar/parasellar tumours, sphenoid wing meningiomas, and insular/operculofrontal lesions. Flattening the lesser sphenoid wing extradurally opens the transsylvian window with minimal brain retraction; preserve the frontal branch of CN VII (interfascial/subfascial dissection), superficial temporal artery, and wax any breached frontal sinus. Schematic teaching footprint only.",
+  "ref": "Yasargil, Microneurosurgery Vol I; Figueiredo (ed.), Brain Anatomy and Neurosurgical Approaches."
+ },
+ "retrosigmoid craniotomy": {
+  "teach": "Lateral suboccipital posterior-fossa craniotomy placed immediately inferior to the transverse sinus and posterior to the sigmoid sinus, using the asterion, mastoid groove, and digastric notch as surface landmarks.",
+  "surg": "Standard hearing-preserving corridor to the cerebellopontine angle (vestibular schwannoma, meningioma, epidermoid) and microvascular decompression of CN V, VII, and IX/X. Early CSF release from the lateral cerebellomedullary cistern relaxes the cerebellum; meticulous bone-waxing of exposed mastoid air cells prevents postoperative CSF otorhinorrhoea. Schematic teaching footprint only.",
+  "ref": "Rhoton, Neurosurgery 2000 (Cerebellopontine Angle); Youmans & Winn (8th ed)."
+ },
+ "midline suboccipital craniotomy": {
+  "teach": "Posterior-fossa craniotomy extending from below the external occipital protuberance (inion/torcular) down through the opisthion to open the posterior lip of the foramen magnum, optionally paired with C1 posterior arch removal.",
+  "surg": "Midline corridor to the cerebellar hemispheres, vermis, fourth ventricle (via the non-vermian-splitting telovelar/cerebellomedullary fissure route), pineal/tectal region (supracerebellar), and Chiari decompression. Watch for a persistent occipital sinus in the midline dura (especially in children) and the V3 vertebral artery coursing in the sulcus arteriosus on C1 laterally. Schematic teaching footprint only.",
+  "ref": "Rhoton, Neurosurgery 2000 (Cerebellum and Fourth Ventricle); Youmans & Winn (8th ed)."
+ },
+ "far-lateral / transcondylar craniotomy": {
+  "teach": "Lateral skull-base extension of the suboccipital craniotomy reaching the sigmoid-jugular margin, C1 hemilamina, and posteromedial occipital condyle to gain a flat, tangential corridor anterior to the lower brainstem and upper cervical cord.",
+  "surg": "Provides direct anterolateral access to ventral foramen magnum meningiomas, PICA/vertebral aneurysms, and lower clival chordomas without brainstem retraction. Key steps: identify V3 in the suboccipital triangle (surrounded by venous plexus), preserve the muscular V3 branches/posterior meningeal origin, and limit posteromedial condylar drilling prior to the hypoglossal canal (CN XII) unless stability/fusion is planned. Schematic teaching footprint only.",
+  "ref": "Rhoton, Neurosurgery 2000 (Foramen Magnum); Figueiredo (ed.), Brain Anatomy and Neurosurgical Approaches."
+ },
+ "frontal craniotomy (kocher flap)": {
+  "teach": "Precoronal parasagittal frontal craniotomy centred around Kocher point (~2.5–3 cm off midline, ~1–2 cm anterior to the coronal suture along the mid-pupillary line), anterior to primary motor cortex.",
+  "surg": "Used for transcortical middle-frontal-gyrus or anterior interhemispheric transcallosal access to the frontal horn, foramen of Monro, colloid cysts, and anterior third-ventricular lesions, as well as frontal lobar gliomas. Protect the superior sagittal sinus, anterior parasagittal bridging veins, and supplementary motor area (SMA syndrome causes transient contralateral akinesia/mutism). Schematic teaching footprint only.",
+  "ref": "Youmans & Winn, Neurological Surgery (8th ed)."
+ },
+ "subtemporal craniotomy": {
+  "teach": "Low temporal squamous craniotomy brought flush with the middle cranial fossa floor above the root of the zygomatic arch and external acoustic meatus.",
+  "surg": "Opens the basal temporal intradural corridor to the tentorial incisura, ambient cistern, PCA/basilar apex, and lateral midbrain, or the extradural middle-fossa/anterior petrosal (Kawase) corridor to the upper petroclival region. Critical structure at risk: the inferior anastomotic vein of Labbe draining temporal cortex into the transverse-sigmoid junction—venous injury risks haemorrhagic temporal infarction. Schematic teaching footprint only.",
+  "ref": "Kawase et al., J Neurosurg 1985; Youmans & Winn (8th ed)."
+ },
+ "superior sagittal sinus and parasagittal bridging veins (venat 7t)": {
+  "teach": "Midline dural venous sinus running in the attached margin of the falx cerebri from the foramen caecum to the torcular Herophili, fed laterally by cortical parasagittal bridging veins (including the superior anastomotic vein of Trolard over the Rolandic region). Reconstructed from 7T QSM (VENAT atlas).",
+  "surg": "Critical boundary in parasagittal meningioma and interhemispheric transcallosal surgery. Ligation of the anterior third is occasionally tolerated, whereas occlusion of the middle or posterior thirds—or sacrifice of Rolandic parasagittal bridging veins—carries a high risk of bilateral/contralateral venous haemorrhagic infarction and diplegia.",
+  "ref": "Huck et al., Hum Brain Mapp 2019 (VENAT 7T, CC BY 4.0); Rhoton, Neurosurgery 2002 (Cerebral Veins)."
+ },
+ "deep cerebral venous system — internal cerebral, rosenthal & galen (venat 7t)": {
+  "teach": "Deep Galenic drainage: the thalamostriate and anterior septal veins unite near the foramen of Monro to form the paired internal cerebral veins (running in the velum interpositum), which join the basal veins of Rosenthal (coursing through the ambient cistern) beneath the splenium to form the great cerebral vein of Galen.",
+  "surg": "Defines third-ventricular and pineal corridors. Transchoroidal exposure mobilises the internal cerebral vein medially; supracerebellar infratentorial approaches enter beneath the Galenic arch, whereas occipital transtentorial routes work alongside it. Deep venous occlusion causes devastating bithalamic venous infarction.",
+  "ref": "Huck et al., Hum Brain Mapp 2019 (VENAT 7T); Rhoton, Neurosurgery 2002 (Cerebral Veins)."
+ },
+ "straight sinus and torcular herophili (venat 7t)": {
+  "teach": "Dural sinus running posteriorly and inferiorly along the junction of the falx cerebri and tentorium cerebelli, uniting the great vein of Galen and inferior sagittal sinus with the confluence of sinuses (torcular Herophili) at the internal occipital protuberance.",
+  "surg": "Must be preserved during tentorial incision (occipital transtentorial or supracerebellar transtentorial approaches) and falcotentorial meningioma resection; check preoperative MRV/CTV for torcular asymmetry and occipital sinus variants before posterior-fossa craniotomy.",
+  "ref": "Huck et al., Hum Brain Mapp 2019 (VENAT 7T); StatPearls NBK534857."
+ },
+ "venat_transverse_sigmoid": {
+  "teach": "Lateral posterior-fossa dural venous drainage curving from the torcular along the attached tentorial margin (transverse sinus) before turning inferiorly in the sigmoid sulcus behind the petrous temporal bone to exit the jugular foramen. Typically right-dominant.",
+  "surg": "Defines the superior and anterior limits of the retrosigmoid craniotomy (beneath the asterion) and the posterior boundary of presigmoid/translabyrinthine mastoidectomy. Never sacrifice a dominant or solitary transverse–sigmoid sinus.",
+  "ref": "Huck et al., Hum Brain Mapp 2019 (VENAT 7T); Rhoton, Neurosurgery 2000."
+ },
+ "venat_cortical_sylvian": {
+  "teach": "Superficial hemispheric and superficial middle cerebral (Sylvian) veins, linked to the superior sagittal sinus via Trolard and to the transverse–sigmoid junction via the inferior anastomotic vein of Labbé.",
+  "surg": "During pterional transsylvian dissection, preserve the superficial Sylvian veins on the temporal side where possible; during subtemporal retraction or petrosal approaches, avulsion or thrombosis of the vein of Labbé causes haemorrhagic temporal lobe infarction and aphasia (dominant side).",
+  "ref": "Huck et al., Hum Brain Mapp 2019 (VENAT 7T); Yasargil, Microneurosurgery Vol I."
+ },
+ "cit_gpe": {
+  "teach": "External segment of the globus pallidus (700 µm CIT168 MNI atlas), receiving GABAergic striatal indirect-pathway projections and reciprocating strongly with the subthalamic nucleus across the internal capsule.",
+  "surg": "Traversed dorsally by pallidal (GPi) DBS trajectories; microelectrode recording distinguishes GPe's irregular pause-bursting firing from the tonic high-frequency discharge of posteroventral GPi across the medial medullary lamina.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168, CC BY 4.0); StatPearls NBK557847."
+ },
+ "cit_gpi": {
+  "teach": "Internal segment of the globus pallidus (CIT168 atlas), principal inhibitory GABAergic output nucleus of the basal ganglia projecting via the ansa lenticularis and lenticular fasciculus to motor/associative thalamus.",
+  "surg": "Posteroventral sensorimotor GPi is the primary DBS and pallidotomy target for generalised/cervical dystonia and dyskinesia-predominant Parkinson disease. Bounded medially by the corticospinal tract (internal capsule) and inferiorly by the optic tract.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168); Ewert et al., NeuroImage 2018 (DISTAL)."
+ },
+ "cit_snc": {
+  "teach": "Dopaminergic pars compacta tier of the substantia nigra in the ventral midbrain tegmentum (CIT168 atlas), projecting nigrostriatal fibres to the caudate and putamen.",
+  "surg": "Degeneration of SNc dopaminergic neurones drives Parkinson disease motor bradykinesia and rigidity; lies immediately ventromedial to the subthalamic nucleus where caudal DBS current spread can induce mood changes or dyskinesia.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168); StatPearls NBK536995."
+ },
+ "cit_snr": {
+  "teach": "Ventrolateral GABAergic pars reticulata of the substantia nigra (CIT168 atlas), homologous to GPi as a basal ganglia output nucleus projecting to the superior colliculus and thalamus.",
+  "surg": "Inferior boundary during STN DBS implantation: microelectrode transition from STN bursty activity through a quiet myelin gap into regular high-frequency SNr firing marks the ventral floor of the STN.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168); StatPearls NBK557847."
+ },
+ "cit_pbp": {
+  "teach": "Parabrachial pigmented nucleus of the A10 ventral midbrain dopaminergic complex (CIT168 atlas), intercalated between the ventral tegmental area medially and substantia nigra laterally.",
+  "surg": "Contributes mesocortical and mesolimbic dopaminergic projections; spared in selective dorsolateral sensorimotor STN neuromodulation.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168)."
+ },
+ "cit_vep": {
+  "teach": "Ventral pallidum beneath the anterior commissure (CIT168 atlas), primary output relay of the limbic basal ganglia loop receiving dense input from the nucleus accumbens.",
+  "surg": "Located in the subcommissural basal forebrain near perforators of the anterior communicating and medial lenticulostriate arteries; implicated in reward and motivational circuitry.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168)."
+ },
+ "cit_habenula": {
+  "teach": "Paired epithalamic habenular nuclei at the dorsomedial posterior aspect of the thalamus flanking the pineal stalk and habenular commissure (CIT168 atlas).",
+  "surg": "Landmark at the posterior roof of the third ventricle in pineal and supracerebellar infratentorial surgery; investigational neuromodulation target in treatment-resistant depression.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168)."
+ },
+ "cit_exa": {
+  "teach": "Sublenticular extended amygdala and bed nucleus of the stria terminalis (SLEA/BST, CIT168 atlas), bridging the centromedial amygdala to the basal forebrain and hypothalamus.",
+  "surg": "Lies near the anterior perforated substance and anterior commissure; BST lies immediately adjacent to the anterior limb of the internal capsule targeted in refractory OCD DBS.",
+  "ref": "Pauli et al., Sci Data 2018 (CIT168)."
+ },
+ "aan_pag": {
+  "teach": "Periaqueductal grey matter surrounding the cerebral aqueduct in the midbrain tegmentum (Harvard Ascending Arousal Network v2.0, CC0), integrating descending pain modulation, autonomic responses and arousal.",
+  "surg": "Dorsal compression by pineal tumours causes aqueductal obstructive hydrocephalus and Parinaud syndrome. Avoided during endoscopic third ventriculostomy/aqueductoplasty; historical deep brain stimulation target for intractable neuropathic pain.",
+  "ref": "Edlow et al., Dryad 2023 (Harvard AAN v2.0); StatPearls NBK538494."
+ },
+ "aan_raphe": {
+  "teach": "Midline serotonergic dorsal and median raphe nuclei of the midbrain and upper pontine tegmentum (Harvard AAN v2.0), projecting ascending arousal and mood-regulating fibres across the forebrain.",
+  "surg": "Critical midline brainstem arousal nodes: injury during dorsal midbrain or fourth-ventricular floor dissection risks profound postoperative somnolence or coma.",
+  "ref": "Edlow et al., J Neuropathol Exp Neurol 2012 (Harvard AAN)."
+ },
+ "aan_lc": {
+  "teach": "Noradrenergic locus coeruleus at the lateral rostral floor of the fourth ventricle / upper dorsolateral pontine tegmentum (Harvard AAN v2.0), primary source of forebrain norepinephrine.",
+  "surg": "Lies immediately deep to the locus coeruleus pigment at the lateral border of the upper rhomboid fossa; dorsal pontine safe-entry zones (suprafacial triangle) stay medial/caudal to preserve arousal and trigeminal/facial nuclei.",
+  "ref": "Edlow et al., Harvard AAN v2.0; StatPearls NBK538239."
+ },
+ "aan_ldtg": {
+  "teach": "Cholinergic laterodorsal tegmental nucleus in the periventricular pontomesencephalic tegmentum (Harvard AAN v2.0), gating thalamic relay states and REM/wake transitions.",
+  "surg": "Part of the dorsal brainstem ascending arousal network vulnerable to upper pontine tegmental haemorrhage, compression, or overly deep floor coagulation.",
+  "ref": "Edlow et al., Harvard AAN v2.0."
+ },
+ "aan_pbc": {
+  "teach": "Parabrachial nuclear complex surrounding the superior cerebellar peduncle in the dorsolateral pons (Harvard AAN v2.0), crucial visceroceptive, respiratory and arousal relay to hypothalamus, thalamus and basal forebrain.",
+  "surg": "Bilateral dorsolateral pontine tegmental injury involving the parabrachial complex produces refractory coma and central respiratory dysrhythmia; respect superior cerebellar peduncle boundaries in posterior-fossa tumour resection.",
+  "ref": "Edlow et al., Harvard AAN v2.0."
+ },
+ "aan_ppn": {
+  "teach": "Pedunculopontine / pedunculotegmental nucleus (PPN/PTg) in the lateral caudal mesencephalic–rostral pontine tegmentum (Harvard AAN v2.0), component of the mesencephalic locomotor and ascending arousal networks.",
+  "surg": "Selective low-frequency DBS target investigated for medication-refractory freezing of gait and postural instability in Parkinson disease; bounded medially by decussating SCP fibres and laterally by the medial lemniscus.",
+  "ref": "Edlow et al., Harvard AAN v2.0; Thevathasan et al., Brain 2018."
+ },
+ "aan_reticular": {
+  "teach": "Mesencephalic reticular formation (mRt) and pontine reticular nucleus oralis (PnO) forming the core ascending reticular activating system of the upper brainstem tegmentum (Harvard AAN v2.0).",
+  "surg": "Unilateral lesions may be compensated, whereas bilateral compression (transtentorial uncal herniation, basilar perforator thrombosis) causes acute loss of consciousness. Intrinsic brainstem cavernomas are approached strictly via pial safe-entry zones.",
+  "ref": "Edlow et al., Harvard AAN v2.0; Cavalcanti et al., Neurosurgery 2016 (Brainstem Safe Entry Zones)."
+ },
+ "nts_medulla": {
+  "teach": "Nucleus tractus solitarius (NTS) in the dorsomedial medulla oblongata, receiving visceral afferents (baroreceptor/cardiorespiratory via CN IX/X) caudally and gustatory taste afferents (CN VII, IX, X) rostrally.",
+  "surg": "Involved in lateral medullary (Wallenberg) syndrome (ipsilateral loss of taste) and lies immediately beneath the vagal/hypoglossal trigones near the obex—explaining severe bradycardia, hypertension or emesis if the lower fourth-ventricular floor is manipulated.",
+  "ref": "Levinson et al., Sci Data 2023; StatPearls NBK551658."
+ },
+ "suit_dentate": {
+  "teach": "Dentate nucleus (SUIT cerebellar atlas), largest and most lateral of the deep cerebellar nuclei, with a convoluted serrated (toothed) grey ribbon sending efferents through the superior cerebellar peduncle to the contralateral red nucleus and Vim thalamus (DRTT).",
+  "surg": "Bilateral injury to the dentate nuclei or their efferent outflow at the cerebellomedullary/fourth-ventricular roof is the primary anatomical substrate of postoperative paediatric cerebellar mutism (posterior fossa syndrome); use the vermis-sparing telovelar corridor and gentle retraction.",
+  "ref": "Diedrichsen et al., NeuroImage 2011 (SUIT); Cobourn et al., Childs Nerv Syst 2020."
+ },
+ "suit_interposed": {
+  "teach": "Interposed cerebellar nuclei (emboliform and globose, SUIT atlas) situated medial to the dentate nucleus in the paravermal deep white matter, projecting via the superior cerebellar peduncle to the red nucleus and motor thalamus for limb movement correction.",
+  "surg": "Deep limit of paravermal and fourth-ventricular roof tumour resections; injury causes ipsilateral appendicular dysmetria and intention tremor.",
+  "ref": "Diedrichsen et al., NeuroImage 2011 (SUIT)."
+ },
+ "suit_fastigial": {
+  "teach": "Fastigial nucleus (SUIT atlas), most medial of the deep cerebellar nuclei sitting immediately above the fastigium (roof) of the fourth ventricle, projecting bilaterally to vestibular and reticular nuclei for axial posture, gait and vestibulo-ocular control.",
+  "surg": "Directly vulnerable during transvermian splitting or aggressive superior medullary velum resection in fourth-ventricular tumours—causing truncal titubation, gait ataxia and oculomotor dysmetria.",
+  "ref": "Diedrichsen et al., NeuroImage 2011 (SUIT)."
+ },
+ "suit_lobule_ant": {
+  "teach": "Anterior cerebellar lobe (lobules I–V, SUIT MNI parcellation), spinocerebellar somatomotor territory arranged somatotopically for lower-limb posture and gait.",
+  "surg": "Exposed superiorly along the tentorial surface in the supracerebellar infratentorial approach; anterior-lobe atrophy or injury causes classic wide-based stance and gait ataxia.",
+  "ref": "Diedrichsen et al., NeuroImage 2009 (SUIT); Schmahmann et al., 2000."
+ },
+ "suit_lobule_post": {
+  "teach": "Posterior cerebellar hemispheric and vermal lobules (VI, Crus I, Crus II, VIIb, VIIIa–b; SUIT MNI parcellation), encompassing both secondary sensorimotor representation (VIII) and expansive cerebro-cerebellar cognitive/language loops (Crus I/II via pontine nuclei).",
+  "surg": "Suboccipital hemispheric resections tolerate unilateral cortical removal comparatively well provided deep nuclei and PICA/SCA trunks are spared; large posterior-lobe lesions can cause cerebellar cognitive affective syndrome (Schmahmann syndrome).",
+  "ref": "Diedrichsen et al., NeuroImage 2009 (SUIT)."
+ },
+ "suit_tonsil_floc": {
+  "teach": "Inferomedial cerebellar tonsil/uvula (lobule IX) and vestibulocerebellar flocculonodular lobe (lobule X, SUIT MNI parcellation) framing the cerebellomedullary fissure and lateral recess (foramen of Luschka).",
+  "surg": "Tonsillar mobilisation laterally/superiorly opens the tela choroidea and inferior medullary velum in the telovelar approach to the fourth ventricle, and tonsillar descent below the foramen magnum characterises Chiari I malformation. Floccular retraction in retrosigmoid CPA surgery risks nystagmus and CN VII/VIII traction.",
+  "ref": "Rhoton, Neurosurgery 2000 (Cerebellum and Fourth Ventricle); Diedrichsen et al., 2009."
+ },
+ "right temporal bone and mastoid (openear)": {
+  "teach": "High-resolution 3D human right temporal bone reconstructed from co-registered 125 µm cone-beam CT and micro-slicing histology (OpenEar ALPHA specimen), rendered semi-translucent so the embedded Fallopian canal, otic capsule, ossicles and vascular channels are visible inside.",
+  "surg": "Core surgical sandbox of lateral skull-base neurosurgery: mastoidectomy, presigmoid retrolabyrinthine, translabyrinthine, transcochlear and middle-fossa (Kawase) drilling all rely on sub-millimetre 3D mastery of the semicircular canals, facial nerve, tegmen, sigmoid sinus and petrous ICA.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar, Zenodo 1473724, CC BY 4.0); Rhoton, Temporal Bone."
+ },
+ "sigmoid sinus and posterior/middle fossa dura": {
+  "teach": "Dural venous sinus curving along the sigmoid groove at the posterior border of the mastoid together with the middle-fossa tegmen dura superiorly and presigmoid posterior-fossa dura (Trautmann triangle) medially.",
+  "surg": "Skeletonising the sigmoid sinus and middle-fossa tegmen defines the outer frame of every mastoid/petrosal exposure; Trautmann triangle (bounded by sigmoid sinus, superior petrosal sinus/dura, and bony labyrinth) provides presigmoid retrolabyrinthine entry to the CPA.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar); Figueiredo (ed.), Brain Anatomy and Neurosurgical Approaches."
+ },
+ "petrous internal carotid artery": {
+  "teach": "C2 petrous segment of the internal carotid artery ascending vertically in the carotid canal anterior to the jugular fossa and turning anteromedially (genu and horizontal segment) beneath Glasscock triangle and anterior-medial to the cochlea and Eustachian tube.",
+  "surg": "Lethal vascular hazard during anterior petrosal (Kawase) apex drilling, transcochlear approaches, and endoscopic transclival/petrous-apex exposures. Notice how closely the basal turn of the cochlea (scala tympani) abuts the posterior aspect of the petrous ICA genu (~1–2 mm of bone).",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar); Kawase et al., J Neurosurg 1985."
+ },
+ "intratemporal facial nerve (cn vii)": {
+  "teach": "Complete intratemporal course of CN VII in the Fallopian canal: labyrinthine segment (from IAC fundus to geniculate ganglion—narrowest and most ischaemia-prone), first genu, horizontal tympanic segment (inferior to lateral semicircular canal, superior to oval window), second genu, and vertical mastoid segment exiting the stylomastoid foramen.",
+  "surg": "Dominant structure preserved in all lateral skull-base operations. Continuous facial nerve EMG monitoring and copious irrigation (preventing diamond-burr thermal injury) are mandatory while skeletonising the Fallopian canal in translabyrinthine surgery or transcochlear rerouting.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar); Rhoton, Neurosurgery 2000."
+ },
+ "chorda tympani nerve": {
+  "teach": "Branch of the mastoid segment of CN VII arising a few millimetres above the stylomastoid foramen, ascending anterosuperiorly through its canaliculus to cross the medial surface of the tympanic membrane between malleus handle and incus long process, carrying anterior-two-thirds tongue taste and submandibular/sublingual parasympathetics.",
+  "surg": "Forms the anterolateral boundary of the facial recess (with mastoid CN VII posteromedially and fossa incudis superiorly)—the classic 2–3 mm posterior tympanotomy keyhole to the round window and promontory.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar); StatPearls NBK537269."
+ },
+ "cochleovestibular nerve (cn viii)": {
+  "teach": "Vestibulocochlear nerve bundle within the internal auditory canal (IAC), dividing toward the fundus into cochlear (anteroinferior), facial CN VII (anterosuperior, separated by Bill's bar and transverse crest), and superior/inferior vestibular (posterior) divisions.",
+  "surg": "Site of origin of vestibular schwannomas. In translabyrinthine exposure the IAC is skeletonised over 270° of circumference so the tumour can be dissected off the anterosuperior facial nerve from a known anatomical landmark (Bill's bar) at the fundus.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar); Rhoton, Neurosurgery 2000."
+ },
+ "scala vestibuli, vestibule and semicircular canals": {
+  "teach": "Superior perilymphatic compartment of the bony labyrinth comprising the superior (arcuate), lateral (horizontal) and posterior semicircular canals, elliptical/spherical vestibule, and cochlear scala vestibuli.",
+  "surg": "In hearing-preserving approaches (retrosigmoid, middle-fossa, presigmoid retrolabyrinthine), fenestrating any semicircular canal risks sensorineural deafness; in the translabyrinthine approach, systematic labyrinthectomy removes all three canals and the vestibule to expose the IAC directly without cerebellar retraction.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "scala tympani (cochlear basal-apical turn)": {
+  "teach": "Inferior perilymphatic spiral canal of the cochlea (2.5–2.75 turns around the modiolus), terminating basally at the secondary tympanic (round window) membrane.",
+  "surg": "Target lumen for cochlear implant electrode insertion via the round window or anteroinferior cochleostomy; anteriorly, the basal turn is the critical landmark just posterior to the petrous ICA genu.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "round window membrane": {
+  "teach": "Flexible secondary tympanic membrane sealing the inferior cochlear scala tympani in the round-window niche inferior-posterior to the stapes/oval window, permitting incompressible perilymphatic fluid phase displacement.",
+  "surg": "Visualised through the facial recess (posterior tympanotomy) for atraumatic cochlear implant array insertion.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "malleus": {
+  "teach": "Most lateral auditory ossicle; its manubrium (handle) attaches to the tympanic membrane umbo while its head articulates in the epitympanic recess (attic) with the body of the incus.",
+  "surg": "Exposed in middle-fossa and subtotal petrosectomy approaches; ossicular contact with a high-speed burr transmits severe acoustic trauma (>130 dB) to the inner ear, causing permanent sensorineural hearing loss.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "incus": {
+  "teach": "Intermediate auditory ossicle: its body sits in the epitympanum, its short process points posteriorly into the fossa incudis at the aditus ad antrum, and its long process descends to articulate with the stapes capitulum.",
+  "surg": "Surgical compass of mastoidectomy: the short process of the incus points directly toward the lateral semicircular canal medially and sits immediately superior to the second genu/mastoid facial nerve and facial recess.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "stapes": {
+  "teach": "Smallest bone in the human body: head, anterior and posterior crura, and footplate seated in the oval window (fenestra vestibuli) transmitting mechanical vibrations into vestibular perilymph.",
+  "surg": "The tympanic segment of CN VII runs immediately superior to the oval window and stapes superstructure (~30% have congenital bony dehiscence of the Fallopian canal here); luxation of the stapes causes perilymphatic fistula and deafness/vertigo.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "tympanic membrane": {
+  "teach": "Trilaminar conical membrane (pars tensa and superior pars flaccida) angled ~55° to the floor of the external auditory canal, separating the external ear from the tympanic cavity.",
+  "surg": "Preserving the posterior bony canal wall and tympanic membrane prevents conductive hearing loss in canal-wall-up mastoid/presigmoid exposures; blind sac EAC closure with obliteration is performed in transcochlear/infratemporal approaches.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "external auditory canal wall": {
+  "teach": "Osseocartilaginous external acoustic meatus extending from the concha (spine of Henle at its posterosuperior bony rim) medially to the tympanic annulus.",
+  "surg": "The spine of Henle and Macewen suprameatal triangle on the outer cortex mark the deep mastoid antrum (~15 mm deep); thinning the posterior bony canal wall opens the surgical view into the facial recess.",
+  "ref": "Sieber et al., Sci Data 2019 (OpenEar)."
+ },
+ "spinal csf contour (thecal subarachnoid space)": {
+  "teach": "Subarachnoid cerebrospinal fluid space surrounding the C3–C7 cervical spinal cord enlargement within the dural thecal sac (PAM50 template, MIT).",
+  "surg": "Effacement of the cervical T2 CSF rim defines spinal canal stenosis and compressive cervical spondylotic myelopathy; intraoperative ultrasound confirms CSF pulsatility and adequate dorsal/ventral decompression prior to dural closure.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50, MIT); StatPearls NBK482312."
+ },
+ "pam_rootlets": {
+  "teach": "Segmental cervical dorsal (sensory) nerve rootlets entering the posterolateral sulcus along the dorsal root entry zone (DREZ) from C3 to C7 (PAM50 template).",
+  "surg": "Define the posterolateral sulcus (DREZ) safe entry zone for eccentric dorsal-horn intramedullary cavernomas/gliomas and DREZ lesioning for brachial plexus avulsion deafferentation pain; radicular medullary arteries coursing along roots must be spared.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50); Sindou, Neurosurgery (DREZotomy)."
+ },
+ "pam_gracilis": {
+  "teach": "Fasciculus gracilis: medial dorsal-column ascending tract carrying ipsilateral fine touch, vibration and conscious proprioception from the lower trunk and lower limbs (below T6) up to the medullary nucleus gracilis.",
+  "surg": "Borders the posterior median sulcus—the workhorse midline myelotomy corridor for central intramedullary ependymomas and astrocytomas. Splitting strictly in the avascular pial median raphe minimises postoperative lower-limb proprioceptive gait ataxia; monitored continuously with tibial SSEPs.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50); StatPearls NBK539846."
+ },
+ "pam_cuneatus": {
+  "teach": "Fasciculus cuneatus: lateral dorsal-column ascending tract present above T6, conveying ipsilateral fine touch, two-point discrimination and hand proprioception from the upper limbs to the medullary nucleus cuneatus.",
+  "surg": "Lateral dorsal-column injury during cervical intramedullary tumour dissection produces disabling 'numb clumsy hand' stereoanaesthesia even when motor strength is intact; monitored with median/ulnar SSEPs.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50); StatPearls NBK539846."
+ },
+ "pam_lcst": {
+  "teach": "Lateral corticospinal tract: primary crossed descending motor pathway (~85–90% of pyramidal fibres after medullary decussation) in the dorsal lateral funiculus, somatotopically laminated with cervical (arm) fibres medial and lumbosacral (leg) fibres lateral.",
+  "surg": "Critical lateral-deep boundary during intramedullary spinal cord tumour resection. Monitored continuously with transcranial MEPs and epidural D-wave amplitude (>50% D-wave preservation strongly predicts long-term ambulation even if muscle MEPs transiently drop). Medial cervical fibres explain arm-predominant weakness in central cord syndrome.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50); Sala et al., Neurosurgery 2006 (Intramedullary IONM)."
+ },
+ "pam_vcst": {
+  "teach": "Ventral (anterior) corticospinal tract: uncrossed pyramidal fibres (~10–15%) descending in the medial ventral funiculus beside the anterior median fissure before crossing segmentally via the anterior white commissure to supply axial/proximal musculature.",
+  "surg": "Perfused by sulcal branches of the anterior spinal artery in the anterior median fissure; coagulating vessels in the ventral median cleft causes bilateral anterior-cord motor ischaemia.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50)."
+ },
+ "pam_spinothalamic": {
+  "teach": "Spinal lemniscus (anterolateral spinothalamic and spinoreticular tracts): conveys contralateral pain, temperature and crude touch after second-order dorsal-horn axons decussate across the anterior white commissure within 1–2 segments of entry.",
+  "surg": "Unilateral cord injury produces contralateral dissociated pain/temperature loss beginning 1–2 levels below the lesion (Brown-Séquard); central syrinx or central cord lesions interrupt crossing fibres in the anterior white commissure causing bilateral 'cape-like' suspended analgesia; target of percutaneous C1–C2 anterolateral cordotomy for refractory cancer pain.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50); StatPearls NBK507824."
+ },
+ "pam_spinocerebellar": {
+  "teach": "Spinocerebellar and spino-olivary ascending proprioceptive pathways along the superficial periphery of the lateral funiculus, relaying unconscious muscle-spindle and Golgi tendon kinematics to the cerebellum.",
+  "surg": "Crossed superficially in the lateral funiculus safe entry zone (between DREZ and dentate ligament attachment) for ventrolateral intramedullary cavernomas when pial presentation reaches the lateral surface.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50)."
+ },
+ "pam_extrapyramidal": {
+  "teach": "Descending brainstem-spinal motor tracts (rubrospinal, lateral/ventral/medial reticulospinal, lateral vestibulospinal, tectospinal and spinal MLF; PAM50 atlas) governing antigravity extensor tone, head-neck orientation, locomotion and autonomic drive.",
+  "surg": "Disruption of lateral reticulospinal inhibitory fibres alongside the lateral corticospinal tract drives hyperreflexia, clonus and spasticity below a spinal cord injury.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50)."
+ },
+ "pam_ventral_horn": {
+  "teach": "Spinal grey-matter ventral (anterior) horn (Rexed laminae VIII–IX, PAM50 atlas), containing alpha and gamma lower motor neurones for cervical/brachial plexus myotomes (C3–C5 diaphragm phrenic nucleus; C5–C7 shoulder/elbow/wrist musculature).",
+  "surg": "Segmental ventral-horn damage causes lower motor neurone signs (flaccid weakness, fasciculations, atrophy, areflexia) at the level of the lesion—including diaphragmatic paralysis above C5—contrasting with upper motor neurone spasticity below the lesion.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50)."
+ },
+ "pam_interm_horn": {
+  "teach": "Spinal grey-matter intermediate zone (Rexed lamina VII, PAM50 atlas) framing the central canal and spinal grey commissure, relaying interneuronal reflexes and descending autonomic pathways.",
+  "surg": "First parenchymal zone compressed by expanding syringomyelia or central canal ependymomas; cleavage plane of intramedullary ependymomas is developed circumferentially around this central ependymal origin while preserving ventral sulcal perforators.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50)."
+ },
+ "pam_dorsal_horn": {
+  "teach": "Spinal grey-matter dorsal (posterior) horn (Rexed laminae I–VI including substantia gelatinosa, PAM50 atlas), primary synapse for nociceptive, thermal and mechanoreceptive dorsal-root afferents.",
+  "surg": "Target of microsurgical DREZotomy for refractory neuropathic avulsion pain and entry corridor for eccentric dorsal-horn cavernomas.",
+  "ref": "De Leener et al., NeuroImage 2018 (PAM50)."
+ },
+ "cow_variant_complete": {
+  "teach": "Segment of a classic, symmetric complete Circle of Willis (TopCoW MRA subject IXI013), in which all anterior (bilateral A1 + AComA) and posterior (bilateral P1 + bilateral PComA) collateral bridges are patent (~25–40% of normal brains).",
+  "surg": "Provides robust collateral cross-flow during temporary proximal clipping, carotid endarterectomy/sacrifice, or thrombectomy, though individual perforators (Heubner, lenticulostriates, thalamoperforators) remain end-arteries without collateral rescue.",
+  "ref": "Yang et al., TopCoW Benchmark (Zenodo 15692630); Rhoton, Neurosurgery 2002 (Supratentorial Arteries)."
+ },
+ "cow_variant_absent_a1": {
+  "teach": "Segment of an aplastic/absent left A1 Circle of Willis variant (TopCoW MRA subject IXI012): the dominant right ICA/A1 supplies *both* left and right A2 pericallosal territories across an enlarged anterior communicating artery.",
+  "surg": "High-yield neurovascular variant (~10% prevalence, and present in >50% of AComA aneurysms due to asymmetric haemodynamic shear stress). In pterional surgery, a right-sided approach gives proximal control of the dominant A1; temporary occlusion of the solitary A1 risks bilateral frontal/paracentral leg infarction and akinetic mutism!",
+  "ref": "Yang et al., TopCoW Benchmark; Yasargil, Microneurosurgery Vol II."
+ },
+ "cow_variant_fetal_pca": {
+  "teach": "Segment of a left fetal-type posterior cerebral artery (fetal PComA) variant with absent/hypoplastic ipsilateral P1 (TopCoW CTA subject Tr0088, ~15–25% prevalence): the occipital/temporal PCA territory arises directly from the supraclinoid ICA rather than the basilar apex.",
+  "surg": "CRITICAL CLIPPING RULE: Never clip, sacrifice or narrow a fetal-type PComA during ICA–PComA aneurysm surgery—doing so infarcts the ipsilateral occipital lobe (homonymous hemianopia) and thalamogeniculate perforators because there is no P1 collateral from the basilar artery! It also allows anterior-circulation ICA emboli to cause PCA strokes.",
+  "ref": "Yang et al., TopCoW Benchmark; Rhoton, Neurosurgery 2002."
+ },
+ "cow_variant_3rda2": {
+  "teach": "Segment of a triplicated ACA (persistent median callosal / 3rd-A2 artery) variant arising directly from the AComA complex alongside left and right A2 trunks (TopCoW MRA subject IXI034, ~3–10% prevalence).",
+  "surg": "Crucial trap in AComA aneurysm clipping and interhemispheric callosotomy: three A2 vessels (rather than two) must be counted and preserved behind the aneurysm dome—inadvertent inclusion of the median callosal 3rd-A2 in the clip blades infarcts the corpus callosum and medial paracentral cortex.",
+  "ref": "Yang et al., TopCoW Benchmark; Hernesniemi et al., Surg Neurol 2008."
+ },
+ "cow_parent_aneurysm": {
+  "teach": "Patient-specific 3D Circle of Willis arterial tree reconstructed from high-resolution angiography (RSNA Intracranial Aneurysm 26-Class Segmentation cohort), showing exact parent-vessel geometry, bifurcation angles and outflow branches around the saccular aneurysm.",
+  "surg": "Evaluate proximal control site, inflow jet axis, neck width (dome-to-neck ratio), incorporation of branching vessels, and perforator zones before choosing microsurgical clipping versus endovascular coiling, stent-assisted coiling, WEB intrasaccular disruption or flow diversion.",
+  "ref": "RSNA Intracranial Aneurysm 26-Class Seg; Lawton, Seven Aneurysms."
+ },
+ "anterior communicating artery saccular aneurysm (~121 mm³)": {
+  "teach": "Saccular aneurysm of the anterior communicating artery (AComA) complex—the single commonest site of ruptured intracranial aneurysm (~30–35% of subarachnoid haemorrhages), sitting between the optic chiasm inferiorly, gyrus rectus laterally and lamina terminalis posteriorly.",
+  "surg": "Approached via pterional, supraorbital keyhole or orbitozygomatic craniotomy (usually from the side of the dominant A1, or right side if symmetric), often with focal subpial gyrus rectus aspiration to expose both A1s, both A2s (check for a 3rd-A2!), the recurrent artery of Heubner, and hypothalamic AComA perforators (perforator injury causes Korsakoff-like amnesia and electrolyte/endocrine dysfunction).",
+  "ref": "Lawton, Seven Aneurysms; StatPearls NBK537249."
+ },
+ "right mca bifurcation saccular aneurysm (~45 mm³)": {
+  "teach": "Saccular aneurysm arising at the M1–M2 bifurcation (genu/limen insulae) within the Sylvian fissure (~20% of intracranial aneurysms), projecting along the haemodynamic axis of the M1 trunk between superior and inferior M2 divisions.",
+  "surg": "Remains a premier microsurgical clipping indication because wide necks frequently incorporate M2 origins. Wide Sylvian fissure split exposes M1 for proximal control and M2 trunks distally; preserve lateral lenticulostriate perforators on dorsal M1 and confirm M2 branch patency with intraoperative ICG videoangiography and micro-Doppler.",
+  "ref": "Lawton, Seven Aneurysms; Yasargil, Microneurosurgery Vol II."
+ },
+ "left posterior communicating artery saccular aneurysm (~74 mm³)": {
+  "teach": "Saccular aneurysm arising from the posterolateral wall of the supraclinoid ICA just distal to the posterior communicating artery origin (~20–25% of aneurysms), projecting posterolaterally toward the oculomotor nerve (CN III) at the tentorial incisura.",
+  "surg": "Classic neurosurgical emergency when presenting with a painful pupil-involving CN III palsy (expanding dome compressing dorsal pupillomotor fibres). Pterional clipping through the carotid–oculomotor window requires preserving both the PComA (especially if fetal-type!) and the anterior choroidal artery arising 2–4 mm distally—anterior choroidal occlusion causes devastating capsular hemiplegia.",
+  "ref": "Lawton, Seven Aneurysms; StatPearls NBK537249."
+ },
+ "right supraclinoid ica saccular aneurysm (~92 mm³)": {
+  "teach": "Paraclinoid / supraclinoid internal carotid artery saccular aneurysm situated between the distal dural ring and ICA terminus, intimately related to the anterior clinoid process, optic nerve/chiasm, ophthalmic artery and superior hypophyseal perforators.",
+  "surg": "Microsurgical clipping frequently requires extradural or intradural anterior clinoidectomy and opening of the falciform ligament/distal dural ring to mobilise the optic nerve gently and obtain proximal paraclinoid ICA control (or cervical ICA exposure); flow-diverting stents are widely used for unruptured wide-necked paraclinoid lesions.",
+  "ref": "Lawton, Seven Aneurysms; Dolenc, Anatomy and Surgery of the Cavernous Sinus."
+ },
+ "right infraclinoid/cavernous ica saccular aneurysm (~369 mm³)": {
+  "teach": "Large infraclinoid / cavernous internal carotid artery aneurysm below the proximal/distal dural rings within the extradural venous space of the cavernous sinus, adjacent to CN III, IV, V1, V2 and VI (abducens nerve runs freely inside the sinus directly lateral to the ICA).",
+  "surg": "Because purely extradural cavernous aneurysms carry a very low risk of subarachnoid haemorrhage (unless transitional intradural extension exists), asymptomatic lesions are observed; symptomatic cavernous sinus syndrome (diplopia/CN VI palsy, retro-orbital pain) or carotid-cavernous fistula is treated primarily with endovascular flow diversion or parent-vessel sacrifice after balloon test occlusion.",
+  "ref": "Youmans & Winn (8th ed); StatPearls NBK537249."
+ },
+ "men_olfactory": {
+  "teach": "Midline extra-axial meningioma arising from arachnoid cap cells over the cribriform plate and frontosphenoidal suture (olfactory groove), supplied primarily by anterior and posterior ethmoidal branches of the ophthalmic artery. Note the surrounding T2/FLAIR bifrontal vasogenic oedema.",
+  "surg": "Presents insidiously with anosmia, abulia/frontal executive change, or Foster Kennedy syndrome; displaces the optic nerves and chiasm inferiorly and posteriorly (unlike tuberculum sellae meningiomas, which push the chiasm superiorly!). Resected via bifrontal, unilateral pterional/supraorbital, or endoscopic endonasal transcribriform corridors with early ethmoidal arterial devascularisation and pericranial skull-base reconstruction.",
+  "ref": "LaBella et al., BraTS-MEN (CC BY 4.0); Youmans & Winn (8th ed)."
+ },
+ "men_medial_sphenoid": {
+  "teach": "Inner (medial) sphenoid wing / anterior clinoidal meningioma centred on the anterior clinoid process, optic canal and lateral cavernous sinus wall.",
+  "surg": "Among the most technically demanding skull-base meningiomas because the tumour may encase the supraclinoid ICA, proximal M1/A1, and optic nerve with variable arachnoid plane preservation. Pterional or orbitozygomatic approach with extradural sphenoid-wing flattening, optic canal unroofing and anterior clinoidectomy achieves early devascularisation and optic decompression; cavernous sinus invasion is typically left for adjuvant stereotactic radiosurgery rather than cranial-nerve-sacrificing radical excision.",
+  "ref": "Al-Mefty, Clinoidal Meningiomas; BraTS-MEN (CC BY 4.0)."
+ },
+ "men_lat_sphenoid": {
+  "teach": "Middle/lateral sphenoid wing (pterional) meningioma straddling the Sylvian fissure between frontal and temporal opercula, supplied by middle meningeal and deep temporal dural branches.",
+  "surg": "Frontotemporal (pterional) craniotomy provides early extradural coagulation of middle meningeal feeders through the hyperostotic greater sphenoid wing; intradurally, maintain the arachnoid plane against Sylvian M2/M3 MCA branches and dominant frontotemporal language opercula.",
+  "ref": "Youmans & Winn (8th ed); BraTS-MEN (CC BY 4.0)."
+ },
+ "men_convexity": {
+  "teach": "Supratentorial dural convexity meningioma arising over the frontal or temporal convexity away from major dural venous sinuses, supplied centrally by dural branches of the middle meningeal artery.",
+  "surg": "Ideal candidate for Simpson Grade I curative resection (complete removal of tumour, dural attachment and any hyperostotic bone, followed by duraplasty), which carries <5–10% 10-year recurrence in WHO Grade 1 disease. Use wide craniotomy margins encompassing the dural tail and respect cortical draining veins in the arachnoid plane.",
+  "ref": "Simpson, J Neurol Neurosurg Psychiatry 1957; WHO CNS5 (2021); BraTS-MEN (CC BY 4.0)."
+ },
+ "men_parasagittal": {
+  "teach": "Parasagittal peri-rolandic meningioma abutting the middle third of the superior sagittal sinus (SSS) and indenting primary sensorimotor / paracentral leg cortex.",
+  "surg": "Requires preoperative MRV/CTV to grade Sindou SSS invasion (Types I–VI) and map Rolandic cortical bridging veins. Never sacrifice a patent middle-third SSS or Rolandic vein—leave small intrasinusal remnants (Simpson Grade III/IV) for surveillance or adjuvant SRS rather than risking catastrophic venous motor infarction; monitor lower/upper-limb MEPs throughout.",
+  "ref": "Sindou & Alvernia, J Neurosurg 2006; BraTS-MEN (CC BY 4.0)."
+ },
+ "men_falcine": {
+  "teach": "Posterior falcine meningioma arising entirely from the falx cerebri beneath the intact overlying cortex and superior sagittal sinus, often extending asymmetrically or bilaterally near the splenium, precuneus and internal occipital veins.",
+  "surg": "Approached via a gravity-assisted interhemispheric parasagittal corridor (placing the ipsilateral side dependent so the hemisphere falls gently away from the falx without fixed retractors); coagulate falcine arterial feeders early before internal debulking, and protect bridging veins and PCA calcarine/parieto-occipital branches.",
+  "ref": "Youmans & Winn (8th ed); BraTS-MEN (CC BY 4.0)."
+ },
+ "men_petroclival": {
+  "teach": "Petroclival skull-base meningioma arising medial to the trigeminal foramen along the upper two-thirds of the clivus and petroclival synchondrosis, displacing the brainstem and basilar artery posteriorly/contralaterally.",
+  "surg": "Surrounded by CN III–VIII, basilar perforators and petrous/cavernous ICA. Corridor selection depends on hearing, tumour height and venous anatomy: anterior petrosal (Kawase), presigmoid/combined petrosal, retrosigmoid (intradural suprameatal), or endoscopic transclival. If pial invasion blurs the brainstem arachnoid plane (suggested here by peritumoural brainstem oedema), subtotal decompression plus SRS preserves cranial nerve and brainstem function.",
+  "ref": "Kawase et al., 1985; Al-Mefty et al., Neurosurgery; BraTS-MEN (CC BY 4.0)."
+ },
+ "men_cpa": {
+  "teach": "Posterior petrous / cerebellopontine angle (CPA) meningioma arising from the posterior face of the temporal bone around the internal acoustic meatus, displacing the cerebellum and CN VII/VIII.",
+  "surg": "Unlike vestibular schwannomas (which displace CN VII anterosuperiorly from inside the IAC), posterior petrous meningiomas push CN VII/VIII in variable directions depending on whether the dural origin is premeatal or postmeatal! Approached via retrosigmoid craniotomy with continuous CN V/VII/VIII/lower-CN monitoring and early devascularisation of the petrous dural base.",
+  "ref": "Rhoton, Neurosurgery 2000 (CPA); BraTS-MEN (CC BY 4.0)."
+ },
+ "men_oedema": {
+  "teach": "Peritumoural T2/FLAIR vasogenic brain oedema induced by an extra-axial meningioma—driven by VEGF secretion, pial-cortical arterial parasitism (loss of the protective arachnoid CSF cleft), venous outflow compression, or higher histological grade (WHO Grade 2 atypical / brain invasion).",
+  "surg": "Significant peritumoural oedema warns the surgeon that the arachnoid dissection plane may be disrupted with fragile pial vessels parasitised by the tumour capsule; avoid traction avulsion on eloquent cortex and manage perioperative mass effect with dexamethasone.",
+  "ref": "WHO Classification of CNS Tumours, 5th ed (2021); BraTS-MEN (CC BY 4.0)."
+ },
+ "ped_medullo": {
+  "teach": "Paediatric midline fourth-ventricular / inferior vermian posterior-fossa tumour phenotype (BraTS-PED cohort)—classic anatomical corridor of medulloblastoma (WHO grade 4, molecularly WNT, SHH, Group 3 or Group 4) and fourth-ventricular ependymoma.",
+  "surg": "Manage obstructive hydrocephalus carefully (perioperative EVD or staged ETV), then perform midline suboccipital craniotomy using the telovelar (cerebellomedullary fissure) approach to avoid splitting the vermis and protect the bilateral dentate nuclei/superior cerebellar peduncles (reducing cerebellar mutism / posterior fossa syndrome). Never chase tumour infiltrating the rhomboid fossa floor (CN VI/VII colliculus, obex); obtain craniospinal MRI + lumbar CSF staging.",
+  "ref": "WHO CNS5 (2021); Kazerooni et al., BraTS-PEDs (CC BY 4.0); StatPearls NBK431069."
+ },
+ "ped_pilocytic": {
+  "teach": "Paediatric lateral cerebellar hemispheric cystic–solid posterior-fossa tumour phenotype (BraTS-PED cohort)—classic presentation of pilocytic astrocytoma (WHO grade 1, frequently KIAA1549::BRAF fused).",
+  "surg": "Complete microsurgical resection of the enhancing mural nodule (and any enhancing cyst wall; thin non-enhancing reactive gliotic cyst walls usually need not be stripped from deep nuclei) via lateral/paramedian suboccipital craniotomy is curative without radiotherapy or chemotherapy (>90% 10-year progression-free survival).",
+  "ref": "WHO CNS5 (2021); BraTS-PEDs (CC BY 4.0); StatPearls NBK560614."
+ },
+ "ped_dipg": {
+  "teach": "Paediatric intrinsic ventral pontine expansion (BraTS-PED cohort) exemplifying Diffuse Midline Glioma, H3 K27-altered (WHO grade 4, historically DIPG), engulfing the basilar artery ventrally and infiltrating corticospinal tracts and CN VI/VII nuclei.",
+  "surg": "Open debulking is contraindicated due to diffuse infiltration of vital pontine tracts and nuclei. Stereotactic trans-middle-cerebellar-peduncle biopsy is performed safely in specialized centres for molecular H3K27M/MAPK/PDGFRA profiling and targeted clinical trial enrollment alongside fractionated radiotherapy.",
+  "ref": "WHO CNS5 (2021); BraTS-PEDs (CC BY 4.0); StatPearls NBK560573."
+ },
+ "ped_suprasellar": {
+  "teach": "Paediatric suprasellar / hypothalamic–chiasmatic midline tumour phenotype (BraTS-PED cohort), characteristic of optic pathway–hypothalamic glioma (often NF1-associated or sporadic BRAF-altered low-grade glioma) and craniopharyngioma.",
+  "surg": "In optic-pathway/hypothalamic low-grade glioma, aggressive radical resection risks blindness, panhypopituitarism and devastating hypothalamic obesity/autonomic injury—management prioritises biopsy/selective chiasmatic-ventricular decompression (e.g. transcallosal or pterional) paired with systemic chemotherapy or targeted MEK/BRAF inhibitors.",
+  "ref": "WHO CNS5 (2021); BraTS-PEDs (CC BY 4.0)."
+ },
+ "ped_thalamic": {
+  "teach": "Paediatric unilateral thalamic midline tumour phenotype (BraTS-PED cohort), differential spanning Diffuse Midline Glioma H3 K27-altered versus circumscribed/low-grade pediatric-type glioma abutting the posterior limb of the internal capsule and third ventricle.",
+  "surg": "Molecular diagnosis via stereotactic or neuroendoscopic biopsy (plus septostomy/ETV if hydrocephalic) guides strategy: circumscribed non-H3K27-altered lesions may benefit from tractography-guided transcallosal or transsulcal tubular resection, whereas H3 K27-altered DMG is managed non-resectively.",
+  "ref": "WHO CNS5 (2021); BraTS-PEDs (CC BY 4.0)."
+ },
+ "brain surface (skull-stripped, proteas)": {
+  "teach": "De-identified, skull-stripped reference brain surface from the PROTEAS longitudinal brain metastasis cohort (Zenodo 17253793, CC BY 4.0), co-registered in standard BraTS space so baseline pre-treatment lesions and post-stereotactic radiosurgery (SRS) follow-up volumes can be compared directly.",
+  "surg": "Notice how parenchymal metastases cluster near the grey–white matter junction and arterial watershed zones; toggle X-Ray mode or hide baseline masks to inspect volumetric SRS response beneath.",
+  "ref": "PROTEAS Brain Metastases Dataset (Zenodo 17253793, CC BY 4.0)."
+ },
+ "met_baseline": {
+  "teach": "Pre-treatment contrast-enhancing parenchymal brain metastasis prior to stereotactic radiosurgery (PROTEAS longitudinal cohort). Typically well-circumscribed at the corticomedullary junction but capable of provoking disproportionate surrounding vasogenic oedema.",
+  "surg": "Neurosurgical vs radiosurgical decision framework: microsurgical en-bloc circumferential resection (followed by cavity SRS) is favoured for single/dominant accessible metastases >2.5–3 cm with symptomatic mass effect, hydrocephalus or unknown primary histology; upfront SRS achieves >85% local control for smaller or multiple lesions without delaying systemic immunotherapy/targeted therapy.",
+  "ref": "ASCO-SNO-ASTRO Brain Metastasis Guidelines; PROTEAS (Zenodo 17253793, CC BY 4.0)."
+ },
+ "met_oedema": {
+  "teach": "Extensive T2/FLAIR vasogenic peritumoural oedema (~52 mL surrounding a 17.8 mL metastasis in Case P14) spreading along subcortical white-matter tracts without the deep infiltrative glioma cells seen in glioblastoma.",
+  "surg": "Responds rapidly within 24–48 hours to dexamethasone (stabilising leaky tumour neovasculature), relieving raised intracranial pressure and focal neurological deficits prior to resection or SRS.",
+  "ref": "PROTEAS (Zenodo 17253793, CC BY 4.0); StatPearls NBK470246."
+ },
+ "met_followup": {
+  "teach": "Longitudinal post-stereotactic radiosurgery (SRS) follow-up contour from the same patient in the PROTEAS cohort, demonstrating dramatic volumetric tumour regression (e.g. Case P14 shrinking from 17.8 mL to 2.2 mL).",
+  "surg": "Serial volumetric MRI tracking is essential after SRS to distinguish true tumour response from pseudoprogression / radiation necrosis (evaluated with MR perfusion rCBV, spectroscopy, or LITT laser interstitial thermal therapy / resection if symptomatic).",
+  "ref": "RANO-BM Criteria; PROTEAS (Zenodo 17253793, CC BY 4.0)."
+ },
+ "bdp12_ufibres": {
+  "teach": "Short frontoparietal U-shaped association fibres linking the right precentral (primary motor) and postcentral (primary somatosensory) gyri across the floor of the central sulcus, registered directly into BraDiPho right-hemisphere Specimen 12.",
+  "surg": "Tight sensorimotor sensorimotor sensor-feedback loop exposed immediately upon sulcal decortication (Stage 2–3); subcortical injury beneath the central sulcus impairs fine contralateral left-hand motor dexterity.",
+  "ref": "Vavassori et al., Nat Commun 2025;16:9801 (BraDiPho, CC BY-NC-SA 4.0)."
  }
 }

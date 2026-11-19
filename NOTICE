@@ -28,6 +28,28 @@ ANATOMY
 - ICBM152 2009c nonlinear asymmetric template, Montreal Neurological Institute.
 - Cerebral artery atlas (vessel occurrence probability), Mouches & Forkert,
   Scientific Data 2019;6:29, doi:10.1038/s41597-019-0034-5. CC0.
+- VENAT 7T Cerebral Venous Atlas (venat_veins.glb), Huck J, Wanner Y, Fan AP,
+  et al., Human Brain Mapping 2019, figshare doi:10.6084/m9.figshare.7205960.
+  CC BY 4.0.
+- CIT168 700 um Subcortical Brain Nuclei Atlas (deep_nuclei_mni.glb), Pauli WM,
+  Nili AN, Tyszka JM, Scientific Data 2018;5:180063, doi:10.1038/sdata.2018.63.
+  CC BY 4.0.
+- Harvard Ascending Arousal Network (AAN) Atlas v2.0 (deep_nuclei_mni.glb),
+  Edlow BL et al., Dryad doi:10.5061/dryad.zw3r228d2. CC0.
+- Levinson-Bari Limbic Brainstem Atlas — NTS (deep_nuclei_mni.glb), Levinson S
+  et al., Scientific Data 2023. CC BY 4.0.
+- SUIT Cerebellar Lobules & Deep Nuclei Atlas (deep_nuclei_mni.glb,
+  suit_cerebellum.glb), Diedrichsen J et al., NeuroImage 2009 / 2011,
+  https://github.com/DiedrichsenLab/cerebellar_atlases. CC BY-NC-SA.
+- OpenEar 3D Human Temporal Bone Library — ALPHA specimen (openear_temporal.glb),
+  Sieber D, Erfurt P, John S, et al., Scientific Data 2019;6:180297, Zenodo
+  doi:10.5281/zenodo.1473724. CC BY 4.0.
+- PAM50 Multimodal Spinal Cord & White-Matter Tract Template (pam50_spinal_cord.glb),
+  De Leener B, Fonov VS, Collins DL, et al., NeuroImage 2018;165:170-179
+  (Spinal Cord Toolbox, https://github.com/spinalcordtoolbox/PAM50). MIT License.
+- TopCoW Circle of Willis Benchmark (circle_of_willis.glb, subjects IXI012,
+  IXI013, IXI034 & Tr0088), Yang K, Musio F, Ma Y, et al., Zenodo
+  doi:10.5281/zenodo.15692630 (IXI MRA CC BY-SA 3.0 / educational research terms).
 
 APPROACHES SPECIMEN (approaches_head.glb) is a composite: SPL Head & Neck skull and
 neck vessels, SPL-PNL brain structures registered into that skull, and MNI-space
@@ -43,7 +65,7 @@ SKULL BONES SPECIMEN (skull_bones.glb)
   keypoints computed from bone contacts (the MacCarty keyhole is placed by rule). Shared under
   CC BY-SA.
 
-FIBRE DISSECTION SPECIMEN (bradipho_spc19.glb)
+FIBRE DISSECTION SPECIMENS (bradipho_spc19.glb, bradipho_spc12.glb)
 - BraDiPho (Brain Dissection Photogrammetry), Fondazione Bruno Kessler and
   collaborators. Vavassori L, Rheault F, Nocerino E, et al. Brain dissection
   photogrammetry: a tool for studying human white matter connections integrating
@@ -51,11 +73,13 @@ FIBRE DISSECTION SPECIMEN (bradipho_spc19.glb)
   doi:10.1038/s41467-025-64788-y. Data: https://bradipho.eu
   Licence: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/).
   Used: specimen 19 (left hemisphere) dissection stages 1-12, manual SLS bundle
-  annotations (stages 4-6), and HCP842/SCIL tractography registered to the specimen.
-  Changes: meshes decimated and textures downsampled for the web; annotation point
-  clouds painted onto the stage surfaces; tract envelopes reconstructed from the
-  streamline meshes. The adapted file is distributed under CC BY-NC-SA 4.0.
-  Non-commercial use only.
+  annotations (stages 4-6), and HCP842/SCIL tractography registered to the specimen;
+  and specimen 12 (right hemisphere) dissection stages 1-12 with co-registered
+  right-hemisphere SLS tractography.
+  Changes: meshes decimated, textures/RGB vertex colours transferred for the web,
+  annotation point clouds painted onto stage surfaces, and tract envelopes
+  reconstructed from streamline meshes. The adapted files are distributed under
+  CC BY-NC-SA 4.0. Non-commercial use only.
 
 ILLUSTRATIONS
 - Images in img/smart/ provided by Servier Medical Art (https://smart.servier.com),
@@ -85,6 +109,13 @@ PATHOLOGY (all de-identified and de-faced at source)
 - Vestibular-Schwannoma-SEG (Shapey, Kujawa et al.). The Cancer Imaging
   Archive. CC BY 4.0.
 - Spine-Mets-CT-SEG. The Cancer Imaging Archive. CC BY 4.0.
+- ASNR-MICCAI BraTS Pre-operative Meningioma (case_library_meningioma.glb,
+  LaBella D et al., Sci Data 2024) and BraTS-PEDs Paediatric CNS Tumours
+  (case_peds_tumours.glb, Kazerooni AF et al.). CC BY 4.0.
+- PROTEAS Longitudinal Brain Metastasis Dataset (case_brain_mets.glb, subjects
+  P05, P12, P14), Zenodo doi:10.5281/zenodo.17253793. CC BY 4.0.
+- RSNA Intracranial Aneurysm 26-Class Segmentation derived vascular & saccular
+  aneurysm contours (case_aneurysms.glb; vessel/lumen meshes only).
 - NIfTI derivatives for the TCIA glioma collections were curated via the
   Pittsburgh Fiber Data Hub (data-nih/tcia).
 
