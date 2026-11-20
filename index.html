@@ -3,43 +3,451 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0d1317" />
 <title>Advanced 3D Surgical Anatomy Atlas — Brain &amp; Spine</title>
-<meta name="description" content="Interactive 3D atlas of craniospinal anatomy and neuro-oncological pathology for neurosurgical teaching." />
+<meta name="description" content="Interactive 3D neurosurgical teaching portal of craniospinal anatomy, 76 guided operative approaches, lesion syndromes, white-matter pathways, Rhoton stereo plates, and neuro-oncological pathology." />
 <style>
   :root{
-    --bg:#0d1317; --panel:#151d22; --edge:rgba(255,255,255,.10);
-    --ink:#e9e4da; --muted:#9fb0b8; --faint:#6b7a82; --accent:#e8834a;
-    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --bg:#0d1317;
+    --bg-deep:#090e11;
+    --panel:#151d22;
+    --panel-2:#1b262c;
+    --panel-hover:#1f2c33;
+    --edge:rgba(255,255,255,.10);
+    --edge-2:rgba(255,255,255,.17);
+    --ink:#e9e4da;
+    --muted:#9fb0b8;
+    --faint:#8898a0;
+    --accent:#e8834a;
+    --accent-soft:rgba(232,131,74,.14);
+    --accent-edge:rgba(232,131,74,.38);
+    --cool:#5fb0ad;
+    --cool-soft:rgba(95,176,173,.13);
+    --cool-edge:rgba(95,176,173,.36);
+    --ok:#4ad295;
+    --warn-col:#f5b041;
+    --err-col:#ef6b5b;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:64px 16px 56px}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
-  h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:14px 0 0;font-weight:600;letter-spacing:-.01em}
-  .lede{font-size:16px;line-height:1.6;color:var(--muted);margin:16px 0 0;max-width:58ch}
-  .cta{display:inline-block;margin:30px 0 0;background:var(--accent);color:#1a0f06;text-decoration:none;
-    font-weight:600;font-size:15px;padding:13px 26px;border-radius:9px}
-  .cta:hover{filter:brightness(1.07)}
-  .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}.ctas .cta{margin:0}
-  .cta2{display:inline-block;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:9px;border:1px solid var(--edge)}
-  .cta2:hover{border-color:var(--muted)}.cta2:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-  .cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-  .note{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:12px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:40px}
-  .card{background:var(--panel);border:1px solid var(--edge);border-radius:11px;padding:15px 16px}
-  .card h2{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--faint);margin:0 0 9px;font-weight:500}
+  html{scroll-behavior:smooth;color-scheme:dark}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  html,body{
+    margin:0;min-height:100%;
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  body{
+    background:
+      radial-gradient(ellipse 78% 42% at 50% -6%, rgba(232,131,74,.095), transparent 68%),
+      radial-gradient(ellipse 60% 38% at 88% 18%, rgba(95,176,173,.055), transparent 65%),
+      linear-gradient(180deg, #0d1317 0%, #0b1014 100%);
+  }
+  .skip-link{
+    position:fixed;left:14px;top:-120px;z-index:10001;
+    background:var(--accent);color:#1a0f06;font-weight:700;font-size:13px;
+    padding:9px 14px;border-radius:8px;text-decoration:none;
+    box-shadow:0 6px 20px rgba(0,0,0,.45);transition:top .15s ease;
+  }
+  .skip-link:focus-visible{top:44px;outline:2px solid var(--ink);outline-offset:2px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:44px 20px 64px}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    background:linear-gradient(165deg, rgba(27,38,44,.72) 0%, rgba(21,29,34,.88) 100%);
+    border:1px solid var(--edge-2);
+    border-radius:16px;
+    padding:32px 32px 28px;
+    box-shadow:0 18px 48px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.05);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg, var(--accent) 0%, rgba(232,131,74,.45) 42%, var(--cool) 85%, transparent 100%);
+  }
+  .hero-top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;
+  }
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--accent);margin:0;font-weight:600;
+  }
+  .cap-pill{
+    display:inline-flex;flex-wrap:wrap;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:11px;line-height:1.3;
+    padding:5px 11px;border-radius:999px;
+    background:rgba(13,19,23,.78);
+    border:1px solid var(--edge-2);
+    color:var(--muted);
+  }
+  .cap-dot{
+    width:8px;height:8px;border-radius:50%;flex:0 0 auto;
+    background:var(--cool);box-shadow:0 0 8px rgba(95,176,173,.65);
+  }
+  .cap-pill[data-state="ok"] .cap-dot{background:var(--ok);box-shadow:0 0 9px rgba(74,210,149,.75)}
+  .cap-pill[data-state="ok"]{border-color:rgba(74,210,149,.32);color:var(--ink)}
+  .cap-pill[data-state="warn"] .cap-dot{background:var(--warn-col);box-shadow:0 0 9px rgba(245,176,65,.75)}
+  .cap-pill[data-state="warn"]{border-color:rgba(245,176,65,.38);color:var(--ink)}
+  .cap-pill[data-state="err"] .cap-dot{background:var(--err-col);box-shadow:0 0 9px rgba(239,107,91,.8)}
+  .cap-pill[data-state="err"]{border-color:rgba(239,107,91,.45);color:#ffd7d1}
+  .cap-sep{color:var(--faint);opacity:.75}
+  .cap-sub{color:var(--muted)}
+
+  h1{
+    font-size:clamp(27px,4.4vw,42px);line-height:1.12;margin:16px 0 0;
+    font-weight:650;letter-spacing:-.018em;color:var(--ink);max-width:24ch;
+  }
+  .lede{
+    font-size:15.5px;line-height:1.65;color:var(--muted);margin:14px 0 0;max-width:72ch;
+  }
+  .ctas{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px;
+  }
+  .cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent);color:#1a0f06;text-decoration:none;
+    font-weight:650;font-size:14.5px;padding:12px 22px;border-radius:9px;
+    border:1px solid transparent;
+    box-shadow:0 6px 20px rgba(232,131,74,.24);
+    transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  }
+  .cta:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 8px 24px rgba(232,131,74,.32)}
+  .cta2{
+    display:inline-flex;align-items:center;gap:7px;
+    color:var(--ink);background:rgba(255,255,255,.03);text-decoration:none;
+    font-weight:600;font-size:14px;padding:11px 18px;border-radius:9px;
+    border:1px solid var(--edge-2);
+    transition:background-color .15s ease, border-color .15s ease, transform .15s ease;
+  }
+  .cta2:hover{background:var(--panel-2);border-color:var(--muted);transform:translateY(-1px)}
+  .cta-cool{
+    border-color:var(--cool-edge);background:var(--cool-soft);color:#dcf4f3;
+  }
+  .cta-cool:hover{background:rgba(95,176,173,.22);border-color:var(--cool)}
+  .cta:focus-visible,.cta2:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{
+    outline:2px solid var(--accent);outline-offset:2px;
+  }
+  .note{
+    font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--faint);margin:12px 0 0;
+  }
+
+  /* Telemetry bar */
+  .stats-strip{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;
+    margin-top:24px;padding-top:20px;border-top:1px solid var(--edge);
+  }
+  .stat{
+    background:rgba(13,19,23,.55);border:1px solid var(--edge);border-radius:10px;
+    padding:11px 13px;
+  }
+  .stat-val{
+    font-family:var(--mono);font-size:20px;font-weight:700;color:var(--ink);
+    letter-spacing:-.02em;display:flex;align-items:baseline;gap:6px;
+  }
+  .stat-val span{font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+  .stat-lbl{font-size:12px;line-height:1.4;color:var(--muted);margin-top:3px}
+
+  /* Section headers */
+  .sec-head{
+    display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+    gap:10px 16px;margin:40px 0 14px;
+  }
+  .sec-eyebrow{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 4px;font-weight:600;
+  }
+  .sec-title{
+    font-size:clamp(19px,2.6vw,24px);font-weight:650;letter-spacing:-.01em;margin:0;color:var(--ink);
+  }
+  .sec-sub{
+    font-size:13.5px;color:var(--muted);margin:4px 0 0;max-width:68ch;line-height:1.5;
+  }
+
+  /* 4 Capability Pillars */
+  .grid{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px;
+  }
+  .card{
+    background:var(--panel);border:1px solid var(--edge);border-radius:12px;
+    padding:16px 17px;position:relative;
+    transition:border-color .16s ease, background-color .16s ease, transform .16s ease;
+  }
+  .card:hover{
+    border-color:var(--edge-2);background:var(--panel-hover);transform:translateY(-2px);
+  }
+  .card h2{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 8px;font-weight:600;
+  }
   .card p{margin:0;font-size:13.5px;line-height:1.55;color:var(--muted)}
-  .warn{margin-top:36px;border-left:3px solid var(--accent);background:rgba(232,131,74,.07);
-    padding:14px 16px;border-radius:0 9px 9px 0}
-  .warn p{margin:0;font-size:13.5px;line-height:1.6;color:#cdd4d8}
-  footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--edge);
-    font-size:12.5px;line-height:1.65;color:var(--faint)}
-  footer a{color:var(--muted)}
+
+  /* Interactive Curriculum & Specimen Explorer */
+  .explorer{
+    margin-top:42px;
+    background:var(--panel);
+    border:1px solid var(--edge-2);
+    border-radius:15px;
+    padding:24px;
+    box-shadow:0 12px 36px rgba(0,0,0,.24);
+  }
+  .exp-top{
+    display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px 16px;
+  }
+  .exp-meta{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  }
+  .sync-pill{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    padding:4px 9px;border-radius:999px;
+    background:var(--cool-soft);border:1px solid var(--cool-edge);color:#cdeeed;
+  }
+  .mode-switch{
+    display:inline-flex;align-items:center;background:var(--bg);
+    border:1px solid var(--edge-2);border-radius:8px;padding:2px;gap:2px;
+  }
+  .mode-switch button{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    background:transparent;color:var(--muted);border:0;border-radius:6px;
+    padding:5px 10px;cursor:pointer;transition:background-color .14s ease, color .14s ease;
+  }
+  .mode-switch button:hover{color:var(--ink)}
+  .mode-switch button.on{background:var(--accent);color:#1a0f06}
+
+  .exp-controls{
+    margin-top:16px;display:flex;flex-direction:column;gap:12px;
+  }
+  .search-row{
+    position:relative;display:flex;align-items:center;
+  }
+  .search-icon{
+    position:absolute;left:13px;pointer-events:none;color:var(--faint);
+    font-family:var(--mono);font-size:13px;
+  }
+  .search-input{
+    width:100%;font:14px var(--sans);color:var(--ink);
+    background:var(--bg);border:1px solid var(--edge-2);border-radius:10px;
+    padding:11px 76px 11px 36px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .search-input::placeholder{color:var(--faint)}
+  .search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(232,131,74,.14);outline:none}
+  .search-kbd{
+    position:absolute;right:12px;font-family:var(--mono);font-size:11px;
+    color:var(--faint);background:var(--panel-2);border:1px solid var(--edge);
+    border-radius:5px;padding:2px 7px;pointer-events:none;
+  }
+  .search-clr{
+    position:absolute;right:10px;display:none;
+    background:var(--panel-2);color:var(--ink);border:1px solid var(--edge-2);
+    border-radius:6px;font-family:var(--mono);font-size:11px;padding:3px 8px;cursor:pointer;
+  }
+  .search-row.has-q .search-kbd{display:none}
+  .search-row.has-q .search-clr{display:inline-block}
+
+  .tabs{
+    display:flex;flex-wrap:wrap;gap:7px;
+  }
+  .tab{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--sans);font-size:13px;font-weight:550;
+    color:var(--muted);background:var(--bg);
+    border:1px solid var(--edge);border-radius:999px;
+    padding:7px 13px;cursor:pointer;
+    transition:color .14s ease, background-color .14s ease, border-color .14s ease;
+  }
+  .tab:hover{color:var(--ink);border-color:var(--edge-2);background:var(--panel-2)}
+  .tab[aria-selected="true"]{
+    color:#1a0f06;background:var(--accent);border-color:var(--accent);font-weight:650;
+  }
+  .tab .cnt{
+    font-family:var(--mono);font-size:10.5px;padding:1px 6px;border-radius:999px;
+    background:rgba(255,255,255,.07);color:var(--faint);
+  }
+  .tab[aria-selected="true"] .cnt{
+    background:rgba(26,15,6,.22);color:#1a0f06;font-weight:700;
+  }
+
+  .subtabs{
+    display:none;flex-wrap:wrap;align-items:center;gap:6px;
+    padding-top:2px;
+  }
+  .subtabs.show{display:flex}
+  .subtab-lbl{
+    font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--faint);margin-right:4px;
+  }
+  .subtab{
+    font-family:var(--mono);font-size:11px;color:var(--muted);
+    background:rgba(13,19,23,.65);border:1px solid var(--edge);border-radius:7px;
+    padding:4px 10px;cursor:pointer;transition:all .14s ease;
+  }
+  .subtab:hover{color:var(--ink);border-color:var(--edge-2)}
+  .subtab.on{color:#dcf4f3;background:var(--cool-soft);border-color:var(--cool-edge);font-weight:600}
+
+  .exp-status-bar{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:8px 12px;margin:14px 0 12px;padding-bottom:10px;border-bottom:1px solid var(--edge);
+    font-size:12.5px;color:var(--faint);
+  }
+  .exp-status-bar strong{color:var(--ink);font-weight:600}
+  .link-btn{
+    font-family:var(--mono);font-size:11.5px;color:var(--accent);
+    background:var(--accent-soft);border:1px solid var(--accent-edge);
+    border-radius:7px;padding:5px 11px;cursor:pointer;font-weight:600;
+    transition:background-color .14s ease, transform .14s ease;
+  }
+  .link-btn:hover{background:rgba(232,131,74,.24);transform:translateY(-1px)}
+
+  .exp-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:12px;
+  }
+  .exp-card{
+    display:flex;flex-direction:column;justify-content:space-between;
+    background:var(--bg);border:1px solid var(--edge);border-radius:11px;
+    padding:14px 15px;
+    transition:border-color .16s ease, background-color .16s ease, transform .16s ease, box-shadow .16s ease;
+  }
+  .exp-card:hover{
+    border-color:var(--accent-edge);background:#11191f;
+    transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.3);
+  }
+  .exp-card[data-bucket="pathways"]:hover,.exp-card[data-bucket="anatomy"]:hover{
+    border-color:var(--cool-edge);
+  }
+  .ec-head{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px;
+  }
+  .ec-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  .ec-dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto;background:var(--accent)}
+  .exp-card[data-bucket="syndromes"] .ec-dot{background:#f59e0b}
+  .exp-card[data-bucket="pathways"] .ec-dot{background:var(--cool)}
+  .exp-card[data-bucket="pathology"] .ec-dot{background:#e06c75}
+  .exp-card[data-bucket="anatomy"] .ec-dot{background:#7fb8d8}
+  .ec-stat{
+    font-family:var(--mono);font-size:10px;color:var(--faint);
+    background:var(--panel);border:1px solid var(--edge);border-radius:5px;
+    padding:2px 6px;white-space:nowrap;
+  }
+  .ec-title{
+    font-size:14.5px;font-weight:620;line-height:1.3;color:var(--ink);margin:0 0 6px;
+  }
+  .ec-sum{
+    font-size:12.8px;line-height:1.52;color:var(--muted);margin:0;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .ec-chips{
+    display:flex;flex-wrap:wrap;gap:4px;margin-top:9px;
+  }
+  .ec-chip{
+    font-family:var(--mono);font-size:10px;color:var(--faint);
+    background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+    border-radius:4px;padding:1.5px 6px;max-width:100%;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .ec-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);
+  }
+  .ec-open{
+    display:inline-flex;align-items:center;gap:5px;
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    color:var(--accent);text-decoration:none;
+    transition:color .14s ease, transform .14s ease;
+  }
+  .exp-card[data-bucket="pathways"] .ec-open,.exp-card[data-bucket="anatomy"] .ec-open{
+    color:var(--cool);
+  }
+  .ec-open:hover{filter:brightness(1.18);transform:translateX(2px)}
+  .ec-alt{
+    font-family:var(--mono);font-size:10.5px;color:var(--faint);text-decoration:none;
+    padding:2px 6px;border-radius:5px;border:1px solid transparent;
+    transition:color .14s ease, border-color .14s ease;
+  }
+  .ec-alt:hover{color:var(--ink);border-color:var(--edge-2)}
+
+  .exp-more-wrap{
+    margin-top:16px;text-align:center;
+  }
+  .exp-empty{
+    padding:32px 16px;text-align:center;color:var(--muted);
+    background:var(--bg);border:1px dashed var(--edge-2);border-radius:11px;
+    font-size:14px;
+  }
+
+  /* 3D Controls & Study Quick-Guide */
+  .guide-grid{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px;
+  }
+  .gcard{
+    background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:15px 16px;
+    transition:border-color .15s ease, background-color .15s ease;
+  }
+  .gcard:hover{border-color:var(--edge-2);background:var(--panel-hover)}
+  .gcard h3{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--cool);margin:0 0 9px;font-weight:600;
+  }
+  .gcard ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .gcard li{font-size:12.8px;line-height:1.48;color:var(--muted)}
+  kbd{
+    font-family:var(--mono);font-size:10.5px;font-weight:600;
+    background:var(--panel-2);color:var(--ink);
+    border:1px solid var(--edge-2);border-bottom-width:2px;
+    border-radius:4px;padding:1px 5px;white-space:nowrap;
+  }
+
+  /* Disclaimer & Footer */
+  .warn{
+    margin-top:38px;border-left:3px solid var(--accent);
+    background:rgba(232,131,74,.075);border-top:1px solid rgba(232,131,74,.18);
+    border-right:1px solid rgba(232,131,74,.18);border-bottom:1px solid rgba(232,131,74,.18);
+    padding:15px 18px;border-radius:0 11px 11px 0;
+  }
+  .warn p{margin:0;font-size:13.5px;line-height:1.6;color:#d5dce0}
+  .warn strong{color:var(--ink)}
+
+  footer{
+    margin-top:34px;padding-top:22px;border-top:1px solid var(--edge);
+    font-size:12.5px;line-height:1.68;color:var(--faint);
+  }
+  .foot-links{
+    display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;
+    font-family:var(--mono);font-size:11.5px;
+  }
+  footer a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;transition:color .14s ease}
+  footer a:hover{color:var(--ink)}
+
+  noscript .ns-box{
+    margin:16px auto 0;max-width:1080px;padding:13px 18px;border-radius:10px;
+    background:rgba(239,107,91,.14);border:1px solid rgba(239,107,91,.45);
+    color:#ffd7d1;font-size:13.5px;
+  }
+
+  @media (max-width:960px){
+    .stats-strip,.grid,.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:640px){
+    .wrap{padding:24px 14px 48px}
+    .hero{padding:22px 18px 20px;border-radius:14px}
+    .explorer{padding:18px 15px;border-radius:13px}
+    .stats-strip,.grid,.guide-grid,.exp-grid{grid-template-columns:1fr}
+    .ctas .cta,.ctas .cta2{width:100%;justify-content:center}
+    .tabs{
+      flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;
+      scrollbar-width:thin;
+    }
+    .tab{white-space:nowrap;flex:0 0 auto}
+  }
   @media (prefers-reduced-motion:no-preference){
-    .wrap{animation:in .4s ease-out both}
+    .wrap{animation:in .38s ease-out both}
     @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   }
 
@@ -194,6 +602,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
 <!-- PRAZG_SUITE_BANNER_START -->
 <nav class="prazg-suite-bar" aria-label="Open Neuro &amp; Pathology AI Suite">
   <a class="prazg-suite-brand" href="https://github.com/prazg" target="_blank" rel="noopener noreferrer" title="Open-access neurosurgery, neuroimaging, neuro-oncology &amp; pathology AI suite by @prazg">
@@ -215,45 +624,847 @@
   <a class="prazg-suite-gh" href="https://github.com/prazg" target="_blank" rel="noopener noreferrer" title="View all repositories on GitHub">@prazg &#8599;</a>
 </nav>
 <!-- PRAZG_SUITE_BANNER_END -->
-  <main class="wrap">
-    <p class="eyebrow">Neurosurgical teaching resource</p>
-    <h1>Advanced 3D Surgical<br/>Anatomy Atlas — Brain &amp; Spine</h1>
-    <p class="lede">An interactive 3D atlas of craniospinal anatomy and neuro-oncological pathology.
-      Structures are clickable and labelled with anatomy notes, operative approaches and pitfalls,
-      with captioned reference illustrations, cadaveric plates from the Rhoton Collection, lesion-localisation and functional-pathway walkthroughs, and a live 2D section view.</p>
 
-    <div class="ctas"><a class="cta" id="ctaMain" href="atlas.html">Open the atlas</a><a class="cta2" id="ctaAlt" href="mobile.html">Mobile version</a></div>
-    <p class="note" id="ctaNote">Desktop loads ~9 MB · needs WebGL · phone-friendly mobile version available</p>
+  <noscript>
+    <div class="ns-box">JavaScript is currently disabled. Enable JavaScript and WebGL to launch the interactive 3D neurosurgical viewer and browse dynamic filters.</div>
+  </noscript>
 
-    <div class="grid">
-      <div class="card"><h2>Anatomy &amp; Skull Base</h2>
-        <p>Craniospinal specimen, 327-structure MRI brain, skull sutures &amp; keypoints, 125 µm OpenEar temporal bone, TopCoW Circle of Willis variants, and PAM50 spinal cord tracts.</p></div>
-      <div class="card"><h2>MNI Overlay &amp; Caliper</h2>
-        <p>Co-registered HCP-1065 tracts, VENAT 7T cerebral veins, CIT168/AAN/SUIT deep nuclei &amp; cerebellar lobules, arterial territories, DBS targets and 3D mm caliper.</p></div>
-      <div class="card"><h2>76 Guided Walkthroughs</h2>
-        <p>34 cranial, skull-base, functional &amp; spinal approaches, 23 cranial/spinal lesion syndromes, 17 pathways &amp; safe-entry guides, and left + right Klingler dissections.</p></div>
-      <div class="card"><h2>Pathology &amp; 2D Section</h2>
-        <p>Saccular aneurysms, 9 meningioma sites, GBM &amp; WHO 2021 gliomas, longitudinal SRS brain metastases, paediatric tumours, vestibular schwannoma, Rhoton plates &amp; live 2D section.</p></div>
+  <main class="wrap" id="mainContent">
+    <section class="hero" aria-labelledby="heroHeading">
+      <div class="hero-top">
+        <p class="eyebrow">Neurosurgical Teaching Portal · Brain &amp; Spine</p>
+        <div class="cap-pill" id="webglPill" role="status" aria-live="polite" data-state="ok">
+          <span class="cap-dot" aria-hidden="true"></span>
+          <span id="webglTxt">Checking WebGL2 &amp; device readiness…</span>
+        </div>
+      </div>
+
+      <h1 id="heroHeading">Advanced 3D Surgical Anatomy Atlas — Brain &amp; Spine</h1>
+      <p class="lede">An interactive browser-based 3D atlas of craniospinal microanatomy, white-matter tractography, skull-base corridors, and neuro-oncological pathology. Every structure is clickable with surgical anatomy notes, pitfalls, captioned Servier illustrations, cadaveric stereo plates from the Rhoton Collection, stereotactic 3D calipers, and a live radiological 2D cross-section.</p>
+
+      <div class="ctas">
+        <a class="cta" id="ctaMain" href="atlas.html">Open Desktop Atlas &#8594;</a>
+        <a class="cta2" id="ctaAlt" href="mobile.html">Mobile Edition</a>
+        <a class="cta2 cta-cool" id="ctaOverlay" href="atlas.html#specimen=overlay">MNI152 Overlay (12 Layers)</a>
+        <a class="cta2" href="#explorer">Browse 76 Walkthroughs &#8595;</a>
+      </div>
+      <p class="note" id="ctaNote">Desktop embeds core craniospinal model (~9 MB) · 29 GLB cohorts stream on demand · Zero patient data upload</p>
+
+      <div class="stats-strip" aria-label="Atlas scope summary">
+        <div class="stat">
+          <div class="stat-val">29 <span>3D GLBs</span></div>
+          <div class="stat-lbl">2,031 named &amp; classified meshes with 436 surgical lookup notes</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">76 <span>Walkthroughs</span></div>
+          <div class="stat-lbl">34 operative approaches, 23 syndromes, 17 pathways &amp; 2 Klingler dissections</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">12 <span>MNI Layers</span></div>
+          <div class="stat-lbl">HCP-1065 tracts, VENAT 7T veins, CIT168/AAN/SUIT nuclei &amp; DBS targets</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">102 <span>Rhoton Plates</span></div>
+          <div class="stat-lbl">1,171 vector-outlined cadaveric dissections + 56 Servier surgical figures</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid" aria-label="Core atlas capabilities">
+      <div class="card">
+        <h2>Anatomy &amp; Skull Base</h2>
+        <p>Craniospinal specimen, 327-structure SPL MRI brain, 20-bone skull sutures &amp; 17 craniometric keypoints, 125 µm OpenEar temporal bone, TopCoW Circle of Willis variants, and PAM50 spinal cord tracts.</p>
+      </div>
+      <div class="card">
+        <h2>MNI Overlay &amp; Caliper</h2>
+        <p>Co-registered HCP-1065 87 bundles, VENAT 7T cerebral veins, 55 CIT168/AAN/SUIT deep nuclei &amp; cerebellar lobules, arterial territories, consensus AC–PC/DBS targets, and 3D mm surgical caliper.</p>
+      </div>
+      <div class="card">
+        <h2>76 Guided Walkthroughs</h2>
+        <p>34 cranial, endoscopic skull-base, ventricular/DBS &amp; spinal approaches with surgeon's-view camera, 23 lesion syndromes, 17 functional pathways &amp; safe-entry zones, plus left &amp; right BraDiPho dissections.</p>
+      </div>
+      <div class="card">
+        <h2>Pathology &amp; 2D Section</h2>
+        <p>Saccular aneurysms, 9 meningioma sites, 16-case GBM &amp; WHO 2021 molecular gliomas, longitudinal SRS brain metastases, paediatric tumours, vestibular schwannoma, Rhoton stereo &amp; live 2D section.</p>
+      </div>
     </div>
 
-    <div class="warn">
+    <section class="explorer" id="explorer" aria-labelledby="expHeading">
+      <div class="exp-top">
+        <div>
+          <p class="sec-eyebrow">Interactive Deep-Link Directory</p>
+          <h2 class="sec-title" id="expHeading">Curriculum &amp; 3D Specimen Explorer</h2>
+          <p class="sec-sub">Filter all 76 step-by-step surgical walkthroughs and 18 standalone 3D anatomy &amp; pathology cohorts, then launch directly into the exact corridor or specimen.</p>
+        </div>
+        <div class="exp-meta">
+          <span class="sync-pill" id="syncBadge">Catalog ready · 94 modules</span>
+          <div class="mode-switch" role="group" aria-label="Preferred viewer target">
+            <button type="button" id="tgtDesktop" class="on" aria-pressed="true">Desktop</button>
+            <button type="button" id="tgtMobile" aria-pressed="false">Mobile</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-controls">
+        <div class="search-row" id="searchRow">
+          <span class="search-icon" aria-hidden="true">&#8981;</span>
+          <input
+            type="search"
+            id="curSearch"
+            class="search-input"
+            placeholder="Search approaches, syndromes, tracts, nerves or tumours — e.g. pterional, Kawase, Wallenberg, CN VII, STN, glioma"
+            autocomplete="off"
+            aria-label="Search walkthroughs and 3D specimens"
+          />
+          <span class="search-kbd" aria-hidden="true">/</span>
+          <button type="button" class="search-clr" id="searchClr" aria-label="Clear search">Clear &#215;</button>
+        </div>
+
+        <div class="tabs" id="catTabs" role="tablist" aria-label="Curriculum categories">
+          <button type="button" class="tab" role="tab" data-cat="all" aria-selected="true" tabindex="0">All <span class="cnt" id="cnt-all">94</span></button>
+          <button type="button" class="tab" role="tab" data-cat="approaches" aria-selected="false" tabindex="-1">Cranial &amp; Skull-Base Approaches <span class="cnt" id="cnt-approaches">34</span></button>
+          <button type="button" class="tab" role="tab" data-cat="syndromes" aria-selected="false" tabindex="-1">Lesion Syndromes <span class="cnt" id="cnt-syndromes">23</span></button>
+          <button type="button" class="tab" role="tab" data-cat="pathways" aria-selected="false" tabindex="-1">Functional Pathways <span class="cnt" id="cnt-pathways">17</span></button>
+          <button type="button" class="tab" role="tab" data-cat="pathology" aria-selected="false" tabindex="-1">3D Pathology &amp; Dissections <span class="cnt" id="cnt-pathology">11</span></button>
+          <button type="button" class="tab" role="tab" data-cat="anatomy" aria-selected="false" tabindex="-1">3D Anatomy &amp; MNI <span class="cnt" id="cnt-anatomy">9</span></button>
+        </div>
+
+        <div class="subtabs" id="apprSubtabs" role="group" aria-label="Operative approach sub-disciplines">
+          <span class="subtab-lbl">Sub-discipline:</span>
+          <button type="button" class="subtab on" data-sub="all">All Approaches (34)</button>
+          <button type="button" class="subtab" data-sub="Cranial">Cranial (10)</button>
+          <button type="button" class="subtab" data-sub="Skull base &amp; endoscopic">Skull Base &amp; Endoscopic (7)</button>
+          <button type="button" class="subtab" data-sub="Ventricular &amp; functional">Ventricular &amp; DBS (8)</button>
+          <button type="button" class="subtab" data-sub="Spinal">Spinal (9)</button>
+        </div>
+      </div>
+
+      <div class="exp-status-bar">
+        <div id="expStatus" role="status" aria-live="polite">Showing 12 featured modules of 94</div>
+        <button type="button" class="link-btn" id="toggleAllBtn">Show all 94 modules &#8595;</button>
+      </div>
+
+      <div class="exp-grid" id="expGrid" role="region" aria-label="Filtered curriculum modules"></div>
+      <div class="exp-more-wrap" id="expMoreWrap">
+        <button type="button" class="link-btn" id="expMoreBtn">Show all 94 modules &#8595;</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="guideHeading">
+      <div class="sec-head">
+        <div>
+          <p class="sec-eyebrow">3D Controls &amp; Study Quick-Guide</p>
+          <h2 class="sec-title" id="guideHeading">Interactive Dissection, Stereotaxy &amp; Active-Recall Tools</h2>
+        </div>
+      </div>
+
+      <div class="guide-grid">
+        <div class="gcard">
+          <h3>1 · Orbit, Pan &amp; Depth Drill</h3>
+          <ul>
+            <li><kbd>Drag</kbd> orbit · <kbd>Right-drag</kbd> or <kbd>Shift+drag</kbd> pan · <kbd>Scroll</kbd> zoom</li>
+            <li><kbd>Double-click</kbd> structure to smoothly fly camera to target</li>
+            <li>Click the same spot repeatedly to cycle deeper through translucent shells (<kbd>Layer 1 → N</kbd>)</li>
+            <li>Click <kbd>R</kbd> <kbd>L</kbd> <kbd>A</kbd> <kbd>P</kbd> <kbd>S</kbd> <kbd>I</kbd> compass poles to align views</li>
+          </ul>
+        </div>
+        <div class="gcard">
+          <h3>2 · Virtual Peel &amp; X-Ray</h3>
+          <ul>
+            <li><kbd>H</kbd> peel (hide) obstructing bone, cortex or tumour compartments; <kbd>Shift+H</kbd> restore all</li>
+            <li><kbd>I</kbd> isolate selected structure · <kbd>R</kbd> reset camera framing</li>
+            <li><kbd>X</kbd> toggle X-Ray translucency to highlight deep vessels, ventricles, tracts &amp; lesions</li>
+            <li><kbd>L</kbd> toggle priority-placed 3D anatomical pin labels</li>
+          </ul>
+        </div>
+        <div class="gcard">
+          <h3>3 · 3D Caliper &amp; 2D Section</h3>
+          <ul>
+            <li><kbd>M</kbd> 3D surgical caliper: click two points for Euclidean <kbd>mm</kbd> + <kbd>ΔR/L · ΔA/P · ΔS/I</kbd> offsets</li>
+            <li><kbd>Sag</kbd> <kbd>Cor</kbd> <kbd>Ax</kbd> plane clipping with live radiological <kbd>2</kbd> 2D section view</li>
+            <li>Zoom, pan &amp; click contours inside the 2D slice panel to cross-select in 3D</li>
+            <li><kbd>+ .glb</kbd> load custom local 3D Slicer / Blender meshes offline</li>
+          </ul>
+        </div>
+        <div class="gcard">
+          <h3>4 · Walkthroughs, Quiz &amp; Stereo</h3>
+          <ul>
+            <li><kbd>/</kbd> instant structure &amp; approach search · <kbd>?</kbd> shortcut sheet</li>
+            <li><kbd>&#8592;</kbd> <kbd>&#8594;</kbd> step progressive craniotomy reveals &amp; 102 Rhoton cadaveric plates</li>
+            <li><kbd>Quiz</kbd> active-recall self-test (<em>Find-it</em> &amp; <em>Name-it</em> with side-aware hints)</li>
+            <li><kbd>3D</kbd> Dubois red–cyan anaglyph stereo, <kbd>VR</kbd> WebXR &amp; PNG snapshot export</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="warn" role="note" aria-label="Educational use disclaimer">
       <p><strong>Educational use only.</strong> A teaching aid built from open, de-identified datasets.
       Not a medical device, not patient-specific, and not for diagnosis, operative planning or navigation.
-      Craniotomy footprints and entry points are schematic approximations.</p>
+      Craniotomy footprints, stereotactic coordinates and entry points are schematic approximations.</p>
     </div>
 
     <footer>
-      Built from open anatomical and imaging collections — BodyParts3D, the SPL atlases, HCPex, HCP-1065,
-      JHU, Jülich, VENAT 7T veins, CIT168, Harvard AAN, SUIT, OpenEar temporal bone, PAM50 spinal cord, TopCoW, BraDiPho left &amp; right fibre dissections, TCIA/BraTS/PROTEAS/RSNA pathology cohorts, Servier Medical Art illustrations and Rhoton Collection plates (courtesy of the Rhoton Collection, American Association of Neurological Surgeons (AANS)/Neurosurgical Research and Education Foundation (NREF)) — each under its own terms. Full attribution is in the atlas's
-      <em>Credits &amp; licence</em> panel and in
-      <a href="https://github.com/prazg/3D_Neurosurgical_Atlas">the repository</a>.
+      <div>
+        Built from open anatomical and imaging collections — BodyParts3D, the SPL atlases, HCPex, HCP-1065,
+        JHU, Jülich, VENAT 7T veins, CIT168, Harvard AAN, SUIT, OpenEar temporal bone, PAM50 spinal cord, TopCoW, BraDiPho left &amp; right fibre dissections, TCIA/BraTS/PROTEAS/RSNA pathology cohorts, Servier Medical Art illustrations and Rhoton Collection plates (courtesy of the Rhoton Collection, American Association of Neurological Surgeons (AANS)/Neurosurgical Research and Education Foundation (NREF)) — each under its own terms. Full attribution is in the atlas's
+        <em>Credits &amp; licence</em> panel and in
+        <a href="https://github.com/prazg/3D_Neurosurgical_Atlas" target="_blank" rel="noopener noreferrer">the repository</a>.
+      </div>
+      <div class="foot-links">
+        <a href="atlas.html">Desktop 3D Viewer</a>
+        <a href="mobile.html">Mobile Touch Viewer</a>
+        <a href="https://github.com/prazg/3D_Neurosurgical_Atlas/blob/main/NOTICE" target="_blank" rel="noopener noreferrer">Dataset Attributions (NOTICE)</a>
+        <a href="https://github.com/prazg/3D_Neurosurgical_Atlas/blob/main/LICENSE.md" target="_blank" rel="noopener noreferrer">Code Licence (MIT)</a>
+      </div>
     </footer>
   </main>
+
 <script>
-  (function(){if(Math.min(screen.width,screen.height)<=820&&matchMedia('(pointer:coarse)').matches){
-    var m=document.getElementById('ctaMain'),a=document.getElementById('ctaAlt');
-    m.href='mobile.html';m.textContent='Open the mobile atlas';a.href='atlas.html';a.textContent='Desktop version';
-    document.getElementById('ctaNote').textContent='Phone layout · specimens download on demand · needs WebGL';}})();
+(function(){
+  'use strict';
+
+  /* Strict HTML escaping for zero-XSS rendering */
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+  function safeId(s){
+    s = String(s || '').trim();
+    return /^[a-z0-9_]+$/i.test(s) ? s : '';
+  }
+  function safeSpecKey(s){
+    s = String(s || '').trim();
+    if (s === 'core' || s === 'overlay') return s;
+    return /^[a-z0-9._-]+\.(glb|gltf)$/i.test(s) && s.indexOf('..') < 0 ? s : '';
+  }
+
+  /* 1. Device & WebGL2 Readiness Probe */
+  var isCoarseMobile = false;
+  try {
+    isCoarseMobile = Math.min(screen.width || 9999, screen.height || 9999) <= 820 &&
+      typeof matchMedia === 'function' && matchMedia('(pointer:coarse)').matches;
+  } catch (_) {}
+
+  var state = {
+    target: isCoarseMobile ? 'mobile' : 'desktop',
+    cat: 'all',
+    sub: 'all',
+    q: '',
+    expandAll: false
+  };
+
+  function syncHeroCTAs(){
+    var m = document.getElementById('ctaMain');
+    var a = document.getElementById('ctaAlt');
+    var ov = document.getElementById('ctaOverlay');
+    var note = document.getElementById('ctaNote');
+    if (!m || !a || !ov || !note) return;
+    if (isCoarseMobile) {
+      m.href = 'mobile.html';
+      m.innerHTML = 'Open Mobile Atlas &#8594;';
+      a.href = 'atlas.html';
+      a.textContent = 'Desktop Edition';
+      ov.href = 'mobile.html#specimen=overlay';
+      note.textContent = 'Phone-optimised touch UI · specimens stream on demand · WebGL 3D ready';
+    } else {
+      m.href = 'atlas.html';
+      m.innerHTML = 'Open Desktop Atlas &#8594;';
+      a.href = 'mobile.html';
+      a.textContent = 'Mobile Edition';
+      ov.href = 'atlas.html#specimen=overlay';
+      note.textContent = 'Desktop embeds core craniospinal model (~9 MB) · 29 GLB cohorts stream on demand · Zero patient data upload';
+    }
+  }
+  syncHeroCTAs();
+
+  function probeWebGL(){
+    var pill = document.getElementById('webglPill');
+    var txt = document.getElementById('webglTxt');
+    if (!pill || !txt) return;
+    var tier = 'none', maxTex = 0;
+    try {
+      var cv = document.createElement('canvas');
+      var gl = cv.getContext('webgl2', { powerPreference: 'high-performance' });
+      if (gl) {
+        tier = 'webgl2';
+      } else {
+        gl = cv.getContext('webgl') || cv.getContext('experimental-webgl');
+        if (gl) tier = 'webgl1';
+      }
+      if (gl) {
+        try { maxTex = Number(gl.getParameter(gl.MAX_TEXTURE_SIZE)) || 0; } catch (_) {}
+        try {
+          var lose = gl.getExtension('WEBGL_lose_context');
+          if (lose) lose.loseContext();
+        } catch (_) {}
+      }
+    } catch (_) {
+      tier = 'none';
+    }
+
+    var devLabel = isCoarseMobile ? 'Touch / Mobile UI' : 'Desktop Viewport';
+    var texLabel = maxTex >= 4096 ? (' · ' + Math.round(maxTex / 1024) + 'K tex') : '';
+    var isFile = location.protocol === 'file:';
+
+    if (tier === 'none') {
+      pill.setAttribute('data-state', 'err');
+      txt.innerHTML = '<strong>WebGL Unavailable</strong> <span class="cap-sep">·</span> <span class="cap-sub">Enable hardware acceleration in browser settings</span>';
+      return;
+    }
+    if (tier === 'webgl1' || isFile) {
+      pill.setAttribute('data-state', 'warn');
+      var tierStr = tier === 'webgl2' ? 'WebGL2 Ready' : 'WebGL1 Compatible';
+      var extra = isFile ? 'file:// mode (serve via HTTP for all 29 GLBs)' : (devLabel + texLabel);
+      txt.innerHTML = '<strong>' + esc(tierStr) + '</strong> <span class="cap-sep">·</span> <span class="cap-sub">' + esc(extra) + '</span>';
+    } else {
+      pill.setAttribute('data-state', 'ok');
+      txt.innerHTML = '<strong>WebGL2 Ready</strong> <span class="cap-sep">·</span> <span class="cap-sub">' + esc(devLabel + texLabel) + '</span>';
+    }
+
+    if (navigator.xr && typeof navigator.xr.isSessionSupported === 'function') {
+      navigator.xr.isSessionSupported('immersive-vr').then(function(ok){
+        if (ok && tier !== 'none') {
+          var span = document.createElement('span');
+          span.innerHTML = ' <span class="cap-sep">·</span> <span class="cap-sub">WebXR VR</span>';
+          txt.appendChild(span);
+        }
+      }).catch(function(){});
+    }
+  }
+  probeWebGL();
+
+  /* 2. Complete Static Fallback Catalog (76 Walkthroughs + 18 Distinct 3D Specimens = 94 Modules) */
+  var STATIC_SPECS = [
+    ['core', 'Brain & cervical spine (core specimen)', 'Anatomy', 'Core · Offline-ready', 'Embedded core craniospinal overview: cerebrum, diencephalon, midbrain, pons, medulla, cerebellum, spinal cord, C1–C7 vertebrae, occipital bone & vertebral arteries.', ['Embedded desktop', '11 regions']],
+    ['overlay', 'MNI152 stereotactic & tractography overlay', 'Anatomy', '12 layers · MNI152', 'Co-registered ICBM152 shell with 87 HCP-1065 white-matter & cranial-nerve bundles, 20 JHU tracts, VENAT 7T cerebral veins, 55 CIT168/AAN/SUIT deep nuclei, cerebellar lobules, arterial territories, HCP-MMP/Jülich cortex & consensus AC–PC/DBS targets.', ['HCP-1065', 'VENAT 7T', 'DBS sweet spots']],
+    ['approaches_head.glb', 'Approaches, syndromes & pathways composite', 'Anatomy', 'Composite · 61 guides', 'Composite surgical teaching head combining SPL Head & Neck CT skull and cervical vessels, registered 327-structure SPL-PNL brain, HCP-1065 tracts/cranial nerves, MRA arteries & schematic dural sinuses.', ['Composite head', 'Craniotomy corridors']],
+    ['skull_bones.glb', 'Skull, sutures & craniometric keypoints', 'Anatomy', '20 bones · 17 keypoints', 'Individually coloured cranial and facial bones (BodyParts3D) with 10 suture bands and 17 surgical keypoints including pterion, asterion, MacCarty keyhole, bregma, lambda, inion & basion.', ['BodyParts3D', 'Sutures & keyhole']],
+    ['openear_temporal.glb', 'Temporal bone & otic capsule (125 µm)', 'Anatomy', '14 structures · OpenEar', 'High-resolution 125 µm CBCT & micro-slicing temporal bone housing intratemporal CN VII, chorda tympani, CN VIII, ossicles, cochlea, semicircular canals, petrous ICA & sigmoid sinus.', ['125 µm CBCT', 'CN VII / VIII']],
+    ['spl_brain.glb', 'Brain, detailed MRI parcellation', 'Anatomy', '327 structures · SPL', 'Expert-segmented MRI neuroanatomy atlas (SPL-PNL) resolving individual cortical gyri, subcortical nuclei, brainstem subdivisions, ventricles and cranial nerves.', ['SPL-PNL MRI', '327 structures']],
+    ['head_neck_ct.glb', 'Head, neck & craniotomy footprints', 'Anatomy', '59 structures · 6 flaps', 'Craniovertebral CT skeleton, neck musculature, carotids, vertebrals & internal jugulars with six schematic craniotomy footprints projected onto the outer table.', ['SPL Head & Neck', '6 bone flaps']],
+    ['circle_of_willis.glb', 'Circle of Willis & angiographic variants', 'Anatomy', '4 MRA/CTA variants', 'Side-by-side comparison of four real 13-vessel TopCoW angiographic trees: complete balanced ring, aplastic A1, unilateral fetal-type PCA, and triplicated ACA (3rd-A2).', ['TopCoW MRA/CTA', 'Collateral variants']],
+    ['pam50_spinal_cord.glb', 'Spinal cord & white-matter tracts', 'Anatomy', '39 structures · PAM50', 'C3–C7 cervical enlargement template with 30 bilateral ascending & descending white-matter tracts, ventral/intermediate/dorsal grey horns, dorsal rootlets & CSF contour.', ['PAM50 C3–C7', '30 tracts']],
+    ['case_aneurysms.glb', 'Intracranial saccular aneurysms', 'Pathology cases', '5 vascular phenotypes', 'Five de-identified angiographic Circle of Willis trees with segmented saccular aneurysms at AComA, MCA bifurcation, PComA, supraclinoid ICA and cavernous ICA.', ['RSNA Vascular', 'AComA · MCA · PComA']],
+    ['case_library_meningioma.glb', 'Meningioma by skull-base & dural site', 'Pathology cases', '9 sites · BraTS-MEN', 'Nine pre-operative meningiomas with vasogenic oedema on one shared brain: olfactory groove, clinoidal & lateral sphenoid wing, convexity, parasagittal, falcine, petroclival & CPA.', ['BraTS-MEN', '9 dural sites']],
+    ['case_gbm_upenn002.glb', 'Glioblastoma, right temporal (3-zone)', 'Pathology cases', 'Single case · UPenn-GBM', 'De novo right temporal-insular glioblastoma segmented into proliferating contrast-enhancing rim, central necrotic cavity and infiltrative T2/FLAIR peritumoural envelope.', ['UPenn-GBM', 'Enhancing + FLAIR']],
+    ['case_library_gbm.glb', 'Glioblastoma by anatomical location', 'Pathology cases', '16 cases · 9 regions', 'Sixteen glioblastomas co-registered to a single reference brain across frontal, peri-sylvian, insular, temporal, parietal, occipital, deep thalamic and posterior-fossa corridors.', ['16 GBM cases', 'Corridor comparison']],
+    ['case_library_molecular.glb', 'Glioma by WHO 2021 molecular class', 'Pathology cases', '6 cases · WHO CNS5', 'Contrasts enhancing IDH-wildtype grade 4 glioblastoma against non-enhancing IDH-mutant astrocytomas (grades 2–4) and 1p/19q-codeleted oligodendroglioma.', ['UCSF-PDGM', 'WHO CNS5 (2021)']],
+    ['case_brain_mets.glb', 'Brain metastases & SRS response', 'Pathology cases', 'Longitudinal · PROTEAS', 'Pre-treatment parenchymal brain metastases and vasogenic oedema paired with post-stereotactic radiosurgery longitudinal follow-up contours.', ['PROTEAS', 'Pre/Post SRS']],
+    ['case_peds_tumours.glb', 'Paediatric posterior-fossa & midline tumours', 'Pathology cases', '5 cases · BraTS-PED', 'Medulloblastoma (fourth-ventricular/vermian), cystic-solid cerebellar pilocytic astrocytoma, intrinsic pontine DIPG/DMG, hypothalamic-chiasmatic & thalamic gliomas.', ['BraTS-PEDs', 'Posterior fossa & DMG']],
+    ['case_vestibular_schwannoma.glb', 'Vestibular schwannoma & cochlea', 'Pathology cases', '0.2 → 7.7 mL series', 'Three tumours spanning intracanalicular to brainstem-compressing CPA stages alongside contoured cochlea and a longitudinal serial-growth pair.', ['TCIA VS-SEG', 'Hearing preservation']],
+    ['case_spine_mets.glb', 'Spinal metastasis (T7–L5 vertebrae)', 'Pathology cases', '11 vertebrae · T7–L5', 'Individually segmented thoracolumbar vertebrae (T7–L5) from planning CT supporting separation-surgery, laminectomy, pedicle screw and costotransversectomy teaching.', ['Spine-Mets CT', 'T7–L5 levels']]
+  ];
+
+  var STATIC_APPROACHES = [
+    ['pterional', 'Pterional (frontotemporal) craniotomy', 'Cranial', 'approach', 'right', 'approaches_head.glb', 7, 5, 'The workhorse anterolateral approach: a frontotemporal flap centred on the pterion, drilling of the sphenoid ridge and opening of the sylvian fissure to reach the anterior Circle of Willis, optic apparatus and parasellar region.'],
+    ['orbitozygomatic', 'Orbitozygomatic approach', 'Cranial', 'approach', 'right', 'approaches_head.glb', 6, 4, 'A pterional exposure extended by removing the superolateral orbital rim, orbital roof and zygomatic arch for a lower basal, upward-looking trajectory with less brain retraction.'],
+    ['supraorbital', 'Supraorbital keyhole (eyebrow) approach', 'Cranial', 'approach', 'right', 'approaches_head.glb', 3, 4, 'A small frontobasal craniotomy through an eyebrow incision, flush with the orbital roof, giving a subfrontal corridor to the anterior fossa, optic apparatus and parasellar region.'],
+    ['bifrontal', 'Bifrontal subfrontal approach', 'Cranial', 'approach', 'midline', 'approaches_head.glb', 5, 4, 'A bicoronal incision and low bifrontal craniotomy give broad access to the anterior cranial fossa floor from both sides of the falx.'],
+    ['transcallosal', 'Anterior interhemispheric transcallosal approach', 'Cranial', 'approach', 'right', 'approaches_head.glb', 5, 5, 'A parasagittal frontal craniotomy, dissection down the interhemispheric fissure and a short callosotomy lead into the lateral ventricle and foramen of Monro.'],
+    ['subtemporal', 'Subtemporal approach', 'Cranial', 'approach', 'right', 'approaches_head.glb', 4, 4, 'A low temporal craniotomy flush with the middle fossa floor; gentle elevation of the temporal lobe exposes the tentorial edge, ambient cistern and upper basilar trunk.'],
+    ['retrosigmoid', 'Retrosigmoid (lateral suboccipital) approach', 'Cranial', 'approach', 'right', 'approaches_head.glb', 6, 5, 'A craniotomy behind the sigmoid sinus and below the transverse sinus opens the cerebellopontine angle from CN V down to the lower cranial nerves.'],
+    ['telovelar', 'Midline suboccipital, telovelar approach', 'Cranial', 'approach', 'midline', 'approaches_head.glb', 5, 3, 'A midline suboccipital craniotomy with opening of the tela choroidea and inferior medullary velum reaches the fourth ventricle without splitting the cerebellar vermis.'],
+    ['farlateral', 'Far-lateral (transcondylar) approach', 'Cranial', 'approach', 'right', 'approaches_head.glb', 5, 4, 'A lateral suboccipital craniotomy carried to the foramen magnum with C1 hemilaminectomy and partial condylar drilling opens an anterolateral view to the ventral craniocervical junction.'],
+    ['scit', 'Supracerebellar infratentorial approach', 'Cranial', 'approach', 'midline', 'approaches_head.glb', 4, 3, 'A midline suboccipital craniotomy below the torcula uses the natural corridor between the tentorium and upper cerebellum to reach the pineal region and dorsal midbrain.'],
+    ['eea_sella', 'Endoscopic endonasal transsphenoidal approach', 'Skull base & endoscopic', 'approach', 'midline', 'approaches_head.glb', 5, 4, 'An endoscope through the nostril, posterior septectomy and wide sphenoidotomy lead to the sellar floor to reach the pituitary gland and suprasellar cisterns.'],
+    ['eea_planum', 'Extended endonasal transplanum–transtuberculum approach', 'Skull base & endoscopic', 'approach', 'midline', 'approaches_head.glb', 5, 3, 'Extends the sellar opening upwards through the tuberculum sellae and planum sphenoidale between the optic canals for suprasellar and subchiasmatic lesions.'],
+    ['eea_clivus', 'Endoscopic endonasal transclival approach', 'Skull base & endoscopic', 'approach', 'midline', 'approaches_head.glb', 4, 4, 'Drilling the clivus behind the sphenoid sinus and nasopharynx opens a direct ventral corridor to the prepontine cistern, basilar trunk and ventral brainstem.'],
+    ['kawase', 'Anterior petrosal (Kawase) approach', 'Skull base & endoscopic', 'approach', 'right', 'approaches_head.glb', 4, 4, 'A subtemporal extradural route with drilling of the petrous apex (Kawase rhomboid) opens the upper petroclival region and posterior fossa from above.'],
+    ['presigmoid', 'Presigmoid (retrolabyrinthine) approach', 'Skull base & endoscopic', 'approach', 'right', 'approaches_head.glb', 4, 3, 'A hearing-preserving mastoidectomy skeletonising the sigmoid sinus and labyrinth opens presigmoid dura for combined petroclival exposure.'],
+    ['translab', 'Translabyrinthine approach', 'Skull base & endoscopic', 'approach', 'right', 'approaches_head.glb', 5, 5, 'Removes the mastoid and semicircular canals/vestibule to reach the internal acoustic meatus and cerebellopontine angle laterally with minimal brain retraction.'],
+    ['transcochlear', 'Transcochlear approach', 'Skull base & endoscopic', 'approach', 'right', 'approaches_head.glb', 5, 7, 'Extends the translabyrinthine route anteriorly with posterior facial nerve rerouting and cochlear/petrous-apex drilling for wide ventral brainstem access.'],
+    ['evd_kocher', 'External ventricular drain at Kocher point', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 4, 4, 'A pre-coronal frontal burr hole at Kocher point (~11 cm posterior to nasion, 3 cm lateral) with a catheter aimed at the ipsilateral foramen of Monro.'],
+    ['keen', 'Ventricular access at Keen point', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 2, 3, 'A posterior parietal entry ~2.5–3 cm superior and posterior to the pinna reaching the atrium (trigone) of the lateral ventricle.'],
+    ['frazier', 'Ventricular access at Frazier point', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 2, 2, 'A parieto-occipital entry ~6 cm superior to the inion and 3–4 cm lateral to midline for cannulating the lateral ventricular body and atrium.'],
+    ['dandy', 'Ventricular access at Dandy point', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 2, 2, 'An occipital entry ~3 cm superior to the inion and 2 cm lateral to midline reaching the occipital horn.'],
+    ['etv', 'Endoscopic third ventriculostomy (ETV)', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 4, 3, 'Passes an endoscope through the frontal horn and foramen of Monro to fenestrate the tuber cinereum between the mammillary bodies and infundibular recess.'],
+    ['dbs_stn', 'Deep brain stimulation: subthalamic nucleus', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 4, 3, 'Stereotactic trajectory from a frontal burr hole to the dorsolateral sensorimotor zone of the STN, avoiding sulcal vessels, ventricle and internal capsule.'],
+    ['dbs_gpi', 'Deep brain stimulation: globus pallidus internus', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 4, 3, 'Stereotactic trajectory targeting posteroventral sensorimotor GPi above the optic tract and lateral to the posterior limb of the internal capsule.'],
+    ['dbs_vim', 'Deep brain stimulation: ventral intermediate thalamus', 'Ventricular & functional', 'approach', 'right', 'approaches_head.glb', 4, 4, 'Stereotactic trajectory targeting the cerebellar-receiving Vim nucleus along the dentatorubrothalamic tract for essential and Parkinsonian tremor.'],
+    ['acdf', 'Anterior cervical discectomy and fusion, C5–C6', 'Spinal', 'approach', 'right', 'approaches_head.glb', 5, 4, 'Smith–Robinson plane medial to the carotid sheath and lateral to trachea/oesophagus for C5–C6 discectomy, osteophyte decompression and interbody fusion.'],
+    ['post_cervical', 'Posterior cervical laminectomy with lateral mass screws (C3–C6)', 'Spinal', 'approach', 'midline', 'approaches_head.glb', 5, 3, 'Midline subperiosteal exposure, C3–C6 en bloc laminectomy and bilateral lateral mass screw-rod fixation protecting vertebral arteries and nerve roots.'],
+    ['lumbar_laminectomy', 'Lumbar laminectomy (L4)', 'Spinal', 'approach', 'midline', 'case_spine_mets.glb', 4, 2, 'Removal of the L4 spinous process, lamina and ligamentum flavum with medial facet undercutting to decompress the central canal and lateral recesses.'],
+    ['pedicle_screws', 'Lumbar pedicle screw fixation (L4–L5)', 'Spinal', 'approach', 'bilateral', 'case_spine_mets.glb', 4, 2, 'Bilateral transpedicular screw fixation into the L4 and L5 vertebral bodies joined by longitudinal rods for three-column stability.'],
+    ['costotransversectomy', 'Costotransversectomy (T9, right)', 'Spinal', 'approach', 'right', 'case_spine_mets.glb', 4, 3, 'Posterolateral thoracic corridor resecting medial rib, transverse process and pedicle to access the ventral epidural canal without cord retraction.'],
+    ['c1c2', 'C1–C2 posterior fixation (Goel–Harms technique)', 'Spinal', 'approach', 'midline', 'approaches_head.glb', 4, 4, 'Independent C1 lateral-mass and C2 pedicle/pars polyaxial screw-rod fixation stabilising the atlantoaxial complex while safeguarding the V3 vertebral artery.'],
+    ['corpectomy', 'Anterior cervical corpectomy C5 with reconstruction', 'Spinal', 'approach', 'right', 'approaches_head.glb', 5, 9, ' Anterior C5 vertebral body resection between the uncovertebral joints with C4–C6 strut/cage reconstruction and anterior locking plate.'],
+    ['thoracic_screws', 'Thoracic pedicle screws T10–T11', 'Spinal', 'approach', 'midline', 'case_spine_mets.glb', 4, 4, 'Bilateral T10–T11 thoracic pedicle screw instrumentation respecting narrow cortical pedicle walls, medial spinal cord and anterior great vessels.'],
+    ['tlif', 'TLIF L4–L5 (left-sided)', 'Spinal', 'approach', 'left', 'case_spine_mets.glb', 4, 5, 'Transforaminal lumbar interbody fusion via unilateral L4–L5 facetectomy through Kambin triangle between exiting L4 and traversing L5 nerve roots.'],
+    ['bradipho19', 'Klingler fibre dissection, left hemisphere (BraDiPho spc-19)', 'Fibre dissection', 'dissection', 'left', 'bradipho_spc19.glb', 12, 16, 'Twelve photogrammetric 3D Klingler microdissection stages of a dominant left hemisphere paired with SLS bundle annotations and 16 language/association tractography streams.'],
+    ['bradipho12', 'Klingler fibre dissection, right hemisphere (BraDiPho spc-12)', 'Fibre dissection', 'dissection', 'right', 'bradipho_spc12.glb', 12, 5, 'Twelve photogrammetric 3D Klingler microdissection stages of a non-dominant right hemisphere highlighting SLF visuospatial attention networks and deeper capsules.'],
+    ['lx_wallenberg', 'Lateral medullary syndrome (Wallenberg)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 5, 7, 'Dorsolateral medullary infarction (vertebral artery or PICA): crossed facial/body pain-temperature loss, Horner syndrome, dysphagia/hoarseness (nucleus ambiguus) and ipsilateral ataxia.'],
+    ['lx_medialmed', 'Medial medullary syndrome (Dejerine)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 3, 'Paramedian medullary infarction (ASA/vertebral): contralateral hemiparesis, contralateral vibration/proprioception loss (medial lemniscus) and ipsilateral tongue deviation (CN XII).'],
+    ['lx_millard', 'Ventral caudal pons (Millard–Gubler syndrome)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 3, 'Ventral caudal pontine lesion affecting CN VI & CN VII fascicles and basis pontis: ipsilateral lateral-rectus & lower-motor-neurone facial palsy with contralateral hemiparesis.'],
+    ['lx_faccoll', 'Dorsal caudal pons: facial colliculus lesion (Foville)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 4, 'Fourth-ventricular floor lesion at the facial colliculus injuring the abducens nucleus (ipsilateral horizontal conjugate gaze palsy) and genu of CN VII.'],
+    ['lx_lockedin', 'Locked-in syndrome (bilateral ventral pons)', 'Lesion localisation', 'syndrome', 'midline', 'approaches_head.glb', 3, 4, 'Bilateral basis pontis infarction (basilar occlusion): quadriplegia and anarthria with preserved consciousness, blinking and vertical eye movements (spared dorsal tegmentum/midbrain).'],
+    ['lx_weber', 'Ventral midbrain (Weber syndrome)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 3, 3, 'Cerebral peduncle and exiting CN III fascicle lesion: ipsilateral oculomotor palsy (down-and-out eye, ptosis, mydriasis) with contralateral hemiparesis.'],
+    ['lx_benedikt', 'Paramedian midbrain tegmentum (Benedikt syndrome)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 3, 'Midbrain tegmental lesion involving CN III fascicles, red nucleus and dentatorubrothalamic fibres: ipsilateral CN III palsy with contralateral Holmes tremor and ataxia.'],
+    ['lx_claude', 'Dorsal midbrain tegmentum (Claude syndrome)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 2, 3, 'Dorsal midbrain tegmental lesion catching CN III fascicles and superior cerebellar peduncle outflow: ipsilateral oculomotor palsy with contralateral cerebellar hemiataxia.'],
+    ['lx_parinaud', 'Dorsal midbrain (Parinaud) syndrome', 'Lesion localisation', 'syndrome', 'midline', 'approaches_head.glb', 3, 4, 'Pineal/tectal compression of the pretectum and posterior commissure: supranuclear upgaze palsy, convergence-retraction nystagmus, Collier lid retraction & light-near dissociation.'],
+    ['lx_cpa', 'Cerebellopontine angle syndrome', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 5, 'Extra-axial CPA mass progression: sensorineural hearing loss & disequilibrium (CN VIII), facial neuropathy (CN VII), corneal hypoaesthesia (CN V) and cerebellar/brainstem signs.'],
+    ['lx_thalpain', 'Thalamic sensory syndrome (Dejerine–Roussy)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 3, 3, 'Posterolateral VPL/VPM thalamic lesion (thalamogeniculate PCA perforators): contralateral pansensory loss followed by delayed severe central neuropathic allodynia.'],
+    ['lx_percheron', 'Artery of Percheron infarction', 'Lesion localisation', 'syndrome', 'bilateral', 'approaches_head.glb', 2, 3, 'Single-trunk P1 variant occlusion causing bilateral paramedian thalamic (+/- rostral midbrain) infarction: fluctuating coma/somnolence, vertical gaze palsy and amnesia.'],
+    ['lx_fosterkennedy', 'Foster Kennedy syndrome', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 3, 'Anterior fossa mass (olfactory groove/sphenoid wing meningioma): ipsilateral compressive optic atrophy, anosmia and contralateral papilloedema from raised ICP.'],
+    ['lx_cavernous', 'Cavernous sinus syndrome', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 5, 'Lateral-wall and intracavernous pathology involving CN III, IV, V1/V2, VI (abducens earliest alongside cavernous ICA) and postganglionic oculosympathetic fibres.'],
+    ['lx_orbitalapex', 'Superior orbital fissure and orbital apex syndromes', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 2, 4, 'Distinguishes SOF lesions (CN III, IV, V1, VI ophthalmoplegia + forehead numbness) from true orbital apex extension adding CN II visual loss and afferent pupillary defect.'],
+    ['lx_gradenigo', 'Gradenigo syndrome (petrous apicitis)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 3, 3, 'Petrous apex lesion at Dorello canal and Meckel cave: classic triad of ipsilateral abducens palsy (CN VI), retro-orbital trigeminal pain (CN V) and otorrhoea.'],
+    ['lx_jugular', 'Jugular foramen syndromes (Vernet, Collet–Sicard)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 4, 5, 'Jugular foramen mass (glomus jugulare/schwannoma) affecting CN IX, X, XI (Vernet: dysphagia, vocal-cord palsy, trapezius/SCM weakness) plus hypoglossal CN XII (Collet–Sicard).'],
+    ['lx_gerstmann', 'Gerstmann syndrome (dominant inferior parietal lobule)', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 2, 2, 'Dominant left angular gyrus lesion producing the classic tetrad of agraphia, acalculia, finger agnosia and left–right disorientation.'],
+    ['lx_kernohan', 'Uncal herniation and the Kernohan notch phenomenon', 'Lesion localisation', 'syndrome', 'left', 'approaches_head.glb', 5, 4, 'Transtentorial medial temporal herniation compressing ipsilateral CN III, PCA and—when notched against the contralateral tentorial edge—causing false-localising ipsilateral hemiparesis.'],
+    ['sc_brown_sequard', 'Brown-Séquard syndrome (spinal cord hemisection)', 'Lesion localisation', 'syndrome', 'right', 'pam50_spinal_cord.glb', 5, 4, 'Cervical cord hemisection: ipsilateral corticospinal UMN weakness & dorsal-column proprioceptive/vibratory loss with contralateral spinothalamic pain/temperature loss.'],
+    ['sc_central_cord', 'Central cord & syringomyelia syndrome', 'Lesion localisation', 'syndrome', 'midline', 'pam50_spinal_cord.glb', 4, 4, 'Central cervical lesion crossing the anterior white commissure and medial motor lamination: cape-like dissociated pain/temperature loss and disproportionately greater arm/hand weakness.'],
+    ['sc_asa', 'Anterior spinal artery (anterior cord) syndrome', 'Lesion localisation', 'syndrome', 'midline', 'pam50_spinal_cord.glb', 4, 3, 'Anterior two-thirds cord ischaemia (corticospinal tracts, anterior horns & spinothalamic tracts) with characteristic dorsal-column sparing of vibration and joint position.'],
+    ['sc_posterior_col', 'Posterior cord / dorsal column syndrome', 'Lesion localisation', 'syndrome', 'midline', 'pam50_spinal_cord.glb', 4, 3, 'Selective fasciculus gracilis & cuneatus dysfunction causing sensory gait ataxia, positive Romberg sign and loss of vibration/proprioception with preserved motor/pain pathways.'],
+    ['pw_cst', 'Corticospinal (pyramidal) tract', 'Pathways', 'pathway', 'right hemisphere → left body', 'approaches_head.glb', 5, 3, 'Voluntary motor projection traced from precentral gyrus through corona radiata, posterior limb of internal capsule, cerebral peduncle and basis pontis to the pyramidal decussation.'],
+    ['pw_corticobulbar', 'Corticobulbar tract and the facial nucleus', 'Pathways', 'pathway', 'right hemisphere', 'approaches_head.glb', 4, 3, 'Explains upper- vs lower-motor-neurone facial weakness: bilateral cortical input to upper-face motor neurones vs strictly contralateral input to lower-face neurones.'],
+    ['pw_dcml', 'Dorsal column–medial lemniscus', 'Pathways', 'pathway', 'left body → right hemisphere', 'approaches_head.glb', 5, 3, 'Discriminative touch, vibration & proprioception ascending ipsilaterally in gracile/cuneate fasciculi, crossing as internal arcuate fibres to medial lemniscus, VPL thalamus & S1.'],
+    ['pw_trigeminal', 'Trigeminal sensory pathway (face)', 'Pathways', 'pathway', 'left face → right hemisphere', 'approaches_head.glb', 4, 3, 'Facial touch (principal pontine nucleus) vs pain/temperature descending in the spinal trigeminal tract to relay into the crossed ventral trigeminothalamic tract and VPM.'],
+    ['pw_visual', 'Visual pathway', 'Pathways', 'pathway', 'both eyes → left hemisphere', 'approaches_head.glb', 6, 5, 'Retina, optic nerve, chiasmal nasal decussation, optic tract, lateral geniculate body, Meyer loop (inferior) & dorsal parietal optic radiations to calcarine visual cortex.'],
+    ['pw_pupil', 'Pupillary light reflex', 'Pathways', 'pathway', 'bilateral', 'approaches_head.glb', 5, 3, 'Four-neurone reflex arc via CN II, pretectal olivary nucleus, bilateral Edinger–Westphal nuclei, superficial CN III parasympathetic fibres and ciliary ganglion.'],
+    ['pw_auditory', 'Auditory pathway', 'Pathways', 'pathway', 'left ear → both hemispheres', 'approaches_head.glb', 6, 3, 'Cochlea and CN VIII to cochlear nuclei, bilateral superior olivary complex, lateral lemniscus, inferior colliculus, medial geniculate body and Heschl transverse temporal gyrus.'],
+    ['pw_drtt', 'Cerebellar output: dentato-rubro-thalamo-cortical pathway', 'Pathways', 'pathway', 'left cerebellum → right hemisphere', 'approaches_head.glb', 4, 3, 'Double-crossed coordination loop: dentate nucleus exits via superior cerebellar peduncle, decussates in midbrain to contralateral red nucleus/Vim thalamus & motor cortex.'],
+    ['pw_cpc', 'Cortico-ponto-cerebellar pathway', 'Pathways', 'pathway', 'right hemisphere → left cerebellum', 'approaches_head.glb', 3, 2, 'Feedforward motor-planning projection from cerebral cortex via internal capsule and cerebral peduncle to ipsilateral pontine nuclei, crossing via middle cerebellar peduncle.'],
+    ['pw_bg', 'Basal ganglia motor loop: direct, indirect and hyperdirect pathways', 'Pathways', 'pathway', 'left hemisphere', 'approaches_head.glb', 6, 4, 'Cortico-striato-pallido-thalamo-cortical gating circuits (direct movement-releasing, indirect & STN hyperdirect movement-suppressing, plus nigrostriatal modulation).'],
+    ['pw_papez', 'Papez circuit (limbic memory loop)', 'Pathways', 'pathway', 'left hemisphere', 'approaches_head.glb', 6, 4, 'Episodic memory loop linking hippocampus, fimbria-fornix, mammillary body, mammillothalamic tract, anterior thalamic nucleus (ANT), cingulum and parahippocampal gyrus.'],
+    ['pw_language', 'Language network (dual stream)', 'Pathways', 'pathway', 'left (dominant) hemisphere', 'approaches_head.glb', 5, 4, 'Dominant-hemisphere dorsal phonological stream (arcuate fasciculus / lateral SLF) contrasted with ventral semantic stream (IFOF, ILF & uncinate fasciculus).'],
+    ['pw_sympathetic', 'Oculosympathetic pathway (Horner syndrome)', 'Pathways', 'pathway', 'left', 'approaches_head.glb', 5, 3, 'Three-neurone chain from posterolateral hypothalamus to C8–T2 ciliospinal centre, pulmonary apex/superior cervical ganglion and carotid plexus to pupil dilator & Müller muscle.'],
+    ['sc_myelotomy', 'Intramedullary spinal cord safe entry zones (myelotomy corridors)', 'Pathways', 'pathway', 'midline', 'pam50_spinal_cord.glb', 5, 4, 'Microsurgical safe-entry corridors for intramedullary tumours & cavernomas: posterior median sulcus, posterolateral sulcus / DREZ and lateral transpial corridor.'],
+    ['oe_facial_recess', 'Facial recess (posterior tympanotomy) & cochlear round-window corridor', 'Pathways', 'pathway', 'right', 'openear_temporal.glb', 5, 4, 'Sub-millimetre 2–3 mm triangular keyhole bounded by mastoid CN VII, chorda tympani and fossa incudis leading to the round-window niche and scala tympani.'],
+    ['oe_translab_anatomy', 'Translabyrinthine otic-capsule corridor to the internal auditory canal', 'Pathways', 'pathway', 'right', 'openear_temporal.glb', 5, 4, 'True 3D OpenEar microanatomy of semicircular-canal and vestibule labyrinthectomy exposing CN VII and CN VIII inside the internal auditory canal.'],
+    ['oe_petrous_carotid', 'Petrous internal carotid artery, cochlea & facial nerve 3D triad', 'Pathways', 'pathway', 'right', 'openear_temporal.glb', 4, 4, 'Sub-millimetre 3D triad relating the vertical/horizontal petrous ICA, basal cochlear turn and labyrinthine/geniculate CN VII for lateral skull-base drilling.']
+  ];
+
+  var FEATURED_IDS = {
+    'ap:pterional': 1,
+    'ap:orbitozygomatic': 1,
+    'ap:eea_sella': 1,
+    'ap:kawase': 1,
+    'ap:retrosigmoid': 1,
+    'ap:dbs_stn': 1,
+    'ap:bradipho19': 1,
+    'ap:lx_wallenberg': 1,
+    'ap:pw_cst': 1,
+    'ap:pw_visual': 1,
+    'sp:overlay': 1,
+    'sp:case_library_gbm.glb': 1
+  };
+
+  function bucketForApproach(cat, mode){
+    if (mode === 'syndrome' || cat === 'Lesion localisation') return 'syndromes';
+    if (mode === 'pathway' || cat === 'Pathways') return 'pathways';
+    if (mode === 'dissection' || cat === 'Fibre dissection') return 'pathology';
+    return 'approaches';
+  }
+  function bucketForSpecimen(group){
+    return group === 'Pathology cases' ? 'pathology' : 'anatomy';
+  }
+
+  var catalog = [];
+
+  function buildCatalogFromStatic(){
+    var items = [];
+    for (var i = 0; i < STATIC_APPROACHES.length; i++) {
+      var a = STATIC_APPROACHES[i];
+      var id = safeId(a[0]);
+      if (!id) continue;
+      var cat = a[2], mode = a[3], side = a[4], spec = a[5], st = a[6], rk = a[7], sum = a[8];
+      var bucket = bucketForApproach(cat, mode);
+      var statParts = [];
+      if (st) statParts.push(st + (mode === 'dissection' ? ' stages' : ' steps'));
+      if (rk) statParts.push(rk + (mode === 'dissection' ? ' bundles' : (mode === 'approach' ? ' risks' : ' structures')));
+      var tag = mode === 'syndrome' ? 'Lesion syndrome' : (mode === 'pathway' ? 'Pathway' : (mode === 'dissection' ? 'Klingler dissection' : cat));
+      var chips = [];
+      if (side && side !== 'midline') chips.push(side);
+      else if (side === 'midline') chips.push('midline');
+      if (spec) chips.push(spec.replace(/\.glb$/i, ''));
+      items.push({
+        uid: 'ap:' + id,
+        kind: 'walkthrough',
+        id: id,
+        title: a[1],
+        cat: cat,
+        mode: mode,
+        bucket: bucket,
+        tag: tag,
+        stat: statParts.join(' · '),
+        summary: sum.trim(),
+        chips: chips,
+        searchBlob: (a[1] + ' ' + cat + ' ' + mode + ' ' + side + ' ' + sum + ' ' + id).toLowerCase()
+      });
+    }
+    for (var j = 0; j < STATIC_SPECS.length; j++) {
+      var s = STATIC_SPECS[j];
+      var sk = safeSpecKey(s[0]);
+      if (!sk) continue;
+      var sGrp = s[2];
+      var sBucket = bucketForSpecimen(sGrp);
+      var sTag = sk === 'overlay' ? 'MNI152 Overlay' : (sGrp === 'Pathology cases' ? '3D Pathology' : '3D Specimen');
+      items.push({
+        uid: 'sp:' + sk,
+        kind: 'specimen',
+        specKey: sk,
+        title: s[1],
+        cat: sGrp,
+        mode: 'specimen',
+        bucket: sBucket,
+        tag: sTag,
+        stat: s[3],
+        summary: s[4],
+        chips: s[5] || [],
+        searchBlob: (s[1] + ' ' + sGrp + ' ' + s[3] + ' ' + s[4] + ' ' + (s[5] || []).join(' ') + ' ' + sk).toLowerCase()
+      });
+    }
+    catalog = items;
+  }
+
+  function urlsForItem(it){
+    var deskBase = 'atlas.html';
+    var mobBase = 'mobile.html';
+    var deskHref = deskBase, mobHref = mobBase;
+    if (it.kind === 'walkthrough') {
+      var id = safeId(it.id);
+      deskHref = deskBase + '#approach=' + encodeURIComponent(id);
+      mobHref = mobBase + '#approach=' + encodeURIComponent(id);
+    } else {
+      var sk = safeSpecKey(it.specKey);
+      if (sk === 'core') {
+        deskHref = deskBase;
+        mobHref = mobBase + '#specimen=brain_cervical_spine.glb';
+      } else if (sk) {
+        deskHref = deskBase + '#specimen=' + encodeURIComponent(sk);
+        mobHref = mobBase + '#specimen=' + encodeURIComponent(sk);
+      }
+    }
+    if (state.target === 'mobile') {
+      return { primary: mobHref, primaryLbl: 'Open in Mobile 3D', alt: deskHref, altLbl: 'Desktop' };
+    }
+    return { primary: deskHref, primaryLbl: 'Open in 3D', alt: mobHref, altLbl: 'Mobile' };
+  }
+
+  function updateCounts(){
+    var counts = { all: catalog.length, approaches: 0, syndromes: 0, pathways: 0, pathology: 0, anatomy: 0 };
+    for (var i = 0; i < catalog.length; i++) {
+      var b = catalog[i].bucket;
+      if (counts[b] != null) counts[b]++;
+    }
+    Object.keys(counts).forEach(function(k){
+      var el = document.getElementById('cnt-' + k);
+      if (el) el.textContent = String(counts[k]);
+    });
+  }
+
+  function renderExplorer(){
+    var grid = document.getElementById('expGrid');
+    var status = document.getElementById('expStatus');
+    var subBar = document.getElementById('apprSubtabs');
+    var toggleBtn = document.getElementById('toggleAllBtn');
+    var moreWrap = document.getElementById('expMoreWrap');
+    var moreBtn = document.getElementById('expMoreBtn');
+    if (!grid || !status) return;
+
+    if (subBar) subBar.classList.toggle('show', state.cat === 'approaches');
+
+    var words = state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    var filtered = catalog.filter(function(it){
+      if (state.cat !== 'all' && it.bucket !== state.cat) return false;
+      if (state.cat === 'approaches' && state.sub !== 'all' && it.cat !== state.sub) return false;
+      if (words.length) {
+        for (var w = 0; w < words.length; w++) {
+          if (it.searchBlob.indexOf(words[w]) < 0) return false;
+        }
+      }
+      return true;
+    });
+
+    var useCompactFeatured = (state.cat === 'all' && !words.length && !state.expandAll);
+    var shown = useCompactFeatured
+      ? filtered.filter(function(it){ return !!FEATURED_IDS[it.uid]; })
+      : filtered;
+    if (useCompactFeatured && shown.length < 8) shown = filtered.slice(0, 12);
+
+    if (words.length) {
+      status.innerHTML = 'Showing <strong>' + esc(shown.length) + '</strong> matching <strong>“' + esc(state.q.trim()) + '”</strong>';
+    } else if (useCompactFeatured) {
+      status.innerHTML = 'Showing <strong>' + esc(shown.length) + ' featured</strong> of <strong>' + esc(filtered.length) + '</strong> modules (76 walkthroughs · 18 3D specimens)';
+    } else {
+      status.innerHTML = 'Showing <strong>' + esc(shown.length) + '</strong> of <strong>' + esc(catalog.length) + '</strong> modules';
+    }
+
+    var canToggleAll = (state.cat === 'all' && !words.length && filtered.length > 12);
+    if (toggleBtn) {
+      toggleBtn.style.display = canToggleAll ? '' : 'none';
+      toggleBtn.innerHTML = state.expandAll
+        ? 'Show 12 featured &#8593;'
+        : ('Show all ' + esc(filtered.length) + ' modules &#8595;');
+    }
+    if (moreWrap && moreBtn) {
+      moreWrap.style.display = (canToggleAll && !state.expandAll) ? '' : 'none';
+      moreBtn.innerHTML = 'Show all ' + esc(filtered.length) + ' modules &#8595;';
+    }
+
+    if (!shown.length) {
+      grid.innerHTML = '<div class="exp-empty" style="grid-column:1/-1">No matching surgical approaches, syndromes, pathways or specimens found. Try a broader anatomical term (e.g. <strong>cavernous</strong>, <strong>CN VII</strong>, <strong>thalamus</strong>, <strong>glioma</strong>, <strong>cervical</strong>).</div>';
+      return;
+    }
+
+    var html = [];
+    for (var i = 0; i < shown.length; i++) {
+      var it = shown[i];
+      var u = urlsForItem(it);
+      var chipsHtml = '';
+      if (it.chips && it.chips.length) {
+        var cArr = [];
+        for (var c = 0; c < Math.min(it.chips.length, 3); c++) {
+          if (it.chips[c]) cArr.push('<span class="ec-chip">' + esc(it.chips[c]) + '</span>');
+        }
+        if (cArr.length) chipsHtml = '<div class="ec-chips">' + cArr.join('') + '</div>';
+      }
+      html.push(
+        '<article class="exp-card" data-bucket="' + esc(it.bucket) + '">' +
+          '<div>' +
+            '<div class="ec-head">' +
+              '<span class="ec-tag"><span class="ec-dot" aria-hidden="true"></span>' + esc(it.tag) + '</span>' +
+              (it.stat ? '<span class="ec-stat">' + esc(it.stat) + '</span>' : '') +
+            '</div>' +
+            '<h3 class="ec-title">' + esc(it.title) + '</h3>' +
+            '<p class="ec-sum">' + esc(it.summary) + '</p>' +
+            chipsHtml +
+          '</div>' +
+          '<div class="ec-foot">' +
+            '<a class="ec-open" href="' + esc(u.primary) + '">' + esc(u.primaryLbl) + ' &#8594;</a>' +
+            '<a class="ec-alt" href="' + esc(u.alt) + '" title="Open in ' + esc(u.altLbl) + ' viewer">' + esc(u.altLbl) + ' &#8599;</a>' +
+          '</div>' +
+        '</article>'
+      );
+    }
+    grid.innerHTML = html.join('');
+  }
+
+  /* 3. Dynamic Hydration from manifest.json & approaches.json (with silent fallback) */
+  function hydrateLiveJson(){
+    if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
+    var syncEl = document.getElementById('syncBadge');
+    Promise.all([
+      fetch('manifest.json', { cache: 'no-store' }).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
+      fetch('approaches.json', { cache: 'no-store' }).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+    ]).then(function(res){
+      var mf = res[0], ap = res[1];
+      if (!mf && !ap) return;
+
+      var byUid = {};
+      for (var i = 0; i < catalog.length; i++) byUid[catalog[i].uid] = catalog[i];
+
+      if (ap && Array.isArray(ap.approaches)) {
+        ap.approaches.forEach(function(a){
+          var id = safeId(a && a.id);
+          if (!id) return;
+          var uid = 'ap:' + id;
+          var stepsLen = Array.isArray(a.steps) ? a.steps.length : 0;
+          var risksLen = Array.isArray(a.risks) ? a.risks.length : 0;
+          var mode = String(a.mode || 'approach');
+          var cat = String(a.cat || 'Cranial');
+          var extraSearch = [
+            a.title || '', cat, a.side || '', a.summary || '',
+            (a.indications || []).join(' '),
+            (a.pearls || []).join(' '),
+            (a.pitfalls || []).join(' '),
+            (a.risks || []).map(function(r){ return (r && r.label) || ''; }).join(' '),
+            (a.steps || []).map(function(s){ return (s && s.h) || ''; }).join(' ')
+          ].join(' ').toLowerCase();
+
+          var riskChips = [];
+          if (a.side) riskChips.push(String(a.side));
+          (a.risks || []).slice(0, 2).forEach(function(r){
+            if (r && r.label) riskChips.push(String(r.label));
+          });
+
+          if (byUid[uid]) {
+            if (a.title) byUid[uid].title = String(a.title);
+            if (a.summary) byUid[uid].summary = String(a.summary);
+            if (riskChips.length) byUid[uid].chips = riskChips;
+            byUid[uid].searchBlob += ' ' + extraSearch;
+          } else {
+            var bucket = bucketForApproach(cat, mode);
+            var nIt = {
+              uid: uid,
+              kind: 'walkthrough',
+              id: id,
+              title: String(a.title || id),
+              cat: cat,
+              mode: mode,
+              bucket: bucket,
+              tag: mode === 'syndrome' ? 'Lesion syndrome' : (mode === 'pathway' ? 'Pathway' : (mode === 'dissection' ? 'Klingler dissection' : cat)),
+              stat: (stepsLen ? stepsLen + ' steps' : '') + (risksLen ? (stepsLen ? ' · ' : '') + risksLen + ' risks' : ''),
+              summary: String(a.summary || ''),
+              chips: riskChips,
+              searchBlob: extraSearch
+            };
+            catalog.push(nIt);
+            byUid[uid] = nIt;
+          }
+        });
+      }
+
+      if (mf && Array.isArray(mf.models)) {
+        mf.models.forEach(function(m){
+          var fk = safeSpecKey(m && m.file);
+          if (!fk || fk === 'bradipho_spc19.glb' || fk === 'bradipho_spc12.glb') return;
+          var uid = 'sp:' + fk;
+          if (byUid[uid]) {
+            byUid[uid].searchBlob += ' ' + String((m.title || '') + ' ' + (m.sub || '') + ' ' + (m.label || '')).toLowerCase();
+          } else {
+            var grp = String(m.group || 'Anatomy');
+            var spIt = {
+              uid: uid,
+              kind: 'specimen',
+              specKey: fk,
+              title: String(m.title || m.label || fk),
+              cat: grp,
+              mode: 'specimen',
+              bucket: bucketForSpecimen(grp),
+              tag: grp === 'Pathology cases' ? '3D Pathology' : '3D Specimen',
+              stat: String(m.group || '3D GLB'),
+              summary: String(m.sub || m.label || ''),
+              chips: [fk.replace(/\.glb$/i, '')],
+              searchBlob: String((m.title || '') + ' ' + (m.sub || '') + ' ' + grp + ' ' + fk).toLowerCase()
+            };
+            catalog.push(spIt);
+            byUid[uid] = spIt;
+          }
+        });
+      }
+
+      updateCounts();
+      renderExplorer();
+      if (syncEl) {
+        var ver = mf && typeof mf.version === 'string' ? (' · v' + mf.version) : '';
+        syncEl.textContent = 'Live JSON synced' + ver + ' · ' + catalog.length + ' modules';
+      }
+    });
+  }
+
+  /* 4. Interactive Controls & Keyboard Accessibility */
+  function syncTargetButtons(){
+    var dBtn = document.getElementById('tgtDesktop');
+    var mBtn = document.getElementById('tgtMobile');
+    if (!dBtn || !mBtn) return;
+    var isMob = state.target === 'mobile';
+    dBtn.classList.toggle('on', !isMob);
+    dBtn.setAttribute('aria-pressed', isMob ? 'false' : 'true');
+    mBtn.classList.toggle('on', isMob);
+    mBtn.setAttribute('aria-pressed', isMob ? 'true' : 'false');
+  }
+
+  var dBtn = document.getElementById('tgtDesktop');
+  var mBtn = document.getElementById('tgtMobile');
+  if (dBtn && mBtn) {
+    dBtn.addEventListener('click', function(){ state.target = 'desktop'; syncTargetButtons(); renderExplorer(); });
+    mBtn.addEventListener('click', function(){ state.target = 'mobile'; syncTargetButtons(); renderExplorer(); });
+    syncTargetButtons();
+  }
+
+  var tabWrap = document.getElementById('catTabs');
+  if (tabWrap) {
+    var tabs = Array.prototype.slice.call(tabWrap.querySelectorAll('[role="tab"]'));
+    function activateTab(btn, focusIt){
+      state.cat = btn.getAttribute('data-cat') || 'all';
+      if (state.cat !== 'approaches') state.sub = 'all';
+      tabs.forEach(function(t){
+        var sel = (t === btn);
+        t.setAttribute('aria-selected', sel ? 'true' : 'false');
+        t.tabIndex = sel ? 0 : -1;
+      });
+      var subBtns = document.querySelectorAll('#apprSubtabs .subtab');
+      Array.prototype.forEach.call(subBtns, function(sb){
+        sb.classList.toggle('on', (sb.getAttribute('data-sub') || 'all') === state.sub);
+      });
+      if (focusIt) btn.focus();
+      renderExplorer();
+    }
+    tabs.forEach(function(btn, idx){
+      btn.addEventListener('click', function(){ activateTab(btn, false); });
+      btn.addEventListener('keydown', function(e){
+        var nextIdx = -1;
+        if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') nextIdx = 0;
+        else if (e.key === 'End') nextIdx = tabs.length - 1;
+        if (nextIdx >= 0) {
+          e.preventDefault();
+          activateTab(tabs[nextIdx], true);
+        }
+      });
+    });
+  }
+
+  var subWrap = document.getElementById('apprSubtabs');
+  if (subWrap) {
+    var subBtns = Array.prototype.slice.call(subWrap.querySelectorAll('.subtab'));
+    subBtns.forEach(function(sb){
+      sb.addEventListener('click', function(){
+        state.sub = sb.getAttribute('data-sub') || 'all';
+        subBtns.forEach(function(x){ x.classList.toggle('on', x === sb); });
+        renderExplorer();
+      });
+    });
+  }
+
+  var searchInput = document.getElementById('curSearch');
+  var searchRow = document.getElementById('searchRow');
+  var searchClr = document.getElementById('searchClr');
+  if (searchInput && searchRow) {
+    var onSearch = function(){
+      state.q = searchInput.value || '';
+      searchRow.classList.toggle('has-q', !!state.q.trim());
+      renderExplorer();
+    };
+    searchInput.addEventListener('input', onSearch);
+    searchInput.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') {
+        if (searchInput.value) {
+          searchInput.value = '';
+          onSearch();
+        } else {
+          searchInput.blur();
+        }
+      }
+    });
+    if (searchClr) {
+      searchClr.addEventListener('click', function(){
+        searchInput.value = '';
+        onSearch();
+        searchInput.focus();
+      });
+    }
+    document.addEventListener('keydown', function(e){
+      if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+      var tg = e.target && e.target.tagName;
+      if (tg === 'INPUT' || tg === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+    });
+  }
+
+  function toggleExpandAll(){
+    state.expandAll = !state.expandAll;
+    renderExplorer();
+  }
+  var toggleAllBtn = document.getElementById('toggleAllBtn');
+  var expMoreBtn = document.getElementById('expMoreBtn');
+  if (toggleAllBtn) toggleAllBtn.addEventListener('click', toggleExpandAll);
+  if (expMoreBtn) expMoreBtn.addEventListener('click', toggleExpandAll);
+
+  buildCatalogFromStatic();
+  updateCounts();
+  renderExplorer();
+  hydrateLiveJson();
+})();
 </script>
 </body>
 </html>
