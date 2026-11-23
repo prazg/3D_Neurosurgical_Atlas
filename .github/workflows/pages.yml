@@ -31,7 +31,7 @@ jobs:
       - name: Set up Node.js (for JS syntax check)
         uses: actions/setup-node@v7
         with:
-          node-version: "22""
+          node-version: "22"
 
       - name: Validate HTML, JS, GLB meshes, lookups & cross-references
         run: python validate_atlas.py
